@@ -1,0 +1,1205 @@
+{
+  "von": {
+    "backend": "von",
+    "description": "von-1.0 ModernBERT, local",
+    "tasks": {
+      "support_department": {
+        "type": "choice",
+        "n": 15,
+        "errors": 0,
+        "correct": 14,
+        "accuracy": 0.9333333333333333,
+        "latency_ms_mean": 80.28134459163994,
+        "latency_ms_p95": 166.78516694810241,
+        "extra": {}
+      },
+      "email_intent": {
+        "type": "choice",
+        "n": 10,
+        "errors": 0,
+        "correct": 10,
+        "accuracy": 1.0,
+        "latency_ms_mean": 65.4907749965787,
+        "latency_ms_p95": 71.65066699963063,
+        "extra": {}
+      },
+      "refund_eligible": {
+        "type": "noul",
+        "n": 10,
+        "errors": 0,
+        "correct": 5,
+        "accuracy": 0.5,
+        "latency_ms_mean": 50.02608741633594,
+        "latency_ms_p95": 76.54841605108231,
+        "extra": {
+          "auc": 0.56,
+          "mean_prob_abs_error": 0.50239
+        }
+      },
+      "urgency": {
+        "type": "noul",
+        "n": 8,
+        "errors": 0,
+        "correct": 5,
+        "accuracy": 0.625,
+        "latency_ms_mean": 59.62701547832694,
+        "latency_ms_p95": 171.47516598924994,
+        "extra": {
+          "auc": 0.4375,
+          "mean_prob_abs_error": 0.5017
+        }
+      },
+      "secret_leak": {
+        "type": "noul",
+        "n": 8,
+        "errors": 0,
+        "correct": 4,
+        "accuracy": 0.5,
+        "latency_ms_mean": 47.69777100591455,
+        "latency_ms_p95": 56.936832959763706,
+        "extra": {
+          "auc": 0.75,
+          "mean_prob_abs_error": 0.4561375
+        }
+      },
+      "frustration_level": {
+        "type": "score",
+        "n": 9,
+        "errors": 0,
+        "correct": 2,
+        "accuracy": 0.2222222222222222,
+        "latency_ms_mean": 50.67243524050961,
+        "latency_ms_p95": 54.72616699989885,
+        "extra": {
+          "mae_levels": 1.1111111111111112,
+          "within_1": 0.6666666666666666
+        }
+      },
+      "incident_severity": {
+        "type": "score",
+        "n": 9,
+        "errors": 0,
+        "correct": 5,
+        "accuracy": 0.5555555555555556,
+        "latency_ms_mean": 81.43549068416986,
+        "latency_ms_p95": 165.15066695865244,
+        "extra": {
+          "mae_levels": 0.7777777777777778,
+          "within_1": 0.6666666666666666
+        }
+      },
+      "review_sentiment": {
+        "type": "score",
+        "n": 9,
+        "errors": 0,
+        "correct": 6,
+        "accuracy": 0.6666666666666666,
+        "latency_ms_mean": 67.51630532865723,
+        "latency_ms_p95": 69.60749998688698,
+        "extra": {
+          "mae_levels": 1.0,
+          "within_1": 0.7777777777777778
+        }
+      }
+    },
+    "cases": {
+      "support_department": [
+        {
+          "expected": "billing",
+          "predicted": "billing",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "billing": 0.3923,
+            "tech": 0.1117,
+            "sales": 0.1492,
+            "account": 0.1227,
+            "other": 0.2241
+          },
+          "confidence": 0.168,
+          "latency_ms": 166.78516694810241,
+          "error": null
+        },
+        {
+          "expected": "tech",
+          "predicted": "tech",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "billing": 0.1863,
+            "tech": 0.323,
+            "sales": 0.1599,
+            "account": 0.1428,
+            "other": 0.1881
+          },
+          "confidence": 0.135,
+          "latency_ms": 128.60187503974885,
+          "error": null
+        },
+        {
+          "expected": "sales",
+          "predicted": "sales",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "billing": 0.1907,
+            "tech": 0.1489,
+            "sales": 0.2296,
+            "account": 0.2189,
+            "other": 0.2119
+          },
+          "confidence": 0.011,
+          "latency_ms": 64.50554204639047,
+          "error": null
+        },
+        {
+          "expected": "account",
+          "predicted": "account",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "billing": 0.0908,
+            "tech": 0.0683,
+            "sales": 0.0957,
+            "account": 0.5073,
+            "other": 0.238
+          },
+          "confidence": 0.269,
+          "latency_ms": 66.70416705310345,
+          "error": null
+        },
+        {
+          "expected": "billing",
+          "predicted": "billing",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "billing": 0.3811,
+            "tech": 0.1035,
+            "sales": 0.1396,
+            "account": 0.1401,
+            "other": 0.2357
+          },
+          "confidence": 0.145,
+          "latency_ms": 124.52983402181417,
+          "error": null
+        },
+        {
+          "expected": "tech",
+          "predicted": "other",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "billing": 0.1377,
+            "tech": 0.2322,
+            "sales": 0.1949,
+            "account": 0.116,
+            "other": 0.3193
+          },
+          "confidence": 0.087,
+          "latency_ms": 69.35179198626429,
+          "error": null
+        },
+        {
+          "expected": "sales",
+          "predicted": "sales",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "billing": 0.1829,
+            "tech": 0.1255,
+            "sales": 0.3037,
+            "account": 0.1654,
+            "other": 0.2224
+          },
+          "confidence": 0.081,
+          "latency_ms": 69.4662919268012,
+          "error": null
+        },
+        {
+          "expected": "billing",
+          "predicted": "billing",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "billing": 0.3542,
+            "tech": 0.1005,
+            "sales": 0.1766,
+            "account": 0.1624,
+            "other": 0.2064
+          },
+          "confidence": 0.148,
+          "latency_ms": 64.92245907429606,
+          "error": null
+        },
+        {
+          "expected": "account",
+          "predicted": "account",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "billing": 0.127,
+            "tech": 0.1129,
+            "sales": 0.1577,
+            "account": 0.3843,
+            "other": 0.2181
+          },
+          "confidence": 0.166,
+          "latency_ms": 61.11362494993955,
+          "error": null
+        },
+        {
+          "expected": "other",
+          "predicted": "other",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "billing": 0.2605,
+            "tech": 0.0878,
+            "sales": 0.1852,
+            "account": 0.1433,
+            "other": 0.323
+          },
+          "confidence": 0.062,
+          "latency_ms": 62.526874942705035,
+          "error": null
+        },
+        {
+          "expected": "sales",
+          "predicted": "sales",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "billing": 0.1627,
+            "tech": 0.1181,
+            "sales": 0.4585,
+            "account": 0.1364,
+            "other": 0.1241
+          },
+          "confidence": 0.296,
+          "latency_ms": 61.070207972079515,
+          "error": null
+        },
+        {
+          "expected": "tech",
+          "predicted": "tech",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "billing": 0.1521,
+            "tech": 0.2659,
+            "sales": 0.1548,
+            "account": 0.2566,
+            "other": 0.1707
+          },
+          "confidence": 0.009,
+          "latency_ms": 71.41479197889566,
+          "error": null
+        },
+        {
+          "expected": "sales",
+          "predicted": "sales",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "billing": 0.1611,
+            "tech": 0.1113,
+            "sales": 0.4175,
+            "account": 0.144,
+            "other": 0.1663
+          },
+          "confidence": 0.251,
+          "latency_ms": 67.27324996609241,
+          "error": null
+        },
+        {
+          "expected": "account",
+          "predicted": "account",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "billing": 0.097,
+            "tech": 0.074,
+            "sales": 0.1049,
+            "account": 0.5991,
+            "other": 0.1249
+          },
+          "confidence": 0.474,
+          "latency_ms": 60.710040968842804,
+          "error": null
+        },
+        {
+          "expected": "other",
+          "predicted": "other",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "billing": 0.11,
+            "tech": 0.1036,
+            "sales": 0.0874,
+            "account": 0.0802,
+            "other": 0.6187
+          },
+          "confidence": 0.509,
+          "latency_ms": 65.24424999952316,
+          "error": null
+        }
+      ],
+      "email_intent": [
+        {
+          "expected": "meeting_request",
+          "predicted": "meeting_request",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "meeting_request": 0.7065,
+            "question": 0.2646,
+            "complaint": 0.0094,
+            "thanks": 0.0105,
+            "fyi": 0.0087
+          },
+          "confidence": 0.442,
+          "latency_ms": 70.44658297672868,
+          "error": null
+        },
+        {
+          "expected": "question",
+          "predicted": "question",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "meeting_request": 0.0227,
+            "question": 0.877,
+            "complaint": 0.0304,
+            "thanks": 0.0523,
+            "fyi": 0.0175
+          },
+          "confidence": 0.825,
+          "latency_ms": 61.179916956461966,
+          "error": null
+        },
+        {
+          "expected": "complaint",
+          "predicted": "complaint",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "meeting_request": 0.0096,
+            "question": 0.011,
+            "complaint": 0.9741,
+            "thanks": 0.0028,
+            "fyi": 0.0022
+          },
+          "confidence": 0.963,
+          "latency_ms": 64.63654106482863,
+          "error": null
+        },
+        {
+          "expected": "thanks",
+          "predicted": "thanks",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "meeting_request": 0.0026,
+            "question": 0.0175,
+            "complaint": 0.0096,
+            "thanks": 0.9561,
+            "fyi": 0.0141
+          },
+          "confidence": 0.939,
+          "latency_ms": 64.37395897228271,
+          "error": null
+        },
+        {
+          "expected": "fyi",
+          "predicted": "fyi",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "meeting_request": 0.0162,
+            "question": 0.1172,
+            "complaint": 0.0545,
+            "thanks": 0.0559,
+            "fyi": 0.7559
+          },
+          "confidence": 0.639,
+          "latency_ms": 61.88125000335276,
+          "error": null
+        },
+        {
+          "expected": "meeting_request",
+          "predicted": "meeting_request",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "meeting_request": 0.8774,
+            "question": 0.0689,
+            "complaint": 0.0054,
+            "thanks": 0.0201,
+            "fyi": 0.0282
+          },
+          "confidence": 0.808,
+          "latency_ms": 66.28916598856449,
+          "error": null
+        },
+        {
+          "expected": "question",
+          "predicted": "question",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "meeting_request": 0.023,
+            "question": 0.8574,
+            "complaint": 0.0412,
+            "thanks": 0.0499,
+            "fyi": 0.0286
+          },
+          "confidence": 0.808,
+          "latency_ms": 64.21116704586893,
+          "error": null
+        },
+        {
+          "expected": "complaint",
+          "predicted": "complaint",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "meeting_request": 0.0011,
+            "question": 0.0446,
+            "complaint": 0.9438,
+            "thanks": 0.0066,
+            "fyi": 0.0037
+          },
+          "confidence": 0.899,
+          "latency_ms": 71.65066699963063,
+          "error": null
+        },
+        {
+          "expected": "thanks",
+          "predicted": "thanks",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "meeting_request": 0.0427,
+            "question": 0.0147,
+            "complaint": 0.0023,
+            "thanks": 0.9331,
+            "fyi": 0.0073
+          },
+          "confidence": 0.89,
+          "latency_ms": 64.12687501870096,
+          "error": null
+        },
+        {
+          "expected": "fyi",
+          "predicted": "fyi",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "meeting_request": 0.0146,
+            "question": 0.1471,
+            "complaint": 0.1146,
+            "thanks": 0.0536,
+            "fyi": 0.6699
+          },
+          "confidence": 0.523,
+          "latency_ms": 66.11162493936718,
+          "error": null
+        }
+      ],
+      "refund_eligible": [
+        {
+          "expected": "yes",
+          "predicted": "yes",
+          "correct": true,
+          "probability": 0.7393,
+          "probabilities": null,
+          "confidence": 0.4785999999999999,
+          "latency_ms": 51.272416952997446,
+          "error": null
+        },
+        {
+          "expected": "yes",
+          "predicted": "no",
+          "correct": false,
+          "probability": 0.2021,
+          "probabilities": null,
+          "confidence": 0.5958,
+          "latency_ms": 76.54841605108231,
+          "error": null
+        },
+        {
+          "expected": "yes",
+          "predicted": "no",
+          "correct": false,
+          "probability": 0.4341,
+          "probabilities": null,
+          "confidence": 0.13180000000000003,
+          "latency_ms": 48.36070793680847,
+          "error": null
+        },
+        {
+          "expected": "yes",
+          "predicted": "yes",
+          "correct": true,
+          "probability": 0.5127,
+          "probabilities": null,
+          "confidence": 0.02540000000000009,
+          "latency_ms": 48.50583302322775,
+          "error": null
+        },
+        {
+          "expected": "yes",
+          "predicted": "no",
+          "correct": false,
+          "probability": 0.4324,
+          "probabilities": null,
+          "confidence": 0.1352,
+          "latency_ms": 44.74150005262345,
+          "error": null
+        },
+        {
+          "expected": "no",
+          "predicted": "no",
+          "correct": true,
+          "probability": 0.3262,
+          "probabilities": null,
+          "confidence": 0.3476,
+          "latency_ms": 44.92312506772578,
+          "error": null
+        },
+        {
+          "expected": "no",
+          "predicted": "no",
+          "correct": true,
+          "probability": 0.3772,
+          "probabilities": null,
+          "confidence": 0.24560000000000004,
+          "latency_ms": 44.89166697021574,
+          "error": null
+        },
+        {
+          "expected": "no",
+          "predicted": "yes",
+          "correct": false,
+          "probability": 0.6841,
+          "probabilities": null,
+          "confidence": 0.3682000000000001,
+          "latency_ms": 45.2732500853017,
+          "error": null
+        },
+        {
+          "expected": "no",
+          "predicted": "yes",
+          "correct": false,
+          "probability": 0.5254,
+          "probabilities": null,
+          "confidence": 0.050799999999999956,
+          "latency_ms": 46.36654199566692,
+          "error": null
+        },
+        {
+          "expected": "no",
+          "predicted": "no",
+          "correct": true,
+          "probability": 0.4316,
+          "probabilities": null,
+          "confidence": 0.13680000000000003,
+          "latency_ms": 49.37741602770984,
+          "error": null
+        }
+      ],
+      "urgency": [
+        {
+          "expected": "yes",
+          "predicted": "no",
+          "correct": false,
+          "probability": 0.2064,
+          "probabilities": null,
+          "confidence": 0.5871999999999999,
+          "latency_ms": 44.34304195456207,
+          "error": null
+        },
+        {
+          "expected": "yes",
+          "predicted": "yes",
+          "correct": true,
+          "probability": 0.5747,
+          "probabilities": null,
+          "confidence": 0.14939999999999998,
+          "latency_ms": 45.26958300266415,
+          "error": null
+        },
+        {
+          "expected": "yes",
+          "predicted": "no",
+          "correct": false,
+          "probability": 0.3096,
+          "probabilities": null,
+          "confidence": 0.3808,
+          "latency_ms": 40.468750055879354,
+          "error": null
+        },
+        {
+          "expected": "yes",
+          "predicted": "no",
+          "correct": false,
+          "probability": 0.3999,
+          "probabilities": null,
+          "confidence": 0.20020000000000004,
+          "latency_ms": 41.77258291747421,
+          "error": null
+        },
+        {
+          "expected": "no",
+          "predicted": "no",
+          "correct": true,
+          "probability": 0.2893,
+          "probabilities": null,
+          "confidence": 0.4214,
+          "latency_ms": 45.44499993789941,
+          "error": null
+        },
+        {
+          "expected": "no",
+          "predicted": "no",
+          "correct": true,
+          "probability": 0.4109,
+          "probabilities": null,
+          "confidence": 0.17820000000000003,
+          "latency_ms": 43.585625011473894,
+          "error": null
+        },
+        {
+          "expected": "no",
+          "predicted": "no",
+          "correct": true,
+          "probability": 0.3313,
+          "probabilities": null,
+          "confidence": 0.33740000000000003,
+          "latency_ms": 44.65637495741248,
+          "error": null
+        },
+        {
+          "expected": "no",
+          "predicted": "no",
+          "correct": true,
+          "probability": 0.4727,
+          "probabilities": null,
+          "confidence": 0.05459999999999998,
+          "latency_ms": 171.47516598924994,
+          "error": null
+        }
+      ],
+      "secret_leak": [
+        {
+          "expected": "yes",
+          "predicted": "no",
+          "correct": false,
+          "probability": 0.4722,
+          "probabilities": null,
+          "confidence": 0.05559999999999998,
+          "latency_ms": 51.37379199732095,
+          "error": null
+        },
+        {
+          "expected": "yes",
+          "predicted": "no",
+          "correct": false,
+          "probability": 0.3298,
+          "probabilities": null,
+          "confidence": 0.34040000000000004,
+          "latency_ms": 44.360042084008455,
+          "error": null
+        },
+        {
+          "expected": "yes",
+          "predicted": "no",
+          "correct": false,
+          "probability": 0.4878,
+          "probabilities": null,
+          "confidence": 0.024399999999999977,
+          "latency_ms": 56.936832959763706,
+          "error": null
+        },
+        {
+          "expected": "yes",
+          "predicted": "no",
+          "correct": false,
+          "probability": 0.3328,
+          "probabilities": null,
+          "confidence": 0.33440000000000003,
+          "latency_ms": 45.27450003661215,
+          "error": null
+        },
+        {
+          "expected": "no",
+          "predicted": "no",
+          "correct": true,
+          "probability": 0.3354,
+          "probabilities": null,
+          "confidence": 0.32920000000000005,
+          "latency_ms": 42.2355419723317,
+          "error": null
+        },
+        {
+          "expected": "no",
+          "predicted": "no",
+          "correct": true,
+          "probability": 0.2815,
+          "probabilities": null,
+          "confidence": 0.43700000000000006,
+          "latency_ms": 53.65516699384898,
+          "error": null
+        },
+        {
+          "expected": "no",
+          "predicted": "no",
+          "correct": true,
+          "probability": 0.2952,
+          "probabilities": null,
+          "confidence": 0.40959999999999996,
+          "latency_ms": 45.14241695869714,
+          "error": null
+        },
+        {
+          "expected": "no",
+          "predicted": "no",
+          "correct": true,
+          "probability": 0.3596,
+          "probabilities": null,
+          "confidence": 0.28080000000000005,
+          "latency_ms": 42.603875044733286,
+          "error": null
+        }
+      ],
+      "frustration_level": [
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.407,
+            "1": 0.324,
+            "2": 0.269
+          },
+          "confidence": 0.083,
+          "latency_ms": 50.719166989438236,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.3525,
+            "1": 0.2957,
+            "2": 0.3518
+          },
+          "confidence": 0.001,
+          "latency_ms": 49.35137496795505,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.3269,
+            "1": 0.4141,
+            "2": 0.259
+          },
+          "confidence": 0.087,
+          "latency_ms": 48.284166026860476,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.6489,
+            "1": 0.2642,
+            "2": 0.087
+          },
+          "confidence": 0.385,
+          "latency_ms": 49.48183405213058,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.5713,
+            "1": 0.2622,
+            "2": 0.1667
+          },
+          "confidence": 0.309,
+          "latency_ms": 53.88645804487169,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.5342,
+            "1": 0.2935,
+            "2": 0.1725
+          },
+          "confidence": 0.241,
+          "latency_ms": 51.6745001077652,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.4658,
+            "1": 0.2822,
+            "2": 0.2517
+          },
+          "confidence": 0.184,
+          "latency_ms": 54.72616699989885,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.4722,
+            "1": 0.243,
+            "2": 0.2847
+          },
+          "confidence": 0.188,
+          "latency_ms": 48.57900005299598,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.4331,
+            "1": 0.2517,
+            "2": 0.3152
+          },
+          "confidence": 0.118,
+          "latency_ms": 49.349249922670424,
+          "error": null
+        }
+      ],
+      "incident_severity": [
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.5024,
+            "1": 0.1558,
+            "2": 0.1558,
+            "3": 0.0999,
+            "4": 0.0859
+          },
+          "confidence": 0.347,
+          "latency_ms": 77.98437494784594,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.5249,
+            "1": 0.1731,
+            "2": 0.0993,
+            "3": 0.1177,
+            "4": 0.0853
+          },
+          "confidence": 0.352,
+          "latency_ms": 74.02633305173367,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.2186,
+            "1": 0.6367,
+            "2": 0.0857,
+            "3": 0.034,
+            "4": 0.0249
+          },
+          "confidence": 0.418,
+          "latency_ms": 165.15066695865244,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.4766,
+            "1": 0.1238,
+            "2": 0.1992,
+            "3": 0.1215,
+            "4": 0.0789
+          },
+          "confidence": 0.277,
+          "latency_ms": 67.61354103218764,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.2893,
+            "1": 0.1997,
+            "2": 0.2761,
+            "3": 0.1497,
+            "4": 0.0851
+          },
+          "confidence": 0.013,
+          "latency_ms": 69.28733410313725,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.3975,
+            "1": 0.0825,
+            "2": 0.2283,
+            "3": 0.1919,
+            "4": 0.0997
+          },
+          "confidence": 0.169,
+          "latency_ms": 68.07445804588497,
+          "error": null
+        },
+        {
+          "expected": "3",
+          "predicted": "3",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1324,
+            "1": 0.0603,
+            "2": 0.3191,
+            "3": 0.4146,
+            "4": 0.0735
+          },
+          "confidence": 0.095,
+          "latency_ms": 69.36874997336417,
+          "error": null
+        },
+        {
+          "expected": "4",
+          "predicted": "4",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.2725,
+            "1": 0.0908,
+            "2": 0.1157,
+            "3": 0.0876,
+            "4": 0.4336
+          },
+          "confidence": 0.161,
+          "latency_ms": 69.29054204374552,
+          "error": null
+        },
+        {
+          "expected": "4",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.2064,
+            "1": 0.0671,
+            "2": 0.2637,
+            "3": 0.2372,
+            "4": 0.2256
+          },
+          "confidence": 0.026,
+          "latency_ms": 72.12341600097716,
+          "error": null
+        }
+      ],
+      "review_sentiment": [
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.4343,
+            "1": 0.2747,
+            "2": 0.2087,
+            "3": 0.0623,
+            "4": 0.0199
+          },
+          "confidence": 0.16,
+          "latency_ms": 67.23558309022337,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.332,
+            "1": 0.5176,
+            "2": 0.1008,
+            "3": 0.0346,
+            "4": 0.0148
+          },
+          "confidence": 0.186,
+          "latency_ms": 69.60749998688698,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.222,
+            "1": 0.4106,
+            "2": 0.248,
+            "3": 0.0999,
+            "4": 0.0194
+          },
+          "confidence": 0.163,
+          "latency_ms": 67.31279101222754,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1234,
+            "1": 0.0948,
+            "2": 0.6045,
+            "3": 0.1478,
+            "4": 0.0293
+          },
+          "confidence": 0.457,
+          "latency_ms": 68.81854101084173,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1486,
+            "1": 0.1495,
+            "2": 0.5234,
+            "3": 0.1483,
+            "4": 0.0301
+          },
+          "confidence": 0.374,
+          "latency_ms": 65.57949993293732,
+          "error": null
+        },
+        {
+          "expected": "3",
+          "predicted": "3",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.139,
+            "1": 0.0391,
+            "2": 0.3765,
+            "3": 0.385,
+            "4": 0.0604
+          },
+          "confidence": 0.009,
+          "latency_ms": 66.75129197537899,
+          "error": null
+        },
+        {
+          "expected": "3",
+          "predicted": "3",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1989,
+            "1": 0.0185,
+            "2": 0.2571,
+            "3": 0.4438,
+            "4": 0.0816
+          },
+          "confidence": 0.187,
+          "latency_ms": 67.16754101216793,
+          "error": null
+        },
+        {
+          "expected": "4",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.4624,
+            "1": 0.0091,
+            "2": 0.1666,
+            "3": 0.204,
+            "4": 0.1578
+          },
+          "confidence": 0.258,
+          "latency_ms": 67.35837494488806,
+          "error": null
+        },
+        {
+          "expected": "4",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.4653,
+            "1": 0.0184,
+            "2": 0.1125,
+            "3": 0.1981,
+            "4": 0.2057
+          },
+          "confidence": 0.26,
+          "latency_ms": 67.81562499236315,
+          "error": null
+        }
+      ]
+    },
+    "summary": {
+      "micro_accuracy": 0.6538461538461539,
+      "macro_accuracy": 0.6253472222222223,
+      "n": 78,
+      "errors": 0,
+      "wall_seconds": 10.68866587500088
+    }
+  }
+}
