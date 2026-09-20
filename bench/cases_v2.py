@@ -50,6 +50,10 @@ def support_department_v2() -> Task:
       Case("We bought extra API credits last year that we never used; can they be refunded or credited to our account?", "billing"),
       Case("I'm seeing login alerts from another country and think my account may be compromised. Help me secure it.", "account"),
       Case("Not a bug report, just a wish: any chance dark mode is on the roadmap?", "other"),
+      Case("Our subscription auto-renews next week and we'd like it stopped before it does.", "billing"),
+      Case("The status badge on our site stopped updating when we swapped it to your new widget.", "tech"),
+      Case("Do you sponsor work visas in Stockholm? I heard good things from a former colleague there.", "other"),
+      Case("Do you accept purchase orders for 50 seats? We need net-30 terms.", "sales"),
     ],
   )
 
@@ -70,6 +74,9 @@ def email_intent_v2() -> Task:
       Case("The dashboard has shown the wrong numbers since Friday, and I've had to explain the discrepancy to my CEO twice now.", "complaint"),
       Case("Let's find 45 minutes next week to go over Q3 numbers — I'll send a couple of timeslots to your assistant.", "meeting_request"),
       Case("Appreciate the quick fix on ticket 5501; the deploy went out smoothly afterwards.", "thanks"),
+      Case("This is the third invoice this quarter with a typo'd PO number; bookkeeping rejects them every time.", "complaint"),
+      Case("While I've got you — is the API rate limit per-org or per-key?", "question"),
+      Case("Kudos to whoever shipped the saved filters; they just saved me an hour a week.", "thanks"),
     ],
   )
 
@@ -92,6 +99,9 @@ def refund_eligible_v2() -> Task:
       Case("I bought ten extra seats a fortnight ago for a project that got shelved; the seats were never assigned to anyone.", True),
       Case("The team has used the service daily for three months, but we're moving to a competitor, so refund what's left of our annual plan.", False),
       Case("Signed up on Tuesday for a migration that isn't happening anymore. Full refund, please.", True),
+      Case("Day 31 today — I was travelling and forgot entirely. The product was never installed.", False),
+      Case("Paid on Friday for the team plan, then procurement told us to use the sanctioned vendor instead. Zero activity on the account.", True),
+      Case("We've been using the product for a year; the price just went up — can we get the difference refunded?", False),
     ],
   )
 
@@ -114,6 +124,9 @@ def urgency_v2() -> Task:
       Case("Do you have a printed catalog you could mail us? No rush at all.", False),
       Case("Our launch event is tomorrow at 10 and the registration page still shows last year's date.", True),
       Case("For Q3 planning, could you share capacity guidance when convenient?", False),
+      Case("I need this decision by midnight today, or I have to escalate it to the board.", True),
+      Case("Whenever this drops, it'll be helpful for next year's budget cycle — no hurry.", False),
+      Case("The all-hands starts in an hour; can someone look at the broken badge before it's on screen?", True),
     ],
   )
 
@@ -136,6 +149,9 @@ def secret_leak_v2() -> Task:
       Case("In examples, always use the placeholder sk-live-XXXX-XXXX-XXXX from the docs — never a real key.", False),
       Case("-----BEGIN OPENSSH PRIVATE KEY----- b3BlbnNzaC1rZXktdjEAAAAAGmZnRyeXQgb25seSBmb3IgdGVzdGluZwAAAA -----END OPENSSH PRIVATE KEY-----", True),
       Case("Rotate the service account keys this week using the standard runbook; report completion in the channel.", False),
+      Case("JWT_SECRET was rotated last week; the old value had ended up in a screenshot, so rotate it again just in case.", False),
+      Case("CLOUDINARY_URL=cloudinary://9812345678901:aa4f92c7BzQ0wXyT1vR3sN5mKjH8dL6pF@acme", True),
+      Case("Attached the public bucket policy — arn:aws:s3:::acme-public/* is world-readable by design.", False),
     ],
   )
 
@@ -158,6 +174,9 @@ def frustration_level_v2() -> Task:
       Case("Enough. This is the FOURTH time the deploy has failed because of your CLI. Open a ticket AND call me.", 2),
       Case("I am beyond done with this. Every single update breaks something else. Pathetic.", 2),
       Case("STOP emailing me marketing garbage after I unsubscribed THREE TIMES.", 2),
+      Case("Noticed the dashboard tiles are misaligned on ultrawide — happy to attach a screenshot.", 0),
+      Case("The setup wizard reset my answers twice. Not the end of the world, but kind of a chore.", 1),
+      Case("Every. Single. Week. I lose work to this thing. I genuinely can't take it anymore.", 2),
     ],
   )
 
@@ -178,6 +197,9 @@ def incident_severity_v2() -> Task:
       Case("Card payments are rejected for every customer since the payment gateway's certificate expired.", 3),
       Case("A migration dropped the production orders table; the latest backup is 26 hours old.", 4),
       Case("All APIs and the web app return connection refused in every region since 14:02.", 4),
+      Case("Dark-mode contrast on the settings pane makes labels hard to read; toggling back to light mode fixes it.", 1),
+      Case("The public API has rejected essentially all requests with 401 since 06:30; the docs portal still works.", 3),
+      Case("The weekly digest email sometimes lands in spam since the domain change; whitelisting it works for users.", 1),
     ],
   )
 
@@ -200,6 +222,9 @@ def review_sentiment_v2() -> Task:
       Case("Reliable and does everything promised; the companion app could be better.", 3),
       Case("So good I bought a second one for my sister. Fast shipping too.", 4),
       Case("Two years of daily use and it still runs like new. Zero regrets.", 4),
+      Case("Cheap tablets exist; this one proves they should cost less. Screen is dim, updates already stopped.", 1),
+      Case("Camera is best-in-class, everything else is just fine. It's fine.", 2),
+      Case("Bought this for my daughter on a whim and she hasn't put it down in three weeks. Wonderful.", 4),
     ],
   )
 
@@ -231,6 +256,9 @@ def expense_category() -> Task:
       Case("Two tickets to the playoff game for the Acme renewal team, $650.", "client_entertainment"),
       Case('MacBook Pro 14" for the new designer, $2,399.', "office_supplies"),
       Case("Drive-thru lunch both days at the conference, $22 total.", "meals"),
+      Case("Quarterly LinkedIn Learning licenses for the finance team — $240.", "software"),
+      Case("Toll charges plus parking while driving my own car to the client site in Oslo, 320 kr.", "travel"),
+      Case("Flowers sent to the client's office congratulating them on their funding round.", "client_entertainment"),
     ],
   )
 
@@ -260,6 +288,9 @@ def oncall_route() -> Task:
       Case("Users report the site won't load; the status page shows a regional S3 outage and the CDN can't fetch bundles.", "infra"),
       Case("Cart totals are off by one cent on multi-item carts when store credit and proration are combined.", "payments"),
       Case("The settings page intermittently shows NaN instead of weights across all browsers; the console shows a TypeError in bundle 2.3.1.", "web"),
+      Case("Invoice PDFs are generating with line items in the wrong order; totals are correct.", "payments"),
+      Case("The cookie-consent banner blocks the nav buttons on mobile in landscape.", "web"),
+      Case("The nightly forecast-training job ran out of memory and hasn't produced a model since Wednesday.", "model"),
     ],
   )
 
@@ -291,6 +322,8 @@ def churn_risk() -> Task:
       Case("Please close our account — the migration to Acme finished last week.", 4),
       Case("As of today we're giving our 30-day notice under section 8.2; we're done.", 4),
       Case("Honestly it's fine, but for what we pay I expected the reporting to be further along by now.", 2),
+      Case("Between us, our new platform owner is benchmarking tooling across the board, so expect questions.", 3),
+      Case("Occasional hiccups with search, sure, but our workflows run end-to-end and the value is clear.", 1),
     ],
   )
 
@@ -319,6 +352,8 @@ def lead_qualification() -> Task:
       Case("We need governed BI for our January audit. I'm building the shortlist now, but the purchase won't happen before October.", 2),
       Case("Our CTO asked me to evaluate vendors to replace our homegrown forecasting stack — 300 engineers on the platform, budget approved, decision by end of next quarter.", 3),
       Case("VP Ops at a 900-store retailer here. The WMS contract expires in five weeks and the board approved a $2M migration budget. Can we start a POC this week?", 3),
+      Case("Evaluating vendors for our 60-person sales team; procurement needs the final three by end of May.", 2),
+      Case("Saw the demo at a booth — cool stuff. Bookmarking it for a future project.", 1),
     ],
   )
 
@@ -349,6 +384,9 @@ def content_moderation() -> Task:
       Case("First snow of the season! Get the wax out, skiers ⛷️", "none"),
       Case("Send this to 10 friends for good luck or Bill Gates will stop sending you money!!1", "spam"),
       Case("Imagine spending real money to look this bad at the game. Some people's parents really never said no.", "harassment"),
+      Case("Tell your marketing girl to watch herself walking to her car.", "threat"),
+      Case("Join my VIP signals group — 92% win rate 🚀 t.me/whalesclub", "spam"),
+      Case("To the mod who removed my thread last week — my bad for missing the pinned rules post.", "none"),
     ],
   )
 
@@ -381,6 +419,8 @@ def code_review_intent() -> Task:
       Case("This endpoint takes user_id straight from the request; any authenticated user can list other users' invoices by changing the URL.", "security"),
       Case("Use pathlib here instead of the os.path string munging; the codebase is mid-migration and this file predates the convention.", "style"),
       Case("I would have named this `job_display`, but I don't feel strongly — dealer's choice.", "nit"),
+      Case("This module uses `Optional[str]` everywhere; let's not start mixing in bare `str | None`.", "style"),
+      Case("The exception message is rendered back to the client and includes the stack trace with the DB host. Redact it.", "security"),
     ],
   )
 
@@ -413,6 +453,8 @@ def commit_intent() -> Task:
       Case("Delete the legacy canary flag and its dead code paths", "refactor"),
       Case("Add the circles layout behind a feature flag", "feature"),
       Case("Fix the flaky timezone test by freezing the clock in setUp", "test"),
+      Case("Update README with the CUDA install path", "docs"),
+      Case("Migrate the build to pyproject and consolidate the mypy config", "chore"),
     ],
   )
 
@@ -445,6 +487,8 @@ def recipe_cuisine() -> Task:
       Case("Ratatouille of eggplant, zucchini, and tomato confit seasoned with herbes de Provence.", "french"),
       Case("Chicken shawarma wrap with garlic toum, pickled turnips, and sumac onions.", "middle_eastern"),
       Case("Sheet-pan chicken rubbed with za'atar and allspice, served with flatbread and a garlic-tahini sauce.", "middle_eastern"),
+      Case("Sweet crêpes with a warm compote of apple and Calvados.", "french"),
+      Case("Grape leaves stuffed with rice, pine nuts, and currants, served with lemon wedges.", "middle_eastern"),
     ],
   )
 
@@ -467,6 +511,8 @@ def question_duplicate() -> Task:
       Case("Q1: Does creatine cause hair loss?\nQ2: Does creatine help muscle growth?", False),
       Case("Q1: How long does shipping take to Canada?\nQ2: What are the delivery times to Canadian addresses?", True),
       Case("Q1: How long does shipping take to Canada?\nQ2: How much does shipping to Canada cost?", False),
+      Case("Q1: My kid deleted our user accounts — is anything recoverable?\nQ2: Accidentally removed all the accounts from the family plan; is there an undo?", True),
+      Case("Q1: How much caffeine is in a shot of espresso?\nQ2: How many shots of espresso a day is too much?", False),
     ],
   )
 
@@ -489,6 +535,8 @@ def sql_injection_risk() -> Task:
       Case('stmt = sqlalchemy.text("SELECT * FROM users WHERE name = :name").bindparams(name=name)', False),
       Case('db.exec_script("INSERT INTO logs VALUES (\'" + user_input + "\')")', True),
       Case("if not user_id.isdigit(): abort(400)\ncursor.execute(f\"SELECT * FROM users WHERE id = {user_id}\")", False),
+      Case("cursor.execute(\"SELECT * FROM logs LIMIT \" + request.query['n'])", True),
+      Case("col = ALLOWED_SORT_COLS.get(request.form['sort'], 'created_at')\ncursor.execute(f\"SELECT name FROM products ORDER BY {col}\")", False),
     ],
   )
 
@@ -512,6 +560,9 @@ def travel_policy_violation() -> Task:
       Case("Fuel for driving my own car to HQ Monday through Friday last week, $40.", True),
       Case("Delta economy ATL to MCO, $210 for the partner summit.", False),
       Case("Courtyard by Marriott Austin, two nights at $178/night for training week.", False),
+      Case("Grand Hyatt client week: $200/night exactly for two nights.", False),
+      Case("Business class, SIN to YYZ (17h55m), $4,800.", False),
+      Case("Premium airport limo, $140 one-way.", True),
     ],
   )
 
@@ -536,6 +587,8 @@ def contains_pii() -> Task:
       Case("Just text me when it ships — you already have my number.", False),
       Case("Our company, Blue Harbor Logistics, has three offices in Ontario.", False),
       Case("Refund my card — you charged it twice, once on the 1st and once on the 2nd.", False),
+      Case("Texting from my mom's phone since mine broke — call hers: (415) 555-2728.", True),
+      Case("Published author Alex Chen joins our editorial board in March.", False),
     ],
   )
 
@@ -558,6 +611,8 @@ def contains_spoiler() -> Task:
       Case("Just finished season two — the ensemble cast is fantastic, especially the lead.", False),
       Case("The ending is ambiguous, but the wedding-dress scene near the end makes it pretty clear she chose herself.", True),
       Case("Where can I watch this with subtitles? My local theater doesn't screen indies.", False),
+      Case("Skip the after-credits scene? Absolutely not — that's where they resurrect Mira.", True),
+      Case("Three episodes in and the season keeps getting better; the casting alone is worth it.", False),
     ],
   )
 
@@ -586,6 +641,236 @@ def formality_level() -> Task:
       Case("lol ok that meeting could've been an email fr", 3),
       Case("omg you're the best!! 😭😭 ttyl", 3),
       Case("brb grabbing coffee, hmu if the pager goes off lol", 3),
+      Case("It is with respect that I acknowledge receipt of your correspondence of Monday last.", 0),
+      Case("hey!! can u merge that? need it out the door", 3),
+    ],
+  )
+
+
+def phishing_email() -> Task:
+  return Task(
+    id="phishing_email",
+    type="noul",
+    question=Noul(
+      instructions="The message is a phishing or social-engineering attempt: impersonation of a bank, company, courier, or executive to steal credentials, card details, gift cards, or money via pressure and links",
+    ),
+    cases=[
+      Case("Dear valued customer, your PayPal account has been limited. Verify your identity within 24 hours or it will be permanently suspended: paypa1-secure.example/verify", True),
+      Case("I'm in back-to-back meetings — Andrew, quickly buy $500 in gift cards for the client welcome kits and text me the codes. Do not disturb my cell. —From: c.e.o.schmidt@acm3-mail.example", True),
+      Case("Reminder from IT: mandatory password rotation happens Friday via the internal IdP portal at idp.acmecorp.example. We never ask for passwords by email.", False),
+      Case("Your parcel could not be delivered. Pay the $1.20 redelivery fee to release it: courier-trackin.example", True),
+      Case("Invoice INV-44821 from Riverside Consulting for March landscaping services, net 15. This is our regular monthly bill; PDF attached.", False),
+      Case("Your Microsoft 365 password expires today. Sign in to keep your access: https://login.micros0ft.example", True),
+      Case("Happy birthday from all of us on the management team, Priya! 🎂 (No reply needed.)", False),
+      Case("ALERT: Your bank account is locked. Verify your card number and PIN now to restore access immediately.", True),
+      Case("Your appointment is confirmed for Tuesday 10:30 at EyeCare Associates — reschedule via the same portal you booked with.", False),
+      Case("IRS NOTICE: you are eligible for a refund of $1,742.03. File Form 8829 within 48 hours: irs-refunds.example", True),
+    ],
+  )
+
+
+def meeting_conflict() -> Task:
+  return Task(
+    id="meeting_conflict",
+    type="noul",
+    question=Noul(
+      instructions="The proposed event overlaps in time with at least one existing calendar event",
+    ),
+    cases=[
+      Case("Calendar: Standup 9:00-9:30; Dentist 10:00-11:00. Proposed: Client sync 10:30-11:15.", True),
+      Case("Calendar: Team lunch 12:00-13:00. Proposed: Writing time 11:00-11:45.", False),
+      Case("Calendar: Design review 14:00-15:00. Proposed: Wrap-up 14:45-15:15.", True),
+      Case("Calendar: Focus block 15:00-16:00. Proposed: 1:1 with Priya 16:00-16:30.", False),
+      Case("Calendar: All-hands 10:00-11:30. Proposed: Partner call 10:30-11:00.", True),
+      Case("Calendar: Interview 09:00-10:00; Flight SFO to NYC 14:00-18:00. Proposed: Working session 10:15-11:30.", False),
+      Case("Calendar: Onboarding session 15:00-16:00; Board prep 15:45-16:15. Proposed: 14:00-15:30.", True),
+      Case("Calendar: Mentor 1:1 09:00-09:30. Proposed: Coffee chat 09:30-09:50.", False),
+      Case("Calendar: Ops standup every Friday 10:00-10:15. Proposed: Friday roadmap review 10:00-11:00.", True),
+      Case("Calendar: Deadline day blocked off Friday. Proposed: workshop Thursday 15:00-16:30.", False),
+    ],
+  )
+
+
+def hazmat_shipping() -> Task:
+  return Task(
+    id="hazmat_shipping",
+    type="noul",
+    question=Noul(
+      instructions="The shipment requires hazmat (dangerous goods) handling: anything containing lithium batteries, pressurized aerosol containers, flammable liquids (perfume, solvents, butane), or corrosive chemicals qualifies",
+    ),
+    cases=[
+      Case("Order 88132: two power banks (10,000 mAh, lithium-ion) and a USB cable.", True),
+      Case("Order 88133: one paperback novel, two pairs of cotton socks, one enamel mug.", False),
+      Case("RMA return: tablet with a swollen built-in battery, screen intact.", True),
+      Case("Order 88021: 24-pack of AA alkaline batteries and a headlamp body.", False),
+      Case("Toolbox shipment: butane torch, solder wire, wrench set.", True),
+      Case("Wardrobe box: coats, boots, and knitwear.", False),
+      Case("Salon restock: one liter of acrylic nail monomer liquid and polish removers.", True),
+      Case("Camping order: titanium spork, wool blanket, and a water filter.", False),
+      Case("Auto parts: spray paint aerosol, brake-cleaner aerosol, mechanic's gloves.", True),
+      Case("Kitchen set: a 750ml bottle of olive oil, a ceramic pan, and dish-soap concentrate.", False),
+    ],
+  )
+
+
+def dietary_vegan() -> Task:
+  return Task(
+    id="dietary_vegan",
+    type="noul",
+    question=Noul(
+      instructions="The item is suitable for a vegan diet — that excludes meat, fish, dairy, eggs, honey, gelatin, and any other animal-derived ingredients",
+    ),
+    cases=[
+      Case("House salad: mixed greens, cherry tomatoes, cucumber, citrus vinaigrette, pumpkin seeds.", True),
+      Case("Margherita pizza: tomato sauce, fresh mozzarella, basil.", False),
+      Case("Seitan riblets in BBQ sauce (tomato, molasses, smoked paprika).", True),
+      Case("Gummy bears: glucose syrup, sugar, gelatin, fruit juice concentrates.", False),
+      Case("Roasted almonds with a honey glaze.", False),
+      Case("Classic hummus: chickpeas, tahini, lemon, garlic, olive oil.", True),
+      Case("Veggie burger: grain blend, shredded vegetables, and an egg-white binder.", False),
+      Case("Vegetable stock and coconut-milk curry over jasmine rice.", True),
+      Case("Bread loaf: flour, water, salt, yeast, whey.", False),
+      Case("Fruit sorbet: mango purée, sugar, and lime.", True),
+    ],
+  )
+
+
+def news_topic() -> Task:
+  return Task(
+    id="news_topic",
+    type="choice",
+    question=Choice(
+      instructions="Which desk should this news article be assigned to?",
+      criteria={
+        "politics": "Government, elections, legislation, diplomacy, and public policy",
+        "business": "Companies, markets, deals, earnings, labor, and the economy",
+        "technology": "Tech products, software, hardware, and technical research advances",
+        "sports": "Competitions, leagues, athletes, and results",
+        "culture": "Arts, media, entertainment, awards, and reviews",
+      },
+    ),
+    cases=[
+      Case("The Senate committee advanced the housing bill 15-9, teeing up a floor vote before recess.", "politics"),
+      Case("Q3 earnings: operating margin widened 120bp and the company lifted full-year guidance.", "business"),
+      Case("A stoppage-time header sealed a 2-1 semifinal win, sending the club to its first final in a decade.", "sports"),
+      Case("The film's Venice premiere earned a six-minute standing ovation ahead of its festival run.", "culture"),
+      Case("The chipmaker previewed a 3nm process node, claiming 15% lower power draw at peak loads.", "technology"),
+      Case("Brussels opened second-stage infringement proceedings over the new media law.", "politics"),
+      Case("Apple's CFO warned of softer iPhone margins next quarter on rising memory costs; shares swung 3% after hours.", "business"),
+      Case("A decrypted cache revealed an early draft of the composer's unfinished tenth symphony, now slated for a gala performance.", "culture"),
+      Case("The academy graduate signed a five-year extension worth a reported $40m, ending months of transfer chatter.", "sports"),
+      Case("A cryptography team published an audit of three post-quantum signature schemes, flagging one for residual-class weaknesses.", "technology"),
+    ],
+  )
+
+
+def app_review_intent() -> Task:
+  return Task(
+    id="app_review_intent",
+    type="choice",
+    question=Choice(
+      instructions="What kind of app review is this?",
+      criteria={
+        "bug_report": "Describes something in the app that is broken or behaves wrongly",
+        "feature_request": "Asks for new functionality, content, or settings",
+        "praise": "Positive feedback about the app or the team",
+        "pricing_billing": "Subscription, pricing, refund, or payment questions and complaints",
+      },
+    ),
+    cases=[
+      Case("Crashes every time I try to open a draft saved offline. Pixel 8, v3.2.1.", "bug_report"),
+      Case("Any chance of a home-screen widget for the workout streak counter?", "feature_request"),
+      Case("Absolutely worth the download — the offline mode saved a four-hour flight.", "praise"),
+      Case("How do I get a refund for the annual plan? I meant to buy monthly.", "pricing_billing"),
+      Case("Since the last update, the widget shows yesterday's totals until I force-quit it.", "bug_report"),
+      Case("Please support split-screen on tablets; taking notes beside PDFs would complete this.", "feature_request"),
+      Case("Charged twice after switching devices; sort it out before I dispute it with my card provider.", "pricing_billing"),
+      Case("The devs actually listen — the flags I asked for in December are in. Remarkable pace.", "praise"),
+      Case("Login with my managed Google account loops forever on my work profile; the personal account is fine.", "bug_report"),
+      Case("The streak counter reset at midnight in the wrong timezone — I lost a 45-day streak because I was traveling.", "bug_report"),
+    ],
+  )
+
+
+def document_type() -> Task:
+  return Task(
+    id="document_type",
+    type="choice",
+    question=Choice(
+      instructions="What kind of document is this text from?",
+      criteria={
+        "invoice": "A bill from a supplier listing amounts owed, dates, and payment instructions",
+        "purchase_order": "A buyer-issued order for goods or services before fulfillment",
+        "receipt": "Proof that a payment already happened",
+        "contract": "Legal terms between parties: clauses, effective dates, signatures",
+        "resume": "A job seeker's employment history, education, and skills",
+      },
+    ),
+    cases=[
+      Case("Invoice 04381 — net 30. Services: 24 hours of electrical work @ $85/hr. Total due: $2,040.", "invoice"),
+      Case("Objective: staff software engineer. 2021-present: Senior Platform Engineer, Acme — led the migration; skills: Go, Terraform.", "resume"),
+      Case("RECEIPT — Payment of $418.20 on Visa ending 7715 on 03/02, 341 Katahdin Dr Unit 2; balance $0.00.", "receipt"),
+      Case("3. LIMITATION OF LIABILITY. Neither party's aggregate liability hereunder shall exceed the fees paid in the twelve months preceding the claim.", "contract"),
+      Case("PO 991-2541 to EastGate Fabrication: 500 units of SKU EM-114 by 4/12; ship to Dock 4; payment net 45 upon delivery.", "purchase_order"),
+      Case("Amount past due: $1,702.00. A 1.5% monthly late fee applies after 3/15. Remit to accounts@...", "invoice"),
+      Case("Thank you for shopping with us — 2 items, $34.98 paid in cash, change given $5.02. REF 003118.", "receipt"),
+      Case("The Licensee may not sub-license, assign, or transfer this Agreement without prior written consent. Signed: ____ (CTO, Licensee) ____ (COO, Licensor).", "contract"),
+      Case("Certifications: PMP (2023), AWS SA (2021). Languages: Portuguese (native), English (fluent).", "resume"),
+      Case("Order acknowledgment: we confirm your PO 4423 (40 hinges), ship date 5/01.", "purchase_order"),
+    ],
+  )
+
+
+def reading_level() -> Task:
+  return Task(
+    id="reading_level",
+    type="score",
+    question=Score(
+      instructions="What reading level is this passage written at?",
+      criteria=[
+        "Simple: short sentences and everyday words; readable by children",
+        "General: typical adult-level journalism, customer-facing or service prose",
+        "Specialist: technical, legal, scientific, or professional jargon",
+      ],
+    ),
+    cases=[
+      Case("The cat sat by the window. She watched the birds hop in the grass. One flew away. Her tail went twitch, twitch.", 0),
+      Case("Our store closes for renovations on March 15 and reopens April 1; click-and-collect orders shift to the Union St branch in the meantime.", 1),
+      Case("Pursuant to Section 17(b)(iv), the indemnitor shall hold harmless the indemnitee against all consequential damages arising from third-party claims.", 2),
+      Case("Data were winsorized at the 2.5th and 97.5th percentiles; inference used a cluster-robust variance estimator.", 2),
+      Case("Think of a battery like a bathtub: charging fills it up, and your apps drain the water.", 0),
+      Case("High winds grounded the overnight ferry; passengers were rebooked onto the crossing that left at dawn.", 1),
+      Case("Session tags load lazily on first render; after login they're warm in cache.", 2),
+      Case("Season tickets renew automatically in March unless you turn that option off in your account settings.", 1),
+      Case("Take one pill with water at breakfast and one at bedtime until the bottle is empty.", 0),
+    ],
+  )
+
+
+def insurance_claim_priority() -> Task:
+  return Task(
+    id="insurance_claim_priority",
+    type="score",
+    question=Score(
+      instructions="How urgently should this insurance claim or inquiry be handled?",
+      criteria=[
+        "Routine: cosmetic, informational, or no pressure to act soon",
+        "Standard: repair or reimbursement needed, but life or business is unaffected",
+        "Priority: significant damage or financial disruption that should move fast",
+        "Immediate: safety is at risk, damage is ongoing, or the situation is critical right now",
+      ],
+    ),
+    cases=[
+      Case("My car got tapped in a parking lot; the bumper has a quarter-inch paint scratch. No rush, just logging it.", 0),
+      Case("My windshield crack is spreading — about a foot long but out of the sightline. Can we schedule glass repair this week?", 1),
+      Case("The bathroom ceiling caved in after the upstairs leak; we can't use the room, but the burst pipe itself is shut off.", 2),
+      Case("Water is pouring through the light fittings and the breaker won't stay on; the family is sitting in the car outside.", 3),
+      Case("Does my policy cover rental cars? Curious for a trip next month — no claim yet.", 0),
+      Case("Someone sideswiped my parked car overnight and left a note. Damaged mirror and a scrape along the door; the car is drivable.", 1),
+      Case("The fire sprinklers soaked the storeroom — roughly $12k of stock is waterlogged, and the shop is closed until cleanup.", 2),
+      Case("A tree came through the roof during the storm; rain is still coming in and the bedroom directly underneath is unsafe.", 3),
+      Case("I spilled paint on the rug; the cleaning estimate is $180 and I'd like to know whether to file or just pay it.", 1),
+      Case("The only working heater failed last night and it's January; our space heaters aren't keeping up with the cold.", 2),
     ],
   )
 
@@ -606,6 +891,7 @@ NEW_SIMILAR_TASK_FUNCTIONS = [
   oncall_route,
   churn_risk,
   lead_qualification,
+  app_review_intent,
 ]
 
 NEW_DISTANT_TASK_FUNCTIONS = [
@@ -619,6 +905,14 @@ NEW_DISTANT_TASK_FUNCTIONS = [
   contains_pii,
   contains_spoiler,
   formality_level,
+  phishing_email,
+  meeting_conflict,
+  hazmat_shipping,
+  dietary_vegan,
+  news_topic,
+  document_type,
+  reading_level,
+  insurance_claim_priority,
 ]
 
 ALL_TASK_FUNCTIONS = (
