@@ -15,7 +15,7 @@ Models under test (one adapter each in `bench/backends/`): Von (local ModernBERT
 GLiNER2 and Laya (local), Jev (hosted via OpenRouter's decisions API).
 
 Cases and tasks live in versioned **suites** that are reported separately and combined:
-`v1` (8 tasks / 78 cases, original) and `v2` (42 tasks / 582 cases — extensions of every v1
+`v1` (8 tasks / 78 cases, original) and `v2` (49 tasks / 750 cases — extensions of every v1
 task plus new adjacent- and distant-domain tasks). No overlap between suites.
 
 ## Layout
