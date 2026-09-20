@@ -1,6 +1,7 @@
 """GLiNER2 (fastino/gliner2-large-v1) backend via gliner2's Classifier."""
 
 import os
+import re
 import time
 from typing import Optional
 
@@ -9,6 +10,12 @@ from von.types import Choice, Noul, Score
 from .base import Backend, Prediction
 
 DEFAULT_MODEL_PATH = "models/fastino/gliner2-large-v1"
+
+
+def _sanitize(text: str) -> str:
+  # GLiNER2's compiler reserves structural markers and parentheses in prompts/labels;
+  # a comma is a close-enough paraphrase of "(...)" for benchmark questions.
+  return re.sub(r"\s*\(", ", ", text).replace(")", "")
 
 
 class Gliner2Backend(Backend):
@@ -43,6 +50,11 @@ class Gliner2Backend(Backend):
   def _probabilities(self, state: str, name: str, labels: dict, instruction: str, exclusive: bool = True) -> dict:
     from gliner2.classification.schema import ClassificationSchema
 
+    instruction = _sanitize(instruction)
+    if isinstance(labels, dict):
+      labels = {_sanitize(k): _sanitize(v) if isinstance(v, str) else v for k, v in labels.items()}
+    else:
+      labels = [_sanitize(label) for label in labels]
     if exclusive:
       schema = ClassificationSchema().single(name, labels, instruction=instruction)
     else:

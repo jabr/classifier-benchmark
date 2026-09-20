@@ -10,7 +10,7 @@ models that answer structured questions (instructions + criteria) on a state:
 Every model answers the same question JSON for the same tasks. The current headline suite is
 **v1** — 8 tasks / 78 cases, defined with gold labels in [`bench/cases.py`](bench/cases.py).
 A larger **v2** extension suite is also present in `bench/cases_v2.py` and currently under
-review; details and progressing results: [`results/v1v2-von-jev-summary.md`](results/v1v2-von-jev-summary.md).
+review; details and progressing results: [`results/v1v2-summary.md`](results/v1v2-summary.md).
 
 ## Models under test
 
@@ -61,7 +61,7 @@ Jev needs `OPENROUTER_API_KEY` (or `SANDBOX_OPENROUTER_API_KEY`) in the environm
 - `bench/run.py` — harness (CLI, suite/combined metrics, accuracy, AUC, MAE, latency percentiles)
 - `bench/backends/` — one adapter per model
 - `results/benchmark-summary.md` — detailed v1 analysis (all four models) and per-task failure examples
-- `results/v1v2-von-jev-summary.md` — v2 suite composition (in progress) and Von-vs-Jev results
+- `results/v1v2-summary.md` — v2 suite composition (in progress) and full-suite results
 - `results/*.json` — raw benchmark records (JSON includes `suite_summaries` per suite and
   the combined `summary`)
 
