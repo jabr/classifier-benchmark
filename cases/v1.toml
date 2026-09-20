@@ -1,6 +1,6 @@
 # System One benchmark test cases — suite v1.
-# Data file; edit deliberately and re-lock with `just relock v1`.
-# Schema: bench/cases.py. Integrity hashes: cases/hashes.json.
+# Locked: this file is final; `just validate` verifies its content hash. Do not edit.
+# Schema: bench/cases.py. Hashes: cases/hashes.json.
 
 [[task]]
 id = "support_department"

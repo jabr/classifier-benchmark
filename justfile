@@ -10,7 +10,7 @@ default:
 @validate:
   uv run python -m bench.validate
 
-# Re-lock suite content hashes after a deliberate edit (default: all suites)
-# e.g.: just relock v2
-@relock *suites:
-  uv run python -m bench.validate --relock {{suites}}
+# Lock a reviewed suite (one-time transition): write its digest to cases/hashes.json
+# e.g.: just lock v2
+@lock *suites:
+  uv run python -m bench.validate --lock {{suites}}

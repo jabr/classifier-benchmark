@@ -2,13 +2,17 @@
 
 Run via `just validate` (or `uv run python -m bench.validate`). Checks:
   - suite TOMLs parse and satisfy the schema (runs on import of bench.cases)
-  - task ids unique across suites; v2 extension questions equal their v1
-    originals (runs on import of bench.suites)
-  - each suite with an entry in cases/hashes.json is unchanged
+  - task ids unique across suites; questions of tasks that declare `extends`
+    deep-equal their target (runs on import of bench.suites)
+  - every suite with an entry in cases/hashes.json still matches it
 
-Hash mismatches mean the data changed after being locked: if the change was
-intentional, re-lock the affected suites with `just relock <suite|all>` and
-commit the updated cases/hashes.json.
+Suites are either locked (a digest exists in cases/hashes.json; the content
+must not change — that is what this check enforces) or unlocked (in
+development; no digest and none should be created until review concludes).
+Locking is the one-time transition `just lock <suite>` (the --lock flag
+here). A lock mismatch means a locked suite changed, which must not happen
+in the normal course of work; if it ever does, treat it as an exceptional
+maintainer decision.
 """
 
 import argparse
@@ -49,10 +53,10 @@ def load_locks() -> dict:
 def main() -> None:
   parser = argparse.ArgumentParser(description="Validate suite data and locked hashes.")
   parser.add_argument(
-    "--relock",
+    "--lock",
     nargs="*",
     default=None,
-    help="suite(s) to re-hash and write (no names = all suites)",
+    help="suite(s) to lock: write each digest to cases/hashes.json and print (default: all)",
   )
   args = parser.parse_args()
 
@@ -69,7 +73,7 @@ def main() -> None:
       n_types[t.type] = n_types.get(t.type, 0) + 1
     type_str = " ".join(f"{k}={v}" for k, v in sorted(n_types.items()))
     if name not in locks:
-      print(f"{name}: {len(tasks)} tasks ({type_str}) / {n_cases} cases  UNLOCKED  digest={short}")
+      print(f"{name}: {len(tasks)} tasks ({type_str}) / {n_cases} cases  unlocked  digest={short}")
       continue
     if locks[name].get("sha256") != digest:
       print(f"{name}: {len(tasks)} tasks ({type_str}) / {n_cases} cases  LOCK MISMATCH  "
@@ -78,16 +82,17 @@ def main() -> None:
     else:
       print(f"{name}: {len(tasks)} tasks ({type_str}) / {n_cases} cases  locked OK  {short}")
 
-  if args.relock is not None:
-    selected = set(args.relock) if args.relock else set(SUITES)
+  if args.lock is not None:
+    selected = set(args.lock) if args.lock else set(SUITES)
     for name in sorted(selected):
       locks[name] = {"sha256": digests[name], "tasks": len(SUITES[name]),
                      "cases": sum(len(t.cases) for t in SUITES[name])}
     LOCK_PATH.write_text(json.dumps(locks, indent=2, sort_keys=True) + "\n")
-    print(f"re-locked: {sorted(selected)} -> {LOCK_PATH.name}")
+    print(f"locked: {sorted(selected)} -> {LOCK_PATH.name}")
 
   if not ok:
-    print("FAILED: locked suite content changed; re-lock deliberately if intended.")
+    print("FAILED: a locked suite changed. Locks are not supposed to move; "
+          "if this is deliberate, run validation with --lock after fixing the content.")
     sys.exit(1)
   print("OK")
 

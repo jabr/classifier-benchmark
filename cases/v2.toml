@@ -1,9 +1,10 @@
 # System One benchmark test cases — suite v2.
-# Data file; edit deliberately and re-lock with `just relock v2`.
-# Schema: bench/cases.py. Integrity hashes: cases/hashes.json.
+# Unlocked (under review): may change freely. Lock once review concludes: `just lock v2`.
+# Schema: bench/cases.py. Hashes: cases/hashes.json.
 
 [[task]]
 id = "support_department_v2"
+extends = "support_department"
 type = "choice"
 
 [task.question]
@@ -86,6 +87,7 @@ expected = "billing"
 
 [[task]]
 id = "email_intent_v2"
+extends = "email_intent"
 type = "choice"
 
 [task.question]
@@ -160,6 +162,7 @@ expected = "meeting_request"
 
 [[task]]
 id = "refund_eligible_v2"
+extends = "refund_eligible"
 type = "noul"
 
 [task.question]
@@ -235,6 +238,7 @@ expected = true
 
 [[task]]
 id = "urgency_v2"
+extends = "urgency"
 type = "noul"
 
 [task.question]
@@ -314,6 +318,7 @@ expected = false
 
 [[task]]
 id = "secret_leak_v2"
+extends = "secret_leak"
 type = "noul"
 
 [task.question]
@@ -385,6 +390,7 @@ expected = false
 
 [[task]]
 id = "frustration_level_v2"
+extends = "frustration_level"
 type = "score"
 
 [task.question]
@@ -469,6 +475,7 @@ expected = 2
 
 [[task]]
 id = "incident_severity_v2"
+extends = "incident_severity"
 type = "score"
 
 [task.question]
@@ -539,6 +546,7 @@ expected = 1
 
 [[task]]
 id = "review_sentiment_v2"
+extends = "review_sentiment"
 type = "score"
 
 [task.question]

@@ -27,7 +27,7 @@ task plus new adjacent- and distant-domain tasks). No overlap between suites.
 | `cases/hashes.json` | content hash per locked suite |
 | `bench/cases.py` | bench-owned schema: `Task`/`Case` dataclasses, question types (`Choice`/`Noul`/`Score` in the System One wire shape), TOML loader/validation |
 | `bench/suites.py` | suite registry, id resolution, plan building; enforces unique ids and v1↔v2 question equality |
-| `bench/validate.py` | suite structure + hash validation; `just validate` to run, `just relock <suite>` to re-hash after deliberate edits |
+| `bench/validate.py` | suite structure + hash validation; `just validate` to run |
 | `bench/run.py` | harness/CLI; per-suite and combined metrics (acc, AUC, MAE, latency) |
 | `bench/backends/` | model adapters behind `create_backend(name, **kwargs)` |
 | `results/` | raw run records + `benchmark-summary.md` (analysis) — only add/extend when asked |
@@ -61,12 +61,16 @@ uv run python -m bench.run --backend jev --out results/jev.json   # needs OPENRO
 
 ## Adding or changing cases
 
-- All case edits go in `cases/v2.toml`; extension tasks (`*_v2` ids) must keep their
-  question deep-equal to their v1 original (checked in `bench/suites.py`).
+- Read `cases/README.md` first — it carries the case-authoring rules and the screening
+  checklist (gold-label defensibility, the difficulty-from-reasoning rule, realism, balance).
+- All case edits go in `cases/v2.toml`. Tasks declaring `extends = "<task-id>"` must keep
+  their question deep-equal to that task (checked in `bench/suites.py`) — the `<id>_v2`
+  suffix is naming convention, the `extends` property is the contract.
 - Task ids must be unique across both suites (checked at import in `bench/suites.py`).
-- v1 is hash-locked: `just validate` fails if it changed. Breaking the freeze deliberately
-  means `just relock v1` (and a commit message that says why). Same for v2 once edits are
-  intentional: edit, then `just relock v2` and commit the new hash.
+- Suites are locked or unlocked: locked suites (v1) are final — never edit them, `just
+  validate` enforces the digest in `cases/hashes.json`. Unlocked suites (v2, under review)
+  change freely and carry no hash. Locking is a one-time transition at the end of review
+  (`just lock <suite>`); see `cases/AGENTS.md`.
 - Gold labels must be defensible — a careful majority of annotators should agree — and classes
   should be roughly balanced, especially for noul tasks (AUC is reported).
 - Mix difficulties deliberately: boundary cases, keyword decoys, and plain easy items.

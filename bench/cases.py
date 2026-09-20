@@ -4,12 +4,15 @@ The benchmark defines its own question schema — the System One wire shape
 {"type": "choice"|"noul"|"score", "instructions": str, "criteria": ...} —
 shared by the typesafe/jev decisions API and adapted per model in
 bench/backends/. Suites live as data in cases/v1.toml and cases/v2.toml
-(TOML so harnesses in other languages can read them directly); content
-edits are deliberate: re-lock with `just relock <suite>` and commit the
-updated cases/hashes.json (see bench/validate.py).
+(TOML so harnesses in other languages can read them directly). Suites are
+locked (final; digest verified against cases/hashes.json by
+bench/validate.py — do not edit) or unlocked (in development; no hash):
+`just lock <suite>` is the one-time transition at the end of review.
 
-Task ids must be unique across suites; v2 extension tasks (`<id>_v2`)
-must deep-equal their v1 question (enforced in bench/suites.py).
+Task ids must be unique across suites. A task may declare `extends = "<task-id>"`:
+it then poses the identical question as that task (with its own new cases), and the
+registry enforces the deep-equality — that is what makes extension suites (v2's
+`<id>_v2` tasks, and any future suite) directly comparable.
 """
 
 import tomllib
@@ -59,6 +62,7 @@ class Task:
   type: str
   question: Question
   cases: list[Case]
+  extends: str | None = None
 
 
 def _question_from_raw(task_id: str, task_type: str, raw: dict) -> Question:
@@ -121,7 +125,10 @@ def load_suite(path: Path) -> list[Task]:
       cases.append(Case(state=state, expected=expected))
     if not cases:
       raise ValueError(f"{task_id}: no cases")
-    tasks.append(Task(id=task_id, type=task_type, question=question, cases=cases))
+    extends = raw_task.get("extends")
+    if extends is not None and (not isinstance(extends, str) or not extends.strip()):
+      raise ValueError(f"{task_id}: extends must be a task id")
+    tasks.append(Task(id=task_id, type=task_type, question=question, cases=cases, extends=extends))
   if not tasks:
     raise ValueError(f"{path.name}: no tasks")
   ids = [t.id for t in tasks]

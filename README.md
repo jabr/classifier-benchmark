@@ -8,7 +8,10 @@ Head-to-head benchmark for "System One"-style classification models — lightwei
 
 Every model answers the same question JSON for the same tasks. The current headline suite is **v1** — 8 tasks / 78 cases, defined with gold labels in [`cases/v1.toml`](cases/v1.toml). A larger **v2** extension suite is also present in [`cases/v2.toml`](cases/v2.toml) and currently under review; details and progressing results: [`results/v1v2-summary.md`](results/v1v2-summary.md).
 
-Suites are plain TOML data files (schema in [`bench/cases.py`](bench/cases.py)), so harnesses in languages other than Python can read the test cases directly. Content is hash-locked — `just validate` checks both suites against [`cases/hashes.json`](cases/hashes.json).
+Suites are plain TOML data files (schema in [`bench/cases.py`](bench/cases.py)), so harnesses
+in languages other than Python can read the test cases directly. Reviewed suites are locked —
+`just validate` verifies their content hash against [`cases/hashes.json`](cases/hashes.json);
+suites in development stay unlocked until finalized with `just lock <suite>`.
 
 All test cases are synthetic: they were generated and cross-checked by a committee of LLMs (GLM 5.3 Flash, GLM 5.3, Kimi K3, Qwen3.8 2.4T, Qwen3.8 Flash, DeepSeek V4.1 Flash, and MiMo V2.5 Pro), each contributing to task/case definition, expansion, and/or review. Debatable or ambiguous cases were removed before freezing.
 

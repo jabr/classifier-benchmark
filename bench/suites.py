@@ -4,10 +4,11 @@ A suite is a versioned list of tasks that can be reported on its own or
 combined with the others. Task ids are unique across suites, so a task id
 maps to exactly one (suite, task) pair.
 
-Extension tasks in v2 reuse the v1 question schema under a `_v2` id, so
-v1 and v2 numbers are directly comparable per task family even though no
-case is shared. That identity is enforced here rather than by import, so
-suites live as independent TOML data files.
+A task may declare `extends = "<task-id>"` to state that it poses the
+identical question as another task (with its own new case set) — that is
+how extension suites stay directly comparable to the tasks they extend.
+Equality of the question is enforced here across all suites; the `<id>_v2`
+ids in v2 are naming convention, the `extends` property is the contract.
 """
 
 from bench.cases import TASKS_V1, TASKS_V2, question_payload
@@ -25,13 +26,21 @@ ALL_TASK_IDS = [t.id for t in ALL_TASKS]
 if len(set(ALL_TASK_IDS)) != len(ALL_TASK_IDS):
   raise ValueError("Task ids must be unique across all suites")
 
-# v2 extension tasks must reuse their v1 question verbatim.
-_BY_ID = {name: {t.id: t for t in tasks} for name, tasks in SUITES.items()}
-for _task in TASKS_V2:
-  if _task.id.endswith("_v2"):
-    _base = _BY_ID["v1"].get(_task.id[: -len("_v2")])
-    if _base is not None and question_payload(_task.question) != question_payload(_base.question):
-      raise ValueError(f"{_task.id} question must deep-equal the v1 {_base.id} question")
+# Declared extensions must pose the identical question as their target, which
+# must exist; suites may extend tasks from any other suite.
+_BY_ID = {t.id: t for t in ALL_TASKS}
+for _task in ALL_TASKS:
+  if _task.extends is None:
+    continue
+  if _task.extends == _task.id:
+    raise ValueError(f"{_task.id} cannot extend itself")
+  _base = _BY_ID.get(_task.extends)
+  if _base is None:
+    raise ValueError(f"{_task.id} extends unknown task {_task.extends!r}")
+  if question_payload(_task.question) != question_payload(_base.question):
+    raise ValueError(
+      f"{_task.id} question must deep-equal the question of {_base.id} (extends)"
+    )
 
 
 def resolve_suites(value: str) -> list[str]:
