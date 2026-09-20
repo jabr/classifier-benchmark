@@ -199,13 +199,14 @@ def evaluate_backend(
 
 def main() -> None:
   parser = argparse.ArgumentParser(description="Run classification benchmarks.")
-  parser.add_argument("--backend", default="von", help="Comma-separated: von, jev, gliner2")
+  parser.add_argument("--backend", default="von", help="Comma-separated: von, jev, gliner2, laya")
   parser.add_argument("--tasks", default="", help="Comma-separated task ids (default: all)")
   parser.add_argument("--limit", type=int, default=None, help="Limit cases per task")
   parser.add_argument("--device", default=None, help="Device for local backends (e.g. mps, cuda, cpu)")
   parser.add_argument("--model", default=None, help="Model id (jev: OpenRouter model id)")
   parser.add_argument("--gliner2-path", default=None, help="Path to gliner2 weights")
   parser.add_argument("--von-path", default=None, help="Path to von weights (or registry alias)")
+  parser.add_argument("--laya-path", default=None, help="Path to laya weights (or HF repo id)")
   parser.add_argument("--out", default=None, help="Write JSON results to this path")
   args = parser.parse_args()
 
@@ -227,6 +228,8 @@ def main() -> None:
       kwargs["model_path"] = args.gliner2_path
     if args.von_path and backend_name == "von":
       kwargs["model_path"] = args.von_path
+    if args.laya_path and backend_name == "laya":
+      kwargs["model_path"] = args.laya_path
     all_results[backend_name] = evaluate_backend(backend_name, tasks, kwargs)
 
   if args.out:

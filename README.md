@@ -16,6 +16,7 @@ labels in [`bench/cases.py`](bench/cases.py).
 |---|---|
 | [Von](https://huggingface.co/wfzyx/von-1.0) | local ModernBERT via [`von-sdk`](https://github.com/wfzyx/von) |
 | [GLiNER2](https://huggingface.co/fastino/gliner2-large-v1) | local, adapted to a classification schema |
+| [Laya](https://huggingface.co/convaiinnovations/laya) | local, native System One schema via the `laya` package |
 | Jev (typesafe/jev-1.13) | hosted, via OpenRouter `/api/alpha/decisions` |
 
 ## Headline results (8 tasks, 78 cases, Apple MPS)
@@ -23,8 +24,9 @@ labels in [`bench/cases.py`](bench/cases.py).
 | Model | micro acc | macro acc | mean latency | cost |
 |---|---|---|---|---|
 | Jev | **0.974** | **0.972** | ~302 ms | ~$0.000014/call |
-| Von 1.0.1 | 0.923 | 0.930 | **~54 ms** | free (local) |
+| Von 1.0.1 | 0.923 | 0.930 | ~54 ms | free (local) |
 | GLiNER2 | 0.795 | 0.785 | ~93 ms | free (local) |
+| Laya | 0.615 | 0.619 | **~48 ms** | free (local) |
 
 Full per-task scoreboard, failure examples, and version history:
 [`results/benchmark-summary.md`](results/benchmark-summary.md).
@@ -38,13 +40,13 @@ uv sync
 # fetch model weights into models/<org>/<name>
 just download wfzyx/von-1.0
 
-# run the suite (backends: von, gliner2, jev — comma-separated)
-uv run python -m bench.run --backend von,gliner2 --device mps --out results/run.json
+# run the suite (backends: von, gliner2, laya, jev — comma-separated)
+uv run python -m bench.run --backend von,gliner2,laya --device mps --out results/run.json
 uv run python -m bench.run --backend jev --out results/jev.json
 ```
 
 Useful flags: `--tasks` (run a subset), `--limit`, `--device` (`mps`/`cpu`/`cuda`),
-`--von-path` / `--gliner2-path` (custom weight locations), `--model` (Jev model id).
+`--von-path` / `--gliner2-path` / `--laya-path` (custom weight locations), `--model` (Jev model id).
 Jev needs `OPENROUTER_API_KEY` (or `SANDBOX_OPENROUTER_API_KEY`) in the environment.
 
 ## Layout

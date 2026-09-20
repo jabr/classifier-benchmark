@@ -6,22 +6,10 @@ from typing import Optional
 import von
 from von.types import Choice, Noul, Score
 
-from .base import Backend, Prediction
+from .base import Backend, Prediction, level_from_probabilities
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_MODEL_DIR = REPO_ROOT / "models" / "wfzyx" / "von-1.0"
-
-
-def _level_from_probabilities(probabilities: dict[str, float], n: int) -> str:
-  for key in probabilities:
-    try:
-      idx = int(key)
-    except (TypeError, ValueError):
-      continue
-    if 0 <= idx < n:
-      best = max(probabilities, key=lambda k: probabilities[k])
-      return str(int(best))
-  return "0"
 
 
 class VonBackend(Backend):
@@ -83,7 +71,7 @@ class VonBackend(Backend):
       instructions=question.instructions,
     )
     probabilities = dict(answer.probabilities)
-    label = _level_from_probabilities(probabilities, len(question.criteria))
+    label = level_from_probabilities(probabilities, len(question.criteria))
     return Prediction(
       label=label,
       probabilities=probabilities,

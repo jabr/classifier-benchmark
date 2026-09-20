@@ -16,7 +16,11 @@ def create_backend(name: str, **kwargs) -> Backend:
     from .gliner2 import Gliner2Backend
 
     return Gliner2Backend(**kwargs)
-  raise ValueError(f"Unknown backend '{name}'. Available: von, jev, gliner2")
+  if name == "laya":
+    from .laya import LayaBackend
+
+    return LayaBackend(**kwargs)
+  raise ValueError(f"Unknown backend '{name}'. Available: von, jev, gliner2, laya")
 
 
 BACKEND_FACTORIES: dict[str, Callable[[], Backend]] = {

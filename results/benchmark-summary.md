@@ -1,9 +1,9 @@
-# Head-to-head: Von (wfzyx/von-1.0) vs GLiNER2 (fastino/gliner2-large-v1) vs Jev (typesafe/jev-1.13)
+# Head-to-head: Von (wfzyx/von-1.0) vs GLiNER2 (fastino/gliner2-large-v1) vs Laya (convaiinnovations/laya) vs Jev (typesafe/jev-1.13)
 
 Benchmark: 8 tasks / 78 cases across three System One primitives —
 **choice** (multi-class routing), **noul** (binary yes/no probability), **score** (ordered multi-level rating).
-All three models answer the *same* question JSON (instructions + criteria) per case; Von and GLiNER2 run locally
-on Apple MPS, Jev via OpenRouter's `/api/alpha/decisions` endpoint (same System One schema, no prompt
+All four models answer the *same* question JSON (instructions + criteria) per case; Von, GLiNER2 and Laya run
+locally on Apple MPS, Jev via OpenRouter's `/api/alpha/decisions` endpoint (same System One schema, no prompt
 round-tripping, measured $0.00123 across all 87 requests — about $0.000014 per call).
 
 Von numbers below are von-sdk **1.0.1** (commit b9e42b2), which added noul yes/no hypothesis synthesis,
@@ -13,30 +13,35 @@ applied automatically). The 1.0.0 runs are kept for comparison: `results/von.jso
 
 ## Scoreboard
 
-| Task (type) | Von 1.0.1 | GLiNER2 | Jev |
-|---|---|---|---|
-| support_department (choice) | 0.867 | 0.933 | **1.000** |
-| email_intent (choice) | **1.000** | 0.900 | **1.000** |
-| refund_eligible (noul) | 0.700 | 0.500 | **1.000** |
-| urgency (noul) | **1.000** | **1.000** | **1.000** |
-| secret_leak (noul) | 0.875 | 0.500 | **1.000** |
-| frustration_level (score) | **1.000** | **1.000** | **1.000** |
-| incident_severity (score) | **1.000** | 0.556 | 0.778 |
-| review_sentiment (score) | **1.000** | 0.889 | **1.000** |
-| **micro accuracy** | 0.923 | 0.795 | **0.974** |
-| **macro accuracy** | 0.930 | 0.785 | **0.972** |
-| mean latency / case | **~54 ms** | ~93 ms | ~302 ms |
-| total wall time (78 cases) | **10.0 s** | 20.3 s | 23.7 s |
+| Task (type) | Von 1.0.1 | GLiNER2 | Laya | Jev |
+|---|---|---|---|---|
+| support_department (choice) | 0.867 | 0.933 | 0.533 | **1.000** |
+| email_intent (choice) | **1.000** | 0.900 | 0.900 | **1.000** |
+| refund_eligible (noul) | 0.700 | 0.500 | 0.700 | **1.000** |
+| urgency (noul) | **1.000** | **1.000** | 0.875 | **1.000** |
+| secret_leak (noul) | 0.875 | 0.500 | 0.500 | **1.000** |
+| frustration_level (score) | **1.000** | **1.000** | 0.667 | **1.000** |
+| incident_severity (score) | **1.000** | 0.556 | 0.444 | 0.778 |
+| review_sentiment (score) | **1.000** | 0.889 | 0.333 | **1.000** |
+| **micro accuracy** | 0.923 | 0.795 | 0.615 | **0.974** |
+| **macro accuracy** | 0.930 | 0.785 | 0.619 | **0.972** |
+| mean latency / case | ~54 ms | ~93 ms | **~48 ms** | ~302 ms |
+| total wall time (78 cases) | 10.0 s | 20.3 s | 37.3 s † | 23.7 s |
 
-Ranking is now `Jev ≈ 0.974 > Von ≈ 0.923 > GLiNER2 ≈ 0.795` — and Von is also the fastest
-and the only one above chance on every task. Accuracy is identical on CPU (`results/von-1.0.1-cpu.json`),
-only latency differs (~130–240 ms/case, wall 19 s).
+† Laya's wall includes a one-time 33.6 s model load; per-case inference is post-warmup.
+
+Ranking is now `Jev ≈ 0.974 > Von ≈ 0.923 > GLiNER2 ≈ 0.795 > Laya ≈ 0.615` — Laya owns the fastest
+per-case clock (though with spikier p95, up to ~154 ms) and Von is close behind at 54 ms and far more
+accurate. Accuracy is identical on CPU (`results/von-1.0.1-cpu.json`, `results/laya-cpu.json`),
+only latency differs.
 
 Records (on this suite):
 
 - `results/von-1.0.1-mps.json` — `uv run python -m bench.run --backend von --device mps`
 - `results/von-1.0.1-cpu.json` — `uv run python -m bench.run --backend von --device cpu`
 - `results/gliner2-mps.json` — `uv run python -m bench.run --backend gliner2 --device mps`
+- `results/laya-mps.json` — `uv run python -m bench.run --backend laya --device mps`
+- `results/laya-cpu.json` — `uv run python -m bench.run --backend laya --device cpu`
 - `results/jev.json` — `uv run python -m bench.run --backend jev` (needs `OPENROUTER_API_KEY` or `SANDBOX_OPENROUTER_API_KEY`)
 - legacy 1.0.0: `results/von-mps.json`, `results/von.json`
 
@@ -80,6 +85,29 @@ probability scale**, so near-saturated confidence (p ≈ 0.96–0.99) sits on *w
 Takeaway: 13 points *behind* Von now, at 1.7× the latency. Its confidence values remain uncalibrated —
 threshold tuning per task at best.
 
+## Laya — fastest per-case clock, weakest decisions; hot-triggered, cool-graded
+
+Laya natively speaks the same System One schema (its `Agent.system_one` batches all questions into one
+forward pass over a ModernBERT-family encoder, ~421M params). It wins the `urgency` ordering (AUC 1.0)
+and `email_intent` (0.900), and never misses a frustration level by more than one — but accuracy collapses
+where other models hold up:
+
+- **Support routing 0.533**: 8 of 15 cases misrouted, nearly everything pulled toward `billing`/`account`.
+  "Can I book a demo of the enterprise features…" → `tech` 0.29 vs `sales` 0.26; the GDPR deletion request →
+  `billing` 0.44 vs `account`; "Where is your office located?" → `billing`.
+- **secret_leak: over-triggers like GLiNER2 but harsher** — all four no-secret states flagged `yes`
+  (p 0.63–0.94; "MQTT_PASSWORD was not set" → 0.94). All four real credentials were caught, so AUC 0.81
+  but coin-flip decisions.
+- **review_sentiment 0.333 with a level-1 attractor**: positive reviews are graded cool —
+  "Best gadget I have bought in years" → level 1 at p = 0.99, near-mechanical 0.97–0.99 confidence spikes
+  on the wrong level for four of nine cases.
+- **incident_severity 0.444** (MAE 0.78) — under-rates by one to two levels; `frustration_level` shows the
+  same low bias but stays within ±1 (within_1 = 1.000).
+
+Takeaway: the fastest local clock and pleasant ergonomics, but on this suite it trails old Von 1.0.0
+(0.654) as well as GLiNER2 — the `billing`/`account` attractor in `choice` and mis-scaled `score`
+probabilities need retraining-level fixes, not threshold tuning.
+
 ## Jev (typesafe) — decisively ahead, misses only severity boundary cases
 
 18 of 20 task-cells perfect, including all `noul` tasks with clean separations (urgency AUC 1.0,
@@ -98,6 +126,7 @@ network-inclusive latency and occasional slow samples (p95 up to ~940 ms).
 ```
 uv run python -m bench.run --backend von --device mps --out results/von-1.0.1-mps.json
 uv run python -m bench.run --backend gliner2 --device mps --out results/gliner2-mps.json
+uv run python -m bench.run --backend laya --device mps --out results/laya-mps.json
 uv run python -m bench.run --backend jev --out results/jev.json
 ```
 

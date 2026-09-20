@@ -259,6 +259,7 @@ dependencies = [
     { name = "aiohttp" },
     { name = "gliner2" },
     { name = "huggingface-hub" },
+    { name = "laya" },
     { name = "peft" },
     { name = "torch" },
     { name = "transformers" },
@@ -270,6 +271,7 @@ requires-dist = [
     { name = "aiohttp", specifier = ">=3.14.3" },
     { name = "gliner2", specifier = ">=2.0.0" },
     { name = "huggingface-hub", specifier = ">=1.32.0" },
+    { name = "laya", specifier = ">=0.3.3" },
     { name = "peft", specifier = ">=0.21.0" },
     { name = "torch", specifier = ">=2.14.0" },
     { name = "transformers", specifier = ">=5.17.0" },
@@ -546,6 +548,22 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz", hash = "sha256:0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d", size = 245115, upload-time = "2025-03-05T20:05:02.478Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl", hash = "sha256:85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67", size = 134899, upload-time = "2025-03-05T20:05:00.369Z" },
+]
+
+[[package]]
+name = "laya"
+version = "0.3.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "huggingface-hub" },
+    { name = "numpy" },
+    { name = "safetensors" },
+    { name = "torch" },
+    { name = "transformers" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/14/6e/3d421fdf08b4cd00659a2e5e565f32653755c578afa174655eaeac82cc99/laya-0.3.3.tar.gz", hash = "sha256:ac21e43204042768d1c449872099dc407a1bb4c8e9fd19cbc77c1f751ba25a93", size = 47888, upload-time = "2026-09-19T09:29:07.991Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d4/56/677fbefdbe5a9f4fbed51feb8bb598c99003a0e6e0dcd59f54596d680676/laya-0.3.3-py3-none-any.whl", hash = "sha256:0f0fed09d04e0b9e05a54643e77c6bebb9e881bf3c8e0a5c536b58c71d6659fb", size = 33303, upload-time = "2026-09-19T09:29:06.707Z" },
 ]
 
 [[package]]

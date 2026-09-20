@@ -16,6 +16,18 @@ class Prediction:
   raw: Optional[float] = None
 
 
+def level_from_probabilities(probabilities: dict[str, float], n: int) -> str:
+  for key in probabilities:
+    try:
+      idx = int(key)
+    except (TypeError, ValueError):
+      continue
+    if 0 <= idx < n:
+      best = max(probabilities, key=lambda k: probabilities[k])
+      return str(int(best))
+  return "0"
+
+
 class Backend(ABC):
   name: str = "abstract"
   description: str = ""
