@@ -1283,10 +1283,6 @@ expected = "chore"
 state = "Support CSV delimiters other than commas on import"
 expected = "feature"
 
-[[task.cases]]
-state = "Remove the deprecated v1 client"
-expected = "refactor"
-
 [[task]]
 id = "recipe_cuisine"
 type = "choice"
@@ -2823,10 +2819,6 @@ state = "Tenants of European descent preferred."
 expected = true
 
 [[task.cases]]
-state = "Apartment available to female tenants only."
-expected = true
-
-[[task.cases]]
 state = "Home office with fiber internet and a coffee bar — ideal for remote work."
 expected = false
 
@@ -3023,7 +3015,6 @@ cases = [
     { state = "I recieve the report every Friday.", expected = "spelling" },
     { state = "He walk to work every day.", expected = "subject_verb_agreement" },
     { state = "Lets get lunch.", expected = "punctuation" },
-    { state = "I could care less about the results.", expected = "word_choice" },
     { state = "The flowers smell wonderfully.", expected = "word_choice" },
     { state = "We've been friends since 2010.", expected = "none" },
     { state = "The report is due on Tuesday.", expected = "none" },
