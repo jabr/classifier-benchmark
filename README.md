@@ -1,4 +1,4 @@
-# clsfr
+# classifier-benchmark
 
 Head-to-head benchmark for "System One"-style classification models — lightweight decision
 models that answer structured questions (instructions + criteria) on a state:
