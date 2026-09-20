@@ -12,6 +12,11 @@ Every model answers the same question JSON for the same tasks. The current headl
 A larger **v2** extension suite is also present in `bench/cases_v2.py` and currently under
 review; details and progressing results: [`results/v1v2-summary.md`](results/v1v2-summary.md).
 
+All test cases are synthetic: they were generated and cross-checked by a committee of LLMs
+(GLM 5.3 Flash, GLM 5.3, Kimi K3, Qwen3.8 2.4T, Qwen3.8 Flash, DeepSeek V4.1 Flash, and
+MiMo V2.5 Pro), each contributing to task/case definition, expansion, and/or review.
+Debatable or ambiguous cases were removed before freezing.
+
 ## Models under test
 
 | Model | Access |

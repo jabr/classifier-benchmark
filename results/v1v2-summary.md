@@ -35,6 +35,11 @@ v2 suite composition:
   intents, grammar checking, meeting action items, gaming reports, warranty claims, weather
   alerts, and return reasons
 
+All test cases across both suites are synthetic: generated and cross-checked by a committee of
+LLMs (GLM 5.3 Flash, GLM 5.3, Kimi K3, Qwen3.8 2.4T, Qwen3.8 Flash, DeepSeek V4.1 Flash, and
+MiMo V2.5 Pro), each contributing to task/case definition, expansion, and/or review.
+Debatable or ambiguous cases were removed before freezing.
+
 ## Headline
 
 | Suite | n | Von micro | Von macro | Jev micro | Jev macro | GLiNER2 micro | GLiNER2 macro | Laya micro | Laya macro |

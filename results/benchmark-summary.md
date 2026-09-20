@@ -6,6 +6,9 @@ All four models answer the *same* question JSON (instructions + criteria) per ca
 locally on Apple MPS, Jev via OpenRouter's `/api/alpha/decisions` endpoint (same System One schema, no prompt
 round-tripping, measured $0.00123 across all 87 requests — about $0.000014 per call).
 
+All cases are synthetic, generated and cross-checked by a committee of LLMs; debatable or
+ambiguous cases were removed before freezing (details in the repo README).
+
 Von numbers below are von-sdk **1.0.1** (commit b9e42b2), which added noul yes/no hypothesis synthesis,
 a "How <adj>" lexical-bias fix in `rate`, fp16 on MPS, and ships `calibration.json` (temperature 1.1692,
 applied automatically). The 1.0.0 runs are kept for comparison: `results/von.json`, `results/von-mps.json`
