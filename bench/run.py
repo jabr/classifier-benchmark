@@ -250,7 +250,7 @@ def main() -> None:
   all_results = {}
   for backend_name in [b.strip() for b in args.backend.split(",") if b.strip()]:
     kwargs = {}
-    if args.device:
+    if args.device and backend_name in ("von", "gliner2", "laya"):
       kwargs["device"] = args.device
     if args.model and backend_name == "jev":
       kwargs["model"] = args.model

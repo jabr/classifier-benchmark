@@ -7,23 +7,10 @@ models that answer structured questions (instructions + criteria) on a state:
 - **noul** — binary yes/no with a probability ("does this text contain a secret?")
 - **score** — ordered multi-level rating ("how frustrated is this customer, 0–2?")
 
-Every model answers the same question JSON for the same tasks, defined with gold labels in
-[`bench/cases.py`](bench/cases.py). Tasks are grouped into named suites, reported individually
-and combined:
-
-- **v1** — the original 8 tasks / 78 cases (unchanged)
-- **v2** — 49 tasks / 869 cases: extensions of all 8 v1 tasks (identical question schemas,
-  all-new cases across the difficulty spectrum, ids suffixed `_v2`) plus new tasks in adjacent
-  domains (expense categorization, on-call routing, churn risk, lead qualification, app-review
-  triage) and distant domains (content moderation, code review comments, commit messages,
-  cuisine tagging, dietary/vegan and allergen filtering, question deduplication, SQL injection
-  review, phishing detection, transaction-fraud rules, ad-policy review, fair-housing
-  compliance, travel-policy compliance, PII detection, hazmat shipping, spoiler detection,
-  register/formality, newsdesk and article-type tagging, calendar conflicts, document types,
-  reading level, insurance-claim priority, symptom and veterinary triage, delivery exceptions,
-  city 311 routing, home-service trade routing, contract clause classification, voice-assistant
-  intents, grammar checking, meeting action items, gaming reports, warranty claims, weather
-  alerts, and return reasons)
+Every model answers the same question JSON for the same tasks. The current headline suite is
+**v1** — 8 tasks / 78 cases, defined with gold labels in [`bench/cases.py`](bench/cases.py).
+A larger **v2** extension suite is also present in `bench/cases_v2.py` and currently under
+review; details and progressing results: [`results/v1v2-von-jev-summary.md`](results/v1v2-von-jev-summary.md).
 
 ## Models under test
 
@@ -55,12 +42,9 @@ uv sync
 # fetch model weights into models/<org>/<name>
 just download wfzyx/von-1.0
 
-# run the suite (backends: von, gliner2, laya, jev — comma-separated)
-# --suite: v1, v2, comma-separated, or all (default) — per-suite and combined
-# scores are reported for every run
-uv run python -m bench.run --backend von,gliner2,laya --device mps --out results/run.json
-uv run python -m bench.run --backend von --suite v2 --device mps --out results/von-v2.json
-uv run python -m bench.run --backend jev --out results/jev.json
+# run the v1 suite (backends: von, gliner2, laya, jev — comma-separated)
+uv run python -m bench.run --backend von,gliner2,laya --suite v1 --device mps --out results/run.json
+uv run python -m bench.run --backend jev --suite v1 --out results/jev.json
 ```
 
 Useful flags: `--suite` (`v1`/`v2`/comma-separated/`all`, default `all`), `--tasks` (run a
@@ -76,7 +60,8 @@ Jev needs `OPENROUTER_API_KEY` (or `SANDBOX_OPENROUTER_API_KEY`) in the environm
 - `bench/suites.py` — suite registry (v1/v2) and task lookup
 - `bench/run.py` — harness (CLI, suite/combined metrics, accuracy, AUC, MAE, latency percentiles)
 - `bench/backends/` — one adapter per model
-- `results/benchmark-summary.md` — detailed analysis and per-task failure examples
+- `results/benchmark-summary.md` — detailed v1 analysis (all four models) and per-task failure examples
+- `results/v1v2-von-jev-summary.md` — v2 suite composition (in progress) and Von-vs-Jev results
 - `results/*.json` — raw benchmark records (JSON includes `suite_summaries` per suite and
   the combined `summary`)
 
