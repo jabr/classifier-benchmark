@@ -12,14 +12,17 @@ Every model answers the same question JSON for the same tasks, defined with gold
 and combined:
 
 - **v1** — the original 8 tasks / 78 cases (unchanged)
-- **v2** — 31 tasks / 391 cases: extensions of all 8 v1 tasks (identical question schemas,
+- **v2** — 42 tasks / 582 cases: extensions of all 8 v1 tasks (identical question schemas,
   all-new cases across the difficulty spectrum, ids suffixed `_v2`) plus new tasks in adjacent
   domains (expense categorization, on-call routing, churn risk, lead qualification, app-review
   triage) and distant domains (content moderation, code review comments, commit messages,
   cuisine tagging, dietary/vegan filtering, question deduplication, SQL injection review,
-  phishing detection, travel-policy compliance, PII detection, hazmat shipping, spoiler
-  detection, register/formality, newsdesk tagging, calendar conflicts, document types, reading
-  level, insurance-claim priority)
+  phishing detection, transaction-fraud rules, ad-policy review, fair-housing compliance,
+  travel-policy compliance, PII detection, hazmat shipping, spoiler detection,
+  register/formality, newsdesk tagging, calendar conflicts, document types, reading level,
+  insurance-claim priority, symptom triage, delivery exceptions, city 311 routing, contract
+  clause classification, voice-assistant intents, grammar checking, meeting action items, and
+  return reasons)
 
 ## Models under test
 
