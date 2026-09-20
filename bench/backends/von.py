@@ -1,5 +1,6 @@
-"""Von (wfzyx/von-1.0) backend via the native von package."""
+"""Von backend via the native von-sdk package."""
 
+from pathlib import Path
 from typing import Optional
 
 import von
@@ -7,7 +8,8 @@ from von.types import Choice, Noul, Score
 
 from .base import Backend, Prediction
 
-BACKEND_ALIASES = ("modernbert", "von", "von-1.0")
+REPO_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_MODEL_DIR = REPO_ROOT / "models" / "wfzyx" / "von-1.0"
 
 
 def _level_from_probabilities(probabilities: dict[str, float], n: int) -> str:
@@ -24,19 +26,32 @@ def _level_from_probabilities(probabilities: dict[str, float], n: int) -> str:
 
 class VonBackend(Backend):
   name = "von"
-  description = "von-1.0 ModernBERT, local"
 
-  def __init__(self, backend: str = "modernbert", device: Optional[str] = None):
-    self.backend = backend
+  def __init__(self, model_path: Optional[str] = None, device: Optional[str] = None):
     self.device = device
+    if model_path:
+      self.model = model_path
+    elif DEFAULT_MODEL_DIR.exists():
+      self.model = str(DEFAULT_MODEL_DIR)
+    else:
+      self.model = "von-1.0"
+    model_dir = Path(self.model)
+    self.description = f"{model_dir.name}, local" if model_dir.exists() else f"{self.model} (HF registry)"
 
   def warmup(self) -> float:
     import time
 
     t0 = time.perf_counter()
+    from von.backends.berta_backend import BertaBackend
     from von.engine import VonEngine
 
-    VonEngine.set_backend(self.backend, device=self.device)
+    # VonEngine.set_backend only accepts fixed registry aliases, so install a
+    # BertaBackend directly to honor arbitrary local model paths.
+    engine = VonEngine.__new__(VonEngine)
+    engine.backend_name = "model-path"
+    engine.device = self.device
+    engine.backend = BertaBackend(variant=self.model, device=self.device)
+    VonEngine._instance = engine
     von.judge("warmup warmup", instructions="Device warm up")
     return time.perf_counter() - t0
 

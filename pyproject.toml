@@ -5,11 +5,12 @@ requires-python = ">=3.14"
 dependencies = [
     "aiohttp>=3.14.3",
     "gliner2>=2.0.0",
+    "huggingface-hub>=1.32.0",
     "peft>=0.21.0",
     "torch>=2.14.0",
     "transformers>=5.17.0",
-    "von",
+    "von-sdk",
 ]
 
 [tool.uv.sources]
-von = { git = "https://github.com/wfzyx/von" }
+von-sdk = { git = "https://github.com/wfzyx/von" }

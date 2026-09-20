@@ -258,20 +258,22 @@ source = { virtual = "." }
 dependencies = [
     { name = "aiohttp" },
     { name = "gliner2" },
+    { name = "huggingface-hub" },
     { name = "peft" },
     { name = "torch" },
     { name = "transformers" },
-    { name = "von" },
+    { name = "von-sdk" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "aiohttp", specifier = ">=3.14.3" },
     { name = "gliner2", specifier = ">=2.0.0" },
+    { name = "huggingface-hub", specifier = ">=1.32.0" },
     { name = "peft", specifier = ">=0.21.0" },
     { name = "torch", specifier = ">=2.14.0" },
     { name = "transformers", specifier = ">=5.17.0" },
-    { name = "von", git = "https://github.com/wfzyx/von" },
+    { name = "von-sdk", git = "https://github.com/wfzyx/von" },
 ]
 
 [[package]]
@@ -1459,9 +1461,9 @@ wheels = [
 ]
 
 [[package]]
-name = "von"
-version = "1.0.0"
-source = { git = "https://github.com/wfzyx/von#5deb26060cccf3361e1cda0bc0808d0aaad49c68" }
+name = "von-sdk"
+version = "1.0.1"
+source = { git = "https://github.com/wfzyx/von#b9e42b26adf05fa0689ef586bf3a0427c7b4cc85" }
 dependencies = [
     { name = "accelerate" },
     { name = "click" },

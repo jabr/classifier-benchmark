@@ -205,6 +205,7 @@ def main() -> None:
   parser.add_argument("--device", default=None, help="Device for local backends (e.g. mps, cuda, cpu)")
   parser.add_argument("--model", default=None, help="Model id (jev: OpenRouter model id)")
   parser.add_argument("--gliner2-path", default=None, help="Path to gliner2 weights")
+  parser.add_argument("--von-path", default=None, help="Path to von weights (or registry alias)")
   parser.add_argument("--out", default=None, help="Write JSON results to this path")
   args = parser.parse_args()
 
@@ -224,6 +225,8 @@ def main() -> None:
       kwargs["model"] = args.model
     if args.gliner2_path and backend_name == "gliner2":
       kwargs["model_path"] = args.gliner2_path
+    if args.von_path and backend_name == "von":
+      kwargs["model_path"] = args.von_path
     all_results[backend_name] = evaluate_backend(backend_name, tasks, kwargs)
 
   if args.out:
