@@ -7,7 +7,8 @@ import time
 from pathlib import Path
 
 from bench.backends import create_backend
-from bench.cases import Case, Task, tasks_by_ids
+from bench.cases import Case, Task
+from bench.suites import SUITES, resolve_suites, suite_plan
 
 
 def percentile(values: list[float], pct: float) -> float:
@@ -144,11 +145,31 @@ def print_task_line(task_id: str, summary: dict) -> None:
   )
 
 
+def aggregate(rows: list[dict], summaries: list[dict]) -> dict:
+  scored = [r for r in rows if r["error"] is None]
+  correct = sum(1 for r in scored if r["correct"])
+  micro = correct / len(scored) if scored else None
+  macro_values = [s["accuracy"] for s in summaries if s["accuracy"] is not None]
+  macro = sum(macro_values) / len(macro_values) if macro_values else None
+  return {
+    "micro_accuracy": micro,
+    "macro_accuracy": macro,
+    "n": len(rows),
+    "errors": sum(s["errors"] for s in summaries),
+  }
+
+
+def print_suite_line(name: str, totals: dict) -> None:
+  micro = f"{totals['micro_accuracy']:.3f}" if totals["micro_accuracy"] is not None else "n/a"
+  macro = f"{totals['macro_accuracy']:.3f}" if totals["macro_accuracy"] is not None else "n/a"
+  err = f"  ERRORS={totals['errors']}" if totals["errors"] else ""
+  print(f"  suite {name}: n={totals['n']}  micro_acc={micro}  macro_acc={macro}{err}")
+
+
 def evaluate_backend(
   backend_name: str,
-  tasks: list[Task],
+  plan: list[tuple[str, list[Task]]],
   backend_kwargs: dict,
-  save_errors: bool = False,
 ) -> dict:
   print(f"=== backend: {backend_name} ===")
   t0 = time.perf_counter()
@@ -160,39 +181,45 @@ def evaluate_backend(
     print(f"  warmup FAILED: {exc}")
     return {"backend": backend_name, "failed": str(exc)}
 
-  results = {"backend": backend_name, "description": backend.description, "tasks": {}, "cases": {}}
-  total_rows = []
-  summaries = []
-  for task in tasks:
-    rows, summary = evaluate_task(task, backend)
-    results["tasks"][task.id] = summary
-    results["cases"][task.id] = rows
-    total_rows.extend(rows)
-    summaries.append(summary)
-    print_task_line(task.id, summary)
-
-  scored = [r for r in total_rows if r["error"] is None]
-  correct = sum(1 for r in scored if r["correct"])
-  micro = correct / len(scored) if scored else None
-  macro_values = [s["accuracy"] for s in summaries if s["accuracy"] is not None]
-  macro = sum(macro_values) / len(macro_values) if macro_values else None
-  wall = time.perf_counter() - t0
-  total_errors = sum(s["errors"] for s in summaries)
-
-  summary = {
-    "micro_accuracy": micro,
-    "macro_accuracy": macro,
-    "n": len(total_rows),
-    "errors": total_errors,
-    "wall_seconds": wall,
+  results = {
+    "backend": backend_name,
+    "description": backend.description,
+    "suites": [name for name, _ in plan],
+    "tasks": {},
+    "cases": {},
+    "suite_summaries": {},
   }
-  results["summary"] = summary
-  micro_str = f"{micro:.3f}" if micro is not None else "n/a"
-  macro_str = f"{macro:.3f}" if macro is not None else "n/a"
+  total_rows = []
+  total_summaries = []
+  for suite_name, suite_tasks in plan:
+    n_cases = sum(len(t.cases) for t in suite_tasks)
+    print(f"-- suite {suite_name}: {len(suite_tasks)} task(s) / {n_cases} case(s) --")
+    suite_rows = []
+    suite_summaries = []
+    for task in suite_tasks:
+      rows, summary = evaluate_task(task, backend)
+      summary = {"suite": suite_name, **summary}
+      results["tasks"][task.id] = summary
+      results["cases"][task.id] = rows
+      suite_rows.extend(rows)
+      suite_summaries.append(summary)
+      print_task_line(task.id, summary)
+    suite_totals = aggregate(suite_rows, suite_summaries)
+    results["suite_summaries"][suite_name] = suite_totals
+    print_suite_line(suite_name, suite_totals)
+    total_rows.extend(suite_rows)
+    total_summaries.extend(suite_summaries)
+
+  totals = aggregate(total_rows, total_summaries)
+  wall = time.perf_counter() - t0
+  totals["wall_seconds"] = wall
+  results["summary"] = totals
+  micro_str = f"{totals['micro_accuracy']:.3f}" if totals["micro_accuracy"] is not None else "n/a"
+  macro_str = f"{totals['macro_accuracy']:.3f}" if totals["macro_accuracy"] is not None else "n/a"
   print(
-    f"  TOTAL: n={summary['n']}  micro_acc={micro_str}  macro_acc={macro_str}"
+    f"  TOTAL: n={totals['n']}  micro_acc={micro_str}  macro_acc={macro_str}"
     f"  wall={wall:.1f}s"
-    + (f"  ERRORS={total_errors}" if total_errors else "")
+    + (f"  ERRORS={totals['errors']}" if totals["errors"] else "")
   )
   return results
 
@@ -200,7 +227,8 @@ def evaluate_backend(
 def main() -> None:
   parser = argparse.ArgumentParser(description="Run classification benchmarks.")
   parser.add_argument("--backend", default="von", help="Comma-separated: von, jev, gliner2, laya")
-  parser.add_argument("--tasks", default="", help="Comma-separated task ids (default: all)")
+  parser.add_argument("--suite", default="all", help="Suite(s) to run: v1, v2, comma-separated, or all (default)")
+  parser.add_argument("--tasks", default="", help="Comma-separated task ids within the selected suites (default: all)")
   parser.add_argument("--limit", type=int, default=None, help="Limit cases per task")
   parser.add_argument("--device", default=None, help="Device for local backends (e.g. mps, cuda, cpu)")
   parser.add_argument("--model", default=None, help="Model id (jev: OpenRouter model id)")
@@ -210,11 +238,13 @@ def main() -> None:
   parser.add_argument("--out", default=None, help="Write JSON results to this path")
   args = parser.parse_args()
 
-  tasks = tasks_by_ids([t for t in args.tasks.split(",") if t])
+  suite_names = resolve_suites(args.suite)
+  task_ids = [t.strip() for t in args.tasks.split(",") if t.strip()]
+  plan = suite_plan(suite_names, task_ids)
   if args.limit:
-    tasks = [
-      Task(id=t.id, type=t.type, question=t.question, cases=t.cases[: args.limit])
-      for t in tasks
+    plan = [
+      (name, [Task(id=t.id, type=t.type, question=t.question, cases=t.cases[: args.limit]) for t in tasks])
+      for name, tasks in plan
     ]
 
   all_results = {}
@@ -230,7 +260,7 @@ def main() -> None:
       kwargs["model_path"] = args.von_path
     if args.laya_path and backend_name == "laya":
       kwargs["model_path"] = args.laya_path
-    all_results[backend_name] = evaluate_backend(backend_name, tasks, kwargs)
+    all_results[backend_name] = evaluate_backend(backend_name, plan, kwargs)
 
   if args.out:
     out_path = Path(args.out)

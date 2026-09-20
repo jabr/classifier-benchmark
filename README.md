@@ -7,8 +7,17 @@ models that answer structured questions (instructions + criteria) on a state:
 - **noul** — binary yes/no with a probability ("does this text contain a secret?")
 - **score** — ordered multi-level rating ("how frustrated is this customer, 0–2?")
 
-Every model answers the same question JSON for the same 8 tasks / 78 cases, defined with gold
-labels in [`bench/cases.py`](bench/cases.py).
+Every model answers the same question JSON for the same tasks, defined with gold labels in
+[`bench/cases.py`](bench/cases.py). Tasks are grouped into named suites, reported individually
+and combined:
+
+- **v1** — the original 8 tasks / 78 cases (unchanged)
+- **v2** — 22 tasks / 245 cases: extensions of all 8 v1 tasks (identical question schemas,
+  all-new cases across the difficulty spectrum, ids suffixed `_v2`) plus new tasks in adjacent
+  domains (expense categorization, on-call routing, churn risk, lead qualification) and distant
+  domains (content moderation, code review comments, commit messages, cuisine tagging, question
+  deduplication, SQL injection review, travel-policy compliance, PII detection, spoiler
+  detection, register/formality)
 
 ## Models under test
 
@@ -19,7 +28,7 @@ labels in [`bench/cases.py`](bench/cases.py).
 | [Laya](https://huggingface.co/convaiinnovations/laya) | local, native System One schema via the `laya` package |
 | Jev (typesafe/jev-1.13) | hosted, via OpenRouter `/api/alpha/decisions` |
 
-## Headline results (8 tasks, 78 cases, Apple MPS)
+## Headline results (v1: 8 tasks, 78 cases, Apple MPS)
 
 | Model | micro acc | macro acc | mean latency | cost |
 |---|---|---|---|---|
@@ -41,21 +50,29 @@ uv sync
 just download wfzyx/von-1.0
 
 # run the suite (backends: von, gliner2, laya, jev — comma-separated)
+# --suite: v1, v2, comma-separated, or all (default) — per-suite and combined
+# scores are reported for every run
 uv run python -m bench.run --backend von,gliner2,laya --device mps --out results/run.json
+uv run python -m bench.run --backend von --suite v2 --device mps --out results/von-v2.json
 uv run python -m bench.run --backend jev --out results/jev.json
 ```
 
-Useful flags: `--tasks` (run a subset), `--limit`, `--device` (`mps`/`cpu`/`cuda`),
+Useful flags: `--suite` (`v1`/`v2`/comma-separated/`all`, default `all`), `--tasks` (run a
+subset within the selected suites), `--limit`, `--device` (`mps`/`cpu`/`cuda`),
 `--von-path` / `--gliner2-path` / `--laya-path` (custom weight locations), `--model` (Jev model id).
 Jev needs `OPENROUTER_API_KEY` (or `SANDBOX_OPENROUTER_API_KEY`) in the environment.
 
 ## Layout
 
-- `bench/cases.py` — the test cases: 8 tasks with gold labels across the three primitives
-- `bench/run.py` — harness (CLI, metrics: accuracy, AUC, MAE, latency percentiles)
+- `bench/cases.py` — the v1 suite: 8 tasks with gold labels across the three primitives
+- `bench/cases_v2.py` — the v2 suite: extensions of the v1 tasks plus adjacent- and
+  distant-domain tasks (no case overlap with v1)
+- `bench/suites.py` — suite registry (v1/v2) and task lookup
+- `bench/run.py` — harness (CLI, suite/combined metrics, accuracy, AUC, MAE, latency percentiles)
 - `bench/backends/` — one adapter per model
 - `results/benchmark-summary.md` — detailed analysis and per-task failure examples
-- `results/*.json` — raw benchmark records
+- `results/*.json` — raw benchmark records (JSON includes `suite_summaries` per suite and
+  the combined `summary`)
 
 ## License
 
