@@ -5,7 +5,7 @@ import re
 import time
 from typing import Optional
 
-from von.types import Choice, Noul, Score
+from bench.cases import Choice, Noul, Score
 
 from .base import Backend, Prediction
 

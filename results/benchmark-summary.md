@@ -133,5 +133,5 @@ uv run python -m bench.run --backend laya --device mps --out results/laya-mps.js
 uv run python -m bench.run --backend jev --out results/jev.json
 ```
 
-Suite definitions with gold labels live in `bench/cases.py`; backends in `bench/backends/`
+Suite definitions with gold labels live in `cases/v1.toml` (schema in `bench/cases.py`); backends in `bench/backends/`
 (one adapter per model, shared `Choice`/`Noul`/`Score` question schema).

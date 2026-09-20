@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Optional
 
 import von
-from von.types import Choice, Noul, Score
+from bench.cases import Choice, Noul, Score
 
 from .base import Backend, Prediction, level_from_probabilities
 

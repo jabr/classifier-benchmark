@@ -1,5 +1,4 @@
-"""Named test suites: the original v1 tasks (bench/cases.py) and the v2
-suite (bench/cases_v2.py).
+"""Named test suites: v1 (cases/v1.toml) and v2 (cases/v2.toml).
 
 A suite is a versioned list of tasks that can be reported on its own or
 combined with the others. Task ids are unique across suites, so a task id
@@ -7,13 +6,11 @@ maps to exactly one (suite, task) pair.
 
 Extension tasks in v2 reuse the v1 question schema under a `_v2` id, so
 v1 and v2 numbers are directly comparable per task family even though no
-case is shared.
+case is shared. That identity is enforced here rather than by import, so
+suites live as independent TOML data files.
 """
 
-from bench.cases import TASKS as TASKS_V1
-from bench.cases import TASK_IDS as TASK_IDS_V1
-from bench.cases_v2 import TASKS_V2
-from bench.cases_v2 import TASK_IDS_V2
+from bench.cases import TASKS_V1, TASKS_V2, question_payload
 
 SUITES: dict[str, list] = {
   "v1": TASKS_V1,
@@ -27,6 +24,14 @@ ALL_TASK_IDS = [t.id for t in ALL_TASKS]
 
 if len(set(ALL_TASK_IDS)) != len(ALL_TASK_IDS):
   raise ValueError("Task ids must be unique across all suites")
+
+# v2 extension tasks must reuse their v1 question verbatim.
+_BY_ID = {name: {t.id: t for t in tasks} for name, tasks in SUITES.items()}
+for _task in TASKS_V2:
+  if _task.id.endswith("_v2"):
+    _base = _BY_ID["v1"].get(_task.id[: -len("_v2")])
+    if _base is not None and question_payload(_task.question) != question_payload(_base.question):
+      raise ValueError(f"{_task.id} question must deep-equal the v1 {_base.id} question")
 
 
 def resolve_suites(value: str) -> list[str]:

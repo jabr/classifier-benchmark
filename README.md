@@ -1,21 +1,16 @@
 # classifier-benchmark
 
-Head-to-head benchmark for "System One"-style classification models — lightweight decision
-models that answer structured questions (instructions + criteria) on a state:
+Head-to-head benchmark for "System One"-style classification models — lightweight decision models that answer structured questions (instructions + criteria) on a state:
 
 - **choice** — multi-class routing ("which department should handle this?")
 - **noul** — binary yes/no with a probability ("does this text contain a secret?")
 - **score** — ordered multi-level rating ("how frustrated is this customer, 0–2?")
 
-Every model answers the same question JSON for the same tasks. The current headline suite is
-**v1** — 8 tasks / 78 cases, defined with gold labels in [`bench/cases.py`](bench/cases.py).
-A larger **v2** extension suite is also present in `bench/cases_v2.py` and currently under
-review; details and progressing results: [`results/v1v2-summary.md`](results/v1v2-summary.md).
+Every model answers the same question JSON for the same tasks. The current headline suite is **v1** — 8 tasks / 78 cases, defined with gold labels in [`cases/v1.toml`](cases/v1.toml). A larger **v2** extension suite is also present in [`cases/v2.toml`](cases/v2.toml) and currently under review; details and progressing results: [`results/v1v2-summary.md`](results/v1v2-summary.md).
 
-All test cases are synthetic: they were generated and cross-checked by a committee of LLMs
-(GLM 5.3 Flash, GLM 5.3, Kimi K3, Qwen3.8 2.4T, Qwen3.8 Flash, DeepSeek V4.1 Flash, and
-MiMo V2.5 Pro), each contributing to task/case definition, expansion, and/or review.
-Debatable or ambiguous cases were removed before freezing.
+Suites are plain TOML data files (schema in [`bench/cases.py`](bench/cases.py)), so harnesses in languages other than Python can read the test cases directly. Content is hash-locked — `just validate` checks both suites against [`cases/hashes.json`](cases/hashes.json).
+
+All test cases are synthetic: they were generated and cross-checked by a committee of LLMs (GLM 5.3 Flash, GLM 5.3, Kimi K3, Qwen3.8 2.4T, Qwen3.8 Flash, DeepSeek V4.1 Flash, and MiMo V2.5 Pro), each contributing to task/case definition, expansion, and/or review. Debatable or ambiguous cases were removed before freezing.
 
 ## Models under test
 
@@ -35,9 +30,7 @@ Debatable or ambiguous cases were removed before freezing.
 | GLiNER2 | 0.795 | 0.785 | ~93 ms | free (local) |
 | Laya | 0.615 | 0.619 | **~48 ms** | free (local) |
 
-Full per-task scoreboard, failure examples, and version history:
-[`results/benchmark-summary.md`](results/benchmark-summary.md).
-Raw per-case records: `results/*.json`.
+Full per-task scoreboard, failure examples, and version history: [`results/benchmark-summary.md`](results/benchmark-summary.md). Raw per-case records: `results/*.json`.
 
 ## Usage
 
@@ -54,23 +47,16 @@ uv run python -m bench.run --backend von,gliner2,laya --suite v1 --device mps --
 uv run python -m bench.run --backend jev --suite v1 --out results/jev.json
 ```
 
-Useful flags: `--suite` (`v1`/`v2`/comma-separated/`all`, default `all`), `--tasks` (run a
-subset within the selected suites), `--limit`, `--device` (`mps`/`cpu`/`cuda`),
-`--von-path` / `--gliner2-path` / `--laya-path` (custom weight locations), `--model` (Jev model id).
-Jev needs `OPENROUTER_API_KEY` (or `SANDBOX_OPENROUTER_API_KEY`) in the environment.
+Useful flags: `--suite` (`v1`/`v2`/comma-separated/`all`, default `all`), `--tasks` (run a subset within the selected suites), `--limit`, `--device` (`mps`/`cpu`/`cuda`), `--von-path` / `--gliner2-path` / `--laya-path` (custom weight locations), `--model` (Jev model id). Jev needs `OPENROUTER_API_KEY` (or `SANDBOX_OPENROUTER_API_KEY`) in the environment.
 
 ## Layout
 
-- `bench/cases.py` — the v1 suite: 8 tasks with gold labels across the three primitives
-- `bench/cases_v2.py` — the v2 suite: extensions of the v1 tasks plus adjacent- and
-  distant-domain tasks (no case overlap with v1)
-- `bench/suites.py` — suite registry (v1/v2) and task lookup
-- `bench/run.py` — harness (CLI, suite/combined metrics, accuracy, AUC, MAE, latency percentiles)
-- `bench/backends/` — one adapter per model
+- `cases/v1.toml` — the v1 test cases: 8 tasks with gold labels across the three primitives
+- `cases/v2.toml` — the v2 suite: extensions of the v1 tasks plus adjacent- and distant-domain tasks (no case overlap with v1)
 - `results/benchmark-summary.md` — detailed v1 analysis (all four models) and per-task failure examples
 - `results/v1v2-summary.md` — v2 suite composition (in progress) and full-suite results
-- `results/*.json` — raw benchmark records (JSON includes `suite_summaries` per suite and
-  the combined `summary`)
+- `results/*.json` — raw benchmark records (JSON includes `suite_summaries` per suite and the combined `summary`)
+- `bench/*` — the Python harness: schema + suite loader and validation, the CLI runner, and model adapter backends
 
 ## License
 

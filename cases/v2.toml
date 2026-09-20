@@ -1,0 +1,3967 @@
+# System One benchmark test cases — suite v2.
+# Data file; edit deliberately and re-lock with `just relock v2`.
+# Schema: bench/cases.py. Integrity hashes: cases/hashes.json.
+
+[[task]]
+id = "support_department_v2"
+type = "choice"
+
+[task.question]
+instructions = "Which team should handle this support message?"
+
+[task.question.criteria]
+billing = "Refunds, payments, invoices, subscriptions, or unexpected charges"
+tech = "Bugs, errors, crashes, downtime, or integration failures"
+sales = "Pricing questions, quotes, upgrades, demos, or new purchases"
+account = "Login issues, password resets, profile changes, or data deletion requests"
+other = "Anything that does not match the other categories"
+
+[[task.cases]]
+state = "I lost my phone and can't receive 2FA codes, so I'm locked out of my account."
+expected = "account"
+
+[[task.cases]]
+state = "Is there a discount for paying annually on the Business plan?"
+expected = "sales"
+
+[[task.cases]]
+state = "Our card was charged $49.99 after we cancelled last month — please reverse it."
+expected = "billing"
+
+[[task.cases]]
+state = "Ever since we enabled the events API, the Slack integration posts every notification twice."
+expected = "tech"
+
+[[task.cases]]
+state = "We're evaluating you against Acme for 200 seats. Could you share the security whitepaper and set up a call with a solutions engineer?"
+expected = "sales"
+
+[[task.cases]]
+state = "Please transfer ownership of our org workspace to a colleague who is taking over my role."
+expected = "account"
+
+[[task.cases]]
+state = "We bought extra API credits last year that we never used; can they be refunded or credited to our account?"
+expected = "billing"
+
+[[task.cases]]
+state = "I'm seeing login alerts from another country and think my account may be compromised. Help me secure it."
+expected = "account"
+
+[[task.cases]]
+state = "Not a bug report, just a wish: any chance dark mode is on the roadmap?"
+expected = "other"
+
+[[task.cases]]
+state = "Our subscription auto-renews next week and we'd like it stopped before it does."
+expected = "billing"
+
+[[task.cases]]
+state = "The status badge on our site stopped updating when we swapped it to your new widget."
+expected = "tech"
+
+[[task.cases]]
+state = "Do you sponsor work visas in Stockholm? I heard good things from a former colleague there."
+expected = "other"
+
+[[task.cases]]
+state = "Do you accept purchase orders for 50 seats? We need net-30 terms."
+expected = "sales"
+
+[[task.cases]]
+state = "Every request to api.acme.com since the maintenance window returns 403, but only for our org."
+expected = "tech"
+
+[[task.cases]]
+state = "Our VAT ID is missing from the last three invoices; finance needs corrected copies."
+expected = "billing"
+
+[[task.cases]]
+state = "We need to add 30 more seats before Monday's onboarding — can you send updated pricing today?"
+expected = "sales"
+
+[[task.cases]]
+state = "The invoice lists a 'platform fee' we've never seen before — what is this charge?"
+expected = "billing"
+
+[[task]]
+id = "email_intent_v2"
+type = "choice"
+
+[task.question]
+instructions = "What is the main intent of this email?"
+
+[task.question.criteria]
+meeting_request = "They want to schedule a meeting or call"
+question = "They are asking a question that needs an answer"
+complaint = "They are complaining about a problem or expressing dissatisfaction"
+thanks = "They are expressing gratitude or appreciation"
+fyi = "They are just sharing information without asking for anything"
+
+[[task.cases]]
+state = "Thanks for the thorough review! Can we take 30 minutes on Thursday to walk through the feedback together?"
+expected = "meeting_request"
+
+[[task.cases]]
+state = "Quick one: does the enterprise plan include SSO, or is that priced separately?"
+expected = "question"
+
+[[task.cases]]
+state = "I have to be honest, we expected more communication around the rollout — we only heard about the API change from a customer."
+expected = "complaint"
+
+[[task.cases]]
+state = "Thank you for accommodating our timeline on the custom export; the team really appreciated it."
+expected = "thanks"
+
+[[task.cases]]
+state = "No reply needed — just flagging that staging will be down Saturday 02:00-06:00 for scheduled maintenance."
+expected = "fyi"
+
+[[task.cases]]
+state = "The board approved the pilot, so we're go for launch — the kickoff invite should already be on your calendar."
+expected = "fyi"
+
+[[task.cases]]
+state = "When you have a moment: does our contract auto-renew in March or April?"
+expected = "question"
+
+[[task.cases]]
+state = "The dashboard has shown the wrong numbers since Friday, and I've had to explain the discrepancy to my CEO twice now."
+expected = "complaint"
+
+[[task.cases]]
+state = "Let's find 45 minutes next week to go over Q3 numbers — I'll send a couple of timeslots to your assistant."
+expected = "meeting_request"
+
+[[task.cases]]
+state = "Appreciate the quick fix on ticket 5501; the deploy went out smoothly afterwards."
+expected = "thanks"
+
+[[task.cases]]
+state = "This is the third invoice this quarter with a typo'd PO number; bookkeeping rejects them every time."
+expected = "complaint"
+
+[[task.cases]]
+state = "While I've got you — is the API rate limit per-org or per-key?"
+expected = "question"
+
+[[task.cases]]
+state = "Kudos to whoever shipped the saved filters; they just saved me an hour a week."
+expected = "thanks"
+
+[[task.cases]]
+state = "The board's budget is confirmed — signed SOW attached, no action needed from you."
+expected = "fyi"
+
+[[task.cases]]
+state = "Can we move our Thursday check-in to Friday? I have a conflict."
+expected = "meeting_request"
+
+[[task]]
+id = "refund_eligible_v2"
+type = "noul"
+
+[task.question]
+instructions = "The customer is entitled to a refund under the 30-day money-back guarantee for unused services"
+
+[[task.cases]]
+state = "We bought the annual plan on Monday and never got past the first screen of the setup wizard. Refund, please."
+expected = true
+
+[[task.cases]]
+state = "We've been on the platform for two years but want our money back now that a competitor launched."
+expected = false
+
+[[task.cases]]
+state = "It's been 29 days since we purchased and nobody on the team has ever logged in; we went with a different vendor."
+expected = true
+
+[[task.cases]]
+state = "We bought the plan 35 days ago and never activated a single seat — can the 30-day guarantee still apply?"
+expected = false
+
+[[task.cases]]
+state = "We're 28 days in and the whole team uses it daily, but since it's within 30 days we'd like a refund."
+expected = false
+
+[[task.cases]]
+state = "We bought the API plan 10 days ago and consumed about 90% of the request quota while evaluating. We won't keep it — refund that too."
+expected = false
+
+[[task.cases]]
+state = "The subscription charged my card this morning; we never finished setting up the account. Please refund."
+expected = true
+
+[[task.cases]]
+state = "I bought ten extra seats a fortnight ago for a project that got shelved; the seats were never assigned to anyone."
+expected = true
+
+[[task.cases]]
+state = "The team has used the service daily for three months, but we're moving to a competitor, so refund what's left of our annual plan."
+expected = false
+
+[[task.cases]]
+state = "Signed up on Tuesday for a migration that isn't happening anymore. Full refund, please."
+expected = true
+
+[[task.cases]]
+state = "Day 31 today — I was travelling and forgot entirely. The product was never installed."
+expected = false
+
+[[task.cases]]
+state = "Paid on Friday for the team plan, then procurement told us to use the sanctioned vendor instead. Zero activity on the account."
+expected = true
+
+[[task.cases]]
+state = "We've been using the product for a year; the price just went up — can we get the difference refunded?"
+expected = false
+
+[[task.cases]]
+state = "We used it for one day after our 30-day trial ended. Please refund the month."
+expected = false
+
+[[task.cases]]
+state = "We purchased on the 1st and never opened it; the company has since been wound down."
+expected = true
+
+[[task.cases]]
+state = "We paid for the year last week, then our funding fell through and we're shutting down. Nobody has used it."
+expected = true
+
+[[task.cases]]
+state = "A seat was added three weeks ago but the contractor never started; can that seat be refunded?"
+expected = true
+
+[[task]]
+id = "urgency_v2"
+type = "noul"
+
+[task.question]
+instructions = "The message conveys urgency or time-sensitivity"
+
+[[task.cases]]
+state = "Go-live is Monday 09:00 CET and the payment sandbox is still rejecting our test transactions."
+expected = true
+
+[[task.cases]]
+state = "If this can't be resolved before the 5 PM EST wire cutoff today, we lose the rate lock on the invoice."
+expected = true
+
+[[task.cases]]
+state = "Ideally before end of quarter, but honestly no rush — whenever you have bandwidth."
+expected = false
+
+[[task.cases]]
+state = "This bug affects every one of our users, but there's genuinely no deadline — just fix it properly when you can."
+expected = false
+
+[[task.cases]]
+state = "I need an answer today because our counsel needs it for tomorrow's filing."
+expected = true
+
+[[task.cases]]
+state = "Love the new export options, by the way — really nice work."
+expected = false
+
+[[task.cases]]
+state = "I only have cell reception for the next 20 minutes while the site team is standing by; I need the go/no-go now."
+expected = true
+
+[[task.cases]]
+state = "Can someone confirm the proration math today? We'd like to downgrade before tonight's billing run."
+expected = true
+
+[[task.cases]]
+state = "Do you have a printed catalog you could mail us? No rush at all."
+expected = false
+
+[[task.cases]]
+state = "Our launch event is tomorrow at 10 and the registration page still shows last year's date."
+expected = true
+
+[[task.cases]]
+state = "For Q3 planning, could you share capacity guidance when convenient?"
+expected = false
+
+[[task.cases]]
+state = "I need this decision by midnight today, or I have to escalate it to the board."
+expected = true
+
+[[task.cases]]
+state = "Whenever this drops, it'll be helpful for next year's budget cycle — no hurry."
+expected = false
+
+[[task.cases]]
+state = "The all-hands starts in an hour; can someone look at the broken badge before it's on screen?"
+expected = true
+
+[[task.cases]]
+state = "The regulator has set a response deadline of Friday 17:00; silence will be taken as acceptance of the findings."
+expected = true
+
+[[task.cases]]
+state = "Our CEO asked about this yesterday, so there's no urgency on your side — we'll follow up next month."
+expected = false
+
+[[task.cases]]
+state = "This is blocking our quarterly close — the auditors are waiting on the export. Anything today helps."
+expected = true
+
+[[task.cases]]
+state = "Circling back on the badge color request from last month — no deadline at all, just tidying my inbox."
+expected = false
+
+[[task]]
+id = "secret_leak_v2"
+type = "noul"
+
+[task.question]
+instructions = "The text contains a password, API key, token, or private key that should be handled as a secret"
+
+[[task.cases]]
+state = "For the reports job, connect with postgresql://reporting:Tw9vKz2QmN4b@10.0.4.12/analytics from the jump box."
+expected = true
+
+[[task.cases]]
+state = "The failing request had the header: Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.7fLxQx5vBd4Tq8ZcWq0uHf3Rexample"
+expected = true
+
+[[task.cases]]
+state = "Please add my deploy key to the allowlist: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH8vpLg7Xq3rT2X2mFk9cY4BdQ1WzN example@laptop"
+expected = false
+
+[[task.cases]]
+state = "The password in the vault shows as ████████ per the masking policy; rotate it quarterly."
+expected = false
+
+[[task.cases]]
+state = "We keep JWT_SECRET in AWS Parameter Store with rotation; the service loads it at boot."
+expected = false
+
+[[task.cases]]
+state = "My password is the same as my dog's name — Biscuit — shocking, I know."
+expected = true
+
+[[task.cases]]
+state = "Reproduce it with: curl -u admin:hunter2 https://internal.example.com/health"
+expected = true
+
+[[task.cases]]
+state = "Two-factor authentication is enforced for all admin accounts."
+expected = false
+
+[[task.cases]]
+state = "In examples, always use the placeholder sk-live-XXXX-XXXX-XXXX from the docs — never a real key."
+expected = false
+
+[[task.cases]]
+state = "-----BEGIN OPENSSH PRIVATE KEY----- b3BlbnNzaC1rZXktdjEAAAAAGmZnRyeXQgb25seSBmb3IgdGVzdGluZwAAAA -----END OPENSSH PRIVATE KEY-----"
+expected = true
+
+[[task.cases]]
+state = "Rotate the service account keys this week using the standard runbook; report completion in the channel."
+expected = false
+
+[[task.cases]]
+state = "JWT_SECRET was rotated last week; the old value had ended up in a screenshot, so rotate it again just in case."
+expected = false
+
+[[task.cases]]
+state = "CLOUDINARY_URL=cloudinary://9812345678901:aa4f92c7BzQ0wXyT1vR3sN5mKjH8dL6pF@acme"
+expected = true
+
+[[task.cases]]
+state = "Attached the public bucket policy — arn:aws:s3:::acme-public/* is world-readable by design."
+expected = false
+
+[[task.cases]]
+state = "In your example .env, set OPENAI_API_KEY=your-key-here — don't paste anything real."
+expected = false
+
+[[task.cases]]
+state = "Here's the SSH command: ssh -i ~/.ssh/id_ed25519 deploy@host"
+expected = false
+
+[[task]]
+id = "frustration_level_v2"
+type = "score"
+
+[task.question]
+instructions = "How frustrated does the customer appear?"
+criteria = [
+    "Calm, just stating facts",
+    "Frustrated but civil",
+    "Very angry, using strong language",
+]
+
+[[task.cases]]
+state = "Quick one — how do I reorder the columns in the report view?"
+expected = 0
+
+[[task.cases]]
+state = "The nightly sync failed at 03:14; logs are attached."
+expected = 0
+
+[[task.cases]]
+state = "We haven't changed anything on our side, but the requests now fail with 429 — is there an issue on your end?"
+expected = 0
+
+[[task.cases]]
+state = "This is the third week in a row the totals have been off. It would be great if this could finally get resolved."
+expected = 1
+
+[[task.cases]]
+state = "I asked about this two days ago and haven't heard back; a reply would really help us stay unblocked."
+expected = 1
+
+[[task.cases]]
+state = "We were told this was fixed in the last release, but we're still hitting it. Disappointing."
+expected = 1
+
+[[task.cases]]
+state = "I'd like to register a formal complaint about the repeated outages; this is affecting our SLAs."
+expected = 1
+
+[[task.cases]]
+state = "Oh great, another 'temporary' workaround. Wonderful."
+expected = 1
+
+[[task.cases]]
+state = "This is ridiculous!! I've re-sent the same five documents FOUR TIMES and your team keeps asking for them again."
+expected = 2
+
+[[task.cases]]
+state = "Enough. This is the FOURTH time the deploy has failed because of your CLI. Open a ticket AND call me."
+expected = 2
+
+[[task.cases]]
+state = "I am beyond done with this. Every single update breaks something else. Pathetic."
+expected = 2
+
+[[task.cases]]
+state = "STOP emailing me marketing garbage after I unsubscribed THREE TIMES."
+expected = 2
+
+[[task.cases]]
+state = "Noticed the dashboard tiles are misaligned on ultrawide — happy to attach a screenshot."
+expected = 0
+
+[[task.cases]]
+state = "Every. Single. Week. I lose work to this thing. I genuinely can't take it anymore."
+expected = 2
+
+[[task.cases]]
+state = "Could you confirm whether the 2FA app supports multiple accounts?"
+expected = 0
+
+[[task.cases]]
+state = "Look — I've been through three support agents and keep re-explaining the same thing. At least read the ticket first."
+expected = 1
+
+[[task.cases]]
+state = "The export is missing a column again. This keeps happening and I've stopped reporting it."
+expected = 1
+
+[[task.cases]]
+state = "Why is this STILL broken?? I've emailed three times. Do you even read these?"
+expected = 2
+
+[[task]]
+id = "incident_severity_v2"
+type = "score"
+
+[task.question]
+instructions = "Rate the operational severity of this incident report."
+criteria = [
+    "Minor cosmetic issue with no functional impact",
+    "Low impact; a workaround exists",
+    "Major annoyance; a core feature is degraded with no easy workaround",
+    "Critical; a core feature is unusable for most or all users with no workaround",
+    "Catastrophic; the entire service is down or data has been lost",
+]
+
+[[task.cases]]
+state = "One customer reports the settings page shows a stretched logo on iPad Mini screens only."
+expected = 0
+
+[[task.cases]]
+state = "Typo: the pricing page says 'Managment' in the hero."
+expected = 0
+
+[[task.cases]]
+state = "The mobile app can't attach photos; users can still upload from the web app."
+expected = 1
+
+[[task.cases]]
+state = "CSV export drops the final row for reports over 1,000 rows; exporting in two batches works."
+expected = 1
+
+[[task.cases]]
+state = "Every login takes 25-40 seconds since the auth upgrade, but eventually succeeds."
+expected = 2
+
+[[task.cases]]
+state = "All file uploads in the EU region have failed since 08:00; uploads are the primary workflow for that region."
+expected = 3
+
+[[task.cases]]
+state = "Card payments are rejected for every customer since the payment gateway's certificate expired."
+expected = 3
+
+[[task.cases]]
+state = "A migration dropped the production orders table; the latest backup is 26 hours old."
+expected = 4
+
+[[task.cases]]
+state = "All APIs and the web app return connection refused in every region since 14:02."
+expected = 4
+
+[[task.cases]]
+state = "Dark-mode contrast on the settings pane makes labels hard to read; toggling back to light mode fixes it."
+expected = 1
+
+[[task.cases]]
+state = "The public API has rejected essentially all requests with 401 since 06:30; the docs portal still works."
+expected = 3
+
+[[task.cases]]
+state = "The weekly digest email sometimes lands in spam since the domain change; whitelisting it works for users."
+expected = 1
+
+[[task.cases]]
+state = "The footer copyright year still says 2025."
+expected = 0
+
+[[task.cases]]
+state = "The date picker defaults to the wrong month; selecting the date manually works."
+expected = 1
+
+[[task]]
+id = "review_sentiment_v2"
+type = "score"
+
+[task.question]
+instructions = "Rate the sentiment of this product review on a five-level scale."
+criteria = [
+    "Extremely negative, one star",
+    "Negative, two stars",
+    "Neutral or mixed, three stars",
+    "Positive, four stars",
+    "Extremely positive, five stars",
+]
+
+[[task.cases]]
+state = "Absolutely love spending $400 to hand-sand every joint myself. Flawless craftsmanship. Would be hilarious if it weren't my kitchen."
+expected = 0
+
+[[task.cases]]
+state = "Broke after eleven days and support never replied. Zero stars."
+expected = 0
+
+[[task.cases]]
+state = "I don't understand the hype. It's an expensive paperweight."
+expected = 0
+
+[[task.cases]]
+state = "I wanted to love it — the design is brilliant — but three replacements in two months means I'm done."
+expected = 1
+
+[[task.cases]]
+state = "Meh. It works, barely. You get what you pay for, I guess."
+expected = 1
+
+[[task.cases]]
+state = "Solid build, but setup was confusing and the app crashed repeatedly until the latest update."
+expected = 2
+
+[[task.cases]]
+state = "The service was wonderful; the product itself is pretty average."
+expected = 2
+
+[[task.cases]]
+state = "Mixed bag: the camera is great, but the battery life is terrible."
+expected = 2
+
+[[task.cases]]
+state = "Good value after two months of daily use; a few gripes with the strap, but nothing deal-breaking."
+expected = 3
+
+[[task.cases]]
+state = "Reliable and does everything promised; the companion app could be better."
+expected = 3
+
+[[task.cases]]
+state = "So good I bought a second one for my sister. Fast shipping too."
+expected = 4
+
+[[task.cases]]
+state = "Two years of daily use and it still runs like new. Zero regrets."
+expected = 4
+
+[[task.cases]]
+state = "Cheap tablets exist; this one proves they should cost less. Screen is dim, updates already stopped."
+expected = 1
+
+[[task.cases]]
+state = "Camera is best-in-class, everything else is just fine. It's fine."
+expected = 2
+
+[[task.cases]]
+state = "Bought this for my daughter on a whim and she hasn't put it down in three weeks. Wonderful."
+expected = 4
+
+[[task.cases]]
+state = "Save your money. The strap frayed in a week, the screen arrived scratched, and the app logged me out mid-workout."
+expected = 0
+
+[[task.cases]]
+state = "Good starter kit for the price; pros will outgrow it, but I can't fault it at this tier."
+expected = 3
+
+[[task.cases]]
+state = "Third one I've bought — the family keeps stealing them. Take my money."
+expected = 4
+
+[[task]]
+id = "expense_category"
+type = "choice"
+
+[task.question]
+instructions = "Which expense category does this business expense belong to?"
+
+[task.question.criteria]
+meals = "Food or drink for the employee or their own team while working or traveling"
+travel = "Transportation (flights, trains, taxis, rideshare), lodging, and related travel fees"
+office_supplies = "Physical items and equipment for offices or home offices"
+software = "Digital tools: licenses, subscriptions, SaaS, and app purchases"
+client_entertainment = "Food, events, tickets, or gifts provided to clients, prospects, or job candidates"
+
+[[task.cases]]
+state = "Taxi from O'Hare to the client's downtown Chicago office, $42 plus tip."
+expected = "travel"
+
+[[task.cases]]
+state = "Dinner at Ruth's Chris with the Acme procurement team to celebrate the renewal, $310."
+expected = "client_entertainment"
+
+[[task.cases]]
+state = "Adobe Creative Cloud annual renewal for the design pod, $599."
+expected = "software"
+
+[[task.cases]]
+state = "Two standing desks and monitor arms for the new hires' home offices, $780."
+expected = "office_supplies"
+
+[[task.cases]]
+state = "Airbnb for a three-night conference stay, $410 total."
+expected = "travel"
+
+[[task.cases]]
+state = "Round-trip economy flights to Berlin for the trade show, plus the train to Amsterdam afterwards, $890."
+expected = "travel"
+
+[[task.cases]]
+state = "Notion Team workspace renewal, $540 for the year."
+expected = "software"
+
+[[task.cases]]
+state = "Coffee and pastries, $38, laid on for the candidate's morning of on-site interviews."
+expected = "client_entertainment"
+
+[[task.cases]]
+state = "Team lunch for four during the offsite, $86."
+expected = "meals"
+
+[[task.cases]]
+state = "MacBook Pro 14\" for the new designer, $2,399."
+expected = "office_supplies"
+
+[[task.cases]]
+state = "Drive-thru lunch both days at the conference, $22 total."
+expected = "meals"
+
+[[task.cases]]
+state = "Quarterly LinkedIn Learning licenses for the finance team — $240."
+expected = "software"
+
+[[task.cases]]
+state = "Toll charges plus parking while driving my own car to the client site in Oslo, 320 kr."
+expected = "travel"
+
+[[task.cases]]
+state = "Flowers sent to the client's office congratulating them on their funding round."
+expected = "client_entertainment"
+
+[[task.cases]]
+state = "Monthly Zoom Business plan for the remote team, $199."
+expected = "software"
+
+[[task.cases]]
+state = "Replacement headphones for an engineer who lost theirs on a business trip, $120."
+expected = "office_supplies"
+
+[[task.cases]]
+state = "Airport lounge access during the layover on the client trip, $45."
+expected = "travel"
+
+[[task.cases]]
+state = "Paper and toner for the office printer, $85."
+expected = "office_supplies"
+
+[[task]]
+id = "oncall_route"
+type = "choice"
+
+[task.question]
+instructions = "Which on-call team should this production issue be routed to?"
+
+[task.question.criteria]
+payments = "Card processing, billing pipelines, invoicing logic, and payment gateway integrations"
+web = "The user-facing site and app: page rendering, client-side behavior, and browser errors"
+infra = "Cloud, compute, deployments, networking, and third-party provider outages"
+data = "ETL pipelines, data freshness, warehouse jobs, and analytics/reporting correctness"
+model = "The ML models: prediction quality, training jobs, and model outputs"
+
+[[task.cases]]
+state = "Alert: checkout-service error rate is 12% (baseline 0.1%); the stack trace is full of Stripe timeout exceptions."
+expected = "payments"
+
+[[task.cases]]
+state = "Users on iOS 17 report the confirmation dialog renders blank; the API returns 200 with valid JSON."
+expected = "web"
+
+[[task.cases]]
+state = "Deploy froze mid-rollout at 50% of pods; the rest are in CrashLoopBackOff after the helm upgrade timed out."
+expected = "infra"
+
+[[task.cases]]
+state = "The nightly orders-to-warehouse ETL is 14 hours behind; storefronts are showing yesterday's stock counts."
+expected = "data"
+
+[[task.cases]]
+state = "API pods sit at 100% CPU since the v172 release and the autoscaler has maxed out at 30 replicas."
+expected = "infra"
+
+[[task.cases]]
+state = "Fraud model false-positive rate doubled since Monday's retrain; 200 legitimate orders were blocked overnight."
+expected = "model"
+
+[[task.cases]]
+state = "A rep asks why their customer's inventory dashboard is empty; the store-import job exited 1 at 03:12 with no rows loaded."
+expected = "data"
+
+[[task.cases]]
+state = "Users report the site won't load; the status page shows a regional S3 outage and the CDN can't fetch bundles."
+expected = "infra"
+
+[[task.cases]]
+state = "Cart totals are off by one cent on multi-item carts when store credit and proration are combined."
+expected = "payments"
+
+[[task.cases]]
+state = "The settings page intermittently shows NaN instead of weights across all browsers; the console shows a TypeError in bundle 2.3.1."
+expected = "web"
+
+[[task.cases]]
+state = "Invoice PDFs are generating with line items in the wrong order; totals are correct."
+expected = "payments"
+
+[[task.cases]]
+state = "The cookie-consent banner blocks the nav buttons on mobile in landscape."
+expected = "web"
+
+[[task.cases]]
+state = "The nightly forecast-training job ran out of memory and hasn't produced a model since Wednesday."
+expected = "model"
+
+[[task.cases]]
+state = "The revenue dashboard shows blank for EMEA since this morning's dbt run."
+expected = "data"
+
+[[task.cases]]
+state = "Users on Android 15 see a white screen on launch; iOS is fine."
+expected = "web"
+
+[[task.cases]]
+state = "The usage-based billing meter stopped incrementing for all accounts yesterday."
+expected = "payments"
+
+[[task.cases]]
+state = "Pods are being evicted across nodes in eu-west due to memory pressure."
+expected = "infra"
+
+[[task]]
+id = "churn_risk"
+type = "score"
+
+[task.question]
+instructions = "How likely is this customer to cancel their subscription soon, based on this message?"
+criteria = [
+    "Committed: renewed, upgraded, or is actively expanding usage",
+    "Content: satisfied overall, at most minor friction and no signals of leaving",
+    "Concerned: recurring unresolved problems or clear disappointment; satisfaction is dropping",
+    "Evaluating: comparing alternatives, asking about contract end terms, or setting conditions to stay",
+    "Leaving: explicit cancellation or non-renewal notice",
+]
+
+[[task.cases]]
+state = "We just upgraded to the annual Scale plan and the whole team is on board — loving the new dashboards."
+expected = 0
+
+[[task.cases]]
+state = "Usage is up 40% since the redesign. Can we add 20 more seats while we're at it?"
+expected = 0
+
+[[task.cases]]
+state = "The QBR went well. A few wishlist items — more export formats — but overall we're happy."
+expected = 1
+
+[[task.cases]]
+state = "Onboarding was rocky, but support recovered well and we're cautiously optimistic."
+expected = 1
+
+[[task.cases]]
+state = "This is the third month in a row our totals don't reconcile. We can't run payroll forecasts like this."
+expected = 2
+
+[[task.cases]]
+state = "The tool works, but the team keeps reverting to spreadsheets, so we're using it less and less. Not sure it's earning its spot."
+expected = 2
+
+[[task.cases]]
+state = "Could you send us the notice-period terms in our contract? We'd also like to know what a full data export includes."
+expected = 3
+
+[[task.cases]]
+state = "Unless usage-based pricing ships this year, we'll have to look elsewhere once we scale past the current tier."
+expected = 3
+
+[[task.cases]]
+state = "Effective at the end of the current billing period, please cancel our subscription and confirm in writing."
+expected = 4
+
+[[task.cases]]
+state = "Please close our account — the migration to Acme finished last week."
+expected = 4
+
+[[task.cases]]
+state = "As of today we're giving our 30-day notice under section 8.2; we're done."
+expected = 4
+
+[[task.cases]]
+state = "Honestly it's fine, but for what we pay I expected the reporting to be further along by now."
+expected = 2
+
+[[task.cases]]
+state = "Between us, our new platform owner is benchmarking tooling across the board, so expect questions."
+expected = 3
+
+[[task.cases]]
+state = "Occasional hiccups with search, sure, but our workflows run end-to-end and the value is clear."
+expected = 1
+
+[[task.cases]]
+state = "Our CSM left six weeks ago and nobody has reached out since, so we're a bit lost."
+expected = 2
+
+[[task.cases]]
+state = "Renewal confirmed on our side — please send the updated MSA for signature."
+expected = 0
+
+[[task.cases]]
+state = "We're adding two more teams next quarter — what does the enterprise tier include?"
+expected = 0
+
+[[task.cases]]
+state = "Please stop auto-renewing us; we'll decide by the deadline whether to continue."
+expected = 3
+
+[[task]]
+id = "lead_qualification"
+type = "score"
+
+[task.question]
+instructions = "How qualified is this inbound lead for the enterprise sales team?"
+criteria = [
+    "Unqualified: no budget or realistic commercial use case — a student, a hobby project, a job seeker, or a vendor pitch",
+    "Low: exploratory, small-team, no timeline, or unclear needs",
+    "Medium: a real team problem with likely budget and a decision within the next quarter or so",
+    "High: clear budget and authority, an active purchase process, and an enterprise-scale need",
+]
+
+[[task.cases]]
+state = "Hi! I'm a CS student building a climate dashboard for my thesis. Do you offer an education discount?"
+expected = 0
+
+[[task.cases]]
+state = "Hi, I sell lead-gen tooling — I think we could partner; here's my deck."
+expected = 0
+
+[[task.cases]]
+state = "Fun tool! Using the free tier to schedule my D&D group's sessions. Works great so far."
+expected = 0
+
+[[task.cases]]
+state = "We're a four-person studio and the free tier covers us for now. Does the Pro plan add Zapier support? Just checking."
+expected = 1
+
+[[task.cases]]
+state = "Do you have an API? I might want to build an integration at some point, not sure what yet."
+expected = 1
+
+[[task.cases]]
+state = "I'm evaluating dashboard tools for our 40-person support team. Small budget to start; I'd want to pilot with five users next month."
+expected = 2
+
+[[task.cases]]
+state = "I run a 12-person agency and we waste about 10 hours a week on client reporting by hand; want to fix that before three new clients start next month."
+expected = 2
+
+[[task.cases]]
+state = "We need governed BI for our January audit. I'm building the shortlist now, but the purchase won't happen before October."
+expected = 2
+
+[[task.cases]]
+state = "Our CTO asked me to evaluate vendors to replace our homegrown forecasting stack — 300 engineers on the platform, budget approved, decision by end of next quarter."
+expected = 3
+
+[[task.cases]]
+state = "VP Ops at a 900-store retailer here. The WMS contract expires in five weeks and the board approved a $2M migration budget. Can we start a POC this week?"
+expected = 3
+
+[[task.cases]]
+state = "Evaluating vendors for our 60-person sales team; procurement needs the final three by end of May."
+expected = 2
+
+[[task.cases]]
+state = "Saw the demo at a booth — cool stuff. Bookmarking it for a future project."
+expected = 1
+
+[[task.cases]]
+state = "Our platform decision is locked to your competitor until 2028, but we're fans of the product."
+expected = 0
+
+[[task.cases]]
+state = "The CFO approved a three-year contract budget and our security review closes this week."
+expected = 3
+
+[[task.cases]]
+state = "We're a 500-person insurer and our RFP for a data platform goes out next month."
+expected = 3
+
+[[task.cases]]
+state = "Curious about pricing for a three-person bookkeeping shop."
+expected = 1
+
+[[task]]
+id = "app_review_intent"
+type = "choice"
+
+[task.question]
+instructions = "What kind of app review is this?"
+
+[task.question.criteria]
+bug_report = "Describes something in the app that is broken or behaves wrongly"
+feature_request = "Asks for new functionality, content, or settings"
+praise = "Positive feedback about the app or the team"
+pricing_billing = "Subscription, pricing, refund, or payment questions and complaints"
+
+[[task.cases]]
+state = "Crashes every time I try to open a draft saved offline. Pixel 8, v3.2.1."
+expected = "bug_report"
+
+[[task.cases]]
+state = "Any chance of a home-screen widget for the workout streak counter?"
+expected = "feature_request"
+
+[[task.cases]]
+state = "Absolutely worth the download — the offline mode saved a four-hour flight."
+expected = "praise"
+
+[[task.cases]]
+state = "How do I get a refund for the annual plan? I meant to buy monthly."
+expected = "pricing_billing"
+
+[[task.cases]]
+state = "Since the last update, the widget shows yesterday's totals until I force-quit it."
+expected = "bug_report"
+
+[[task.cases]]
+state = "Please support split-screen on tablets; taking notes beside PDFs would complete this."
+expected = "feature_request"
+
+[[task.cases]]
+state = "Charged twice after switching devices; sort it out before I dispute it with my card provider."
+expected = "pricing_billing"
+
+[[task.cases]]
+state = "The devs actually listen — the flags I asked for in December are in. Remarkable pace."
+expected = "praise"
+
+[[task.cases]]
+state = "Login with my managed Google account loops forever on my work profile; the personal account is fine."
+expected = "bug_report"
+
+[[task.cases]]
+state = "The streak counter reset at midnight in the wrong timezone — I lost a 45-day streak because I was traveling."
+expected = "bug_report"
+
+[[task.cases]]
+state = "I keep getting a 'sync failed' error on iOS when my vault has more than 100 notes."
+expected = "bug_report"
+
+[[task.cases]]
+state = "Would love a way to share templates with my team without sending exports."
+expected = "feature_request"
+
+[[task.cases]]
+state = "The subscription renewed at full price even though I cancelled the trial before it ended."
+expected = "pricing_billing"
+
+[[task.cases]]
+state = "The new offline maps are a game changer. Thank you!"
+expected = "praise"
+
+[[task.cases]]
+state = "Two years and still no dark mode. Every other app has it. Sort it out."
+expected = "feature_request"
+
+[[task.cases]]
+state = "How do I switch from the annual plan to monthly billing?"
+expected = "pricing_billing"
+
+[[task]]
+id = "content_moderation"
+type = "choice"
+
+[task.question]
+instructions = "Which moderation category does this user post fall under?"
+
+[task.question.criteria]
+harassment = "Insults, abuse, or hostile attacks on a person or group"
+threat = "Stated intent to harm a specific person, doxxing, or incitement of violence"
+self_harm = "Expressing intent or desire to hurt oneself, or encouraging others to do so"
+spam = "Unsolicited promotion, chain messages, or repeated irrelevant content, often with links"
+none = "Legitimate content that violates no rules"
+
+[[task.cases]]
+state = "You're pathetic. Nobody in this community wants you here. Log off and stay off."
+expected = "harassment"
+
+[[task.cases]]
+state = "🔥🔥 GAIN 5000 FOLLOWERS OVERNIGHT!! Click now before it's gone bit.ly/f4stf0ll0w"
+expected = "spam"
+
+[[task.cases]]
+state = "I don't think anyone would notice if I was gone. Tired of pretending everything's fine."
+expected = "self_harm"
+
+[[task.cases]]
+state = "Does anyone know why my posts keep getting flagged? I just shared my parkrun time."
+expected = "none"
+
+[[task.cases]]
+state = "Post his home address again and he'll never type another word online. We know which school his kids go to."
+expected = "threat"
+
+[[task.cases]]
+state = "People who main Mercy are why ranked will never be competitive. Bottom-tier humans."
+expected = "harassment"
+
+[[task.cases]]
+state = "Congrats on the launch! We help startups like yours 10x their pipeline — want a free growth audit? I'll DM you the details."
+expected = "spam"
+
+[[task.cases]]
+state = "Day 60 self-harm free today. If you're struggling, my DMs are open."
+expected = "none"
+
+[[task.cases]]
+state = "First snow of the season! Get the wax out, skiers ⛷️"
+expected = "none"
+
+[[task.cases]]
+state = "Send this to 10 friends for good luck or Bill Gates will stop sending you money!!1"
+expected = "spam"
+
+[[task.cases]]
+state = "Imagine spending real money to look this bad at the game. Some people's parents really never said no."
+expected = "harassment"
+
+[[task.cases]]
+state = "Tell your marketing girl to watch herself walking to her car."
+expected = "threat"
+
+[[task.cases]]
+state = "Join my VIP signals group — 92% win rate 🚀 t.me/whalesclub"
+expected = "spam"
+
+[[task.cases]]
+state = "To the mod who removed my thread last week — my bad for missing the pinned rules post."
+expected = "none"
+
+[[task.cases]]
+state = "Your guide got me through a rough patch — thank you."
+expected = "none"
+
+[[task.cases]]
+state = "How much do mods pay you to keep quiet about the bans? Rats."
+expected = "harassment"
+
+[[task.cases]]
+state = "The devs should be fired for this patch. Useless clowns."
+expected = "harassment"
+
+[[task.cases]]
+state = "Found a wallet on 5th street with cash inside — DM me to claim it."
+expected = "none"
+
+[[task]]
+id = "code_review_intent"
+type = "choice"
+
+[task.question]
+instructions = "What is the primary concern of this code review comment?"
+
+[task.question.criteria]
+bug = "Points out incorrect behavior or a defect that will produce wrong results"
+performance = "Inefficiency: unnecessary work, N+1 queries, or hot-path waste"
+security = "A vulnerability: injection, missing authorization, or sensitive data exposure"
+style = "Idioms and conventions: naming, formatting, and language best practices on correct code"
+refactor = "Structural reorganization of correct code: extracting, splitting, or moving pieces for clarity"
+nit = "Trivial preference or typo; safe for the author to ignore"
+
+[[task.cases]]
+state = "Ingesting from the mobile SDK will raise KeyError here — that client omits `group`. Handle the missing key."
+expected = "bug"
+
+[[task.cases]]
+state = "Hoist the json.dumps(config) call out of the loop; you re-serialize the same config on every request."
+expected = "performance"
+
+[[task.cases]]
+state = "Concatenating user_id into this SQL string is a textbook injection point the moment the value isn't validated; use a bound parameter."
+expected = "security"
+
+[[task.cases]]
+state = "`if len(rows) > 0` reads better as `if rows`."
+expected = "style"
+
+[[task.cases]]
+state = "Typo in the variable name: `recieve_metrics` should be `receive_metrics`."
+expected = "nit"
+
+[[task.cases]]
+state = "This 300-line endpoint does authorization, logging, and email. Please split it; as is, none of it is testable."
+expected = "refactor"
+
+[[task.cases]]
+state = "The timezone is parsed once at login. If the user travels, notifications fire at the original zone's local times — subtle but real."
+expected = "bug"
+
+[[task.cases]]
+state = "A bare `except Exception: pass` here swallows disk-full errors, and the retry loop then spins forever on a wedged write. Catch narrowly."
+expected = "bug"
+
+[[task.cases]]
+state = "Each `.author.name` in the template triggers its own query — one page view makes 200 queries."
+expected = "performance"
+
+[[task.cases]]
+state = "This endpoint takes user_id straight from the request; any authenticated user can list other users' invoices by changing the URL."
+expected = "security"
+
+[[task.cases]]
+state = "Use pathlib here instead of the os.path string munging; the codebase is mid-migration and this file predates the convention."
+expected = "style"
+
+[[task.cases]]
+state = "I would have named this `job_display`, but I don't feel strongly — dealer's choice."
+expected = "nit"
+
+[[task.cases]]
+state = "This module uses `Optional[str]` everywhere; let's not start mixing in bare `str | None`."
+expected = "style"
+
+[[task.cases]]
+state = "The exception message is rendered back to the client and includes the stack trace with the DB host. Redact it."
+expected = "security"
+
+[[task.cases]]
+state = "Can we drop the `# TODO: remove after migration` now that the migration shipped?"
+expected = "nit"
+
+[[task.cases]]
+state = "This cache key omits the tenant ID; users will see each other's data."
+expected = "security"
+
+[[task.cases]]
+state = "The import on line 4 is unused."
+expected = "nit"
+
+[[task]]
+id = "commit_intent"
+type = "choice"
+
+[task.question]
+instructions = "What is the primary purpose of this commit message?"
+
+[task.question.criteria]
+feature = "Adds new functionality or a new endpoint"
+fix = "Corrects broken or incorrect behavior"
+refactor = "Restructures existing code without changing behavior"
+docs = "Documentation: README, runbooks, and explanatory notes"
+test = "Adds or repairs tests"
+chore = "Tooling, dependencies, CI, and other housekeeping"
+
+[[task.cases]]
+state = "Correct exchange-rate rounding for zero-decimal currencies like JPY"
+expected = "fix"
+
+[[task.cases]]
+state = "Extract shared payload validation into its own module"
+expected = "refactor"
+
+[[task.cases]]
+state = "Note in CONTRIBUTING that integration tests skip when NO_DB=1"
+expected = "docs"
+
+[[task.cases]]
+state = "Bump flask to 3.0.3 and refresh the lockfile"
+expected = "chore"
+
+[[task.cases]]
+state = "Cover the midnight boundary in the attendance rollover tests"
+expected = "test"
+
+[[task.cases]]
+state = "Prevent silent data loss when the upload connection drops mid-stream"
+expected = "fix"
+
+[[task.cases]]
+state = "Add a per-tenant usage export endpoint"
+expected = "feature"
+
+[[task.cases]]
+state = "Set up a GitHub Action to lint PR titles"
+expected = "chore"
+
+[[task.cases]]
+state = "Delete the legacy canary flag and its dead code paths"
+expected = "refactor"
+
+[[task.cases]]
+state = "Add the circles layout behind a feature flag"
+expected = "feature"
+
+[[task.cases]]
+state = "Fix the flaky timezone test by freezing the clock in setUp"
+expected = "test"
+
+[[task.cases]]
+state = "Update README with the CUDA install path"
+expected = "docs"
+
+[[task.cases]]
+state = "Migrate the build to pyproject and consolidate the mypy config"
+expected = "chore"
+
+[[task.cases]]
+state = "Add PyPy to the nightly CI matrix"
+expected = "chore"
+
+[[task.cases]]
+state = "Support CSV delimiters other than commas on import"
+expected = "feature"
+
+[[task.cases]]
+state = "Remove the deprecated v1 client"
+expected = "refactor"
+
+[[task]]
+id = "recipe_cuisine"
+type = "choice"
+
+[task.question]
+instructions = "Which cuisine is this dish or ingredient list closest to?"
+
+[task.question.criteria]
+italian = "Pasta, risotto, olive oil, parmigiano, balsamic, basil; the food of Italy"
+french = "Butter, cream, wine reductions, stocks, herbes de Provence, souffles, and bistro classics"
+mexican = "Corn tortillas, chilies, cilantro, lime, cumin, queso, and salsas"
+indian = "Garam masala, turmeric, cumin seed, ginger, garlic, ghee, cream or yogurt, basmati rice, and Southern dosa/idli traditions"
+thai = "Lemongrass, galangal, makrut lime leaves, fish sauce, Thai basil, chilies, and jasmine rice"
+middle_eastern = "Tahini, sumac, za'atar, flatbread, lamb, pickled vegetables, and shawarma-style preparation"
+
+[[task.cases]]
+state = "Fresh pasta sheets layered with slow-braised ragù, béchamel, and parmigiano-reggiano, baked until golden."
+expected = "italian"
+
+[[task.cases]]
+state = "Veal shank braised in white wine, served over saffron risotto."
+expected = "italian"
+
+[[task.cases]]
+state = "Corn tortillas filled with slow-roasted pork carnitas, topped with diced onion, cilantro, lime, and salsa verde."
+expected = "mexican"
+
+[[task.cases]]
+state = "Roasted sweet potato and black bean tacos with chipotle crema, cotija, and pickled red onion."
+expected = "mexican"
+
+[[task.cases]]
+state = "Chicken simmered in a sauce of garam masala, turmeric, cumin, garlic, and ginger, finished with cream and served over basmati rice."
+expected = "indian"
+
+[[task.cases]]
+state = "Crisp fermented rice crepe wrapped around spiced potato masala, served with sambar and coconut chutney."
+expected = "indian"
+
+[[task.cases]]
+state = "Green curry paste with Thai basil, fish sauce, coconut milk, makrut lime leaves, and eggplant, with jasmine rice on the side."
+expected = "thai"
+
+[[task.cases]]
+state = "Glass noodle salad with lemongrass, bird's eye chilies, lime, mint, fish sauce, and crushed peanuts (yum woon sen)."
+expected = "thai"
+
+[[task.cases]]
+state = "Chicken braised in Burgundy wine with lardons, pearl onions, and cremini mushrooms."
+expected = "french"
+
+[[task.cases]]
+state = "Ratatouille of eggplant, zucchini, and tomato confit seasoned with herbes de Provence."
+expected = "french"
+
+[[task.cases]]
+state = "Chicken shawarma wrap with garlic toum, pickled turnips, and sumac onions."
+expected = "middle_eastern"
+
+[[task.cases]]
+state = "Sheet-pan chicken rubbed with za'atar and allspice, served with flatbread and a garlic-tahini sauce."
+expected = "middle_eastern"
+
+[[task.cases]]
+state = "Sweet crêpes with a warm compote of apple and Calvados."
+expected = "french"
+
+[[task.cases]]
+state = "Grape leaves stuffed with rice, pine nuts, and currants, served with lemon wedges."
+expected = "middle_eastern"
+
+[[task.cases]]
+state = "Silky custard with a caramelized sugar crust, served with shortbread."
+expected = "french"
+
+[[task.cases]]
+state = "Lentil soup with turmeric, ghee, garlic, and cumin, served with naan."
+expected = "indian"
+
+[[task.cases]]
+state = "Tacos al pastor with pineapple, onion, and cilantro on corn tortillas."
+expected = "mexican"
+
+[[task.cases]]
+state = "Falafel platter with hummus, tabbouleh, and pickled turnips."
+expected = "middle_eastern"
+
+[[task]]
+id = "question_duplicate"
+type = "noul"
+
+[task.question]
+instructions = "The two questions listed in the state are duplicates asking the same thing"
+
+[[task.cases]]
+state = "Q1: How do I reset my password?\nQ2: What's the procedure for resetting my login password?"
+expected = true
+
+[[task.cases]]
+state = "Q1: How do I reset my password?\nQ2: How do I reset my password without access to my email?"
+expected = false
+
+[[task.cases]]
+state = "Q1: Why does my battery drain so fast after the update?\nQ2: Ever since installing the new version my phone loses charge really quickly — what gives?"
+expected = true
+
+[[task.cases]]
+state = "Q1: Why does my battery drain so fast?\nQ2: How do I replace my battery?"
+expected = false
+
+[[task.cases]]
+state = "Q1: Can I get a refund for a digital purchase?\nQ2: Is it possible to obtain a reimbursement for a downloaded game?"
+expected = true
+
+[[task.cases]]
+state = "Q1: What's the best laptop for college?\nQ2: What's the best college for a CS degree?"
+expected = false
+
+[[task.cases]]
+state = "Q1: My Wi-Fi disconnects every few minutes — how do I fix it?\nQ2: Wi-Fi keeps dropping every few minutes. Any fix?"
+expected = true
+
+[[task.cases]]
+state = "Q1: Does creatine cause hair loss?\nQ2: Does creatine help muscle growth?"
+expected = false
+
+[[task.cases]]
+state = "Q1: How long does shipping take to Canada?\nQ2: What are the delivery times to Canadian addresses?"
+expected = true
+
+[[task.cases]]
+state = "Q1: How long does shipping take to Canada?\nQ2: How much does shipping to Canada cost?"
+expected = false
+
+[[task.cases]]
+state = "Q1: My kid deleted our user accounts — is anything recoverable?\nQ2: Accidentally removed all the accounts from the family plan; is there an undo?"
+expected = true
+
+[[task.cases]]
+state = "Q1: How much caffeine is in a shot of espresso?\nQ2: How many shots of espresso a day is too much?"
+expected = false
+
+[[task.cases]]
+state = "Q1: Why is my SSD so much slower than advertised?\nQ2: My SSD is way slower than what was promised on the box — why?"
+expected = true
+
+[[task.cases]]
+state = "Q1: How do I connect the printer to Wi-Fi?\nQ2: Can the printer work without Wi-Fi?"
+expected = false
+
+[[task.cases]]
+state = "Q1: Do you ship to PO boxes?\nQ2: Can orders be delivered to a PO box address?"
+expected = true
+
+[[task.cases]]
+state = "Q1: Is the MC-2000 compatible with macOS Sonoma?\nQ2: Does the MC-2000 work with Windows 11?"
+expected = false
+
+[[task]]
+id = "sql_injection_risk"
+type = "noul"
+
+[task.question]
+instructions = "The query construction in this code is vulnerable to SQL injection"
+
+[[task.cases]]
+state = "db.execute(\"SELECT * FROM users WHERE email = '\" + email + \"'\")"
+expected = true
+
+[[task.cases]]
+state = "db.execute(\"SELECT * FROM users WHERE email = %s\", (email,))"
+expected = false
+
+[[task.cases]]
+state = "query = f\"DELETE FROM sessions WHERE token = {request.args.get('token')}\""
+expected = true
+
+[[task.cases]]
+state = "sql = \"SELECT * FROM users WHERE email = \" + quote_literal(email)"
+expected = false
+
+[[task.cases]]
+state = "sort_col = request.form['sort']\ncursor.execute(f\"SELECT name FROM products ORDER BY {sort_col}\")"
+expected = true
+
+[[task.cases]]
+state = "cursor.execute(\"SELECT name FROM products ORDER BY created_at\")"
+expected = false
+
+[[task.cases]]
+state = "stmt = \"UPDATE users SET name = '%s' WHERE id = %d\" % (name, user_id)\ncursor.execute(stmt)"
+expected = true
+
+[[task.cases]]
+state = "stmt = sqlalchemy.text(\"SELECT * FROM users WHERE name = :name\").bindparams(name=name)"
+expected = false
+
+[[task.cases]]
+state = "db.exec_script(\"INSERT INTO logs VALUES ('\" + user_input + \"')\")"
+expected = true
+
+[[task.cases]]
+state = "if not user_id.isdigit(): abort(400)\ncursor.execute(f\"SELECT * FROM users WHERE id = {user_id}\")"
+expected = false
+
+[[task.cases]]
+state = "cursor.execute(\"SELECT * FROM logs LIMIT \" + request.query['n'])"
+expected = true
+
+[[task.cases]]
+state = "col = ALLOWED_SORT_COLS.get(request.form['sort'], 'created_at')\ncursor.execute(f\"SELECT name FROM products ORDER BY {col}\")"
+expected = false
+
+[[task.cases]]
+state = "result = session.query(User).filter_by(email=email).first()"
+expected = false
+
+[[task.cases]]
+state = "db.execute(f\"SELECT * FROM reports WHERE owner = '{user.email}'\")"
+expected = true
+
+[[task.cases]]
+state = "report_id = int(request.args['id'])\ndb.execute('SELECT * FROM reports WHERE id = %s', [report_id])"
+expected = false
+
+[[task]]
+id = "travel_policy_violation"
+type = "noul"
+
+[task.question]
+instructions = "The expense submission violates the company travel policy: hotels over $200/night, business class on flights under 8 hours, meals over $60/day, alcohol, premium rideshare tiers, rideshares where transit was available, and home-to-office commuting are not covered"
+
+[[task.cases]]
+state = "Hampton Inn Chicago, two nights at $185/night for the client onsite."
+expected = false
+
+[[task.cases]]
+state = "Hotel Theo, three nights at $209/night — it was the cheapest available during the conference."
+expected = true
+
+[[task.cases]]
+state = "Bar tab at the hotel lounge: two cocktails, $45, during the client dinner week."
+expected = true
+
+[[task.cases]]
+state = "Business class ORD to LHR (7h55m); it was only $400 more than economy."
+expected = true
+
+[[task.cases]]
+state = "United economy SFO to JFK (5h50m), $310."
+expected = false
+
+[[task.cases]]
+state = "Lyft from hotel to client office daily at $18/day for three days; no transit options within two miles of the client site."
+expected = false
+
+[[task.cases]]
+state = "Uber Black from the airport, $95 — it was pouring rain."
+expected = true
+
+[[task.cases]]
+state = "Day 1 receipts: breakfast $14, lunch $19, dinner $22 — total $55."
+expected = false
+
+[[task.cases]]
+state = "Fuel for driving my own car to HQ Monday through Friday last week, $40."
+expected = true
+
+[[task.cases]]
+state = "Delta economy ATL to MCO, $210 for the partner summit."
+expected = false
+
+[[task.cases]]
+state = "Courtyard by Marriott Austin, two nights at $178/night for training week."
+expected = false
+
+[[task.cases]]
+state = "Grand Hyatt client week: $200/night exactly for two nights."
+expected = false
+
+[[task.cases]]
+state = "Business class, SIN to YYZ (17h55m), $4,800."
+expected = false
+
+[[task.cases]]
+state = "Room-service breakfast, $24; total food spend for the day was $58."
+expected = false
+
+[[task.cases]]
+state = "First-class train ticket, $85 — no other class was available that day."
+expected = false
+
+[[task.cases]]
+state = "Dinner and two beers at the airport: $72 total."
+expected = true
+
+[[task.cases]]
+state = "Upgraded to premium economy on the 14-hour flight for $220 extra."
+expected = false
+
+[[task]]
+id = "contains_pii"
+type = "noul"
+
+[task.question]
+instructions = "The text contains personally identifiable information: an email address, phone number, home or postal address, government ID or Social Security number, date of birth, or bank and card account numbers"
+
+[[task.cases]]
+state = "My SSN is 531-24-8897; the refund form keeps rejecting it."
+expected = true
+
+[[task.cases]]
+state = "You can reach me at 512-555-0142 after 5pm."
+expected = true
+
+[[task.cases]]
+state = "My email is peggyDOTmueller AT exampleDOTcom — the address on file bounces."
+expected = true
+
+[[task.cases]]
+state = "I'm calling about my husband's account — it's under his name, not mine."
+expected = false
+
+[[task.cases]]
+state = "The Maple Street branch told me to call the number on my statement."
+expected = false
+
+[[task.cases]]
+state = "We'll be at my parents' place next week if you need to ship it: 388 Broderick St, Apt 4, San Francisco, CA 94117."
+expected = true
+
+[[task.cases]]
+state = "Routing 021000021, account 000123456789 — please wire the refund to the same account."
+expected = true
+
+[[task.cases]]
+state = "Invoice INV-2213 for $42.50 was paid on 3/14 by card."
+expected = false
+
+[[task.cases]]
+state = "I'm Tarjei Hadley, born 7 March 1989, and I need to verify my identity for the upgrade."
+expected = true
+
+[[task.cases]]
+state = "Just text me when it ships — you already have my number."
+expected = false
+
+[[task.cases]]
+state = "Our company, Blue Harbor Logistics, has three offices in Ontario."
+expected = false
+
+[[task.cases]]
+state = "Refund my card — you charged it twice, once on the 1st and once on the 2nd."
+expected = false
+
+[[task.cases]]
+state = "Texting from my mom's phone since mine broke — call hers: (415) 555-2728."
+expected = true
+
+[[task.cases]]
+state = "Published author Alex Chen joins our editorial board in March."
+expected = false
+
+[[task.cases]]
+state = "My passport number is N1234567; the renewal form asks for it."
+expected = true
+
+[[task.cases]]
+state = "My driver's license number is D1234-5678-9012."
+expected = true
+
+[[task.cases]]
+state = "Our store's tax ID is 88-1234567."
+expected = false
+
+[[task]]
+id = "contains_spoiler"
+type = "noul"
+
+[task.question]
+instructions = "This post contains spoilers: details of plot twists, character deaths, endings, or major reveals for a film or show"
+
+[[task.cases]]
+state = "I can't believe the wife was the killer all along — those last 20 minutes wrecked me."
+expected = true
+
+[[task.cases]]
+state = "Anyone else watching this weekend? Looking for a spoiler-free viewing party for the finale."
+expected = false
+
+[[task.cases]]
+state = "The final shot, with the door left ajar, confirms he never actually escaped the loop."
+expected = true
+
+[[task.cases]]
+state = "Saw it opening night. IMAX was the right call, and the cinematography deserves every award. Zero spoilers from me."
+expected = false
+
+[[task.cases]]
+state = "Well, I did NOT see the mentor twist coming. My jaw is still on the floor."
+expected = true
+
+[[task.cases]]
+state = "The movie takes about 30 minutes too long to get going, and yes, the pacing problems people mention are real."
+expected = false
+
+[[task.cases]]
+state = "Also, when the dog dies at the bridge scene, everyone in my theater was sobbing."
+expected = true
+
+[[task.cases]]
+state = "Just finished season two — the ensemble cast is fantastic, especially the lead."
+expected = false
+
+[[task.cases]]
+state = "The ending is ambiguous, but the wedding-dress scene near the end makes it pretty clear she chose herself."
+expected = true
+
+[[task.cases]]
+state = "Where can I watch this with subtitles? My local theater doesn't screen indies."
+expected = false
+
+[[task.cases]]
+state = "Skip the after-credits scene? Absolutely not — that's where they resurrect Mira."
+expected = true
+
+[[task.cases]]
+state = "Three episodes in and the season keeps getting better; the casting alone is worth it."
+expected = false
+
+[[task.cases]]
+state = "Watched through the finale — genuinely peak television. That last frame had me screaming."
+expected = false
+
+[[task.cases]]
+state = "Yes, Sam dies. I'm sorry, but you asked."
+expected = true
+
+[[task.cases]]
+state = "That episode's ending? Chef's kiss. You'll never guess who walks in at the last minute."
+expected = false
+
+[[task.cases]]
+state = "Season 3 killed off the main character in episode 2 and the show never recovered."
+expected = true
+
+[[task]]
+id = "formality_level"
+type = "score"
+
+[task.question]
+instructions = "How formal is the register of this message?"
+criteria = [
+    "Formal: ceremonial, legal, or official written register",
+    "Professional: standard business communication with greetings and sign-offs; contractions are fine",
+    "Casual: friendly and colloquial, everyday phrasing, emoticons or light slang",
+    "Intimate: heavy slang, abbreviations, and in-group shorthand; texts between close friends",
+]
+
+[[task.cases]]
+state = "Pursuant to our discussion of 14 March, please find attached the amended agreement for your review and execution."
+expected = 0
+
+[[task.cases]]
+state = "I am writing to express my profound dissatisfaction with the manner in which this matter has been handled, and to request a formal response within fourteen days."
+expected = 0
+
+[[task.cases]]
+state = "Hi Dana — thanks for the quick turnaround on this. I've left a few comments in the doc; let me know if anything is unclear."
+expected = 1
+
+[[task.cases]]
+state = "Hello, I'm following up on ticket 8823. Could you share an ETA for the fix? Thank you for your help."
+expected = 1
+
+[[task.cases]]
+state = "Hey! Just bumping this in case it got buried — no rush :)"
+expected = 2
+
+[[task.cases]]
+state = "Hey folks, quick heads-up about tomorrow's demo — take a look at the deck when you get a sec, thanks!"
+expected = 2
+
+[[task.cases]]
+state = "Sure thing! I'll ping you once the build is done — should be quick."
+expected = 2
+
+[[task.cases]]
+state = "lol ok that meeting could've been an email fr"
+expected = 3
+
+[[task.cases]]
+state = "omg you're the best!! 😭😭 ttyl"
+expected = 3
+
+[[task.cases]]
+state = "brb grabbing coffee, hmu if the pager goes off lol"
+expected = 3
+
+[[task.cases]]
+state = "It is with respect that I acknowledge receipt of your correspondence of Monday last."
+expected = 0
+
+[[task.cases]]
+state = "hey!! can u merge that? need it out the door"
+expected = 3
+
+[[task.cases]]
+state = "Hereby notifying all parties of the amended terms, effective immediately."
+expected = 0
+
+[[task.cases]]
+state = "Sick day 2mrw, barely survived"
+expected = 3
+
+[[task.cases]]
+state = "Per our call, I've attached the revised scope for your sign-off."
+expected = 1
+
+[[task.cases]]
+state = "yo that build is live, lmk if it's broke"
+expected = 3
+
+[[task]]
+id = "phishing_email"
+type = "noul"
+
+[task.question]
+instructions = "The message is a phishing or social-engineering attempt: impersonation of a bank, company, courier, or executive to steal credentials, card details, gift cards, or money via pressure and links"
+
+[[task.cases]]
+state = "Dear valued customer, your PayPal account has been limited. Verify your identity within 24 hours or it will be permanently suspended: paypa1-secure.example/verify"
+expected = true
+
+[[task.cases]]
+state = "I'm in back-to-back meetings — Andrew, quickly buy $500 in gift cards for the client welcome kits and text me the codes. Do not disturb my cell. —From: c.e.o.schmidt@acm3-mail.example"
+expected = true
+
+[[task.cases]]
+state = "Reminder from IT: mandatory password rotation happens Friday via the internal IdP portal at idp.acmecorp.example. We never ask for passwords by email."
+expected = false
+
+[[task.cases]]
+state = "Your parcel could not be delivered. Pay the $1.20 redelivery fee to release it: courier-trackin.example"
+expected = true
+
+[[task.cases]]
+state = "Invoice INV-44821 from Riverside Consulting for March landscaping services, net 15. This is our regular monthly bill; PDF attached."
+expected = false
+
+[[task.cases]]
+state = "Your Microsoft 365 password expires today. Sign in to keep your access: https://login.micros0ft.example"
+expected = true
+
+[[task.cases]]
+state = "Happy birthday from all of us on the management team, Priya! 🎂 (No reply needed.)"
+expected = false
+
+[[task.cases]]
+state = "ALERT: Your bank account is locked. Verify your card number and PIN now to restore access immediately."
+expected = true
+
+[[task.cases]]
+state = "Your appointment is confirmed for Tuesday 10:30 at EyeCare Associates — reschedule via the same portal you booked with."
+expected = false
+
+[[task.cases]]
+state = "IRS NOTICE: you are eligible for a refund of $1,742.03. File Form 8829 within 48 hours: irs-refunds.example"
+expected = true
+
+[[task.cases]]
+state = "Zoom: your meeting 'Q2 Sync' is starting now — join from the link in your calendar invite."
+expected = false
+
+[[task.cases]]
+state = "Apple ID suspended due to suspicious activity; sign in at apple-id-recovery.example to reactivate."
+expected = true
+
+[[task.cases]]
+state = "Reminder: your subscription renews March 3 for $9.99 — manage it anytime in settings."
+expected = false
+
+[[task.cases]]
+state = "Your account will be closed unless you confirm your password today. Reply with your password to verify."
+expected = true
+
+[[task.cases]]
+state = "URGENT: our bank details have changed. Please direct all outstanding invoice payments to the new account below and confirm by reply."
+expected = true
+
+[[task.cases]]
+state = "New sign-in detected on your account: Chrome on macOS, from Berlin, this morning. If this was you, no action is needed; otherwise change your password in the app's security settings."
+expected = false
+
+[[task.cases]]
+state = "Your team's annual security training is due by Friday; complete it via the learning portal link on the intranet."
+expected = false
+
+[[task]]
+id = "meeting_conflict"
+type = "noul"
+
+[task.question]
+instructions = "The proposed event overlaps in time with at least one existing calendar event"
+
+[[task.cases]]
+state = "Calendar: Standup 9:00-9:30; Dentist 10:00-11:00. Proposed: Client sync 10:30-11:15."
+expected = true
+
+[[task.cases]]
+state = "Calendar: Team lunch 12:00-13:00. Proposed: Writing time 11:00-11:45."
+expected = false
+
+[[task.cases]]
+state = "Calendar: Design review 14:00-15:00. Proposed: Wrap-up 14:45-15:15."
+expected = true
+
+[[task.cases]]
+state = "Calendar: Focus block 15:00-16:00. Proposed: 1:1 with Priya 16:00-16:30."
+expected = false
+
+[[task.cases]]
+state = "Calendar: All-hands 10:00-11:30. Proposed: Partner call 10:30-11:00."
+expected = true
+
+[[task.cases]]
+state = "Calendar: Interview 09:00-10:00; Flight SFO to NYC 14:00-18:00. Proposed: Working session 10:15-11:30."
+expected = false
+
+[[task.cases]]
+state = "Calendar: Onboarding session 15:00-16:00; Board prep 15:45-16:15. Proposed: 14:00-15:30."
+expected = true
+
+[[task.cases]]
+state = "Calendar: Mentor 1:1 09:00-09:30. Proposed: Coffee chat 09:30-09:50."
+expected = false
+
+[[task.cases]]
+state = "Calendar: Ops standup every Friday 10:00-10:15. Proposed: Friday roadmap review 10:00-11:00."
+expected = true
+
+[[task.cases]]
+state = "Calendar: Deadline day blocked off Friday. Proposed: workshop Thursday 15:00-16:30."
+expected = false
+
+[[task.cases]]
+state = "Calendar: Sprint retro 11:00-12:00. Proposed: lunch with client 12:00-13:00."
+expected = false
+
+[[task.cases]]
+state = "Calendar: Vendor call 13:30-14:00; dentist 15:00-16:00. Proposed: team debrief 13:45-14:15."
+expected = true
+
+[[task.cases]]
+state = "Calendar: Weekly sync 09:00-09:45 every Monday. Proposed: Monday 1:1 09:40-10:10."
+expected = true
+
+[[task.cases]]
+state = "Calendar: Yoga 07:00-08:00. Proposed: breakfast 08:00-08:45."
+expected = false
+
+[[task.cases]]
+state = "Calendar: OOO — conference travel, all day Friday. Proposed: roadmap workshop Friday 14:00-16:00."
+expected = true
+
+[[task.cases]]
+state = "Calendar: Deep work 09:00-12:00; lunch 12:30-13:15. Proposed: coffee 15:00-15:30."
+expected = false
+
+[[task.cases]]
+state = "Calendar: Design review 14:30-15:00. Proposed: working session 14:00-16:00."
+expected = true
+
+[[task]]
+id = "hazmat_shipping"
+type = "noul"
+
+[task.question]
+instructions = "The shipment requires hazmat (dangerous goods) handling: anything containing lithium batteries, pressurized aerosol containers, flammable liquids (perfume, solvents, butane), or corrosive chemicals qualifies"
+
+[[task.cases]]
+state = "Order 88132: two power banks (10,000 mAh, lithium-ion) and a USB cable."
+expected = true
+
+[[task.cases]]
+state = "Order 88133: one paperback novel, two pairs of cotton socks, one enamel mug."
+expected = false
+
+[[task.cases]]
+state = "RMA return: tablet with a swollen built-in battery, screen intact."
+expected = true
+
+[[task.cases]]
+state = "Order 88021: 24-pack of AA alkaline batteries and a headlamp body."
+expected = false
+
+[[task.cases]]
+state = "Toolbox shipment: butane torch, solder wire, wrench set."
+expected = true
+
+[[task.cases]]
+state = "Wardrobe box: coats, boots, and knitwear."
+expected = false
+
+[[task.cases]]
+state = "Salon restock: one liter of acrylic nail monomer liquid and polish removers."
+expected = true
+
+[[task.cases]]
+state = "Camping order: titanium spork, wool blanket, and a water filter."
+expected = false
+
+[[task.cases]]
+state = "Auto parts: spray paint aerosol, brake-cleaner aerosol, mechanic's gloves."
+expected = true
+
+[[task.cases]]
+state = "Kitchen set: a 750ml bottle of olive oil, a ceramic pan, and dish-soap concentrate."
+expected = false
+
+[[task.cases]]
+state = "Order: electric skateboard with an integrated lithium pack and its charger."
+expected = true
+
+[[task.cases]]
+state = "Kitchen order: cast-iron skillet, wooden spoon, cotton apron."
+expected = false
+
+[[task.cases]]
+state = "Order: four bottles of nail polish remover (acetone)."
+expected = true
+
+[[task.cases]]
+state = "Order: ceramic dinnerware set."
+expected = false
+
+[[task.cases]]
+state = "Order: two 100ml bottles of perfume for gifting."
+expected = true
+
+[[task.cases]]
+state = "Order: one gallon of pool acid (muriatic acid) for opening the swim season."
+expected = true
+
+[[task]]
+id = "dietary_vegan"
+type = "noul"
+
+[task.question]
+instructions = "The item is suitable for a vegan diet — that excludes meat, fish, dairy, eggs, honey, gelatin, and any other animal-derived ingredients"
+
+[[task.cases]]
+state = "House salad: mixed greens, cherry tomatoes, cucumber, citrus vinaigrette, pumpkin seeds."
+expected = true
+
+[[task.cases]]
+state = "Margherita pizza: tomato sauce, fresh mozzarella, basil."
+expected = false
+
+[[task.cases]]
+state = "Seitan riblets in BBQ sauce (tomato, molasses, smoked paprika)."
+expected = true
+
+[[task.cases]]
+state = "Gummy bears: glucose syrup, sugar, gelatin, fruit juice concentrates."
+expected = false
+
+[[task.cases]]
+state = "Roasted almonds with a honey glaze."
+expected = false
+
+[[task.cases]]
+state = "Classic hummus: chickpeas, tahini, lemon, garlic, olive oil."
+expected = true
+
+[[task.cases]]
+state = "Veggie burger: grain blend, shredded vegetables, and an egg-white binder."
+expected = false
+
+[[task.cases]]
+state = "Vegetable stock and coconut-milk curry over jasmine rice."
+expected = true
+
+[[task.cases]]
+state = "Bread loaf: flour, water, salt, yeast, whey."
+expected = false
+
+[[task.cases]]
+state = "Fruit sorbet: mango purée, sugar, and lime."
+expected = true
+
+[[task.cases]]
+state = "Sushi roll: rice, nori, avocado, cucumber, and imitation crab."
+expected = false
+
+[[task.cases]]
+state = "Protein smoothie: oat milk, banana, peanut butter, cocoa."
+expected = true
+
+[[task.cases]]
+state = "Pad thai made with fish sauce."
+expected = false
+
+[[task.cases]]
+state = "Oatmeal with almond milk, cinnamon, and blueberries."
+expected = true
+
+[[task.cases]]
+state = "Non-dairy creamer: corn syrup solids, partially hydrogenated soybean oil, sodium caseinate."
+expected = false
+
+[[task.cases]]
+state = "Strawberry candy: sugar, corn syrup, and carmine (E120) for color."
+expected = false
+
+[[task.cases]]
+state = "Dark chocolate: cocoa mass, sugar, cocoa butter, vanilla."
+expected = true
+
+[[task]]
+id = "news_topic"
+type = "choice"
+
+[task.question]
+instructions = "Which desk should this news article be assigned to?"
+
+[task.question.criteria]
+politics = "Government, elections, legislation, diplomacy, and public policy"
+business = "Companies, markets, deals, earnings, labor, and the economy"
+technology = "Tech products, software, hardware, and technical research advances"
+sports = "Competitions, leagues, athletes, and results"
+culture = "Arts, media, entertainment, awards, and reviews"
+
+[[task.cases]]
+state = "The Senate committee advanced the housing bill 15-9, teeing up a floor vote before recess."
+expected = "politics"
+
+[[task.cases]]
+state = "Q3 earnings: operating margin widened 120bp and the company lifted full-year guidance."
+expected = "business"
+
+[[task.cases]]
+state = "A stoppage-time header sealed a 2-1 semifinal win, sending the club to its first final in a decade."
+expected = "sports"
+
+[[task.cases]]
+state = "The film's Venice premiere earned a six-minute standing ovation ahead of its festival run."
+expected = "culture"
+
+[[task.cases]]
+state = "The chipmaker previewed a 3nm process node, claiming 15% lower power draw at peak loads."
+expected = "technology"
+
+[[task.cases]]
+state = "Brussels opened second-stage infringement proceedings over the new media law."
+expected = "politics"
+
+[[task.cases]]
+state = "Apple's CFO warned of softer iPhone margins next quarter on rising memory costs; shares swung 3% after hours."
+expected = "business"
+
+[[task.cases]]
+state = "A decrypted cache revealed an early draft of the composer's unfinished tenth symphony, now slated for a gala performance."
+expected = "culture"
+
+[[task.cases]]
+state = "The academy graduate signed a five-year extension worth a reported $40m, ending months of transfer chatter."
+expected = "sports"
+
+[[task.cases]]
+state = "A cryptography team published an audit of three post-quantum signature schemes, flagging one for residual-class weaknesses."
+expected = "technology"
+
+[[task.cases]]
+state = "The central bank held rates at 4% but signalled a possible cut in the autumn; markets rallied."
+expected = "business"
+
+[[task.cases]]
+state = "The opera house announced a new season featuring two world premieres and a revived classic."
+expected = "culture"
+
+[[task.cases]]
+state = "Parliament rejected the no-confidence motion 301-289 after a marathon session."
+expected = "politics"
+
+[[task.cases]]
+state = "The startup raised a $40M Series B to expand its logistics network."
+expected = "business"
+
+[[task.cases]]
+state = "Signal added quantum-resistant encryption to its weekly beta, making the protocol available to third-party clients."
+expected = "technology"
+
+[[task.cases]]
+state = "The striker's transfer smashed the club's previous record; his shirt sold out within four hours of the announcement."
+expected = "sports"
+
+[[task.cases]]
+state = "Lawmakers advanced the semiconductor export-control bill in committee today over industry objections."
+expected = "politics"
+
+[[task]]
+id = "document_type"
+type = "choice"
+
+[task.question]
+instructions = "What kind of document is this text from?"
+
+[task.question.criteria]
+invoice = "A bill from a supplier listing amounts owed, dates, and payment instructions"
+purchase_order = "A buyer-issued order for goods or services before fulfillment"
+receipt = "Proof that a payment already happened"
+contract = "Legal terms between parties: clauses, effective dates, signatures"
+resume = "A job seeker's employment history, education, and skills"
+
+[[task.cases]]
+state = "Invoice 04381 — net 30. Services: 24 hours of electrical work @ $85/hr. Total due: $2,040."
+expected = "invoice"
+
+[[task.cases]]
+state = "Objective: staff software engineer. 2021-present: Senior Platform Engineer, Acme — led the migration; skills: Go, Terraform."
+expected = "resume"
+
+[[task.cases]]
+state = "RECEIPT — Payment of $418.20 on Visa ending 7715 on 03/02, 341 Katahdin Dr Unit 2; balance $0.00."
+expected = "receipt"
+
+[[task.cases]]
+state = "3. LIMITATION OF LIABILITY. Neither party's aggregate liability hereunder shall exceed the fees paid in the twelve months preceding the claim."
+expected = "contract"
+
+[[task.cases]]
+state = "PO 991-2541 to EastGate Fabrication: 500 units of SKU EM-114 by 4/12; ship to Dock 4; payment net 45 upon delivery."
+expected = "purchase_order"
+
+[[task.cases]]
+state = "Amount past due: $1,702.00. A 1.5% monthly late fee applies after 3/15. Remit to accounts@..."
+expected = "invoice"
+
+[[task.cases]]
+state = "Thank you for shopping with us — 2 items, $34.98 paid in cash, change given $5.02. REF 003118."
+expected = "receipt"
+
+[[task.cases]]
+state = "The Licensee may not sub-license, assign, or transfer this Agreement without prior written consent. Signed: ____ (CTO, Licensee) ____ (COO, Licensor)."
+expected = "contract"
+
+[[task.cases]]
+state = "Certifications: PMP (2023), AWS SA (2021). Languages: Portuguese (native), English (fluent)."
+expected = "resume"
+
+[[task.cases]]
+state = "TOTAL: $89.99, TAX $7.20, CASH TENDERED $100.00, CHANGE $2.81 — THANK YOU FOR SHOPPING AT GREENLEAF GROCERS."
+expected = "receipt"
+
+[[task.cases]]
+state = "EXPERIENCE: Operations lead, 2018-2023 — managed a team of nine; BA Economics, 2016."
+expected = "resume"
+
+[[task.cases]]
+state = "This Agreement is entered into as of January 5 by and between Acme and Beta."
+expected = "contract"
+
+[[task.cases]]
+state = "Subscription invoice — Acme Cloud, 12 seats at $29/seat, prorated 3/14 to 3/31; total due $168.84 on 4/1."
+expected = "invoice"
+
+[[task.cases]]
+state = "Amendment to PO 991-2541: increase quantity of SKU EM-114 by 75 units; all other terms unchanged."
+expected = "purchase_order"
+
+[[task.cases]]
+state = "This license is granted for personal, non-commercial use only and may not be transferred."
+expected = "contract"
+
+[[task]]
+id = "reading_level"
+type = "score"
+
+[task.question]
+instructions = "What reading level is this passage written at?"
+criteria = [
+    "Simple: short sentences and everyday words; readable by children",
+    "General: typical adult-level journalism, customer-facing or service prose",
+    "Specialist: technical, legal, scientific, or professional jargon",
+]
+
+[[task.cases]]
+state = "The cat sat by the window. She watched the birds hop in the grass. One flew away. Her tail went twitch, twitch."
+expected = 0
+
+[[task.cases]]
+state = "Our store closes for renovations on March 15 and reopens April 1; click-and-collect orders shift to the Union St branch in the meantime."
+expected = 1
+
+[[task.cases]]
+state = "Pursuant to Section 17(b)(iv), the indemnitor shall hold harmless the indemnitee against all consequential damages arising from third-party claims."
+expected = 2
+
+[[task.cases]]
+state = "Data were winsorized at the 2.5th and 97.5th percentiles; inference used a cluster-robust variance estimator."
+expected = 2
+
+[[task.cases]]
+state = "Think of a battery like a bathtub: charging fills it up, and your apps drain the water."
+expected = 0
+
+[[task.cases]]
+state = "High winds grounded the overnight ferry; passengers were rebooked onto the crossing that left at dawn."
+expected = 1
+
+[[task.cases]]
+state = "Session tags load lazily on first render; after login they're warm in cache."
+expected = 2
+
+[[task.cases]]
+state = "Season tickets renew automatically in March unless you turn that option off in your account settings."
+expected = 1
+
+[[task.cases]]
+state = "Take one pill with water at breakfast and one at bedtime until the bottle is empty."
+expected = 0
+
+[[task.cases]]
+state = "Dogs wag their tails when they're happy. Cats purr. Fish blow bubbles."
+expected = 0
+
+[[task.cases]]
+state = "The appellate court remanded the matter for reconsideration in light of intervening precedent."
+expected = 2
+
+[[task.cases]]
+state = "The finance team will review expenses on the 5th; submit receipts before then."
+expected = 1
+
+[[task.cases]]
+state = "The patient presented with an acute exacerbation of chronic obstructive pulmonary disease and was started on BiPAP."
+expected = 2
+
+[[task.cases]]
+state = "The bank took the house because nobody paid the money for six months. The family moved in with cousins."
+expected = 0
+
+[[task.cases]]
+state = "Restart your router, wait two minutes, then check whether the status light turns solid white."
+expected = 1
+
+[[task.cases]]
+state = "Cover-2 got shredded by the slot curl all afternoon; the blitz never got home and the safeties paid for it."
+expected = 2
+
+[[task]]
+id = "insurance_claim_priority"
+type = "score"
+
+[task.question]
+instructions = "How urgently should this insurance claim or inquiry be handled?"
+criteria = [
+    "Routine: cosmetic, informational, or no pressure to act soon",
+    "Standard: repair or reimbursement needed, but life or business is unaffected",
+    "Priority: significant damage or financial disruption that should move fast",
+    "Immediate: safety is at risk, damage is ongoing, or the situation is critical right now",
+]
+
+[[task.cases]]
+state = "My car got tapped in a parking lot; the bumper has a quarter-inch paint scratch. No rush, just logging it."
+expected = 0
+
+[[task.cases]]
+state = "My windshield crack is spreading — about a foot long but out of the sightline. Can we schedule glass repair this week?"
+expected = 1
+
+[[task.cases]]
+state = "The bathroom ceiling caved in after the upstairs leak; we can't use the room, but the burst pipe itself is shut off."
+expected = 2
+
+[[task.cases]]
+state = "Water is pouring through the light fittings and the breaker won't stay on; the family is sitting in the car outside."
+expected = 3
+
+[[task.cases]]
+state = "Does my policy cover rental cars? Curious for a trip next month — no claim yet."
+expected = 0
+
+[[task.cases]]
+state = "Someone sideswiped my parked car overnight and left a note. Damaged mirror and a scrape along the door; the car is drivable."
+expected = 1
+
+[[task.cases]]
+state = "The fire sprinklers soaked the storeroom — roughly $12k of stock is waterlogged, and the shop is closed until cleanup."
+expected = 2
+
+[[task.cases]]
+state = "A tree came through the roof during the storm; rain is still coming in and the bedroom directly underneath is unsafe."
+expected = 3
+
+[[task.cases]]
+state = "I spilled paint on the rug; the cleaning estimate is $180 and I'd like to know whether to file or just pay it."
+expected = 1
+
+[[task.cases]]
+state = "Fender bender in the parking garage; minor scratch on both bumpers and we exchanged details."
+expected = 1
+
+[[task.cases]]
+state = "The basement floods whenever it rains heavily and it did again tonight — water keeps seeping in."
+expected = 3
+
+[[task.cases]]
+state = "Hail dented the car hood and roof; it's driveable and there's no rush."
+expected = 1
+
+[[task.cases]]
+state = "Someone broke in through the back door; we're not staying here tonight and need emergency boarding."
+expected = 3
+
+[[task.cases]]
+state = "Got a small dent from a shopping cart in the parking lot; no rush, just want it on record."
+expected = 0
+
+[[task.cases]]
+state = "Does my policy cover a lost engagement ring, or is that a separate rider? Just planning ahead."
+expected = 0
+
+[[task.cases]]
+state = "The dishwasher leaked overnight; the kitchen floor laminate is warped, but the leak has stopped."
+expected = 2
+
+[[task]]
+id = "symptom_triage"
+type = "score"
+
+[task.question]
+instructions = "How urgently does this patient need medical care, based on their message?"
+criteria = [
+    "Emergency: needs immediate emergency response — call 911 or go to the ER now",
+    "Same-day urgent care",
+    "Appointment within a few days",
+    "Self-care or routine follow-up",
+]
+
+[[task.cases]]
+state = "Crushing chest pain spreading to my left arm and jaw, started 20 minutes ago, and I feel short of breath."
+expected = 0
+
+[[task.cases]]
+state = "My 8-year-old has a fever of 39.5 and I can't wake her up properly."
+expected = 0
+
+[[task.cases]]
+state = "Sudden headache, the worst of my life, hit me like a thunderclap ten minutes ago."
+expected = 0
+
+[[task.cases]]
+state = "My blood glucose reading is 38 and I'm shaky and sweating."
+expected = 0
+
+[[task.cases]]
+state = "My 2-year-old swallowed a button battery about an hour ago."
+expected = 0
+
+[[task.cases]]
+state = "I cut my finger chopping vegetables; it hasn't stopped bleeding after 15 minutes of pressure."
+expected = 1
+
+[[task.cases]]
+state = "Severe toothache since last night and my face is swelling on one side; painkillers aren't touching it."
+expected = 1
+
+[[task.cases]]
+state = "An itchy rash on my arms has been spreading for two days; over-the-counter antihistamines barely help."
+expected = 2
+
+[[task.cases]]
+state = "Constipated for a week, bloated and uncomfortable; fiber and water aren't doing anything."
+expected = 2
+
+[[task.cases]]
+state = "Mild sore throat for two days, no fever."
+expected = 3
+
+[[task.cases]]
+state = "Woke up with a stiff neck that hurts when I turn; otherwise I feel fine."
+expected = 3
+
+[[task.cases]]
+state = "My prescription has run out; I need a refill of my usual dose."
+expected = 3
+
+[[task.cases]]
+state = "Mild sunburn from the beach — skin is red and warm, no blisters."
+expected = 3
+
+[[task.cases]]
+state = "Sudden weakness on one side of my face and slurred speech, started 30 minutes ago."
+expected = 0
+
+[[task.cases]]
+state = "A hot pan burned the back of my hand; it blistered and it's very painful."
+expected = 1
+
+[[task.cases]]
+state = "My 3-year-old won't move her arm after her cousin yanked it; she cries if I touch it."
+expected = 1
+
+[[task.cases]]
+state = "A bee stung me ten minutes ago and my lip is swelling up."
+expected = 0
+
+[[task.cases]]
+state = "I twisted my knee on the stairs; it's twice its normal size and I can't put weight on it."
+expected = 1
+
+[[task.cases]]
+state = "It's my usual migraine with the usual aura — I just need my refill to kick in."
+expected = 3
+
+[[task]]
+id = "delivery_exception"
+type = "choice"
+
+[task.question]
+instructions = "What is the primary delivery exception described here?"
+
+[task.question.criteria]
+address_issue = "Address is incomplete, wrong, or nonexistent, or the recipient is unknown"
+customs_hold = "Package held by customs; duties or missing paperwork are blocking release"
+weather_delay = "Delays caused by storms, floods, or other weather events"
+failed_attempt = "Delivery attempted but the recipient was unavailable"
+damaged = "Package or contents damaged in transit"
+
+[[task.cases]]
+state = "Courier arrived at 14:05; nobody home. Left a pickup card."
+expected = "failed_attempt"
+
+[[task.cases]]
+state = "Address '221B Baker St, Flat 9' is invalid — the building has no Flat 9."
+expected = "address_issue"
+
+[[task.cases]]
+state = "Package held at Frankfurt customs; commercial invoice is required."
+expected = "customs_hold"
+
+[[task.cases]]
+state = "Regional hub closed due to an ice storm; all routes suspended until roads reopen."
+expected = "weather_delay"
+
+[[task.cases]]
+state = "Arrived with the corner of the box crushed; contents shifted inside."
+expected = "damaged"
+
+[[task.cases]]
+state = "Recipient's phone number is invalid and the house number is missing — needs re-routing."
+expected = "address_issue"
+
+[[task.cases]]
+state = "Duties of €34 unpaid; package is in the bonded warehouse awaiting payment."
+expected = "customs_hold"
+
+[[task.cases]]
+state = "Delivery vans delayed six hours; the airport closed during the hurricane."
+expected = "weather_delay"
+
+[[task.cases]]
+state = "The box was soaked and crushed after handling at the hub; the recipient refused it."
+expected = "damaged"
+
+[[task.cases]]
+state = "Third attempt failed; recipient not home, no safe drop authorized."
+expected = "failed_attempt"
+
+[[task.cases]]
+state = "Parcel returned to origin — customs declaration was incomplete."
+expected = "customs_hold"
+
+[[task.cases]]
+state = "Contents charred after a warehouse fire; shipment written off as a total loss."
+expected = "damaged"
+
+[[task.cases]]
+state = "Address correction: the street name was misspelled; the package is on hold."
+expected = "address_issue"
+
+[[task.cases]]
+state = "Flight cancelled due to volcanic ash; all parcels to the region are delayed."
+expected = "weather_delay"
+
+[[task.cases]]
+state = "Recipient not home for the 10:15 and 16:40 attempts; parcel is at the pickup point after the second miss."
+expected = "failed_attempt"
+
+[[task.cases]]
+state = "Customs requires a passport copy from the recipient before release can be scheduled."
+expected = "customs_hold"
+
+[[task.cases]]
+state = "Refrigerated parcel sat in a 28-degree hold area overnight; contents spoiled."
+expected = "damaged"
+
+[[task.cases]]
+state = "The recipient's company moved suites last month; the parcel went to the old address."
+expected = "address_issue"
+
+[[task.cases]]
+state = "Duties were paid, but the shipment now requires a phytosanitary certificate for the plant material."
+expected = "customs_hold"
+
+[[task]]
+id = "city_service_request"
+type = "choice"
+
+[task.question]
+instructions = "Which city department should handle this 311 request?"
+
+[task.question.criteria]
+sanitation = "Trash collection, recycling, street cleaning, dumped waste, and pest complaints"
+roads = "Potholes, streetlights, sidewalks, road markings, and traffic hazards"
+noise = "Loud music, construction outside permitted hours, and animal noise"
+permits = "Building permits, construction approvals, signage, and business licensing"
+utilities = "Water pressure or outages, gas smells, and power-line issues"
+
+[[task.cases]]
+state = "Pothole on Maple Ave between 3rd and 4th, about a foot wide — cars are swerving around it."
+expected = "roads"
+
+[[task.cases]]
+state = "My recycling bin wasn't picked up last Tuesday; it's still sitting at the curb."
+expected = "sanitation"
+
+[[task.cases]]
+state = "The neighbor's dog barks from 2am to 6am, every night this week."
+expected = "noise"
+
+[[task.cases]]
+state = "The house next door is building a deck in the backyard without a permit — where do I report it?"
+expected = "permits"
+
+[[task.cases]]
+state = "Water pressure dropped across the whole block this morning."
+expected = "utilities"
+
+[[task.cases]]
+state = "Streetlight out at the corner of Elm & 5th; it's been dark there for weeks."
+expected = "roads"
+
+[[task.cases]]
+state = "A mattress and a bed frame were dumped on the corner of Oak Lane and have been there for days."
+expected = "sanitation"
+
+[[task.cases]]
+state = "Construction next door has been jackhammering at 6am on a Sunday."
+expected = "noise"
+
+[[task.cases]]
+state = "There's a strong gas smell near the playground on Pine St."
+expected = "utilities"
+
+[[task.cases]]
+state = "I want to add an awning over my storefront — what do I need?"
+expected = "permits"
+
+[[task.cases]]
+state = "An overturned garbage truck is blocking two lanes on Route 9."
+expected = "roads"
+
+[[task.cases]]
+state = "Rats at the dumpster behind the bakery on 6th Street."
+expected = "sanitation"
+
+[[task.cases]]
+state = "Sidewalk is cracked and lifting — a trip hazard near the school."
+expected = "roads"
+
+[[task.cases]]
+state = "Someone is running an unlicensed food cart on the plaza."
+expected = "permits"
+
+[[task.cases]]
+state = "The karaoke bar's outdoor speakers blast until 3am on weeknights."
+expected = "noise"
+
+[[task.cases]]
+state = "A water main break is flooding the intersection at 4th and Grand."
+expected = "utilities"
+
+[[task.cases]]
+state = "Does a weekend yard sale need a permit, and how big can the sign be?"
+expected = "permits"
+
+[[task.cases]]
+state = "Where do I drop off old paint and solvent cans? They're piling up in my garage."
+expected = "sanitation"
+
+[[task.cases]]
+state = "The church bells have started ringing every hour through the night."
+expected = "noise"
+
+[[task]]
+id = "ad_policy_violation"
+type = "noul"
+
+[task.question]
+instructions = "The ad violates advertising policy: it makes unsupported health claims, guarantees results, promotes tobacco, weapons, or drugs, or tells users to stop taking prescribed medication"
+
+[[task.cases]]
+state = "Our ceramic pan heats evenly and cleans in seconds — see the results of our 30-day test."
+expected = false
+
+[[task.cases]]
+state = "Clinically proven to cure joint pain in 3 days. Doctors hate it."
+expected = true
+
+[[task.cases]]
+state = "Free shipping on all orders this weekend."
+expected = false
+
+[[task.cases]]
+state = "Lose 30 pounds in 30 days or your money back — guaranteed!"
+expected = true
+
+[[task.cases]]
+state = "Handmade leather journals from a small workshop in Florence."
+expected = false
+
+[[task.cases]]
+state = "Vape starter kit — 50% off today, no ID checks needed."
+expected = true
+
+[[task.cases]]
+state = "Rated 4.8 stars by 12,000 verified buyers."
+expected = false
+
+[[task.cases]]
+state = "Our supplement treats diabetes — stop taking your prescription today."
+expected = true
+
+[[task.cases]]
+state = "Air fryer: 5.5L capacity, dishwasher-safe basket."
+expected = false
+
+[[task.cases]]
+state = "Free trial, cancel anytime, no credit card required."
+expected = false
+
+[[task.cases]]
+state = "Doctors won't tell you this one weird trick to reverse aging."
+expected = true
+
+[[task.cases]]
+state = "This week only: hunting rifles in stock, free transfer with every purchase."
+expected = true
+
+[[task.cases]]
+state = "Modafinil without a prescription, overnight shipping, no questions asked."
+expected = true
+
+[[task.cases]]
+state = "Compare our checking-account fees side by side — no hidden charges, no fine print."
+expected = false
+
+[[task.cases]]
+state = "TikTok-famous posture corrector — celebrities swear it fixes back pain, only $599."
+expected = true
+
+[[task.cases]]
+state = "Voted 'Best Wings in Town' by our 2023 customer poll."
+expected = false
+
+[[task]]
+id = "fair_housing_violation"
+type = "noul"
+
+[task.question]
+instructions = "The rental or sale listing contains discriminatory language under fair housing rules: expressing preferences or restrictions based on race, religion, national origin, familial status, or disability"
+
+[[task.cases]]
+state = "Charming 2BR near the park with an updated kitchen and in-unit laundry."
+expected = false
+
+[[task.cases]]
+state = "Perfect for a young professional couple — no kids."
+expected = true
+
+[[task.cases]]
+state = "This street is known as a Christian enclave; serious buyers only."
+expected = true
+
+[[task.cases]]
+state = "Family-friendly cul-de-sac with a large yard and good schools."
+expected = false
+
+[[task.cases]]
+state = "First-floor unit with step-free entry and grab bars in the bathroom."
+expected = false
+
+[[task.cases]]
+state = "Not suitable for immigrants — the neighbors speak English only."
+expected = true
+
+[[task.cases]]
+state = "Single professionals only; no families."
+expected = true
+
+[[task.cases]]
+state = "Sun-filled corner unit, a 20-minute commute to downtown."
+expected = false
+
+[[task.cases]]
+state = "Ground-floor studio one block from the subway; pets OK."
+expected = false
+
+[[task.cases]]
+state = "Historic brownstone with original moldings restored, private garden."
+expected = false
+
+[[task.cases]]
+state = "Prefer that foreign students don't apply."
+expected = true
+
+[[task.cases]]
+state = "Steps from the new mosque — perfect for Muslim families."
+expected = true
+
+[[task.cases]]
+state = "Corner lot with mature trees, a new furnace, and a two-car garage."
+expected = false
+
+[[task.cases]]
+state = "The building does not allow guide dogs or other service animals."
+expected = true
+
+[[task.cases]]
+state = "Tenants of European descent preferred."
+expected = true
+
+[[task.cases]]
+state = "Apartment available to female tenants only."
+expected = true
+
+[[task.cases]]
+state = "Home office with fiber internet and a coffee bar — ideal for remote work."
+expected = false
+
+[[task.cases]]
+state = "'You might feel more comfortable in the diverse neighborhood across town,' the agent wrote."
+expected = true
+
+[[task.cases]]
+state = "Age-restricted 55+ active-adult community with on-site programming."
+expected = false
+
+[[task]]
+id = "contract_clause_type"
+type = "choice"
+
+[task.question]
+instructions = "What type of contract clause is this?"
+
+[task.question.criteria]
+limitation_of_liability = "Caps or excludes damages one party can claim"
+confidentiality = "Obligations about keeping information secret"
+termination = "How and when the agreement can be ended"
+indemnification = "One party agrees to defend or compensate the other for specified claims"
+force_majeure = "Delays or failures excused by events beyond the parties' control"
+
+[[task.cases]]
+state = "Neither party shall be liable for indirect, incidental, or consequential damages."
+expected = "limitation_of_liability"
+
+[[task.cases]]
+state = "The Receiving Party shall protect Confidential Information using reasonable care and not disclose it to third parties."
+expected = "confidentiality"
+
+[[task.cases]]
+state = "Either party may terminate upon 30 days written notice; surviving provisions remain in effect."
+expected = "termination"
+
+[[task.cases]]
+state = "Contractor shall indemnify and hold harmless Client against third-party claims arising from the Work."
+expected = "indemnification"
+
+[[task.cases]]
+state = "Neither party is liable for delays caused by acts of God, war, strikes, or government action."
+expected = "force_majeure"
+
+[[task.cases]]
+state = "Aggregate liability shall not exceed fees paid in the preceding twelve months."
+expected = "limitation_of_liability"
+
+[[task.cases]]
+state = "All trade secrets, customer lists, and pricing disclosed hereunder remain confidential for five years."
+expected = "confidentiality"
+
+[[task.cases]]
+state = "Termination for cause: material breach not cured within 15 days of written notice."
+expected = "termination"
+
+[[task.cases]]
+state = "Each party shall defend the other against IP-infringement claims arising from the Deliverables."
+expected = "indemnification"
+
+[[task.cases]]
+state = "Obligations are suspended during pandemics, embargoes, or utility failures beyond a party's control."
+expected = "force_majeure"
+
+[[task.cases]]
+state = "The Employee shall return all proprietary documents upon separation, under continuing confidentiality."
+expected = "confidentiality"
+
+[[task.cases]]
+state = "Client shall hold Provider harmless from claims arising out of Client's use of the Deliverables."
+expected = "indemnification"
+
+[[task.cases]]
+state = "The parties shall keep the terms of this Agreement and all negotiations confidential."
+expected = "confidentiality"
+
+[[task.cases]]
+state = "Company may terminate immediately if Contractor breaches the confidentiality obligations."
+expected = "termination"
+
+[[task.cases]]
+state = "Neither party shall be liable for lost profits or loss of data, even if advised of their possibility."
+expected = "limitation_of_liability"
+
+[[task.cases]]
+state = "Neither party is responsible for delays caused by riots, civil unrest, or nuclear catastrophe."
+expected = "force_majeure"
+
+[[task.cases]]
+state = "Distributor indemnifies Manufacturer against product-liability claims arising solely from the Distributor's marketing materials."
+expected = "indemnification"
+
+[[task]]
+id = "voice_assistant_intent"
+type = "choice"
+
+[task.question]
+instructions = "What does the user want from the voice assistant?"
+
+[task.question.criteria]
+device_control = "Turn lights or appliances on/off, set temperature, lock doors"
+information_request = "Questions about weather, time, facts, or anything else"
+reminder = "Reminders, timers, alarms, and calendar events"
+music = "Play music, podcasts, or radio"
+small_talk = "Greetings, jokes, chit-chat, and questions about the assistant itself"
+
+[[task.cases]]
+state = "Turn off the living room lights."
+expected = "device_control"
+
+[[task.cases]]
+state = "What's the weather tomorrow?"
+expected = "information_request"
+
+[[task.cases]]
+state = "Remind me to call the dentist at three."
+expected = "reminder"
+
+[[task.cases]]
+state = "Play some jazz."
+expected = "music"
+
+[[task.cases]]
+state = "Tell me a joke."
+expected = "small_talk"
+
+[[task.cases]]
+state = "Set the thermostat to 21 degrees."
+expected = "device_control"
+
+[[task.cases]]
+state = "Set a timer for ten minutes for the pasta."
+expected = "reminder"
+
+[[task.cases]]
+state = "Who won the game last night?"
+expected = "information_request"
+
+[[task.cases]]
+state = "Play the next episode of my podcast."
+expected = "music"
+
+[[task.cases]]
+state = "How are you today?"
+expected = "small_talk"
+
+[[task.cases]]
+state = "Lock the front door and arm the alarm."
+expected = "device_control"
+
+[[task.cases]]
+state = "What time does the pharmacy close?"
+expected = "information_request"
+
+[[task.cases]]
+state = "How many ounces are in a cup?"
+expected = "information_request"
+
+[[task.cases]]
+state = "Turn up the volume in the kitchen."
+expected = "device_control"
+
+[[task.cases]]
+state = "Add my flight to Chicago to the calendar for Tuesday morning."
+expected = "reminder"
+
+[[task.cases]]
+state = "Play that song from the coffee commercial."
+expected = "music"
+
+[[task.cases]]
+state = "What's your name?"
+expected = "small_talk"
+
+[[task.cases]]
+state = "Do I need an umbrella today?"
+expected = "information_request"
+
+[[task.cases]]
+state = "Remind me to water the plants when I get home."
+expected = "reminder"
+
+[[task.cases]]
+state = "Good night."
+expected = "small_talk"
+
+[[task]]
+id = "grammar_issue"
+type = "choice"
+cases = [
+    { state = "She don't like the new schedule.", expected = "subject_verb_agreement" },
+    { state = "Their going to be late.", expected = "word_choice" },
+    { state = "I recieve the report every Friday.", expected = "spelling" },
+    { state = "He walk to work every day.", expected = "subject_verb_agreement" },
+    { state = "Lets get lunch.", expected = "punctuation" },
+    { state = "I could care less about the results.", expected = "word_choice" },
+    { state = "The flowers smell wonderfully.", expected = "word_choice" },
+    { state = "We've been friends since 2010.", expected = "none" },
+    { state = "The report is due on Tuesday.", expected = "none" },
+    { state = "We arrived, at noon.", expected = "punctuation" },
+    { state = "The accomodation was excelent.", expected = "spelling" },
+    { state = "The committee decided to postpone the meeting.", expected = "none" },
+    { state = "Each of the students have a laptop.", expected = "subject_verb_agreement" },
+    { state = "We should of checked the tire pressure.", expected = "word_choice" },
+    { state = "Its a shame the launch was delayed.", expected = "punctuation" },
+    { state = "I bought apples oranges and bananas at the store.", expected = "punctuation" },
+    { state = "The meeting is definately on for Monday.", expected = "spelling" },
+    { state = "How will this effect our margins?", expected = "word_choice" },
+    { state = "Neither the manager nor the employees were informed.", expected = "none" },
+    { state = "The restaraunt opens at nine.", expected = "spelling" },
+    { state = "The server crashed, we lost an hour of work.", expected = "punctuation" },
+    { state = "Nobody knows where the file went.", expected = "none" },
+]
+
+[task.question]
+instructions = "What is the primary grammar issue in this sentence?"
+
+[task.question.criteria]
+spelling = "A misspelled word"
+subject_verb_agreement = "The verb form doesn't match the subject"
+word_choice = "The wrong word is used — homophones, malapropisms, or incorrect forms"
+punctuation = "A missing or misplaced comma, apostrophe, or other mark"
+none = "The sentence is grammatically fine as written"
+
+[[task]]
+id = "action_item_assignment"
+type = "noul"
+
+[task.question]
+instructions = "This sentence from meeting notes assigns a concrete task with an owner or a deadline"
+
+[[task.cases]]
+state = "Ravi will send the updated deck to the client by Friday."
+expected = true
+
+[[task.cases]]
+state = "We should maybe look into the latency issue at some point."
+expected = false
+
+[[task.cases]]
+state = "Priya to take the minutes."
+expected = true
+
+[[task.cases]]
+state = "Great discussion on the roadmap today."
+expected = false
+
+[[task.cases]]
+state = "Deadline for the pilot moved to June 10."
+expected = false
+
+[[task.cases]]
+state = "Sana will book the venue and catering by the end of the week."
+expected = true
+
+[[task.cases]]
+state = "It would be nice to get an intern for the summer."
+expected = false
+
+[[task.cases]]
+state = "Action: legal review of the MSA, owner Tom, due next Tuesday."
+expected = true
+
+[[task.cases]]
+state = "Next meeting Thursday at 10."
+expected = false
+
+[[task.cases]]
+state = "The budget needs another look before we commit."
+expected = false
+
+[[task.cases]]
+state = "I'll draft the proposal tonight and circulate it tomorrow morning."
+expected = true
+
+[[task.cases]]
+state = "Morale is up after the launch; nice work everyone."
+expected = false
+
+[[task.cases]]
+state = "Let's circle back on pricing next time."
+expected = false
+
+[[task.cases]]
+state = "Devon will circulate the updated budget by Wednesday EOD."
+expected = true
+
+[[task.cases]]
+state = "Maybe whoever is free can update the playbook next sprint."
+expected = false
+
+[[task.cases]]
+state = "The mockups are to be finalized by Lars before the offsite."
+expected = true
+
+[[task.cases]]
+state = "Someone should probably own the migration doc."
+expected = false
+
+[[task.cases]]
+state = "Dana owns the migration plan for Q3."
+expected = true
+
+[[task.cases]]
+state = "Marta flagged that QA found two regressions — details are in the tracker."
+expected = false
+
+[[task]]
+id = "suspicious_transaction"
+type = "noul"
+
+[task.question]
+instructions = "This transaction is suspicious under standard fraud rules: geography or velocity that doesn't fit the account holder, round-number amounts unusual for the account, or patterns consistent with account takeover"
+
+[[task.cases]]
+state = "Card used in Lagos at 03:12 for exactly $2,000; the cardholder lives in Oslo and was there yesterday at 14:00."
+expected = true
+
+[[task.cases]]
+state = "Weekly grocery run: €64.20 at the usual supermarket, 11:40."
+expected = false
+
+[[task.cases]]
+state = "Two transactions of exactly $500.00 five minutes apart, in a country the cardholder has never visited."
+expected = true
+
+[[task.cases]]
+state = "Monthly rent payment of $1,850 to the same landlord account as the last 24 months."
+expected = false
+
+[[task.cases]]
+state = "Card declined twice, then a $999.99 online purchase succeeded from a new device in a new country."
+expected = true
+
+[[task.cases]]
+state = "Coffee for $4.10 on Monday at 08:05, a short walk from the cardholder's office."
+expected = false
+
+[[task.cases]]
+state = "Payroll deposit of $3,120.44 from the employer, same date every month."
+expected = false
+
+[[task.cases]]
+state = "Cash withdrawal of $4,900 — just under the reporting threshold — minutes after a password reset."
+expected = true
+
+[[task.cases]]
+state = "Subscription renewal of $12.99 for a streaming service used weekly for two years."
+expected = false
+
+[[task.cases]]
+state = "Gas-station purchase in Marseille minutes after the card was used in Rotterdam."
+expected = true
+
+[[task.cases]]
+state = "Series of twelve purchases under $2 at the same terminal in four minutes."
+expected = true
+
+[[task.cases]]
+state = "Annual insurance premium of $1,240 on the usual renewal date."
+expected = false
+
+[[task.cases]]
+state = "First-ever wire from this account, to a newly added payee, for the full balance minus $50."
+expected = true
+
+[[task.cases]]
+state = "Back-to-back digital gift-card purchases totaling $1,900 within the hour."
+expected = true
+
+[[task.cases]]
+state = "Property-tax payment of $4,300 to the county, same quarter as every year."
+expected = false
+
+[[task.cases]]
+state = "Monthly mortgage payment of $3,850 on the 1st — unchanged for three years."
+expected = false
+
+[[task.cases]]
+state = "The card's first-ever cash advance, maxing out the limit, at an ATM at 3am."
+expected = true
+
+[[task]]
+id = "return_reason"
+type = "choice"
+
+[task.question]
+instructions = "What is the primary reason for this product return?"
+
+[task.question.criteria]
+damaged_in_transit = "The item arrived broken, crushed, or otherwise damaged from shipping"
+wrong_item = "A different item, color, or size than what was ordered"
+size_or_fit = "The right item was sent, but the size, length, or cut doesn't work for the buyer"
+changed_mind = "No problem with the item; the buyer no longer wants it"
+late_delivery = "The item arrived too late to be useful"
+
+[[task.cases]]
+state = "The mug arrived shattered; the box was crushed too."
+expected = "damaged_in_transit"
+
+[[task.cases]]
+state = "I ordered the blue jacket but received a red one in the correct size."
+expected = "wrong_item"
+
+[[task.cases]]
+state = "The shoes are half a size too small — I need a 42, not a 41.5."
+expected = "size_or_fit"
+
+[[task.cases]]
+state = "I found the same product cheaper elsewhere, so I no longer need it."
+expected = "changed_mind"
+
+[[task.cases]]
+state = "It was supposed to arrive two weeks ago for a birthday; there's no point now."
+expected = "late_delivery"
+
+[[task.cases]]
+state = "The item itself is fine — I ordered two by accident."
+expected = "changed_mind"
+
+[[task.cases]]
+state = "This is the second replacement unit with a cracked screen."
+expected = "damaged_in_transit"
+
+[[task.cases]]
+state = "The shipment arrived a month late and was marked delivered; the event it was for is over."
+expected = "late_delivery"
+
+[[task.cases]]
+state = "I ordered size M but the tag says L."
+expected = "wrong_item"
+
+[[task.cases]]
+state = "It doesn't fit my couch — I measured wrong on my end."
+expected = "size_or_fit"
+
+[[task.cases]]
+state = "Nothing wrong with it; I just don't like the color in person."
+expected = "changed_mind"
+
+[[task.cases]]
+state = "The box was dry and intact, but the lamp inside was snapped."
+expected = "damaged_in_transit"
+
+[[task.cases]]
+state = "Ordered the oak table but the box says walnut."
+expected = "wrong_item"
+
+[[task.cases]]
+state = "I ordered the wrong size — my mistake, not yours."
+expected = "size_or_fit"
+
+[[task.cases]]
+state = "The costume arrived the day after Halloween."
+expected = "late_delivery"
+
+[[task.cases]]
+state = "Got this as a gift, but I already own one."
+expected = "changed_mind"
+
+[[task.cases]]
+state = "It's the right machine, but it came with an EU plug instead of a UK one."
+expected = "wrong_item"
+
+[[task.cases]]
+state = "Ordered for Christmas Eve delivery; it arrived January 3."
+expected = "late_delivery"
+
+[[task]]
+id = "allergen_present"
+type = "noul"
+
+[task.question]
+instructions = "The menu item contains at least one major allergen: peanut, tree nuts, sesame, dairy, egg, wheat/gluten, soy, fish, or shellfish"
+
+[[task.cases]]
+state = "Pad thai with crushed peanuts and lime."
+expected = true
+
+[[task.cases]]
+state = "Grilled chicken breast with roasted carrots and a green salad."
+expected = false
+
+[[task.cases]]
+state = "Margherita pizza with tomato, mozzarella, and basil."
+expected = true
+
+[[task.cases]]
+state = "Almond croissant."
+expected = true
+
+[[task.cases]]
+state = "Vegan Buddha bowl with quinoa, chickpeas, avocado, and tahini dressing."
+expected = true
+
+[[task.cases]]
+state = "Fish and chips with tartar sauce."
+expected = true
+
+[[task.cases]]
+state = "Chicken skewers with chimichurri and roasted potatoes."
+expected = false
+
+[[task.cases]]
+state = "Roasted vegetable stack with zucchini, peppers, and olive oil."
+expected = false
+
+[[task.cases]]
+state = "Fruit salad with mint and lime."
+expected = false
+
+[[task.cases]]
+state = "Caesar salad with croutons and parmesan."
+expected = true
+
+[[task.cases]]
+state = "Beef tacos with corn tortillas, salsa, and guacamole."
+expected = false
+
+[[task.cases]]
+state = "Shrimp cocktail with horseradish sauce."
+expected = true
+
+[[task.cases]]
+state = "Steamed edamame with chili salt."
+expected = true
+
+[[task.cases]]
+state = "Crème brûlée with vanilla bean."
+expected = true
+
+[[task.cases]]
+state = "Black-bean patty with corn and quinoa in a lettuce wrap."
+expected = false
+
+[[task.cases]]
+state = "Tiramisu."
+expected = true
+
+[[task.cases]]
+state = "100% buckwheat soba noodles."
+expected = false
+
+[[task.cases]]
+state = "Rice-milk rice pudding with cinnamon."
+expected = false
+
+[[task.cases]]
+state = "Frittata with roasted peppers and goat cheese."
+expected = true
+
+[[task.cases]]
+state = "Hummus plate with warm pita bread."
+expected = true
+
+[[task.cases]]
+state = "Lamb chops with mint jelly and roasted root vegetables."
+expected = false
+
+[[task.cases]]
+state = "Raspberry sorbet with fresh mint."
+expected = false
+
+[[task]]
+id = "home_service_routing"
+type = "choice"
+
+[task.question]
+instructions = "Which trade should this home-service job be routed to?"
+
+[task.question.criteria]
+plumbing = "Water, drains, toilets, pipes, water heaters, and leaks"
+electrical = "Wiring, outlets, breakers, lighting fixtures, and power problems"
+hvac = "Heating, ventilation, air conditioning, and thermostats"
+handyman = "Small repairs, assembly, mounting, doors, and general fixes"
+appliance_repair = "Washers, dryers, ovens, fridges, and dishwashers"
+
+[[task.cases]]
+state = "Kitchen faucet is dripping constantly and the sink drains slowly."
+expected = "plumbing"
+
+[[task.cases]]
+state = "Half the outlets in the living room stopped working after a breaker trip."
+expected = "electrical"
+
+[[task.cases]]
+state = "The AC is blowing warm air and the thermostat screen is blank."
+expected = "hvac"
+
+[[task.cases]]
+state = "Need someone to assemble a wardrobe kit and mount two TVs."
+expected = "handyman"
+
+[[task.cases]]
+state = "Dryer takes three cycles to dry a load and makes a grinding noise."
+expected = "appliance_repair"
+
+[[task.cases]]
+state = "Water heater is leaking from the bottom and there's no hot water."
+expected = "plumbing"
+
+[[task.cases]]
+state = "The dimmer switch sparks when I press it."
+expected = "electrical"
+
+[[task.cases]]
+state = "Dishwasher leaves standing water after the cycle finishes."
+expected = "appliance_repair"
+
+[[task.cases]]
+state = "Front door sticks and the deadbolt no longer lines up with the strike plate."
+expected = "handyman"
+
+[[task.cases]]
+state = "Furnace makes a banging noise on startup and won't heat."
+expected = "hvac"
+
+[[task.cases]]
+state = "Toilet runs continuously after flushing."
+expected = "plumbing"
+
+[[task.cases]]
+state = "A sewer smell comes and goes from the guest bathroom drain."
+expected = "plumbing"
+
+[[task.cases]]
+state = "Ceiling light flickers and buzzes; the fixture is warm to the touch."
+expected = "electrical"
+
+[[task.cases]]
+state = "Patch a fist-sized drywall hole and touch up the paint."
+expected = "handyman"
+
+[[task.cases]]
+state = "The fridge compressor runs constantly and the freezer won't freeze anymore."
+expected = "appliance_repair"
+
+[[task.cases]]
+state = "The heat pump short-cycles every few minutes and shows an error code."
+expected = "hvac"
+
+[[task.cases]]
+state = "Scrape and re-caulk the bathtub surround, then patch the adjacent drywall."
+expected = "handyman"
+
+[[task.cases]]
+state = "The oven doesn't hold temperature and the self-clean cycle stalls."
+expected = "appliance_repair"
+
+[[task.cases]]
+state = "The GFCI outlet next to the kitchen sink won't reset no matter what I plug in."
+expected = "electrical"
+
+[[task.cases]]
+state = "Half the house lost power suddenly while the neighbors still have lights."
+expected = "electrical"
+
+[[task.cases]]
+state = "A brown water stain is spreading across the ceiling below the upstairs bathroom."
+expected = "plumbing"
+
+[[task.cases]]
+state = "Two bedrooms stay cold no matter how high I set the thermostat."
+expected = "hvac"
+
+[[task.cases]]
+state = "Hang two floating shelves and a heavy mirror in the hallway."
+expected = "handyman"
+
+[[task]]
+id = "gaming_report_type"
+type = "choice"
+
+[task.question]
+instructions = "How should this player report be classified?"
+
+[task.question.criteria]
+cheating = "Aim assistance, wallhacks, scripts, or other software assistance"
+harassment = "Abusive chat, threats, or targeted abuse"
+boosting = "Paid or arranged rank-boosting or account sharing"
+smurfing = "High-skill players competing on low-rank accounts"
+other = "Griefing or other disruptive behavior that fits none of the above"
+
+[[task.cases]]
+state = "This player headshots through walls every round; watch the replay at 12:30."
+expected = "cheating"
+
+[[task.cases]]
+state = "Told me to kill myself in voice chat after we lost."
+expected = "harassment"
+
+[[task.cases]]
+state = "Selling boosts to Diamond for $50 — DM me on Discord."
+expected = "boosting"
+
+[[task.cases]]
+state = "Level 5 account with 400 hours in two weeks, dropping 40 kills a game."
+expected = "smurfing"
+
+[[task.cases]]
+state = "AFK in spawn for the whole match and refused to play."
+expected = "other"
+
+[[task.cases]]
+state = "Aimbot snapping — the crosshair teleports between heads."
+expected = "cheating"
+
+[[task.cases]]
+state = "Called my whole family slurs, repeatedly."
+expected = "harassment"
+
+[[task.cases]]
+state = "They shared their account with a friend so the friend could earn ranked rewards."
+expected = "boosting"
+
+[[task.cases]]
+state = "Won 18 ranked games in a row at Bronze with pro-level movement; clearly not their rank."
+expected = "smurfing"
+
+[[task.cases]]
+state = "Teammate blocked our team's path and team-killed twice."
+expected = "other"
+
+[[task.cases]]
+state = "Streamer admits on stream that he bought this account and had it boosted."
+expected = "boosting"
+
+[[task.cases]]
+state = "Suspicious flick to a kill through smoke every single time."
+expected = "cheating"
+
+[[task.cases]]
+state = "Spammed 'ez' in all chat after every round and told the other team to uninstall the game."
+expected = "harassment"
+
+[[task.cases]]
+state = "Queues into ranked and disconnects at character select every third match."
+expected = "other"
+
+[[task.cases]]
+state = "He's top-500 on his main and is streaming himself bulldozing our silver lobby from this alt."
+expected = "smurfing"
+
+[[task.cases]]
+state = "He walks the enemies through our base to farm a 'clip of the year'."
+expected = "other"
+
+[[task.cases]]
+state = "His APM script fires perfect 17-click combos every time — macros or jailbroken inputs."
+expected = "cheating"
+
+[[task.cases]]
+state = "Sent us a screenshot: they posted our teammate's real name and home address on Discord."
+expected = "harassment"
+
+[[task.cases]]
+state = "Their squad keeps queuing the same rivals at 2am and surrendering early — the rivals keep climbing."
+expected = "boosting"
+
+[[task.cases]]
+state = "Keeps tearing down our team's builds before the enemies even arrive."
+expected = "other"
+
+[[task]]
+id = "warranty_claim_eligible"
+type = "noul"
+
+[task.question]
+instructions = "The damage is covered under the standard 2-year manufacturer warranty, which covers defects in materials and workmanship but not accidental damage, liquid damage, normal wear, or misuse"
+
+[[task.cases]]
+state = "Phone's charging port stopped working after four months of normal use."
+expected = true
+
+[[task.cases]]
+state = "Dropped the tablet and the screen shattered."
+expected = false
+
+[[task.cases]]
+state = "Laptop keycaps are shiny and worn after two years."
+expected = false
+
+[[task.cases]]
+state = "The monitor stopped powering on entirely in month eight."
+expected = true
+
+[[task.cases]]
+state = "Washing machine's drum bearing failed after fourteen months."
+expected = true
+
+[[task.cases]]
+state = "Coffee maker stopped working after being run without water."
+expected = false
+
+[[task.cases]]
+state = "Spilled coffee on the laptop and now the keys stick."
+expected = false
+
+[[task.cases]]
+state = "The left headphone driver died with no physical damage after ten months."
+expected = true
+
+[[task.cases]]
+state = "The screen flickers intermittently on a six-month-old TV."
+expected = true
+
+[[task.cases]]
+state = "Dog chewed through the charging cable."
+expected = false
+
+[[task.cases]]
+state = "The smartwatch crown fell off during normal wear, with no impact."
+expected = true
+
+[[task.cases]]
+state = "The screen started registering ghost touches with no drops; it's month eleven."
+expected = true
+
+[[task.cases]]
+state = "The bike frame cracked at the weld after eight months of normal commuting."
+expected = true
+
+[[task.cases]]
+state = "Screen got scratched by the keys in the same pocket."
+expected = false
+
+[[task.cases]]
+state = "The soles of both shoes started separating after three months of daily wear."
+expected = true
+
+[[task.cases]]
+state = "A non-certified charging cable burned out the charging circuit."
+expected = false
+
+[[task.cases]]
+state = "The blender was dead on arrival — it has never powered on, even out of the box."
+expected = true
+
+[[task.cases]]
+state = "The phone's battery swelled and pushed the screen out at month ten."
+expected = true
+
+[[task.cases]]
+state = "The phone slid off the car roof and flew onto the highway."
+expected = false
+
+[[task.cases]]
+state = "It got caught in a downpour and now it won't charge at all."
+expected = false
+
+[[task]]
+id = "weather_alert_severity"
+type = "score"
+
+[task.question]
+instructions = "How severe is this weather alert?"
+criteria = [
+    "Informational: notable but not hazardous",
+    "Advisory: potentially hazardous; be aware",
+    "Watch: conditions favor a hazardous event; be prepared",
+    "Warning: a hazardous event is occurring or imminent; take action",
+]
+
+[[task.cases]]
+state = "Light rain expected this afternoon, under 5mm total."
+expected = 0
+
+[[task.cases]]
+state = "Clear skies with a light breeze this weekend."
+expected = 0
+
+[[task.cases]]
+state = "Patchy drizzle in the morning, clearing by noon."
+expected = 0
+
+[[task.cases]]
+state = "Dense fog reducing visibility to under a quarter mile until 9am."
+expected = 1
+
+[[task.cases]]
+state = "Heat advisory: feels-like temperatures up to 38C this afternoon."
+expected = 1
+
+[[task.cases]]
+state = "Wind advisory: gusts to 50 km/h expected overnight."
+expected = 1
+
+[[task.cases]]
+state = "Coastal flood advisory: minor tidal flooding at high tide."
+expected = 1
+
+[[task.cases]]
+state = "Severe thunderstorm watch until 8pm; conditions favor large hail."
+expected = 2
+
+[[task.cases]]
+state = "Winter storm watch: significant snow possible within 36 hours."
+expected = 2
+
+[[task.cases]]
+state = "Tornado warning: radar-confirmed circulation near the county line."
+expected = 3
+
+[[task.cases]]
+state = "Flash flood warning: three inches have fallen and more is coming."
+expected = 3
+
+[[task.cases]]
+state = "Hurricane warning: Category 3 landfall expected within 12 hours."
+expected = 3
+
+[[task.cases]]
+state = "Winter weather advisory: 2-4cm of snow tonight; slippery roads possible."
+expected = 1
+
+[[task.cases]]
+state = "Flood watch: heavy rain Thursday may push streams out of their banks."
+expected = 2
+
+[[task.cases]]
+state = "Winter storm warning: 25cm of snow expected tonight; travel strongly discouraged."
+expected = 3
+
+[[task.cases]]
+state = "Smoky skies from distant wildfires; air quality is currently good."
+expected = 0
+
+[[task.cases]]
+state = "High surf warning: dangerous rip currents expected through the weekend."
+expected = 3
+
+[[task.cases]]
+state = "High-wind watch: gusts could top 90 km/h Saturday evening."
+expected = 2
+
+[[task.cases]]
+state = "Record high of 31C expected Thursday afternoon."
+expected = 0
+
+[[task.cases]]
+state = "Air quality alert: ozone expected to reach unhealthy levels for sensitive groups this afternoon."
+expected = 1
+
+[[task.cases]]
+state = "Tornado watch: conditions are favorable for tornadoes this evening."
+expected = 2
+
+[[task.cases]]
+state = "Severe thunderstorm warning: a storm producing quarter-sized hail is over your county now."
+expected = 3
+
+[[task]]
+id = "content_type"
+type = "choice"
+
+[task.question]
+instructions = "What kind of article is this?"
+
+[task.question.criteria]
+news_report = "Reports facts about recent events without advocacy"
+opinion = "Argues a position in a personal or editorial voice"
+press_release = "An organization's official announcement about itself"
+analysis = "Explains what events mean, with context and interpretation"
+feature = "Human-interest storytelling, profiles, and long-form color"
+
+[[task.cases]]
+state = "The council voted 6-3 on Tuesday to approve the rezoning, clearing the way for 240 homes."
+expected = "news_report"
+
+[[task.cases]]
+state = "This city's housing policy is a moral failure, and the mayor knows it."
+expected = "opinion"
+
+[[task.cases]]
+state = "Acme Corp today announced the general availability of Acme Cloud 3.0, its next-generation platform."
+expected = "press_release"
+
+[[task.cases]]
+state = "Why the rate decision matters: three forces shaping the next quarter."
+expected = "analysis"
+
+[[task.cases]]
+state = "Inside the night shift at the city's only 24-hour diner."
+expected = "feature"
+
+[[task.cases]]
+state = "In my view, the new transit plan sells out riders to developers."
+expected = "opinion"
+
+[[task.cases]]
+state = "The merger, explained: what the deal means for customers and rivals."
+expected = "analysis"
+
+[[task.cases]]
+state = "Forbes & Co. is pleased to announce the appointment of Jane Doe as Chief Financial Officer, effective March 1."
+expected = "press_release"
+
+[[task.cases]]
+state = "The wildfire forced 4,000 evacuations; containment stands at 30%."
+expected = "news_report"
+
+[[task.cases]]
+state = "She spent 20 years cataloging the city's forgotten murals. Now they're being painted over."
+expected = "feature"
+
+[[task.cases]]
+state = "We believe the data is clear: remote work did not hollow out downtown."
+expected = "opinion"
+
+[[task.cases]]
+state = "Why the chip shortage is easing — and what it means for prices."
+expected = "analysis"
+
+[[task.cases]]
+state = "We are proud to announce Meridian Health has been named a top employer for the third year running."
+expected = "press_release"
+
+[[task.cases]]
+state = "Police arrested a 34-year-old man Tuesday in connection with the warehouse arson; no injuries were reported."
+expected = "news_report"
+
+[[task.cases]]
+state = "For 45 years she has sold flowers at the market corner; now the city plans to relocate all the stalls."
+expected = "feature"
+
+[[task.cases]]
+state = "The school bond measure failed 49-51 in Tuesday's special election."
+expected = "news_report"
+
+[[task.cases]]
+state = "To the editor: two-factor authentication on everything is security theater, and I'll die on this hill."
+expected = "opinion"
+
+[[task.cases]]
+state = "In this small logging town, the last sawmill closed in March, and nobody has figured out what comes next."
+expected = "feature"
+
+[[task.cases]]
+state = "Starting May 1, we are updating our Terms of Service; continued use of the service constitutes acceptance."
+expected = "press_release"
+
+[[task.cases]]
+state = "The transit authority says ridership rose 12% last quarter, the first increase since 2019."
+expected = "news_report"
+
+[[task.cases]]
+state = "Guest column: As a former ER nurse, I can tell you the staffing-ratio bill doesn't go far enough."
+expected = "opinion"
+
+[[task.cases]]
+state = "What a no-deal budget deadline would mean for farmers, in five charts."
+expected = "analysis"
+
+[[task]]
+id = "veterinary_triage"
+type = "score"
+
+[task.question]
+instructions = "How urgently does this pet need veterinary care?"
+criteria = [
+    "Emergency: needs immediate emergency veterinary care now",
+    "Same-day urgent visit",
+    "Appointment within a few days",
+    "Routine or monitor at home",
+]
+
+[[task.cases]]
+state = "My dog ate a whole bar of dark chocolate an hour ago."
+expected = 0
+
+[[task.cases]]
+state = "Cat is straining to urinate and crying; nothing is coming out."
+expected = 0
+
+[[task.cases]]
+state = "Puppy has vomited six times in two hours and is unresponsive when I pick him up."
+expected = 0
+
+[[task.cases]]
+state = "Hit by a car 20 minutes ago; he's standing but wobbly."
+expected = 0
+
+[[task.cases]]
+state = "Rabbit hasn't eaten since this morning and seems hunched over."
+expected = 0
+
+[[task.cases]]
+state = "Dog's eye is swollen shut and he keeps pawing at it."
+expected = 1
+
+[[task.cases]]
+state = "Cut on the paw pad is still bleeding a little through the bandage."
+expected = 1
+
+[[task.cases]]
+state = "Ear infection symptoms: head shaking and a smelly ear for a week."
+expected = 2
+
+[[task.cases]]
+state = "Annual vaccination checkup for a healthy three-year-old cat."
+expected = 3
+
+[[task.cases]]
+state = "Question about switching an eleven-month puppy to adult food."
+expected = 3
+
+[[task.cases]]
+state = "Routine nail trim appointment."
+expected = 3
+
+[[task.cases]]
+state = "The incision from last week's surgery is red and oozing a little."
+expected = 1
+
+[[task.cases]]
+state = "Dog has been limping on and off for two weeks, worse after long walks; still eats fine."
+expected = 2
+
+[[task.cases]]
+state = "My dog is terrified of thunder — do you carry calming chews?"
+expected = 3
+
+[[task.cases]]
+state = "My dog ate a fistful of grapes off the counter an hour ago."
+expected = 0
+
+[[task.cases]]
+state = "The cat has been drinking noticeably more water for the last two weeks."
+expected = 2
+
+[[task.cases]]
+state = "The puppy has a green nasal discharge and keeps sneezing after two days at daycare."
+expected = 2
+
+[[task.cases]]
+state = "My dog's belly is swollen and he keeps retching, but nothing comes up."
+expected = 0
+
+[[task.cases]]
+state = "Bit by another dog at the park; there's a visible puncture wound."
+expected = 1
+
+[[task.cases]]
+state = "Due for a flea and tick preventative refill — which one do you recommend?"
+expected = 3

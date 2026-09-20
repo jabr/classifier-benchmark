@@ -1,16 +1,16 @@
 """Jev (typesafe) backend, served via OpenRouter as typesafe/jev-1.13.
 
 OpenRouter exposes Jev as a decisions model on /api/alpha/decisions,
-which accepts the same System One question schema as the von package.
+which accepts the benchmark's System One question schema (bench.cases).
 """
 
 import json
 import os
 import urllib.error
 import urllib.request
-from typing import Any, Optional
+from typing import Optional
 
-from von.types import Choice, Noul, Score
+from bench.cases import Choice, Noul, Question, Score, question_payload
 
 from .base import Backend, Prediction
 
@@ -44,11 +44,10 @@ class JevBackend(Backend):
       )
     self.max_attempts = max_attempts
 
-  def _questions(self, name: str, question: Any) -> dict:
-    payload = question.model_dump(exclude_none=True)
-    return {name: payload}
+  def _questions(self, name: str, question: Question) -> dict:
+    return {name: question_payload(question)}
 
-  def _invoke(self, name: str, question: Any, state: str) -> tuple[dict, dict]:
+  def _invoke(self, name: str, question: Question, state: str) -> tuple[dict, dict]:
     body = json.dumps(
       {
         "model": self.model,

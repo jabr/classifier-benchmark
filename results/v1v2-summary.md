@@ -1,7 +1,7 @@
 # Full suite results (v1 + v2): 947 cases across four System One models
 
-Head-to-head across both test suites: **v1** (8 tasks / 78 cases, `bench/cases.py`) and **v2**
-(49 tasks / 869 cases, `bench/cases_v2.py`). No case overlap between suites.
+Head-to-head across both test suites: **v1** (8 tasks / 78 cases, `cases/v1.toml`) and **v2**
+(49 tasks / 869 cases, `cases/v2.toml`). No case overlap between suites.
 
 **Status:** v2 results are preliminary — shared with the Von project for review before being promoted
 to the headline comparison in the README.
@@ -207,5 +207,5 @@ uv run python -m bench.run --backend gliner2 --suite all --device mps --out resu
 uv run python -m bench.run --backend laya --suite all --device mps --out results/v1v2-laya.json
 ```
 
-Suite definitions: `bench/cases.py` (v1, frozen), `bench/cases_v2.py` (v2); registry in `bench/suites.py`.
+Suite definitions: `cases/v1.toml` (v1, frozen), `cases/v2.toml` (v2); registry in `bench/suites.py`.
 Raw per-case records: `results/v1v2-{von,jev,gliner2,laya}.json`.

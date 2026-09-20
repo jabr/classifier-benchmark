@@ -3,8 +3,9 @@
 from pathlib import Path
 from typing import Optional
 
+from bench.cases import Choice, Noul, Score
+
 from .base import Backend, Prediction, level_from_probabilities
-from von.types import Choice, Noul, Score
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_MODEL_DIR = REPO_ROOT / "models" / "convaiinnovations" / "laya"

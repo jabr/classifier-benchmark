@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Optional
 
-from von.types import Choice, Noul, Score
+from bench.cases import Choice, Noul, Score
 
 
 @dataclass
