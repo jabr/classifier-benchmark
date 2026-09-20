@@ -41,6 +41,8 @@ uv sync
 
 # fetch model weights into models/<org>/<name>
 just download wfzyx/von-1.0
+just download fastino/gliner2-large-v1
+just download convaiinnovations/laya
 
 # run the v1 suite (backends: von, gliner2, laya, jev — comma-separated)
 uv run python -m bench.run --backend von,gliner2,laya --suite v1 --device mps --out results/run.json
