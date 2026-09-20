@@ -12,7 +12,7 @@ Every model answers the same question JSON for the same tasks, defined with gold
 and combined:
 
 - **v1** — the original 8 tasks / 78 cases (unchanged)
-- **v2** — 49 tasks / 910 cases: extensions of all 8 v1 tasks (identical question schemas,
+- **v2** — 49 tasks / 869 cases: extensions of all 8 v1 tasks (identical question schemas,
   all-new cases across the difficulty spectrum, ids suffixed `_v2`) plus new tasks in adjacent
   domains (expense categorization, on-call routing, churn risk, lead qualification, app-review
   triage) and distant domains (content moderation, code review comments, commit messages,
