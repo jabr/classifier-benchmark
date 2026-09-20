@@ -1446,6 +1446,10 @@ def allergen_present() -> Task:
       Case("Tiramisu.", True),
       Case("100% buckwheat soba noodles.", False),
       Case("Rice-milk rice pudding with cinnamon.", False),
+      Case("Frittata with roasted peppers and goat cheese.", True),
+      Case("Hummus plate with warm pita bread.", True),
+      Case("Lamb chops with mint jelly and roasted root vegetables.", False),
+      Case("Raspberry sorbet with fresh mint.", False),
     ],
   )
 
@@ -1484,6 +1488,11 @@ def home_service_routing() -> Task:
       Case("The heat pump short-cycles every few minutes and shows an error code.", "hvac"),
       Case("Scrape and re-caulk the bathtub surround, then patch the adjacent drywall.", "handyman"),
       Case("The oven doesn't hold temperature and the self-clean cycle stalls.", "appliance_repair"),
+      Case("The GFCI outlet next to the kitchen sink won't reset no matter what I plug in.", "electrical"),
+      Case("Half the house lost power suddenly while the neighbors still have lights.", "electrical"),
+      Case("A brown water stain is spreading across the ceiling below the upstairs bathroom.", "plumbing"),
+      Case("Two bedrooms stay cold no matter how high I set the thermostat.", "hvac"),
+      Case("Hang two floating shelves and a heavy mirror in the hallway.", "handyman"),
     ],
   )
 
@@ -1521,6 +1530,9 @@ def gaming_report_type() -> Task:
       Case("He walks the enemies through our base to farm a 'clip of the year'.", "other"),
       Case("His APM script fires perfect 17-click combos every time — macros or jailbroken inputs.", "cheating"),
       Case("Sent us a screenshot: they posted our teammate's real name and home address on Discord.", "harassment"),
+      Case("Their squad keeps queuing the same rivals at 2am and surrendering early — the rivals keep climbing.", "boosting"),
+      Case("He admits he's Diamond but plays ranked on his little brother's Bronze account.", "smurfing"),
+      Case("Keeps tearing down our team's builds before the enemies even arrive.", "other"),
     ],
   )
 
@@ -1550,6 +1562,10 @@ def warranty_claim_eligible() -> Task:
       Case("Screen got scratched by the keys in the same pocket.", False),
       Case("The soles of both shoes started separating after three months of daily wear.", True),
       Case("A non-certified charging cable burned out the charging circuit.", False),
+      Case("The blender was dead on arrival — it has never powered on, even out of the box.", True),
+      Case("The phone's battery swelled and pushed the screen out at month ten.", True),
+      Case("The phone slid off the car roof and flew onto the highway.", False),
+      Case("It got caught in a downpour and now it won't charge at all.", False),
     ],
   )
 
@@ -1586,6 +1602,10 @@ def weather_alert_severity() -> Task:
       Case("Smoky skies from distant wildfires; air quality is currently good.", 0),
       Case("High surf warning: dangerous rip currents expected through the weekend.", 3),
       Case("High-wind watch: gusts could top 90 km/h Saturday evening.", 2),
+      Case("Record high of 31C expected Thursday afternoon.", 0),
+      Case("Air quality alert: ozone expected to reach unhealthy levels for sensitive groups this afternoon.", 1),
+      Case("Tornado watch: conditions are favorable for tornadoes this evening.", 2),
+      Case("Severe thunderstorm warning: a storm producing quarter-sized hail is over your county now.", 3),
     ],
   )
 
@@ -1624,6 +1644,9 @@ def content_type() -> Task:
       Case("To the editor: two-factor authentication on everything is security theater, and I'll die on this hill.", "opinion"),
       Case("In this small logging town, the last sawmill closed in March, and nobody has figured out what comes next.", "feature"),
       Case("Starting May 1, we are updating our Terms of Service; continued use of the service constitutes acceptance.", "press_release"),
+      Case("The transit authority says ridership rose 12% last quarter, the first increase since 2019.", "news_report"),
+      Case("Guest column: As a former ER nurse, I can tell you the staffing-ratio bill doesn't go far enough.", "opinion"),
+      Case("What a no-deal budget deadline would mean for farmers, in five charts.", "analysis"),
     ],
   )
 
@@ -1661,6 +1684,9 @@ def veterinary_triage() -> Task:
       Case("The cat has been drinking noticeably more water for the last two weeks.", 2),
       Case("There's a small hot spot under his collar — red, wet, and a bit smelly.", 1),
       Case("The puppy has a green nasal discharge and keeps sneezing after two days at daycare.", 2),
+      Case("My dog's belly is swollen and he keeps retching, but nothing comes up.", 0),
+      Case("Bit by another dog at the park; there's a visible puncture wound.", 1),
+      Case("Due for a flea and tick preventative refill — which one do you recommend?", 3),
     ],
   )
 
