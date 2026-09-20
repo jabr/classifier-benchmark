@@ -757,6 +757,9 @@ def phishing_email() -> Task:
       Case("Apple ID suspended due to suspicious activity; sign in at apple-id-recovery.example to reactivate.", True),
       Case("Reminder: your subscription renews March 3 for $9.99 — manage it anytime in settings.", False),
       Case("Your account will be closed unless you confirm your password today. Reply with your password to verify.", True),
+      Case("URGENT: our bank details have changed. Please direct all outstanding invoice payments to the new account below and confirm by reply.", True),
+      Case("New sign-in detected on your account: Chrome on macOS, from Berlin, this morning. If this was you, no action is needed; otherwise change your password in the app's security settings.", False),
+      Case("Your team's annual security training is due by Friday; complete it via the learning portal link on the intranet.", False),
     ],
   )
 
@@ -783,6 +786,9 @@ def meeting_conflict() -> Task:
       Case("Calendar: Vendor call 13:30-14:00; dentist 15:00-16:00. Proposed: team debrief 13:45-14:15.", True),
       Case("Calendar: Weekly sync 09:00-09:45 every Monday. Proposed: Monday 1:1 09:40-10:10.", True),
       Case("Calendar: Yoga 07:00-08:00. Proposed: breakfast 08:00-08:45.", False),
+      Case("Calendar: OOO — conference travel, all day Friday. Proposed: roadmap workshop Friday 14:00-16:00.", True),
+      Case("Calendar: Deep work 09:00-12:00; lunch 12:30-13:15. Proposed: coffee 15:00-15:30.", False),
+      Case("Calendar: Design review 14:30-15:00. Proposed: working session 14:00-16:00.", True),
     ],
   )
 
@@ -809,6 +815,9 @@ def hazmat_shipping() -> Task:
       Case("Kitchen order: cast-iron skillet, wooden spoon, cotton apron.", False),
       Case("Order: four bottles of nail polish remover (acetone).", True),
       Case("Order: ceramic dinnerware set.", False),
+      Case("Order: two 100ml bottles of perfume for gifting.", True),
+      Case("Order: one gallon of pool acid (muriatic acid) for opening the swim season.", True),
+      Case("Order: cordless drill with NiCd battery pack and spare bits.", False),
     ],
   )
 
@@ -835,6 +844,9 @@ def dietary_vegan() -> Task:
       Case("Protein smoothie: oat milk, banana, peanut butter, cocoa.", True),
       Case("Pad thai made with fish sauce.", False),
       Case("Oatmeal with almond milk, cinnamon, and blueberries.", True),
+      Case("Non-dairy creamer: corn syrup solids, partially hydrogenated soybean oil, sodium caseinate.", False),
+      Case("Strawberry candy: sugar, corn syrup, and carmine (E120) for color.", False),
+      Case("Dark chocolate: cocoa mass, sugar, cocoa butter, vanilla.", True),
     ],
   )
 
@@ -868,6 +880,9 @@ def news_topic() -> Task:
       Case("The opera house announced a new season featuring two world premieres and a revived classic.", "culture"),
       Case("Parliament rejected the no-confidence motion 301-289 after a marathon session.", "politics"),
       Case("The startup raised a $40M Series B to expand its logistics network.", "business"),
+      Case("Signal added quantum-resistant encryption to its weekly beta, making the protocol available to third-party clients.", "technology"),
+      Case("The striker's transfer smashed the club's previous record; his shirt sold out within four hours of the announcement.", "sports"),
+      Case("Lawmakers advanced the semiconductor export-control bill in committee today over industry objections.", "politics"),
     ],
   )
 
@@ -900,6 +915,8 @@ def app_review_intent() -> Task:
       Case("Would love a way to share templates with my team without sending exports.", "feature_request"),
       Case("The subscription renewed at full price even though I cancelled the trial before it ended.", "pricing_billing"),
       Case("The new offline maps are a game changer. Thank you!", "praise"),
+      Case("Two years and still no dark mode. Every other app has it. Sort it out.", "feature_request"),
+      Case("How do I switch from the annual plan to monthly billing?", "pricing_billing"),
     ],
   )
 
@@ -933,6 +950,9 @@ def document_type() -> Task:
       Case("EXPERIENCE: Operations lead, 2018-2023 — managed a team of nine; BA Economics, 2016.", "resume"),
       Case("Please find our remittance for INV-2214; payment of $2,340.00 was sent by wire today.", "receipt"),
       Case("This Agreement is entered into as of January 5 by and between Acme and Beta.", "contract"),
+      Case("Subscription invoice — Acme Cloud, 12 seats at $29/seat, prorated 3/14 to 3/31; total due $168.84 on 4/1.", "invoice"),
+      Case("Amendment to PO 991-2541: increase quantity of SKU EM-114 by 75 units; all other terms unchanged.", "purchase_order"),
+      Case("This license is granted for personal, non-commercial use only and may not be transferred.", "contract"),
     ],
   )
 
@@ -963,6 +983,9 @@ def reading_level() -> Task:
       Case("The appellate court remanded the matter for reconsideration in light of intervening precedent.", 2),
       Case("The finance team will review expenses on the 5th; submit receipts before then.", 1),
       Case("The patient presented with an acute exacerbation of chronic obstructive pulmonary disease and was started on BiPAP.", 2),
+      Case("The bank took the house because nobody paid the money for six months. The family moved in with cousins.", 0),
+      Case("Restart your router, wait two minutes, then check whether the status light turns solid white.", 1),
+      Case("Cover-2 got shredded by the slot curl all afternoon; the blitz never got home and the safeties paid for it.", 2),
     ],
   )
 
@@ -995,6 +1018,9 @@ def insurance_claim_priority() -> Task:
       Case("The basement floods whenever it rains heavily and it did again tonight — water keeps seeping in.", 3),
       Case("Hail dented the car hood and roof; it's driveable and there's no rush.", 1),
       Case("Someone broke in through the back door; we're not staying here tonight and need emergency boarding.", 3),
+      Case("Got a small dent from a shopping cart in the parking lot; no rush, just want it on record.", 0),
+      Case("Does my policy cover a lost engagement ring, or is that a separate rider? Just planning ahead.", 0),
+      Case("The dishwasher leaked overnight; the kitchen floor laminate is warped, but the leak has stopped.", 2),
     ],
   )
 
@@ -1029,6 +1055,8 @@ def symptom_triage() -> Task:
       Case("Mild sunburn from the beach — skin is red and warm, no blisters.", 3),
       Case("Sudden weakness on one side of my face and slurred speech, started 30 minutes ago.", 0),
       Case("Recurring mild headaches most afternoons for a month, no other symptoms.", 2),
+      Case("A hot pan burned the back of my hand; it blistered and it's very painful.", 1),
+      Case("My 3-year-old won't move her arm after her cousin yanked it; she cries if I touch it.", 1),
     ],
   )
 
@@ -1062,6 +1090,9 @@ def delivery_exception() -> Task:
       Case("Contents charred after a warehouse fire; shipment written off as a total loss.", "damaged"),
       Case("Address correction: the street name was misspelled; the package is on hold.", "address_issue"),
       Case("Flight cancelled due to volcanic ash; all parcels to the region are delayed.", "weather_delay"),
+      Case("Recipient not home for the 10:15 and 16:40 attempts; parcel is at the pickup point after the second miss.", "failed_attempt"),
+      Case("Customs requires a passport copy from the recipient before release can be scheduled.", "customs_hold"),
+      Case("Refrigerated parcel sat in a 28-degree hold area overnight; contents spoiled.", "damaged"),
     ],
   )
 
@@ -1095,6 +1126,9 @@ def city_service_request() -> Task:
       Case("Rats at the dumpster behind the bakery on 6th Street.", "sanitation"),
       Case("Sidewalk is cracked and lifting — a trip hazard near the school.", "roads"),
       Case("Someone is running an unlicensed food cart on the plaza.", "permits"),
+      Case("The karaoke bar's outdoor speakers blast until 3am on weeknights.", "noise"),
+      Case("A water main break is flooding the intersection at 4th and Grand.", "utilities"),
+      Case("Does a weekend yard sale need a permit, and how big can the sign be?", "permits"),
     ],
   )
 
@@ -1119,6 +1153,9 @@ def ad_policy_violation() -> Task:
       Case("Bitcoin signals: guaranteed 10x returns, withdraw anytime.", True),
       Case("Free trial, cancel anytime, no credit card required.", False),
       Case("Doctors won't tell you this one weird trick to reverse aging.", True),
+      Case("This week only: hunting rifles in stock, free transfer with every purchase.", True),
+      Case("Modafinil without a prescription, overnight shipping, no questions asked.", True),
+      Case("Compare our checking-account fees side by side — no hidden charges, no fine print.", False),
     ],
   )
 
@@ -1144,6 +1181,10 @@ def fair_housing_violation() -> Task:
       Case("Prefer that foreign students don't apply.", True),
       Case("Steps from the new mosque — perfect for Muslim families.", True),
       Case("Corner lot with mature trees, a new furnace, and a two-car garage.", False),
+      Case("The building does not allow guide dogs or other service animals.", True),
+      Case("Tenants of European descent preferred.", True),
+      Case("Apartment available to female tenants only.", True),
+      Case("Home office with fiber internet and a coffee bar — ideal for remote work.", False),
     ],
   )
 
@@ -1177,6 +1218,8 @@ def contract_clause_type() -> Task:
       Case("Client shall hold Provider harmless from claims arising out of Client's use of the Deliverables.", "indemnification"),
       Case("The parties shall keep the terms of this Agreement and all negotiations confidential.", "confidentiality"),
       Case("Company may terminate immediately if Contractor breaches the confidentiality obligations.", "termination"),
+      Case("Neither party shall be liable for lost profits or loss of data, even if advised of their possibility.", "limitation_of_liability"),
+      Case("Neither party is responsible for delays caused by riots, civil unrest, or nuclear catastrophe.", "force_majeure"),
     ],
   )
 
@@ -1210,6 +1253,10 @@ def voice_assistant_intent() -> Task:
       Case("What time does the pharmacy close?", "information_request"),
       Case("How many ounces are in a cup?", "information_request"),
       Case("Turn up the volume in the kitchen.", "device_control"),
+      Case("Add my flight to Chicago to the calendar for Tuesday morning.", "reminder"),
+      Case("Play that song from the coffee commercial.", "music"),
+      Case("What's your name?", "small_talk"),
+      Case("Do I need an umbrella today?", "information_request"),
     ],
   )
 
@@ -1243,6 +1290,11 @@ def grammar_issue() -> Task:
       Case("The committee decided to postpone the meeting.", "none"),
       Case("Each of the students have a laptop.", "subject_verb_agreement"),
       Case("We should of checked the tire pressure.", "word_choice"),
+      Case("Its a shame the launch was delayed.", "punctuation"),
+      Case("I bought apples oranges and bananas at the store.", "punctuation"),
+      Case("The meeting is definately on for Monday.", "spelling"),
+      Case("How will this effect our margins?", "word_choice"),
+      Case("Neither the manager nor the employees were informed.", "none"),
     ],
   )
 
@@ -1269,6 +1321,10 @@ def action_item_assignment() -> Task:
       Case("Morale is up after the launch; nice work everyone.", False),
       Case("Let's circle back on pricing next time.", False),
       Case("Devon will circulate the updated budget by Wednesday EOD.", True),
+      Case("Maybe whoever is free can update the playbook next sprint.", False),
+      Case("The mockups are to be finalized by Lars before the offsite.", True),
+      Case("Someone should probably own the migration doc.", False),
+      Case("Dana owns the migration plan for Q3.", True),
     ],
   )
 
@@ -1293,6 +1349,9 @@ def suspicious_transaction() -> Task:
       Case("Gas-station purchase in Marseille minutes after the card was used in Rotterdam.", True),
       Case("Series of twelve purchases under $2 at the same terminal in four minutes.", True),
       Case("Annual insurance premium of $1,240 on the usual renewal date.", False),
+      Case("First-ever wire from this account, to a newly added payee, for the full balance minus $50.", True),
+      Case("Back-to-back digital gift-card purchases totaling $1,900 within the hour.", True),
+      Case("Property-tax payment of $4,300 to the county, same quarter as every year.", False),
     ],
   )
 
@@ -1306,7 +1365,7 @@ def return_reason() -> Task:
       criteria={
         "damaged_in_transit": "The item arrived broken, crushed, or otherwise damaged from shipping",
         "wrong_item": "A different item, color, or size than what was ordered",
-        "size_or_fit": "The right item was sent but it doesn't fit or suit the buyer",
+        "size_or_fit": "The right item was sent, but the size, length, or cut doesn't work for the buyer",
         "changed_mind": "No problem with the item; the buyer no longer wants it",
         "late_delivery": "The item arrived too late to be useful",
       },
@@ -1326,6 +1385,9 @@ def return_reason() -> Task:
       Case("The box was dry and intact, but the lamp inside was snapped.", "damaged_in_transit"),
       Case("Ordered the oak table but the box says walnut.", "wrong_item"),
       Case("I ordered the wrong size — my mistake, not yours.", "size_or_fit"),
+      Case("The costume arrived the day after Halloween.", "late_delivery"),
+      Case("Got this as a gift, but I already own one.", "changed_mind"),
+      Case("It's the right machine, but it came with an EU plug instead of a UK one.", "wrong_item"),
     ],
   )
 
@@ -1350,6 +1412,10 @@ def allergen_present() -> Task:
       Case("Caesar salad with croutons and parmesan.", True),
       Case("Beef tacos with corn tortillas, salsa, and guacamole.", False),
       Case("Sweet potato and coconut curry with jasmine rice.", False),
+      Case("Shrimp cocktail with horseradish sauce.", True),
+      Case("Steamed edamame with chili salt.", True),
+      Case("Crème brûlée with vanilla bean.", True),
+      Case("Black-bean patty with corn and quinoa in a lettuce wrap.", False),
     ],
   )
 
@@ -1381,6 +1447,10 @@ def home_service_routing() -> Task:
       Case("Furnace makes a banging noise on startup and won't heat.", "hvac"),
       Case("Toilet runs continuously after flushing.", "plumbing"),
       Case("Bathroom exhaust fan stopped working entirely.", "hvac"),
+      Case("A sewer smell comes and goes from the guest bathroom drain.", "plumbing"),
+      Case("Ceiling light flickers and buzzes; the fixture is warm to the touch.", "electrical"),
+      Case("Patch a fist-sized drywall hole and touch up the paint.", "handyman"),
+      Case("The fridge compressor runs constantly and the freezer won't freeze anymore.", "appliance_repair"),
     ],
   )
 
@@ -1412,6 +1482,9 @@ def gaming_report_type() -> Task:
       Case("Teammate blocked our team's path and team-killed twice.", "other"),
       Case("Streamer admits on stream that he bought this account and had it boosted.", "boosting"),
       Case("Suspicious flick to a kill through smoke every single time.", "cheating"),
+      Case("Spammed 'ez' in all chat after every round and told the other team to uninstall the game.", "harassment"),
+      Case("Queues into ranked and disconnects at character select every third match.", "other"),
+      Case("He's top-500 on his main and is streaming himself bulldozing our silver lobby from this alt.", "smurfing"),
     ],
   )
 
@@ -1436,6 +1509,9 @@ def warranty_claim_eligible() -> Task:
       Case("The screen flickers intermittently on a six-month-old TV.", True),
       Case("Dog chewed through the charging cable.", False),
       Case("The smartwatch crown fell off during normal wear, with no impact.", True),
+      Case("The screen started registering ghost touches with no drops; it's month eleven.", True),
+      Case("The bike frame cracked at the weld after eight months of normal commuting.", True),
+      Case("Screen got scratched by the keys in the same pocket.", False),
     ],
   )
 
@@ -1466,6 +1542,9 @@ def weather_alert_severity() -> Task:
       Case("Tornado warning: radar-confirmed circulation near the county line.", 3),
       Case("Flash flood warning: three inches have fallen and more is coming.", 3),
       Case("Hurricane warning: Category 3 landfall expected within 12 hours.", 3),
+      Case("Winter weather advisory: 2-4cm of snow tonight; slippery roads possible.", 1),
+      Case("Flood watch: heavy rain Thursday may push streams out of their banks.", 2),
+      Case("Winter storm warning: 25cm of snow expected tonight; travel strongly discouraged.", 3),
     ],
   )
 
@@ -1497,6 +1576,9 @@ def content_type() -> Task:
       Case("She spent 20 years cataloging the city's forgotten murals. Now they're being painted over.", "feature"),
       Case("We believe the data is clear: remote work did not hollow out downtown.", "opinion"),
       Case("Why the chip shortage is easing — and what it means for prices.", "analysis"),
+      Case("We are proud to announce Meridian Health has been named a top employer for the third year running.", "press_release"),
+      Case("Police arrested a 34-year-old man Tuesday in connection with the warehouse arson; no injuries were reported.", "news_report"),
+      Case("For 45 years she has sold flowers at the market corner; now the city plans to relocate all the stalls.", "feature"),
     ],
   )
 
@@ -1527,6 +1609,9 @@ def veterinary_triage() -> Task:
       Case("Annual vaccination checkup for a healthy three-year-old cat.", 3),
       Case("Question about switching an eleven-month puppy to adult food.", 3),
       Case("Routine nail trim appointment.", 3),
+      Case("The incision from last week's surgery is red and oozing a little.", 1),
+      Case("Dog has been limping on and off for two weeks, worse after long walks; still eats fine.", 2),
+      Case("My dog is terrified of thunder — do you carry calming chews?", 3),
     ],
   )
 
