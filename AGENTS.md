@@ -26,10 +26,11 @@ task plus new adjacent- and distant-domain tasks). No overlap between suites.
 | `cases/v2.toml` | v2 suite data (49 tasks / 869 cases, currently under review); extension tasks duplicate their v1 question with `_v2` ids |
 | `cases/hashes.json` | content hash per locked suite |
 | `bench/cases.py` | bench-owned schema: `Task`/`Case` dataclasses, question types (`Choice`/`Noul`/`Score` in the System One wire shape), TOML loader/validation |
-| `bench/suites.py` | suite registry, id resolution, plan building; enforces unique ids and v1↔v2 question equality |
+| `bench/suites.py` | suite registry, id resolution, plan building; enforces unique ids and v1↔v2 question equality; auto-discovers `sources/samples/*.toml` as suites (excluded from `all`) |
 | `bench/validate.py` | suite structure + hash validation; `just validate` to run |
 | `bench/run.py` | harness/CLI; per-suite and combined metrics (acc, AUC, MAE, latency) |
 | `bench/backends/` | model adapters behind `create_backend(name, **kwargs)` |
+| `sources/` | external datasets (one real-world, two synthetic from other generators) → generated sample suites (`sources/generate.py`, `just gen <source>`); samples in `sources/samples/` (scratch, git-ignored) with provenance headers; see `sources/README.md` (also usable for training-data extraction) |
 | `results/` | raw run records + `benchmark-summary.md` (analysis) — only add/extend when asked |
 | `models/<org>/<name>` | local weights, fetched via `just download <org>/<name>` |
 
@@ -53,8 +54,15 @@ uv run python -m bench.run --backend von --device mps --suite all --out results/
 uv run python -m bench.run --backend jev --out results/jev.json   # needs OPENROUTER_API_KEY
 ```
 
-- `--suite`: `v1`, `v2`, comma-separated, or `all` (default). `--tasks` filters within the
-  selected suites. `--limit` truncates cases per task (smoke tests).
+- `--suite`: `v1`, `v2`, comma-separated, or `all` (default when `--sample`
+  is not given; core suites only). `--sample`: generated sample suite(s) by
+  name (`cfpb-bbee`), comma-separated, or `all` — samples never flow through
+  `--suite`. `--tasks` filters within the selected suites. `--limit`
+  truncates cases per task (smoke tests).
+- Sample suites come from `just gen <source> [--seed N]` (`sources/`); each
+  generation is a frozen TOML in `sources/samples/` with a provenance header.
+  Generating needs network + the `sources` extra but never touches models;
+  running a benchmark never does.
 - Jev auth: `OPENROUTER_API_KEY` or `SANDBOX_OPENROUTER_API_KEY`.
 - In sandboxed sessions `--device mps` can fail (torch can't query `sw_vers`); CPU produces
   identical accuracy, only latency differs. Use `mps` on the real machine.

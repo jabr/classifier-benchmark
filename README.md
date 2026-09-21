@@ -15,6 +15,8 @@ suites in development stay unlocked until finalized with `just lock <suite>`.
 
 All test cases are synthetic: they were generated and cross-checked by a committee of LLMs (GLM 5.3 Flash, GLM 5.3, Kimi K3, Qwen3.8 2.4T, Qwen3.8 Flash, DeepSeek V4.1 Flash, and MiMo V2.5 Pro), each contributing to task/case definition, expansion, and/or review. Debatable or ambiguous cases were removed before freezing.
 
+Note: these benchmarks are public, and models are free to incorporate the test cases into training data.
+
 ## Models under test
 
 | Model | Access |
@@ -50,7 +52,7 @@ uv run python -m bench.run --backend von,gliner2,laya --suite v1 --device mps --
 uv run python -m bench.run --backend jev --suite v1 --out results/jev.json
 ```
 
-Useful flags: `--suite` (`v1`/`v2`/comma-separated/`all`, default `all`), `--tasks` (run a subset within the selected suites), `--limit`, `--device` (`mps`/`cpu`/`cuda`), `--von-path` / `--gliner2-path` / `--laya-path` (custom weight locations), `--model` (Jev model id). Jev needs `OPENROUTER_API_KEY` (or `SANDBOX_OPENROUTER_API_KEY`) in the environment.
+Useful flags: `--suite` (`v1`/`v2`/comma-separated/`all`, default `all`; core suites only), `--sample` (generated samples from `sources/samples/`: name, comma-separated, or `all`), `--tasks` (run a subset within the selected suites), `--limit`, `--device` (`mps`/`cpu`/`cuda`), `--von-path` / `--gliner2-path` / `--laya-path` (custom weight locations), `--model` (Jev model id). Jev needs `OPENROUTER_API_KEY` (or `SANDBOX_OPENROUTER_API_KEY`) in the environment.
 
 ## Layout
 
@@ -60,6 +62,7 @@ Useful flags: `--suite` (`v1`/`v2`/comma-separated/`all`, default `all`), `--tas
 - `results/v1v2-summary.md` — v2 suite composition (in progress) and full-suite results
 - `results/*.json` — raw benchmark records (JSON includes `suite_summaries` per suite and the combined `summary`)
 - `bench/*` — the Python harness: schema + suite loader and validation, the CLI runner, and model adapter backends
+- [`sources/*`](sources/README.md) — external datasets (one real-world, two synthetic from other generators), sampled into bench-format suites with `just gen <source>`; also usable for training-data extraction
 
 ## License
 

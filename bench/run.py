@@ -227,7 +227,8 @@ def evaluate_backend(
 def main() -> None:
   parser = argparse.ArgumentParser(description="Run classification benchmarks.")
   parser.add_argument("--backend", default="von", help="Comma-separated: von, jev, gliner2, laya")
-  parser.add_argument("--suite", default="all", help="Suite(s) to run: v1, v2, comma-separated, or all (default)")
+  parser.add_argument("--suite", default=None, help="Core suite(s) to run: v1, v2, comma-separated, or 'all' (default when --sample is not given)")
+  parser.add_argument("--sample", default=None, help="Generated sample suite(s) to run: name (e.g. cfpb-bbee), comma-separated, or 'all' (every discovered sample)")
   parser.add_argument("--tasks", default="", help="Comma-separated task ids within the selected suites (default: all)")
   parser.add_argument("--limit", type=int, default=None, help="Limit cases per task")
   parser.add_argument("--device", default=None, help="Device for local backends (e.g. mps, cuda, cpu)")
@@ -238,7 +239,11 @@ def main() -> None:
   parser.add_argument("--out", default=None, help="Write JSON results to this path")
   args = parser.parse_args()
 
-  suite_names = resolve_suites(args.suite)
+  suite_names = []
+  if args.suite or not args.sample:
+    suite_names += resolve_suites(args.suite or "all")
+  if args.sample:
+    suite_names += resolve_samples(args.sample)
   task_ids = [t.strip() for t in args.tasks.split(",") if t.strip()]
   plan = suite_plan(suite_names, task_ids)
   if args.limit:

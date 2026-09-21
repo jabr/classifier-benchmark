@@ -14,3 +14,8 @@ default:
 # e.g.: just lock v2
 @lock *suites:
   uv run python -m bench.validate --lock {{suites}}
+
+# Generate a real-data sample suite from an external source (see sources/README.md)
+# e.g.: just gen cfpb --seed 48620
+@gen *args:
+  uv run python -m sources.generate {{args}}

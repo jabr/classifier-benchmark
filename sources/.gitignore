@@ -1,0 +1,4 @@
+# Generated sample suites are local artifacts; commit specific ones deliberately
+# with `git add -f sources/samples/<file>` (or promote their content into a suite)
+samples/
+.cache/
