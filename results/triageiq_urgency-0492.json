@@ -1,0 +1,5770 @@
+{
+  "von": {
+    "backend": "von",
+    "description": "von-1.0, local",
+    "suites": [
+      "triageiq_urgency-04d2"
+    ],
+    "tasks": {
+      "triageiq_urgency_04d2": {
+        "suite": "triageiq_urgency-04d2",
+        "type": "score",
+        "n": 100,
+        "errors": 0,
+        "correct": 54,
+        "accuracy": 0.54,
+        "latency_ms_mean": 54.76268500788137,
+        "latency_ms_p95": 61.15233292803168,
+        "extra": {
+          "mae_levels": 0.48,
+          "within_1": 0.98
+        }
+      }
+    },
+    "cases": {
+      "triageiq_urgency_04d2": [
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1682,
+            "1": 0.8315,
+            "2": 0.0005
+          },
+          "confidence": 0.663,
+          "latency_ms": 65.45816699508578,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0064,
+            "1": 0.7231,
+            "2": 0.2703
+          },
+          "confidence": 0.453,
+          "latency_ms": 52.118291961960495,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1122,
+            "1": 0.7974,
+            "2": 0.0902
+          },
+          "confidence": 0.685,
+          "latency_ms": 58.356708963401616,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.003,
+            "1": 0.9932,
+            "2": 0.0036
+          },
+          "confidence": 0.99,
+          "latency_ms": 57.31533304788172,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0039,
+            "1": 0.9932,
+            "2": 0.003
+          },
+          "confidence": 0.989,
+          "latency_ms": 53.198708104901016,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1482,
+            "1": 0.8428,
+            "2": 0.0088
+          },
+          "confidence": 0.695,
+          "latency_ms": 58.80816699936986,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0609,
+            "1": 0.9351,
+            "2": 0.004
+          },
+          "confidence": 0.874,
+          "latency_ms": 60.04958297125995,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0001,
+            "1": 0.9995,
+            "2": 0.0002
+          },
+          "confidence": 0.999,
+          "latency_ms": 56.06500001158565,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0467,
+            "2": 0.9531
+          },
+          "confidence": 0.906,
+          "latency_ms": 61.39133300166577,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0175,
+            "1": 0.9326,
+            "2": 0.0498
+          },
+          "confidence": 0.883,
+          "latency_ms": 55.71529094595462,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0423,
+            "1": 0.4001,
+            "2": 0.5576
+          },
+          "confidence": 0.157,
+          "latency_ms": 56.06354202609509,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0059,
+            "1": 0.9893,
+            "2": 0.0049
+          },
+          "confidence": 0.983,
+          "latency_ms": 52.7059999294579,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.018,
+            "1": 0.98,
+            "2": 0.0022
+          },
+          "confidence": 0.962,
+          "latency_ms": 53.06579195894301,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0002,
+            "1": 0.8711,
+            "2": 0.1285
+          },
+          "confidence": 0.743,
+          "latency_ms": 58.461584034375846,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0004,
+            "1": 0.1754,
+            "2": 0.8242
+          },
+          "confidence": 0.649,
+          "latency_ms": 53.902416955679655,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0002,
+            "1": 0.9585,
+            "2": 0.0415
+          },
+          "confidence": 0.917,
+          "latency_ms": 52.99712496344,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0045,
+            "1": 0.1077,
+            "2": 0.8877
+          },
+          "confidence": 0.78,
+          "latency_ms": 55.31841691117734,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.7373,
+            "1": 0.2517,
+            "2": 0.0109
+          },
+          "confidence": 0.486,
+          "latency_ms": 56.058499962091446,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.3818,
+            "1": 0.603,
+            "2": 0.015
+          },
+          "confidence": 0.221,
+          "latency_ms": 53.96458401810378,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0173,
+            "1": 0.9473,
+            "2": 0.0353
+          },
+          "confidence": 0.912,
+          "latency_ms": 51.89600004814565,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0255,
+            "1": 0.9619,
+            "2": 0.0124
+          },
+          "confidence": 0.936,
+          "latency_ms": 48.26049995608628,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0003,
+            "1": 0.9995,
+            "2": 0.0004
+          },
+          "confidence": 0.999,
+          "latency_ms": 48.98616601713002,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0007,
+            "1": 0.3098,
+            "2": 0.6895
+          },
+          "confidence": 0.38,
+          "latency_ms": 52.8433748986572,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.3577,
+            "1": 0.6304,
+            "2": 0.012
+          },
+          "confidence": 0.273,
+          "latency_ms": 53.51079104002565,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0005,
+            "1": 0.9917,
+            "2": 0.008
+          },
+          "confidence": 0.984,
+          "latency_ms": 59.5841669710353,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.001,
+            "1": 0.835,
+            "2": 0.1641
+          },
+          "confidence": 0.671,
+          "latency_ms": 54.376499960199,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1198,
+            "1": 0.8677,
+            "2": 0.0126
+          },
+          "confidence": 0.748,
+          "latency_ms": 53.330291993916035,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0055,
+            "1": 0.9814,
+            "2": 0.0133
+          },
+          "confidence": 0.968,
+          "latency_ms": 51.76016699988395,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.2913,
+            "1": 0.6987,
+            "2": 0.0102
+          },
+          "confidence": 0.407,
+          "latency_ms": 51.787749980576336,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.2087,
+            "1": 0.7729,
+            "2": 0.0185
+          },
+          "confidence": 0.564,
+          "latency_ms": 52.818333031609654,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0605,
+            "1": 0.9385,
+            "2": 0.0011
+          },
+          "confidence": 0.878,
+          "latency_ms": 54.349708952941,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0046,
+            "1": 0.9517,
+            "2": 0.0436
+          },
+          "confidence": 0.908,
+          "latency_ms": 60.73016696609557,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0087,
+            "1": 0.1405,
+            "2": 0.8506
+          },
+          "confidence": 0.71,
+          "latency_ms": 58.60658304300159,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0005,
+            "1": 0.999,
+            "2": 0.0005
+          },
+          "confidence": 0.999,
+          "latency_ms": 54.20191597659141,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0019,
+            "1": 0.9961,
+            "2": 0.0019
+          },
+          "confidence": 0.994,
+          "latency_ms": 55.38495897781104,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.006,
+            "1": 0.4602,
+            "2": 0.5337
+          },
+          "confidence": 0.073,
+          "latency_ms": 53.909707930870354,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0016,
+            "1": 0.9443,
+            "2": 0.0539
+          },
+          "confidence": 0.89,
+          "latency_ms": 55.1084999460727,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0024,
+            "1": 0.9971,
+            "2": 0.0006
+          },
+          "confidence": 0.995,
+          "latency_ms": 53.27279109042138,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0487,
+            "2": 0.9512
+          },
+          "confidence": 0.902,
+          "latency_ms": 68.3727920986712,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0538,
+            "1": 0.9424,
+            "2": 0.004
+          },
+          "confidence": 0.889,
+          "latency_ms": 53.89466695487499,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0162,
+            "1": 0.9648,
+            "2": 0.0191
+          },
+          "confidence": 0.946,
+          "latency_ms": 54.027375066652894,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0025,
+            "1": 0.0341,
+            "2": 0.9634
+          },
+          "confidence": 0.929,
+          "latency_ms": 61.62749999202788,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0014,
+            "1": 0.9556,
+            "2": 0.0433
+          },
+          "confidence": 0.912,
+          "latency_ms": 52.197542041540146,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.019,
+            "1": 0.9761,
+            "2": 0.0047
+          },
+          "confidence": 0.957,
+          "latency_ms": 51.04254197794944,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0402,
+            "1": 0.291,
+            "2": 0.6689
+          },
+          "confidence": 0.378,
+          "latency_ms": 55.57737499475479,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0309,
+            "1": 0.9678,
+            "2": 0.0013
+          },
+          "confidence": 0.937,
+          "latency_ms": 47.79866698663682,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.3174,
+            "1": 0.6338,
+            "2": 0.049
+          },
+          "confidence": 0.316,
+          "latency_ms": 54.97662501875311,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0025,
+            "1": 0.5796,
+            "2": 0.4177
+          },
+          "confidence": 0.162,
+          "latency_ms": 55.372708942741156,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.5059,
+            "1": 0.4932,
+            "2": 0.0009
+          },
+          "confidence": 0.013,
+          "latency_ms": 55.814667022787035,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1117,
+            "1": 0.8789,
+            "2": 0.0096
+          },
+          "confidence": 0.767,
+          "latency_ms": 52.87783301901072,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.752,
+            "1": 0.2385,
+            "2": 0.0094
+          },
+          "confidence": 0.513,
+          "latency_ms": 52.0699160406366,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0795,
+            "1": 0.7251,
+            "2": 0.1952
+          },
+          "confidence": 0.53,
+          "latency_ms": 56.01645796559751,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0022,
+            "1": 0.7197,
+            "2": 0.2781
+          },
+          "confidence": 0.442,
+          "latency_ms": 60.30541600193828,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0194,
+            "1": 0.6475,
+            "2": 0.3333
+          },
+          "confidence": 0.314,
+          "latency_ms": 52.70179093349725,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.4951,
+            "1": 0.499,
+            "2": 0.0059
+          },
+          "confidence": 0.004,
+          "latency_ms": 56.82387505657971,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0103,
+            "1": 0.9878,
+            "2": 0.0018
+          },
+          "confidence": 0.978,
+          "latency_ms": 57.277292013168335,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0644,
+            "1": 0.9175,
+            "2": 0.0182
+          },
+          "confidence": 0.853,
+          "latency_ms": 55.93604198656976,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0283,
+            "1": 0.9712,
+            "2": 0.0003
+          },
+          "confidence": 0.943,
+          "latency_ms": 54.44225005339831,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0003,
+            "1": 0.223,
+            "2": 0.7769
+          },
+          "confidence": 0.554,
+          "latency_ms": 63.03783389739692,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.2404,
+            "1": 0.7549,
+            "2": 0.0049
+          },
+          "confidence": 0.515,
+          "latency_ms": 48.7589999102056,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0609,
+            "1": 0.9385,
+            "2": 0.0007
+          },
+          "confidence": 0.878,
+          "latency_ms": 55.760208051651716,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.1371,
+            "2": 0.8628
+          },
+          "confidence": 0.726,
+          "latency_ms": 53.768416051752865,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.3242,
+            "1": 0.668,
+            "2": 0.0081
+          },
+          "confidence": 0.344,
+          "latency_ms": 53.3272500615567,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.8027,
+            "1": 0.1749,
+            "2": 0.0224
+          },
+          "confidence": 0.628,
+          "latency_ms": 53.359625046141446,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0693,
+            "1": 0.9302,
+            "2": 0.0005
+          },
+          "confidence": 0.861,
+          "latency_ms": 53.490875056013465,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1614,
+            "1": 0.4119,
+            "2": 0.4268
+          },
+          "confidence": 0.015,
+          "latency_ms": 54.308125050738454,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.006,
+            "1": 0.5293,
+            "2": 0.4646
+          },
+          "confidence": 0.065,
+          "latency_ms": 55.41720800101757,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0023,
+            "1": 0.8687,
+            "2": 0.1289
+          },
+          "confidence": 0.74,
+          "latency_ms": 52.73637501522899,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0025,
+            "1": 0.9912,
+            "2": 0.0064
+          },
+          "confidence": 0.985,
+          "latency_ms": 52.72379191592336,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.4297,
+            "1": 0.5649,
+            "2": 0.0057
+          },
+          "confidence": 0.135,
+          "latency_ms": 48.387415939942,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.2285,
+            "1": 0.7583,
+            "2": 0.0132
+          },
+          "confidence": 0.53,
+          "latency_ms": 52.446542074903846,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0073,
+            "1": 0.957,
+            "2": 0.0358
+          },
+          "confidence": 0.921,
+          "latency_ms": 53.96495806053281,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0121,
+            "1": 0.9873,
+            "2": 0.0007
+          },
+          "confidence": 0.975,
+          "latency_ms": 52.67562507651746,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0075,
+            "1": 0.7139,
+            "2": 0.2786
+          },
+          "confidence": 0.435,
+          "latency_ms": 51.85499996878207,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0917,
+            "1": 0.9077,
+            "2": 0.0005
+          },
+          "confidence": 0.816,
+          "latency_ms": 52.3662919877097,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.002,
+            "1": 0.9922,
+            "2": 0.0056
+          },
+          "confidence": 0.987,
+          "latency_ms": 54.85504097305238,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0598,
+            "1": 0.9272,
+            "2": 0.0128
+          },
+          "confidence": 0.867,
+          "latency_ms": 54.238874930888414,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0067,
+            "1": 0.9922,
+            "2": 0.001
+          },
+          "confidence": 0.985,
+          "latency_ms": 53.198875044472516,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0126,
+            "1": 0.9648,
+            "2": 0.0224
+          },
+          "confidence": 0.942,
+          "latency_ms": 52.9845409328118,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0476,
+            "1": 0.9458,
+            "2": 0.0064
+          },
+          "confidence": 0.898,
+          "latency_ms": 59.21400000806898,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0018,
+            "1": 0.9614,
+            "2": 0.0369
+          },
+          "confidence": 0.925,
+          "latency_ms": 53.35720896255225,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0008,
+            "1": 0.0495,
+            "2": 0.9497
+          },
+          "confidence": 0.9,
+          "latency_ms": 56.28337501548231,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0134,
+            "1": 0.9453,
+            "2": 0.0414
+          },
+          "confidence": 0.904,
+          "latency_ms": 52.0647088997066,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0001,
+            "1": 0.0115,
+            "2": 0.9883
+          },
+          "confidence": 0.977,
+          "latency_ms": 53.07320796418935,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1819,
+            "1": 0.8086,
+            "2": 0.0096
+          },
+          "confidence": 0.627,
+          "latency_ms": 52.1907500224188,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0575,
+            "1": 0.9424,
+            "2": 0.0002
+          },
+          "confidence": 0.885,
+          "latency_ms": 61.15233292803168,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0005,
+            "1": 0.0098,
+            "2": 0.9897
+          },
+          "confidence": 0.98,
+          "latency_ms": 53.787500015459955,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0141,
+            "1": 0.7319,
+            "2": 0.2539
+          },
+          "confidence": 0.478,
+          "latency_ms": 51.765791955403984,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.004,
+            "1": 0.1808,
+            "2": 0.8154
+          },
+          "confidence": 0.635,
+          "latency_ms": 60.145708033815026,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1716,
+            "1": 0.3328,
+            "2": 0.4956
+          },
+          "confidence": 0.163,
+          "latency_ms": 58.92370897345245,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.4773,
+            "1": 0.3645,
+            "2": 0.1581
+          },
+          "confidence": 0.113,
+          "latency_ms": 53.17049997393042,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0226,
+            "2": 0.9775
+          },
+          "confidence": 0.955,
+          "latency_ms": 54.601000039838254,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0033,
+            "1": 0.9961,
+            "2": 0.0004
+          },
+          "confidence": 0.993,
+          "latency_ms": 52.977917017415166,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0031,
+            "1": 0.769,
+            "2": 0.2278
+          },
+          "confidence": 0.541,
+          "latency_ms": 52.93137498665601,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0151,
+            "1": 0.9844,
+            "2": 0.0005
+          },
+          "confidence": 0.969,
+          "latency_ms": 53.712291992269456,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0043,
+            "1": 0.3613,
+            "2": 0.6343
+          },
+          "confidence": 0.273,
+          "latency_ms": 55.00066606327891,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0074,
+            "1": 0.9922,
+            "2": 0.0005
+          },
+          "confidence": 0.985,
+          "latency_ms": 51.76312499679625,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0014,
+            "1": 0.9966,
+            "2": 0.0018
+          },
+          "confidence": 0.995,
+          "latency_ms": 53.063167026266456,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.2661,
+            "1": 0.729,
+            "2": 0.0051
+          },
+          "confidence": 0.463,
+          "latency_ms": 53.02862508688122,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0151,
+            "2": 0.9849
+          },
+          "confidence": 0.97,
+          "latency_ms": 55.51341606769711,
+          "error": null
+        }
+      ]
+    },
+    "suite_summaries": {
+      "triageiq_urgency-04d2": {
+        "micro_accuracy": 0.54,
+        "macro_accuracy": 0.54,
+        "n": 100,
+        "errors": 0
+      }
+    },
+    "summary": {
+      "micro_accuracy": 0.54,
+      "macro_accuracy": 0.54,
+      "n": 100,
+      "errors": 0,
+      "wall_seconds": 9.28871354192961
+    }
+  },
+  "jev": {
+    "backend": "jev",
+    "description": "typesafe Jev via OpenRouter (typesafe/jev-1.13)",
+    "suites": [
+      "triageiq_urgency-04d2"
+    ],
+    "tasks": {
+      "triageiq_urgency_04d2": {
+        "suite": "triageiq_urgency-04d2",
+        "type": "score",
+        "n": 100,
+        "errors": 0,
+        "correct": 59,
+        "accuracy": 0.59,
+        "latency_ms_mean": 268.7645245413296,
+        "latency_ms_p95": 373.2734170043841,
+        "extra": {
+          "mae_levels": 0.51,
+          "within_1": 0.9
+        }
+      }
+    },
+    "cases": {
+      "triageiq_urgency_04d2": [
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.59,
+            "1": 0.41,
+            "2": 0.0
+          },
+          "confidence": 0.39,
+          "latency_ms": 358.7937919655815,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.98,
+            "2": 0.01
+          },
+          "confidence": 0.96,
+          "latency_ms": 231.3375830417499,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.07,
+            "1": 0.36,
+            "2": 0.57
+          },
+          "confidence": 0.25,
+          "latency_ms": 209.94304202031344,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.78,
+            "2": 0.21
+          },
+          "confidence": 0.67,
+          "latency_ms": 221.0962090175599,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.03,
+            "1": 0.83,
+            "2": 0.14
+          },
+          "confidence": 0.74,
+          "latency_ms": 325.08354098536074,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.72,
+            "1": 0.28,
+            "2": 0.0
+          },
+          "confidence": 0.57,
+          "latency_ms": 242.87541711237282,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 317.44479201734066,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.37,
+            "1": 0.6,
+            "2": 0.03
+          },
+          "confidence": 0.4,
+          "latency_ms": 882.7887080842629,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0
+          },
+          "confidence": 1,
+          "latency_ms": 274.72212503198534,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.5,
+            "1": 0.49,
+            "2": 0.01
+          },
+          "confidence": 0.24,
+          "latency_ms": 336.38345799408853,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.1,
+            "2": 0.9
+          },
+          "confidence": 0.85,
+          "latency_ms": 270.5775420181453,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 339.72320798784494,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 201.46170794032514,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.28,
+            "1": 0.07,
+            "2": 0.65
+          },
+          "confidence": 0.04,
+          "latency_ms": 231.14866600371897,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.55,
+            "1": 0.06,
+            "2": 0.39
+          },
+          "confidence": 0,
+          "latency_ms": 243.71045804582536,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.05,
+            "1": 0.89,
+            "2": 0.06
+          },
+          "confidence": 0.84,
+          "latency_ms": 281.38308390043676,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.41,
+            "1": 0.01,
+            "2": 0.58
+          },
+          "confidence": 0,
+          "latency_ms": 216.77595900837332,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 257.97641603276134,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.42,
+            "1": 0.58,
+            "2": 0.0
+          },
+          "confidence": 0.36,
+          "latency_ms": 224.00749998632818,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.72,
+            "1": 0.1,
+            "2": 0.18
+          },
+          "confidence": 0.31,
+          "latency_ms": 234.85070804599673,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 361.9856669101864,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.58,
+            "2": 0.42
+          },
+          "confidence": 0.37,
+          "latency_ms": 307.67308303620666,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0
+          },
+          "confidence": 0.99,
+          "latency_ms": 201.82708301581442,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 241.91658303607255,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.93,
+            "1": 0.03,
+            "2": 0.04
+          },
+          "confidence": 0.83,
+          "latency_ms": 373.2734170043841,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.95,
+            "1": 0.03,
+            "2": 0.02
+          },
+          "confidence": 0.9,
+          "latency_ms": 251.28612492699176,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.17,
+            "1": 0.83,
+            "2": 0.0
+          },
+          "confidence": 0.75,
+          "latency_ms": 248.37649997789413,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.51,
+            "2": 0.49
+          },
+          "confidence": 0.25,
+          "latency_ms": 195.00412500929087,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 271.4627910172567,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.99,
+            "1": 0.01,
+            "2": 0.0
+          },
+          "confidence": 0.98,
+          "latency_ms": 243.23920800816268,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.8,
+            "2": 0.2
+          },
+          "confidence": 0.69,
+          "latency_ms": 249.20829106122255,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.95,
+            "1": 0.05,
+            "2": 0.0
+          },
+          "confidence": 0.92,
+          "latency_ms": 235.15204107388854,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.3,
+            "1": 0.17,
+            "2": 0.53
+          },
+          "confidence": 0,
+          "latency_ms": 201.81091700214893,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.96,
+            "1": 0.04,
+            "2": 0.0
+          },
+          "confidence": 0.93,
+          "latency_ms": 261.3280419027433,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 0.99,
+          "latency_ms": 288.00525004044175,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0
+          },
+          "confidence": 1,
+          "latency_ms": 276.17524995002896,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.85,
+            "1": 0.11,
+            "2": 0.04
+          },
+          "confidence": 0.72,
+          "latency_ms": 315.1218749117106,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.99,
+            "1": 0.01,
+            "2": 0.0
+          },
+          "confidence": 0.98,
+          "latency_ms": 261.39412506017834,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.3,
+            "2": 0.7
+          },
+          "confidence": 0.55,
+          "latency_ms": 234.11349998787045,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.56,
+            "2": 0.44
+          },
+          "confidence": 0.33,
+          "latency_ms": 254.1162499692291,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0
+          },
+          "confidence": 0.99,
+          "latency_ms": 272.47404190711677,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0
+          },
+          "confidence": 1,
+          "latency_ms": 246.94649991579354,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 258.7255419930443,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 336.6907910676673,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.49,
+            "2": 0.5
+          },
+          "confidence": 0.24,
+          "latency_ms": 244.89479197654873,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 281.0291249770671,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.05,
+            "1": 0.87,
+            "2": 0.08
+          },
+          "confidence": 0.82,
+          "latency_ms": 236.00033298134804,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.82,
+            "1": 0.14,
+            "2": 0.04
+          },
+          "confidence": 0.68,
+          "latency_ms": 193.3282499667257,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 234.50283391866833,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.43,
+            "1": 0.55,
+            "2": 0.02
+          },
+          "confidence": 0.31,
+          "latency_ms": 359.9224169738591,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.98,
+            "1": 0.02,
+            "2": 0.0
+          },
+          "confidence": 0.97,
+          "latency_ms": 212.77954196557403,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0
+          },
+          "confidence": 1,
+          "latency_ms": 278.1942500732839,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.56,
+            "1": 0.15,
+            "2": 0.29
+          },
+          "confidence": 0,
+          "latency_ms": 281.3693330390379,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.14,
+            "1": 0.77,
+            "2": 0.09
+          },
+          "confidence": 0.65,
+          "latency_ms": 266.4276669966057,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.07,
+            "1": 0.89,
+            "2": 0.04
+          },
+          "confidence": 0.83,
+          "latency_ms": 272.2786250524223,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.98,
+            "1": 0.02,
+            "2": 0.0
+          },
+          "confidence": 0.98,
+          "latency_ms": 239.04087499249727,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.03,
+            "2": 0.97
+          },
+          "confidence": 0.95,
+          "latency_ms": 250.15087507199496,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.64,
+            "1": 0.36,
+            "2": 0.0
+          },
+          "confidence": 0.46,
+          "latency_ms": 207.21420901827514,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.75,
+            "1": 0.09,
+            "2": 0.16
+          },
+          "confidence": 0.4,
+          "latency_ms": 203.58624996151775,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.03,
+            "1": 0.62,
+            "2": 0.35
+          },
+          "confidence": 0.43,
+          "latency_ms": 348.2939589302987,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 261.11854100599885,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.26,
+            "1": 0.02,
+            "2": 0.72
+          },
+          "confidence": 0.18,
+          "latency_ms": 223.86179107706994,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.96,
+            "1": 0.04,
+            "2": 0.0
+          },
+          "confidence": 0.94,
+          "latency_ms": 231.8654579576105,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.97,
+            "1": 0.03,
+            "2": 0.0
+          },
+          "confidence": 0.96,
+          "latency_ms": 264.57641599699855,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 248.03025007713586,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.59,
+            "1": 0.41,
+            "2": 0.0
+          },
+          "confidence": 0.39,
+          "latency_ms": 238.65058296360075,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.01,
+            "2": 0.99
+          },
+          "confidence": 0.99,
+          "latency_ms": 224.47124996688217,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.29,
+            "2": 0.71
+          },
+          "confidence": 0.57,
+          "latency_ms": 265.44425007887185,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.43,
+            "2": 0.57
+          },
+          "confidence": 0.35,
+          "latency_ms": 221.27533296588808,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.97,
+            "1": 0.03,
+            "2": 0.0
+          },
+          "confidence": 0.96,
+          "latency_ms": 232.1065830765292,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.99,
+            "1": 0.01,
+            "2": 0.0
+          },
+          "confidence": 0.98,
+          "latency_ms": 204.2144580045715,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.53,
+            "2": 0.46
+          },
+          "confidence": 0.29,
+          "latency_ms": 239.2841250402853,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 239.89616695325822,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.86,
+            "1": 0.14,
+            "2": 0.0
+          },
+          "confidence": 0.79,
+          "latency_ms": 392.1707089757547,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.87,
+            "1": 0.13,
+            "2": 0.0
+          },
+          "confidence": 0.81,
+          "latency_ms": 261.4906249800697,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.88,
+            "1": 0.11,
+            "2": 0.01
+          },
+          "confidence": 0.81,
+          "latency_ms": 452.7640000451356,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 194.27687500137836,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.05,
+            "1": 0.95,
+            "2": 0.0
+          },
+          "confidence": 0.92,
+          "latency_ms": 224.05700001399964,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.02,
+            "1": 0.9,
+            "2": 0.08
+          },
+          "confidence": 0.86,
+          "latency_ms": 193.81554191932082,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.01,
+            "2": 0.99
+          },
+          "confidence": 0.99,
+          "latency_ms": 235.5941249988973,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.96,
+            "2": 0.03
+          },
+          "confidence": 0.94,
+          "latency_ms": 385.5153750628233,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.97,
+            "1": 0.01,
+            "2": 0.02
+          },
+          "confidence": 0.94,
+          "latency_ms": 265.174875035882,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.91,
+            "1": 0.09,
+            "2": 0.0
+          },
+          "confidence": 0.87,
+          "latency_ms": 226.4636670006439,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0
+          },
+          "confidence": 1,
+          "latency_ms": 345.6810830393806,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.08,
+            "1": 0.91,
+            "2": 0.01
+          },
+          "confidence": 0.87,
+          "latency_ms": 267.63962500263005,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.98,
+            "1": 0.02,
+            "2": 0.0
+          },
+          "confidence": 0.97,
+          "latency_ms": 241.6375830071047,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0
+          },
+          "confidence": 1,
+          "latency_ms": 226.22995800338686,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.88,
+            "2": 0.12
+          },
+          "confidence": 0.81,
+          "latency_ms": 241.72154197003692,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.28,
+            "2": 0.72
+          },
+          "confidence": 0.57,
+          "latency_ms": 257.52604100853205,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.82,
+            "2": 0.17
+          },
+          "confidence": 0.73,
+          "latency_ms": 224.8650830006227,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.54,
+            "2": 0.46
+          },
+          "confidence": 0.3,
+          "latency_ms": 360.87550001684576,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.01,
+            "2": 0.99
+          },
+          "confidence": 0.98,
+          "latency_ms": 265.87324996944517,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.17,
+            "1": 0.81,
+            "2": 0.02
+          },
+          "confidence": 0.71,
+          "latency_ms": 250.71079097688198,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.57,
+            "1": 0.41,
+            "2": 0.02
+          },
+          "confidence": 0.33,
+          "latency_ms": 257.984499912709,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0
+          },
+          "confidence": 0.99,
+          "latency_ms": 209.63425002992153,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.61,
+            "1": 0.1,
+            "2": 0.29
+          },
+          "confidence": 0,
+          "latency_ms": 261.4412079565227,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 391.12154208123684,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.89,
+            "1": 0.11,
+            "2": 0.0
+          },
+          "confidence": 0.83,
+          "latency_ms": 247.74149991571903,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0
+          },
+          "confidence": 1,
+          "latency_ms": 223.37004204746336,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 1.0
+          },
+          "confidence": 1,
+          "latency_ms": 277.87670807447284,
+          "error": null
+        }
+      ]
+    },
+    "suite_summaries": {
+      "triageiq_urgency-04d2": {
+        "micro_accuracy": 0.59,
+        "macro_accuracy": 0.59,
+        "n": 100,
+        "errors": 0
+      }
+    },
+    "summary": {
+      "micro_accuracy": 0.59,
+      "macro_accuracy": 0.59,
+      "n": 100,
+      "errors": 0,
+      "wall_seconds": 26.879879000014625
+    }
+  },
+  "gliner2": {
+    "backend": "gliner2",
+    "description": "GLiNER2 large, local (models/fastino/gliner2-large-v1)",
+    "suites": [
+      "triageiq_urgency-04d2"
+    ],
+    "tasks": {
+      "triageiq_urgency_04d2": {
+        "suite": "triageiq_urgency-04d2",
+        "type": "score",
+        "n": 100,
+        "errors": 0,
+        "correct": 55,
+        "accuracy": 0.55,
+        "latency_ms_mean": 315.4592337459326,
+        "latency_ms_p95": 329.3589169625193,
+        "extra": {
+          "mae_levels": 0.48,
+          "within_1": 0.97
+        }
+      }
+    },
+    "cases": {
+      "triageiq_urgency_04d2": [
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.09875634242499748,
+            "1": 0.8716013808172215,
+            "2": 0.02964227675778098
+          },
+          "confidence": 0.8716013808172215,
+          "latency_ms": 308.8732499163598,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0007113044998362111,
+            "1": 0.9635356256380635,
+            "2": 0.03575306986210037
+          },
+          "confidence": 0.9635356256380635,
+          "latency_ms": 328.85429193265736,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.37447032673637043,
+            "1": 0.5994730579786286,
+            "2": 0.02605661528500094
+          },
+          "confidence": 0.5994730579786286,
+          "latency_ms": 331.0840829508379,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.000848500309551104,
+            "1": 0.9073292425962841,
+            "2": 0.09182225709416465
+          },
+          "confidence": 0.9073292425962841,
+          "latency_ms": 314.60124999284744,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.00010425929468597855,
+            "1": 0.12429238459308284,
+            "2": 0.8756033561122312
+          },
+          "confidence": 0.8756033561122312,
+          "latency_ms": 285.5160409817472,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.7432724869518139,
+            "1": 0.25620156684332585,
+            "2": 0.000525946204860299
+          },
+          "confidence": 0.7432724869518139,
+          "latency_ms": 316.8500839965418,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.6053129906152521,
+            "1": 0.3705067752257775,
+            "2": 0.024180234158970398
+          },
+          "confidence": 0.6053129906152521,
+          "latency_ms": 316.93954195361584,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 4.255958519608237e-05,
+            "1": 0.9983798442761385,
+            "2": 0.001577596138665324
+          },
+          "confidence": 0.9983798442761385,
+          "latency_ms": 314.51204197946936,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.905801188073347e-08,
+            "1": 9.476652302567793e-06,
+            "2": 0.9999905042896854
+          },
+          "confidence": 0.9999905042896854,
+          "latency_ms": 328.17037496715784,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0038885636211668253,
+            "1": 0.7560848960081101,
+            "2": 0.24002654037072307
+          },
+          "confidence": 0.7560848960081101,
+          "latency_ms": 296.4286250062287,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.004285298418029757,
+            "1": 0.560617307350559,
+            "2": 0.4350973942314113
+          },
+          "confidence": 0.560617307350559,
+          "latency_ms": 312.6128329895437,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.2995374296074634,
+            "1": 0.5752571059402244,
+            "2": 0.1252054644523122
+          },
+          "confidence": 0.5752571059402244,
+          "latency_ms": 314.87520900554955,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.81193242449895,
+            "1": 0.18217064803920838,
+            "2": 0.005896927461841649
+          },
+          "confidence": 0.81193242449895,
+          "latency_ms": 303.57099999673665,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.002474731854797732,
+            "1": 0.6887177463692814,
+            "2": 0.3088075217759208
+          },
+          "confidence": 0.6887177463692814,
+          "latency_ms": 315.03583304584026,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.002586893787011007,
+            "1": 0.4594524444955269,
+            "2": 0.537960661717462
+          },
+          "confidence": 0.537960661717462,
+          "latency_ms": 317.3134160460904,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.002532118111641351,
+            "1": 0.6591380418068887,
+            "2": 0.33832984008146993
+          },
+          "confidence": 0.6591380418068887,
+          "latency_ms": 318.04004206787795,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0007390530068776854,
+            "1": 0.08312197125107688,
+            "2": 0.9161389757420455
+          },
+          "confidence": 0.9161389757420455,
+          "latency_ms": 316.62895902991295,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.14233378316756576,
+            "1": 0.8042227306917784,
+            "2": 0.05344348614065577
+          },
+          "confidence": 0.8042227306917784,
+          "latency_ms": 326.846249983646,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.92956769210081,
+            "1": 0.0697004655821352,
+            "2": 0.000731842317054651
+          },
+          "confidence": 0.92956769210081,
+          "latency_ms": 321.50600000750273,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0025748827491324008,
+            "1": 0.6615505166084729,
+            "2": 0.3358746006423947
+          },
+          "confidence": 0.6615505166084729,
+          "latency_ms": 315.14249998144805,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.7483044115244936,
+            "1": 0.22458975754262553,
+            "2": 0.02710583093288094
+          },
+          "confidence": 0.7483044115244936,
+          "latency_ms": 313.2339159492403,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 1.8595878882183594e-05,
+            "1": 0.9985609165943469,
+            "2": 0.0014204875267709105
+          },
+          "confidence": 0.9985609165943469,
+          "latency_ms": 297.9455000022426,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 5.3378302011613285e-05,
+            "1": 0.07648994925806514,
+            "2": 0.9234566724399234
+          },
+          "confidence": 0.9234566724399234,
+          "latency_ms": 310.6322499224916,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.37604962702365347,
+            "1": 0.6106225568249162,
+            "2": 0.013327816151430293
+          },
+          "confidence": 0.6106225568249162,
+          "latency_ms": 321.03829190600663,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.01834030754302578,
+            "1": 0.9009588924396403,
+            "2": 0.08070080001733397
+          },
+          "confidence": 0.9009588924396403,
+          "latency_ms": 318.7398329610005,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.003720943319536374,
+            "1": 0.47169998901658683,
+            "2": 0.5245790676638769
+          },
+          "confidence": 0.5245790676638769,
+          "latency_ms": 305.02279195934534,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.024052249600177728,
+            "1": 0.9229723032265055,
+            "2": 0.052975447173316814
+          },
+          "confidence": 0.9229723032265055,
+          "latency_ms": 310.19016599748284,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.002559461931288733,
+            "1": 0.8854031317681732,
+            "2": 0.11203740630053803
+          },
+          "confidence": 0.8854031317681732,
+          "latency_ms": 300.412958022207,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.9999828648940008,
+            "1": 1.6732654132833154e-05,
+            "2": 4.0245186634765377e-07
+          },
+          "confidence": 0.9999828648940008,
+          "latency_ms": 308.12266701832414,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.8700367771179346,
+            "1": 0.09929295909072586,
+            "2": 0.030670263791339542
+          },
+          "confidence": 0.8700367771179346,
+          "latency_ms": 305.8767500333488,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0009876899950702171,
+            "1": 0.9843509370056898,
+            "2": 0.014661372999240125
+          },
+          "confidence": 0.9843509370056898,
+          "latency_ms": 302.6138339191675,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.22130016998035706,
+            "1": 0.774846157265854,
+            "2": 0.0038536727537889165
+          },
+          "confidence": 0.774846157265854,
+          "latency_ms": 327.7763749938458,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0008017454027492546,
+            "1": 0.308790297807605,
+            "2": 0.6904079567896458
+          },
+          "confidence": 0.6904079567896458,
+          "latency_ms": 308.6331660160795,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0004045958124543007,
+            "1": 0.9982390109958054,
+            "2": 0.0013563931917403157
+          },
+          "confidence": 0.9982390109958054,
+          "latency_ms": 309.1728750150651,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.005039158094572185,
+            "1": 0.9299440271026238,
+            "2": 0.065016814802804
+          },
+          "confidence": 0.9299440271026238,
+          "latency_ms": 304.2014999082312,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 8.879463396539787e-07,
+            "1": 0.00015953529999435345,
+            "2": 0.9998395767536661
+          },
+          "confidence": 0.9998395767536661,
+          "latency_ms": 304.71220903564245,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.012538108442241595,
+            "1": 0.9685336001063061,
+            "2": 0.018928291451452344
+          },
+          "confidence": 0.9685336001063061,
+          "latency_ms": 315.00554201193154,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.34887733665470977,
+            "1": 0.6317241366087009,
+            "2": 0.019398526736589414
+          },
+          "confidence": 0.6317241366087009,
+          "latency_ms": 314.2535840161145,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 6.682604575177177e-05,
+            "1": 0.17515155385875059,
+            "2": 0.8247816200954976
+          },
+          "confidence": 0.8247816200954976,
+          "latency_ms": 344.97987502254546,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.004843392054870598,
+            "1": 0.9818964826593727,
+            "2": 0.013260125285756647
+          },
+          "confidence": 0.9818964826593727,
+          "latency_ms": 311.1084579722956,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0050796740637392744,
+            "1": 0.48255743743486657,
+            "2": 0.5123628885013942
+          },
+          "confidence": 0.5123628885013942,
+          "latency_ms": 320.5290000187233,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0006669898126333532,
+            "1": 0.2466871630973361,
+            "2": 0.7526458470900306
+          },
+          "confidence": 0.7526458470900306,
+          "latency_ms": 306.52974999975413,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.7390735046098503,
+            "1": 0.2591916818114683,
+            "2": 0.0017348135786813886
+          },
+          "confidence": 0.7390735046098503,
+          "latency_ms": 310.6288749258965,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.3223917404652036,
+            "1": 0.6472333760229975,
+            "2": 0.030374883511798952
+          },
+          "confidence": 0.6472333760229975,
+          "latency_ms": 314.4206249853596,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.013847860489578553,
+            "1": 0.9315319105589118,
+            "2": 0.05462022895150966
+          },
+          "confidence": 0.9315319105589118,
+          "latency_ms": 318.9115410204977,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.9553819327506327,
+            "1": 0.04361788426707967,
+            "2": 0.0010001829822876432
+          },
+          "confidence": 0.9553819327506327,
+          "latency_ms": 306.5142499981448,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0015850608837418795,
+            "1": 0.5748782698932655,
+            "2": 0.4235366692229926
+          },
+          "confidence": 0.5748782698932655,
+          "latency_ms": 320.9642090369016,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.9005340067672667,
+            "1": 0.0932165162929247,
+            "2": 0.006249476939808679
+          },
+          "confidence": 0.9005340067672667,
+          "latency_ms": 311.46495800931007,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.9999996571141035,
+            "1": 3.41477516731001e-07,
+            "2": 1.4083798124206614e-09
+          },
+          "confidence": 0.9999996571141035,
+          "latency_ms": 318.2151250075549,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.03203211225670993,
+            "1": 0.8811524530754702,
+            "2": 0.08681543466781999
+          },
+          "confidence": 0.8811524530754702,
+          "latency_ms": 314.8892499739304,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.9894653154017128,
+            "1": 0.010439840909778689,
+            "2": 9.484368850864169e-05
+          },
+          "confidence": 0.9894653154017128,
+          "latency_ms": 323.0952919693664,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.4101900062616507e-05,
+            "1": 0.005683896887653055,
+            "2": 0.9943020012122843
+          },
+          "confidence": 0.9943020012122843,
+          "latency_ms": 305.1187499659136,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0008136997529255412,
+            "1": 0.3200152783482968,
+            "2": 0.6791710218987776
+          },
+          "confidence": 0.6791710218987776,
+          "latency_ms": 318.2558750268072,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.006218201875096533,
+            "1": 0.9744092519175998,
+            "2": 0.01937254620730366
+          },
+          "confidence": 0.9744092519175998,
+          "latency_ms": 313.33679205272347,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0014464892652249972,
+            "1": 0.8551682048925473,
+            "2": 0.14338530584222767
+          },
+          "confidence": 0.8551682048925473,
+          "latency_ms": 308.06816706899554,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "0",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.9071192895472808,
+            "1": 0.09252249191069302,
+            "2": 0.0003582185420260851
+          },
+          "confidence": 0.9071192895472808,
+          "latency_ms": 312.7858330262825,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0002301697617540353,
+            "1": 0.050237450115119035,
+            "2": 0.9495323801231269
+          },
+          "confidence": 0.9495323801231269,
+          "latency_ms": 320.54212503135204,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.004069673594331011,
+            "1": 0.9882293506610216,
+            "2": 0.007700975744647459
+          },
+          "confidence": 0.9882293506610216,
+          "latency_ms": 320.80958294682205,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.004049769136148927,
+            "1": 0.8692651083166422,
+            "2": 0.12668512254720893
+          },
+          "confidence": 0.8692651083166422,
+          "latency_ms": 323.023583041504,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.059301066244438434,
+            "1": 0.8932209794557064,
+            "2": 0.04747795429985503
+          },
+          "confidence": 0.8932209794557064,
+          "latency_ms": 318.81433306261897,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.012826315838711189,
+            "1": 0.9504745115028818,
+            "2": 0.03669917265840697
+          },
+          "confidence": 0.9504745115028818,
+          "latency_ms": 324.7294590109959,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 8.433251799537506e-05,
+            "1": 0.04213602869289984,
+            "2": 0.9577796387891048
+          },
+          "confidence": 0.9577796387891048,
+          "latency_ms": 314.84079197980464,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.010030469948732895,
+            "1": 0.9869600748501964,
+            "2": 0.0030094552010706643
+          },
+          "confidence": 0.9869600748501964,
+          "latency_ms": 310.1720000850037,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.3074606908031649,
+            "1": 0.664393414374845,
+            "2": 0.028145894821990102
+          },
+          "confidence": 0.664393414374845,
+          "latency_ms": 329.3589169625193,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.029636243957643017,
+            "1": 0.935376699817099,
+            "2": 0.03498705622525802
+          },
+          "confidence": 0.935376699817099,
+          "latency_ms": 320.609167101793,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0017389209579530022,
+            "1": 0.24969947971978665,
+            "2": 0.7485615993222604
+          },
+          "confidence": 0.7485615993222604,
+          "latency_ms": 318.0788339814171,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.00017491996656524957,
+            "1": 0.2835018204111193,
+            "2": 0.7163232596223155
+          },
+          "confidence": 0.7163232596223155,
+          "latency_ms": 331.28691592719406,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0013629279008902555,
+            "1": 0.5822909363458516,
+            "2": 0.41634613575325813
+          },
+          "confidence": 0.5822909363458516,
+          "latency_ms": 311.72616698313504,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.012670429254408672,
+            "1": 0.9495335414772257,
+            "2": 0.03779602926836563
+          },
+          "confidence": 0.9495335414772257,
+          "latency_ms": 309.39633306115866,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.9064507520355018,
+            "1": 0.09317739361630105,
+            "2": 0.0003718543481970916
+          },
+          "confidence": 0.9064507520355018,
+          "latency_ms": 308.0830000108108,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.6688176685635494,
+            "1": 0.3264189404667075,
+            "2": 0.004763390969743123
+          },
+          "confidence": 0.6688176685635494,
+          "latency_ms": 325.4211669554934,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.026686112054587187,
+            "1": 0.9391316168282123,
+            "2": 0.034182271117200465
+          },
+          "confidence": 0.9391316168282123,
+          "latency_ms": 308.40020801406354,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.013853284403578456,
+            "1": 0.9213299737090157,
+            "2": 0.06481674188740592
+          },
+          "confidence": 0.9213299737090157,
+          "latency_ms": 308.82908310741186,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0048372361813356244,
+            "1": 0.9694912354627605,
+            "2": 0.02567152835590383
+          },
+          "confidence": 0.9694912354627605,
+          "latency_ms": 319.5383750135079,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.12393613194353938,
+            "1": 0.8648531616771307,
+            "2": 0.011210706379330039
+          },
+          "confidence": 0.8648531616771307,
+          "latency_ms": 311.7702500894666,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.002257007001570728,
+            "1": 0.9177457641664135,
+            "2": 0.07999722883201583
+          },
+          "confidence": 0.9177457641664135,
+          "latency_ms": 321.95687503553927,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.9699105816013754,
+            "1": 0.029960750818743855,
+            "2": 0.00012866757988073653
+          },
+          "confidence": 0.9699105816013754,
+          "latency_ms": 332.55908300634474,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0008376905778993512,
+            "1": 0.23275994224945804,
+            "2": 0.7664023671726427
+          },
+          "confidence": 0.7664023671726427,
+          "latency_ms": 294.32620806619525,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 3.104960679530602e-06,
+            "1": 0.9997901297222395,
+            "2": 0.00020676531708100333
+          },
+          "confidence": 0.9997901297222395,
+          "latency_ms": 322.8039169916883,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.00037145558588139817,
+            "1": 0.14381227336498326,
+            "2": 0.8558162710491353
+          },
+          "confidence": 0.8558162710491353,
+          "latency_ms": 334.9513749126345,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.00014411067454707727,
+            "1": 0.9477848728162195,
+            "2": 0.052071016509233355
+          },
+          "confidence": 0.9477848728162195,
+          "latency_ms": 324.04204190243036,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0019412787198424518,
+            "1": 0.49177485398803933,
+            "2": 0.5062838672921182
+          },
+          "confidence": 0.5062838672921182,
+          "latency_ms": 322.84870801959187,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.007565454855239203,
+            "1": 0.9315597191646001,
+            "2": 0.06087482598016067
+          },
+          "confidence": 0.9315597191646001,
+          "latency_ms": 310.3464999003336,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.7200995728379515e-07,
+            "1": 0.0002075435479206379,
+            "2": 0.9997922844421221
+          },
+          "confidence": 0.9997922844421221,
+          "latency_ms": 307.2299170307815,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0009456914816534796,
+            "1": 0.9209405778156206,
+            "2": 0.07811373070272602
+          },
+          "confidence": 0.9209405778156206,
+          "latency_ms": 321.5448328992352,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.12345347802565983,
+            "1": 0.8700895327021039,
+            "2": 0.006456989272236296
+          },
+          "confidence": 0.8700895327021039,
+          "latency_ms": 304.5643330551684,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 5.837718960285777e-09,
+            "1": 4.5236797921602315e-07,
+            "2": 0.9999995417943018
+          },
+          "confidence": 0.9999995417943018,
+          "latency_ms": 321.9099580310285,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0005523425967168602,
+            "1": 0.330165001269857,
+            "2": 0.6692826561334261
+          },
+          "confidence": 0.6692826561334261,
+          "latency_ms": 317.20033299643546,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 8.743845438270324e-05,
+            "1": 0.9161957520962063,
+            "2": 0.08371680944941104
+          },
+          "confidence": 0.9161957520962063,
+          "latency_ms": 324.21070896089077,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.00023455358034556514,
+            "1": 0.8089998573590673,
+            "2": 0.1907655890605871
+          },
+          "confidence": 0.8089998573590673,
+          "latency_ms": 328.47529207356274,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "2",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0001739835350706139,
+            "1": 0.11116470216680065,
+            "2": 0.8886613142981288
+          },
+          "confidence": 0.8886613142981288,
+          "latency_ms": 308.4435409400612,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 1.6081828287570723e-07,
+            "1": 0.00013401946739608628,
+            "2": 0.9998658197143211
+          },
+          "confidence": 0.9998658197143211,
+          "latency_ms": 314.7036249283701,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.00036882590817879777,
+            "1": 0.9782810949834554,
+            "2": 0.021350079108365887
+          },
+          "confidence": 0.9782810949834554,
+          "latency_ms": 307.8568330965936,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 6.460075498318963e-05,
+            "1": 0.9960007265561028,
+            "2": 0.003934672688913942
+          },
+          "confidence": 0.9960007265561028,
+          "latency_ms": 315.57316589169204,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.00013457594515851103,
+            "1": 0.963025223956189,
+            "2": 0.03684020009865252
+          },
+          "confidence": 0.963025223956189,
+          "latency_ms": 316.91512500401586,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.00037172811127325736,
+            "1": 0.7815412819124672,
+            "2": 0.2180869899762596
+          },
+          "confidence": 0.7815412819124672,
+          "latency_ms": 325.1743329456076,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.9990895945188984,
+            "1": 0.0009018632446379783,
+            "2": 8.542236463575385e-06
+          },
+          "confidence": 0.9990895945188984,
+          "latency_ms": 316.2458329461515,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0005984386286012323,
+            "1": 0.9854664210781924,
+            "2": 0.013935140293206312
+          },
+          "confidence": 0.9854664210781924,
+          "latency_ms": 314.41804207861423,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "0",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.6074320214441601,
+            "1": 0.3855788989046263,
+            "2": 0.0069890796512135644
+          },
+          "confidence": 0.6074320214441601,
+          "latency_ms": 323.75374995172024,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 8.480862244229944e-09,
+            "1": 2.1011486584695694e-06,
+            "2": 0.9999978903704793
+          },
+          "confidence": 0.9999978903704793,
+          "latency_ms": 317.63629196211696,
+          "error": null
+        }
+      ]
+    },
+    "suite_summaries": {
+      "triageiq_urgency-04d2": {
+        "micro_accuracy": 0.55,
+        "macro_accuracy": 0.55,
+        "n": 100,
+        "errors": 0
+      }
+    },
+    "summary": {
+      "micro_accuracy": 0.55,
+      "macro_accuracy": 0.55,
+      "n": 100,
+      "errors": 0,
+      "wall_seconds": 40.51849091600161
+    }
+  },
+  "laya": {
+    "backend": "laya",
+    "description": "laya, local",
+    "suites": [
+      "triageiq_urgency-04d2"
+    ],
+    "tasks": {
+      "triageiq_urgency_04d2": {
+        "suite": "triageiq_urgency-04d2",
+        "type": "score",
+        "n": 100,
+        "errors": 0,
+        "correct": 42,
+        "accuracy": 0.42,
+        "latency_ms_mean": 47.241174520459026,
+        "latency_ms_p95": 51.51849996764213,
+        "extra": {
+          "mae_levels": 0.58,
+          "within_1": 1.0
+        }
+      }
+    },
+    "cases": {
+      "triageiq_urgency_04d2": [
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.047,
+            "1": 0.9106,
+            "2": 0.0425
+          },
+          "confidence": 0.6695,
+          "latency_ms": 53.06870804633945,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1928,
+            "1": 0.7524,
+            "2": 0.0548
+          },
+          "confidence": 0.3713,
+          "latency_ms": 50.180334015749395,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0277,
+            "1": 0.6984,
+            "2": 0.2738
+          },
+          "confidence": 0.3585,
+          "latency_ms": 49.542332999408245,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0433,
+            "1": 0.8047,
+            "2": 0.1519
+          },
+          "confidence": 0.4565,
+          "latency_ms": 50.62975001055747,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0477,
+            "1": 0.9077,
+            "2": 0.0445
+          },
+          "confidence": 0.6617,
+          "latency_ms": 45.88708409573883,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1484,
+            "1": 0.8279,
+            "2": 0.0236
+          },
+          "confidence": 0.5194,
+          "latency_ms": 49.56837499048561,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0682,
+            "1": 0.805,
+            "2": 0.1268
+          },
+          "confidence": 0.436,
+          "latency_ms": 50.84024998359382,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.2214,
+            "1": 0.7259,
+            "2": 0.0527
+          },
+          "confidence": 0.3432,
+          "latency_ms": 45.64500006381422,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0051,
+            "1": 0.1044,
+            "2": 0.8906
+          },
+          "confidence": 0.6669,
+          "latency_ms": 49.7474999865517,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0377,
+            "1": 0.6564,
+            "2": 0.3059
+          },
+          "confidence": 0.3062,
+          "latency_ms": 45.87670892942697,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0622,
+            "1": 0.8362,
+            "2": 0.1016
+          },
+          "confidence": 0.4952,
+          "latency_ms": 50.89054198469967,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0942,
+            "1": 0.7453,
+            "2": 0.1605
+          },
+          "confidence": 0.3307,
+          "latency_ms": 46.323582995682955,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0472,
+            "1": 0.5226,
+            "2": 0.4303
+          },
+          "confidence": 0.2299,
+          "latency_ms": 48.8025420345366,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0376,
+            "1": 0.6794,
+            "2": 0.283
+          },
+          "confidence": 0.3235,
+          "latency_ms": 50.768124987371266,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0189,
+            "1": 0.6089,
+            "2": 0.3722
+          },
+          "confidence": 0.322,
+          "latency_ms": 45.65620899666101,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.293,
+            "1": 0.6278,
+            "2": 0.0793
+          },
+          "confidence": 0.2237,
+          "latency_ms": 45.73925002478063,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1748,
+            "1": 0.7323,
+            "2": 0.0929
+          },
+          "confidence": 0.3139,
+          "latency_ms": 46.20779200922698,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0329,
+            "1": 0.5904,
+            "2": 0.3768
+          },
+          "confidence": 0.2799,
+          "latency_ms": 45.65854207612574,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0431,
+            "1": 0.8925,
+            "2": 0.0644
+          },
+          "confidence": 0.6236,
+          "latency_ms": 45.99741590209305,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0212,
+            "1": 0.5331,
+            "2": 0.4457
+          },
+          "confidence": 0.2924,
+          "latency_ms": 46.08391609508544,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0252,
+            "1": 0.5574,
+            "2": 0.4174
+          },
+          "confidence": 0.287,
+          "latency_ms": 44.774916023015976,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0542,
+            "1": 0.8771,
+            "2": 0.0687
+          },
+          "confidence": 0.584,
+          "latency_ms": 48.91870799474418,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0298,
+            "1": 0.6903,
+            "2": 0.2799
+          },
+          "confidence": 0.3473,
+          "latency_ms": 46.00324993953109,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0278,
+            "1": 0.69,
+            "2": 0.2823
+          },
+          "confidence": 0.3514,
+          "latency_ms": 45.59916700236499,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0391,
+            "1": 0.7707,
+            "2": 0.1903
+          },
+          "confidence": 0.4146,
+          "latency_ms": 49.83725002966821,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.061,
+            "1": 0.827,
+            "2": 0.112
+          },
+          "confidence": 0.4785,
+          "latency_ms": 46.174957999028265,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0988,
+            "1": 0.8374,
+            "2": 0.0638
+          },
+          "confidence": 0.4968,
+          "latency_ms": 47.93524998240173,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0266,
+            "1": 0.8722,
+            "2": 0.1012
+          },
+          "confidence": 0.5926,
+          "latency_ms": 46.534458990208805,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0232,
+            "1": 0.6421,
+            "2": 0.3347
+          },
+          "confidence": 0.3283,
+          "latency_ms": 46.05283297132701,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1436,
+            "1": 0.7481,
+            "2": 0.1083
+          },
+          "confidence": 0.3296,
+          "latency_ms": 45.96454091370106,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0601,
+            "1": 0.8618,
+            "2": 0.078
+          },
+          "confidence": 0.5483,
+          "latency_ms": 45.92795891221613,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0346,
+            "1": 0.8665,
+            "2": 0.0989
+          },
+          "confidence": 0.5727,
+          "latency_ms": 52.23633302375674,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0259,
+            "1": 0.6691,
+            "2": 0.3049
+          },
+          "confidence": 0.3394,
+          "latency_ms": 50.27624999638647,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0343,
+            "1": 0.8712,
+            "2": 0.0945
+          },
+          "confidence": 0.5824,
+          "latency_ms": 46.27391602844,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1162,
+            "1": 0.8302,
+            "2": 0.0536
+          },
+          "confidence": 0.4889,
+          "latency_ms": 49.717958085238934,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1082,
+            "1": 0.7517,
+            "2": 0.1401
+          },
+          "confidence": 0.3351,
+          "latency_ms": 45.50425009801984,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0366,
+            "1": 0.7837,
+            "2": 0.1797
+          },
+          "confidence": 0.4352,
+          "latency_ms": 45.83295795600861,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0707,
+            "1": 0.8579,
+            "2": 0.0715
+          },
+          "confidence": 0.5382,
+          "latency_ms": 46.715333010070026,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0189,
+            "1": 0.4873,
+            "2": 0.4938
+          },
+          "confidence": 0.2956,
+          "latency_ms": 51.96325003635138,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0457,
+            "1": 0.9114,
+            "2": 0.0429
+          },
+          "confidence": 0.6718,
+          "latency_ms": 46.04391590692103,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0303,
+            "1": 0.5612,
+            "2": 0.4084
+          },
+          "confidence": 0.2755,
+          "latency_ms": 46.067540999501944,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0334,
+            "1": 0.4155,
+            "2": 0.5511
+          },
+          "confidence": 0.2657,
+          "latency_ms": 52.85450001247227,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0715,
+            "1": 0.7737,
+            "2": 0.1548
+          },
+          "confidence": 0.3847,
+          "latency_ms": 46.56725004315376,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0512,
+            "1": 0.7136,
+            "2": 0.2352
+          },
+          "confidence": 0.3324,
+          "latency_ms": 46.336457948200405,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0741,
+            "1": 0.8494,
+            "2": 0.0765
+          },
+          "confidence": 0.5192,
+          "latency_ms": 47.40254092030227,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0548,
+            "1": 0.8032,
+            "2": 0.142
+          },
+          "confidence": 0.4427,
+          "latency_ms": 44.735125033184886,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0792,
+            "1": 0.8382,
+            "2": 0.0825
+          },
+          "confidence": 0.4951,
+          "latency_ms": 45.986584038473666,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.043,
+            "1": 0.7877,
+            "2": 0.1693
+          },
+          "confidence": 0.4321,
+          "latency_ms": 48.275416949763894,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1765,
+            "1": 0.7669,
+            "2": 0.0566
+          },
+          "confidence": 0.3881,
+          "latency_ms": 46.894958009943366,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1317,
+            "1": 0.7813,
+            "2": 0.087
+          },
+          "confidence": 0.3881,
+          "latency_ms": 46.33254208602011,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1128,
+            "1": 0.7836,
+            "2": 0.1036
+          },
+          "confidence": 0.3882,
+          "latency_ms": 46.90125002525747,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0289,
+            "1": 0.6621,
+            "2": 0.309
+          },
+          "confidence": 0.3279,
+          "latency_ms": 48.004208016209304,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.03,
+            "1": 0.6254,
+            "2": 0.3446
+          },
+          "confidence": 0.3029,
+          "latency_ms": 49.03149988967925,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1885,
+            "1": 0.7766,
+            "2": 0.035
+          },
+          "confidence": 0.4282,
+          "latency_ms": 45.64254195429385,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0563,
+            "1": 0.9102,
+            "2": 0.0335
+          },
+          "confidence": 0.6709,
+          "latency_ms": 47.833124990575016,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1056,
+            "1": 0.8187,
+            "2": 0.0757
+          },
+          "confidence": 0.457,
+          "latency_ms": 47.51845798455179,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0519,
+            "1": 0.8639,
+            "2": 0.0842
+          },
+          "confidence": 0.5556,
+          "latency_ms": 45.865583000704646,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1717,
+            "1": 0.808,
+            "2": 0.0203
+          },
+          "confidence": 0.4958,
+          "latency_ms": 46.464166953228414,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0591,
+            "1": 0.7807,
+            "2": 0.1602
+          },
+          "confidence": 0.4049,
+          "latency_ms": 51.51849996764213,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1748,
+            "1": 0.6863,
+            "2": 0.1389
+          },
+          "confidence": 0.2378,
+          "latency_ms": 47.20274999272078,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.138,
+            "1": 0.81,
+            "2": 0.052
+          },
+          "confidence": 0.4558,
+          "latency_ms": 45.66545900888741,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0514,
+            "1": 0.7881,
+            "2": 0.1605
+          },
+          "confidence": 0.423,
+          "latency_ms": 46.085708076134324,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.11,
+            "1": 0.7391,
+            "2": 0.1508
+          },
+          "confidence": 0.3159,
+          "latency_ms": 45.37991597317159,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1558,
+            "1": 0.8005,
+            "2": 0.0437
+          },
+          "confidence": 0.4496,
+          "latency_ms": 46.90800001844764,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.026,
+            "1": 0.6567,
+            "2": 0.3172
+          },
+          "confidence": 0.3306,
+          "latency_ms": 45.58929102495313,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0538,
+            "1": 0.8077,
+            "2": 0.1385
+          },
+          "confidence": 0.4507,
+          "latency_ms": 47.93204099405557,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0128,
+            "1": 0.3077,
+            "2": 0.6795
+          },
+          "confidence": 0.3801,
+          "latency_ms": 45.62450002413243,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0397,
+            "1": 0.6942,
+            "2": 0.2661
+          },
+          "confidence": 0.332,
+          "latency_ms": 45.89912504889071,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1048,
+            "1": 0.6572,
+            "2": 0.238
+          },
+          "confidence": 0.2227,
+          "latency_ms": 46.14241607487202,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0383,
+            "1": 0.8895,
+            "2": 0.0721
+          },
+          "confidence": 0.6187,
+          "latency_ms": 45.10945896618068,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1957,
+            "1": 0.7534,
+            "2": 0.0509
+          },
+          "confidence": 0.3772,
+          "latency_ms": 45.62970797996968,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.056,
+            "1": 0.6945,
+            "2": 0.2495
+          },
+          "confidence": 0.3074,
+          "latency_ms": 47.334666014648974,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0241,
+            "1": 0.6514,
+            "2": 0.3245
+          },
+          "confidence": 0.3316,
+          "latency_ms": 46.424082946032286,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0569,
+            "1": 0.7808,
+            "2": 0.1623
+          },
+          "confidence": 0.407,
+          "latency_ms": 46.28433403559029,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0338,
+            "1": 0.7466,
+            "2": 0.2196
+          },
+          "confidence": 0.3942,
+          "latency_ms": 46.22470901813358,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0868,
+            "1": 0.839,
+            "2": 0.0742
+          },
+          "confidence": 0.4972,
+          "latency_ms": 46.05158290360123,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1991,
+            "1": 0.7496,
+            "2": 0.0513
+          },
+          "confidence": 0.3721,
+          "latency_ms": 45.826958026736975,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0268,
+            "1": 0.7777,
+            "2": 0.1955
+          },
+          "confidence": 0.4433,
+          "latency_ms": 45.728125027380884,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.099,
+            "1": 0.8822,
+            "2": 0.0188
+          },
+          "confidence": 0.6229,
+          "latency_ms": 45.402207993902266,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.1675,
+            "1": 0.794,
+            "2": 0.0384
+          },
+          "confidence": 0.4469,
+          "latency_ms": 47.5176660111174,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0746,
+            "1": 0.8671,
+            "2": 0.0583
+          },
+          "confidence": 0.5603,
+          "latency_ms": 46.3118749903515,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.022,
+            "1": 0.5478,
+            "2": 0.4301
+          },
+          "confidence": 0.2931,
+          "latency_ms": 48.101416090503335,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0328,
+            "1": 0.8336,
+            "2": 0.1336
+          },
+          "confidence": 0.5151,
+          "latency_ms": 46.3240829994902,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0171,
+            "1": 0.3018,
+            "2": 0.6812
+          },
+          "confidence": 0.3696,
+          "latency_ms": 46.52125004213303,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0691,
+            "1": 0.811,
+            "2": 0.1199
+          },
+          "confidence": 0.4457,
+          "latency_ms": 45.91495799832046,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0526,
+            "1": 0.7525,
+            "2": 0.1949
+          },
+          "confidence": 0.3741,
+          "latency_ms": 51.8259999807924,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0141,
+            "1": 0.2239,
+            "2": 0.7619
+          },
+          "confidence": 0.4516,
+          "latency_ms": 46.30899999756366,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0396,
+            "1": 0.8276,
+            "2": 0.1328
+          },
+          "confidence": 0.4971,
+          "latency_ms": 46.153874951414764,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0383,
+            "1": 0.9115,
+            "2": 0.0503
+          },
+          "confidence": 0.6726,
+          "latency_ms": 50.701666972599924,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0526,
+            "1": 0.7108,
+            "2": 0.2366
+          },
+          "confidence": 0.3277,
+          "latency_ms": 49.30587497074157,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0544,
+            "1": 0.7159,
+            "2": 0.2297
+          },
+          "confidence": 0.3306,
+          "latency_ms": 46.16958403494209,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0184,
+            "1": 0.2995,
+            "2": 0.6821
+          },
+          "confidence": 0.3668,
+          "latency_ms": 48.698792001232505,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0389,
+            "1": 0.8499,
+            "2": 0.1112
+          },
+          "confidence": 0.537,
+          "latency_ms": 45.6144999479875,
+          "error": null
+        },
+        {
+          "expected": "1",
+          "predicted": "1",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0186,
+            "1": 0.9122,
+            "2": 0.0692
+          },
+          "confidence": 0.6879,
+          "latency_ms": 46.91962501965463,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0331,
+            "1": 0.8443,
+            "2": 0.1226
+          },
+          "confidence": 0.533,
+          "latency_ms": 46.177083044312894,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0259,
+            "1": 0.6867,
+            "2": 0.2873
+          },
+          "confidence": 0.3527,
+          "latency_ms": 46.366582973860204,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0448,
+            "1": 0.8398,
+            "2": 0.1154
+          },
+          "confidence": 0.5131,
+          "latency_ms": 46.0971660213545,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0571,
+            "1": 0.8084,
+            "2": 0.1346
+          },
+          "confidence": 0.449,
+          "latency_ms": 46.57224996481091,
+          "error": null
+        },
+        {
+          "expected": "0",
+          "predicted": "1",
+          "correct": false,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0477,
+            "1": 0.7858,
+            "2": 0.1665
+          },
+          "confidence": 0.4238,
+          "latency_ms": 46.395541983656585,
+          "error": null
+        },
+        {
+          "expected": "2",
+          "predicted": "2",
+          "correct": true,
+          "probability": null,
+          "probabilities": {
+            "0": 0.0108,
+            "1": 0.4229,
+            "2": 0.5663
+          },
+          "confidence": 0.3312,
+          "latency_ms": 46.03995895013213,
+          "error": null
+        }
+      ]
+    },
+    "suite_summaries": {
+      "triageiq_urgency-04d2": {
+        "micro_accuracy": 0.42,
+        "macro_accuracy": 0.42,
+        "n": 100,
+        "errors": 0
+      }
+    },
+    "summary": {
+      "micro_accuracy": 0.42,
+      "macro_accuracy": 0.42,
+      "n": 100,
+      "errors": 0,
+      "wall_seconds": 35.31831395905465
+    }
+  }
+}

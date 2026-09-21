@@ -8,7 +8,7 @@ from pathlib import Path
 
 from bench.backends import create_backend
 from bench.cases import Case, Task
-from bench.suites import SUITES, resolve_suites, suite_plan
+from bench.suites import SUITES, resolve_samples, resolve_suites, suite_plan
 
 
 def percentile(values: list[float], pct: float) -> float:
