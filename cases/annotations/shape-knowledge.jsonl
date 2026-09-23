@@ -1,0 +1,944 @@
+{"case_id": "v1:support_department:0", "crux": "direct", "knowledge": 1, "note": "Double charge matches unexpected charges", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:support_department:1", "crux": "direct", "knowledge": 0, "note": "App crashes match crashes verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:support_department:2", "crux": "direct", "knowledge": 0, "note": "Seat discount question is pricing", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:support_department:3", "crux": "composition", "knowledge": 1, "note": "Missing email decoys tech; ask is password reset", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v1:support_department:4", "crux": "direct", "knowledge": 0, "note": "Cancel and refund are billing", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:support_department:5", "crux": "direct", "knowledge": 1, "note": "500 error is a bug", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:support_department:6", "crux": "direct", "knowledge": 0, "note": "Demo request matches demos verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:support_department:7", "crux": "composition", "knowledge": 1, "note": "Wrong VAT decoys tech; invoice content is billing", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v1:support_department:8", "crux": "direct", "knowledge": 0, "note": "Changing email is a profile change", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:support_department:9", "crux": "direct", "knowledge": 0, "note": "Praise fits no category", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:support_department:10", "crux": "direct", "knowledge": 0, "note": "Plan cost question is pricing", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:support_department:11", "crux": "composition", "knowledge": 1, "note": "Profiles decoy account; SSO integration failing is tech", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v1:support_department:12", "crux": "direct", "knowledge": 0, "note": "Formal quote request matches quotes", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:support_department:13", "crux": "direct", "knowledge": 0, "note": "Data deletion matches account verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:support_department:14", "crux": "direct", "knowledge": 0, "note": "Office location fits no category", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:email_intent:0", "crux": "composition", "knowledge": 0, "note": "Question form decoys question; ask is meeting time", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v1:email_intent:1", "crux": "direct", "knowledge": 0, "note": "Plain question needing an answer", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:email_intent:2", "crux": "direct", "knowledge": 0, "note": "Explicit unhappiness states dissatisfaction", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:email_intent:3", "crux": "direct", "knowledge": 0, "note": "Thanks stated outright", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:email_intent:4", "crux": "direct", "knowledge": 0, "note": "Heads up shares info without asking", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:email_intent:5", "crux": "direct", "knowledge": 1, "note": "Let's sync is workplace vernacular for meeting", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:email_intent:6", "crux": "direct", "knowledge": 0, "note": "Direct question", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:email_intent:7", "crux": "direct", "knowledge": 0, "note": "Feeling ignored states dissatisfaction", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:email_intent:8", "crux": "direct", "knowledge": 0, "note": "Thank you stated outright", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:email_intent:9", "crux": "direct", "knowledge": 0, "note": "For your information matches fyi verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:refund_eligible:0", "crux": "composition", "knowledge": 0, "note": "recent purchase stated; never activated implies unused", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v1:refund_eligible:1", "crux": "composition", "knowledge": 0, "note": "yesterday's charge implies purchase; no account implies unused", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v1:refund_eligible:2", "crux": "composition", "knowledge": 1, "note": "three weeks sits inside thirty days; unused stated", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v1:refund_eligible:3", "crux": "composition", "knowledge": 1, "note": "trial conversion this morning starts the window; unused", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:refund_eligible:4", "crux": "composition", "knowledge": 0, "note": "bought yesterday and nothing used; near-direct paraphrase", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:refund_eligible:5", "crux": "direct", "knowledge": 0, "note": "eight months of daily use fails both conditions", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:refund_eligible:6", "crux": "composition", "knowledge": 1, "note": "fourteen weeks is far outside the window", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v1:refund_eligible:7", "crux": "composition", "knowledge": 1, "note": "consumed nearly all credits means used", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:refund_eligible:8", "crux": "composition", "knowledge": 1, "note": "fully delivered means service consumed, so not unused", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v1:refund_eligible:9", "crux": "composition", "knowledge": 1, "note": "unused claim conflicts with eleven-month-old purchase; date decides", "tags": ["boundary", "conflict"], "twist": 3, "unreachable": false}
+{"case_id": "v1:urgency:0", "crux": "direct", "knowledge": 0, "note": "ASAP and per-minute losses are explicit", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:urgency:1", "crux": "direct", "knowledge": 0, "note": "two-hour event with prioritize this is explicit", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:urgency:2", "crux": "composition", "knowledge": 1, "note": "ongoing outage and public complaints imply time sensitivity", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v1:urgency:3", "crux": "direct", "knowledge": 0, "note": "boarding flight before losing connectivity states deadline", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:urgency:4", "crux": "direct", "knowledge": 0, "note": "whenever you get a chance plainly defers", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:urgency:5", "crux": "direct", "knowledge": 0, "note": "next-quarter planning horizon shows no time pressure", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:urgency:6", "crux": "direct", "knowledge": 0, "note": "just wanted to share feedback carries no request", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:urgency:7", "crux": "composition", "knowledge": 0, "note": "bare question with no urgency cues implies no pressure", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v1:secret_leak:0", "crux": "composition", "knowledge": 1, "note": "deploy key literal despite test-looking prefix", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v1:secret_leak:1", "crux": "direct", "knowledge": 0, "note": "password stated outright in plain text", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:secret_leak:2", "crux": "composition", "knowledge": 1, "note": "private-key block carries TestOnly decoy text", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v1:secret_leak:3", "crux": "composition", "knowledge": 0, "note": "asserted as the live admin password despite meme phrasing", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v1:secret_leak:4", "crux": "composition", "knowledge": 1, "note": "token policy statement names no token value", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v1:secret_leak:5", "crux": "composition", "knowledge": 1, "note": "header name for a credential, no value shown", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v1:secret_leak:6", "crux": "composition", "knowledge": 1, "note": "password variable named but explicitly never set", "tags": ["distractor", "negation"], "twist": 2, "unreachable": false}
+{"case_id": "v1:secret_leak:7", "crux": "knowledge", "knowledge": 2, "note": "describes passing a token, none present", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v1:frustration_level:0", "crux": "direct", "knowledge": 0, "note": "Neutral question, calm.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:frustration_level:1", "crux": "direct", "knowledge": 0, "note": "Polite minor note, calm.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:frustration_level:2", "crux": "decision", "knowledge": 0, "note": "Thanks reads sincere given the fix, calm.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:frustration_level:3", "crux": "decision", "knowledge": 0, "note": "Annoyance stated but language stays civil.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:frustration_level:4", "crux": "decision", "knowledge": 0, "note": "Complaint with firm request, still civil.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:frustration_level:5", "crux": "decision", "knowledge": 0, "note": "Criticism with hopeful close, frustrated but civil.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:frustration_level:6", "crux": "direct", "knowledge": 0, "note": "All-caps insults are strong language.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:frustration_level:7", "crux": "direct", "knowledge": 0, "note": "Contempt and caps show strong anger.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:frustration_level:8", "crux": "direct", "knowledge": 0, "note": "Insults and caps, very angry.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:incident_severity:0", "crux": "direct", "knowledge": 0, "note": "stretched logo is cosmetic with no functional impact", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:incident_severity:1", "crux": "direct", "knowledge": 0, "note": "typo is plainly cosmetic", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:incident_severity:2", "crux": "direct", "knowledge": 0, "note": "re-running the export is the stated easy workaround", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:incident_severity:3", "crux": "decision", "knowledge": 1, "note": "delayed pushes still deliver; workaround only implied", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v1:incident_severity:4", "crux": "composition", "knowledge": 0, "note": "gold level forbids workarounds but manual refresh is stated", "tags": ["conflict"], "twist": 2, "unreachable": true}
+{"case_id": "v1:incident_severity:5", "crux": "decision", "knowledge": 1, "note": "no workaround stated; dashboard core-ness judgment call", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v1:incident_severity:6", "crux": "direct", "knowledge": 0, "note": "every customer fails with no alternative maps level three", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:incident_severity:7", "crux": "direct", "knowledge": 0, "note": "permanently deleted data matches the data-lost criterion", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:incident_severity:8", "crux": "direct", "knowledge": 0, "note": "entire platform unreachable is entire service down", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:review_sentiment:0", "crux": "direct", "knowledge": 0, "note": "Explicit extreme negative wording.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:review_sentiment:1", "crux": "direct", "knowledge": 0, "note": "Superlative complaint, extreme negative.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:review_sentiment:2", "crux": "composition", "knowledge": 0, "note": "Design praise outweighed by daily crashes.", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v1:review_sentiment:3", "crux": "decision", "knowledge": 0, "note": "Mixed parts self-summarized as average.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v1:review_sentiment:4", "crux": "composition", "knowledge": 0, "note": "Paired negations pin down neutral.", "tags": ["negation"], "twist": 2, "unreachable": false}
+{"case_id": "v1:review_sentiment:5", "crux": "composition", "knowledge": 0, "note": "Minor gripes cap happy verdict below five.", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v1:review_sentiment:6", "crux": "composition", "knowledge": 0, "note": "Setup gripe outweighed by buy-again intent.", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v1:review_sentiment:7", "crux": "direct", "knowledge": 0, "note": "Unqualified enthusiasm, extreme positive.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v1:review_sentiment:8", "crux": "decision", "knowledge": 0, "note": "'Ten out of ten' maps to top marks.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:support_department_v2:0", "crux": "composition", "knowledge": 1, "note": "Lost phone decoys tech; lockout is login issue", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:support_department_v2:1", "crux": "composition", "knowledge": 1, "note": "Annual billing wording decoys; discount question is pricing", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:support_department_v2:2", "crux": "direct", "knowledge": 1, "note": "Charge after cancellation is billing", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:support_department_v2:3", "crux": "direct", "knowledge": 1, "note": "Slack integration duplicating posts is a bug", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:support_department_v2:4", "crux": "composition", "knowledge": 1, "note": "Vendor evaluation implies pre-purchase sales", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:support_department_v2:5", "crux": "composition", "knowledge": 1, "note": "Ownership transfer stretches to account profile change", "tags": ["paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:support_department_v2:6", "crux": "composition", "knowledge": 1, "note": "API credits and account decoy; refund is billing", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:support_department_v2:7", "crux": "composition", "knowledge": 1, "note": "Compromise decoys tech; login alerts are account", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:support_department_v2:8", "crux": "composition", "knowledge": 0, "note": "Explicitly not a bug; feature wish fits nothing", "tags": ["negation"], "twist": 2, "unreachable": false}
+{"case_id": "v2:support_department_v2:9", "crux": "direct", "knowledge": 1, "note": "Stopping auto-renew is a subscription matter", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:support_department_v2:10", "crux": "direct", "knowledge": 1, "note": "Widget integration stopped updating is a bug", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:support_department_v2:11", "crux": "direct", "knowledge": 0, "note": "Visa question fits no category", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:support_department_v2:12", "crux": "composition", "knowledge": 2, "note": "PO terms decoy billing; buying seats is a purchase", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:support_department_v2:13", "crux": "knowledge", "knowledge": 2, "note": "403 on API calls is an error", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:support_department_v2:14", "crux": "direct", "knowledge": 1, "note": "Missing VAT on invoices is billing", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:support_department_v2:15", "crux": "composition", "knowledge": 1, "note": "Seat addition decoys subscription billing; pricing is sales", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:support_department_v2:16", "crux": "direct", "knowledge": 1, "note": "Unexplained invoice charge is billing", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:email_intent_v2:0", "crux": "composition", "knowledge": 0, "note": "Thanks preamble conflicts with meeting request; main act wins", "tags": ["conflict"], "twist": 3, "unreachable": false}
+{"case_id": "v2:email_intent_v2:1", "crux": "direct", "knowledge": 0, "note": "Plain question about plan contents", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:email_intent_v2:2", "crux": "composition", "knowledge": 0, "note": "Dissatisfaction implied by expected-more phrasing", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:email_intent_v2:3", "crux": "direct", "knowledge": 0, "note": "Thank you explicit", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:email_intent_v2:4", "crux": "direct", "knowledge": 0, "note": "No reply needed states no ask", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:email_intent_v2:5", "crux": "composition", "knowledge": 1, "note": "Invite mention decoys meeting request; pure informing", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:email_intent_v2:6", "crux": "direct", "knowledge": 0, "note": "Direct question about renewal month", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:email_intent_v2:7", "crux": "composition", "knowledge": 0, "note": "Complaint implied through repeated explanation burden", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:email_intent_v2:8", "crux": "direct", "knowledge": 0, "note": "Find 45 minutes states meeting request", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:email_intent_v2:9", "crux": "direct", "knowledge": 0, "note": "Appreciate expresses gratitude", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:email_intent_v2:10", "crux": "composition", "knowledge": 0, "note": "Recurring-failure complaint implied, no sentiment word", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:email_intent_v2:11", "crux": "direct", "knowledge": 0, "note": "Plain technical question", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:email_intent_v2:12", "crux": "direct", "knowledge": 0, "note": "Kudos expresses appreciation", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:email_intent_v2:13", "crux": "direct", "knowledge": 0, "note": "No action needed states pure information", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:email_intent_v2:14", "crux": "decision", "knowledge": 0, "note": "Rescheduling sits at question-meeting label boundary", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:0", "crux": "composition", "knowledge": 1, "note": "Monday purchase implies recency; setup wizard implies unused", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:1", "crux": "direct", "knowledge": 0, "note": "two years of use plainly fails", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:2", "crux": "composition", "knowledge": 1, "note": "day twenty-nine inside window; never logged in implies unused", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:3", "crux": "composition", "knowledge": 1, "note": "unused seat but day thirty-five; hopeful question tempts true", "tags": ["boundary", "conflict"], "twist": 3, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:4", "crux": "composition", "knowledge": 1, "note": "window claim conflicts with daily use; usage decides", "tags": ["conflict"], "twist": 3, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:5", "crux": "composition", "knowledge": 1, "note": "within window but ninety percent of quota consumed", "tags": ["conflict"], "twist": 3, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:6", "crux": "composition", "knowledge": 0, "note": "charged this morning; never finished setup implies unused", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:7", "crux": "composition", "knowledge": 1, "note": "fortnight is inside window; unassigned seats imply unused", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:8", "crux": "composition", "knowledge": 1, "note": "pro-rata refund request decoys; three months of daily use", "tags": ["distractor"], "twist": 1, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:9", "crux": "composition", "knowledge": 1, "note": "signed up Tuesday implies recent purchase and no use", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:10", "crux": "composition", "knowledge": 1, "note": "day thirty-one misses window despite never installed", "tags": ["boundary", "conflict"], "twist": 3, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:11", "crux": "composition", "knowledge": 1, "note": "paid Friday implies recency; zero activity implies unused", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:12", "crux": "direct", "knowledge": 0, "note": "price-difference request decoys; a year of use settles it", "tags": ["distractor"], "twist": 1, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:13", "crux": "composition", "knowledge": 1, "note": "trial wording echoes the guarantee; one day of use disqualifies", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:14", "crux": "composition", "knowledge": 1, "note": "first-of-month purchase implies recency; never opened implies unused", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:15", "crux": "composition", "knowledge": 0, "note": "paid last week and nobody used it; near-direct", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:refund_eligible_v2:16", "crux": "composition", "knowledge": 1, "note": "three weeks inside window; never-started seat implies unused", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:urgency_v2:0", "crux": "composition", "knowledge": 1, "note": "imminent go-live blocked by failing sandbox tests", "tags": ["implicit", "boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:urgency_v2:1", "crux": "direct", "knowledge": 0, "note": "explicit cutoff deadline today with stated loss", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:urgency_v2:2", "crux": "composition", "knowledge": 0, "note": "no rush disclaimer overrides end-of-quarter preference", "tags": ["negation"], "twist": 2, "unreachable": false}
+{"case_id": "v2:urgency_v2:3", "crux": "composition", "knowledge": 0, "note": "no deadline disclaimer overrides everyone-affected severity", "tags": ["negation", "distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:urgency_v2:4", "crux": "direct", "knowledge": 0, "note": "answer today for tomorrow's filing is explicit", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:urgency_v2:5", "crux": "direct", "knowledge": 0, "note": "pure praise aside with no request", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:urgency_v2:6", "crux": "direct", "knowledge": 0, "note": "explicit now inside twenty-minute reception window", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:urgency_v2:7", "crux": "direct", "knowledge": 0, "note": "today before tonight's billing run states deadline", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:urgency_v2:8", "crux": "direct", "knowledge": 0, "note": "no rush at all is explicit deferral", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:urgency_v2:9", "crux": "composition", "knowledge": 1, "note": "tomorrow's launch with stale registration page implies urgency", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:urgency_v2:10", "crux": "direct", "knowledge": 0, "note": "when convenient with Q3 planning plainly defers", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:urgency_v2:11", "crux": "direct", "knowledge": 0, "note": "midnight deadline with escalation is explicit", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:urgency_v2:12", "crux": "direct", "knowledge": 0, "note": "whenever and no hurry plainly defer", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:urgency_v2:13", "crux": "composition", "knowledge": 1, "note": "all-hands in an hour with badge before screen", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:urgency_v2:14", "crux": "direct", "knowledge": 0, "note": "stated Friday deadline with default-acceptance consequence", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:urgency_v2:15", "crux": "composition", "knowledge": 0, "note": "CEO interest defused by explicit no-urgency disclaimer", "tags": ["negation"], "twist": 2, "unreachable": false}
+{"case_id": "v2:urgency_v2:16", "crux": "composition", "knowledge": 1, "note": "blocking close with auditors waiting overcomes soft ask", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:urgency_v2:17", "crux": "direct", "knowledge": 0, "note": "no deadline at all on month-old request", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:secret_leak_v2:0", "crux": "knowledge", "knowledge": 2, "note": "password embedded in the connection URL", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:secret_leak_v2:1", "crux": "knowledge", "knowledge": 2, "note": "bearer JWT literal pasted in a header dump", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:secret_leak_v2:2", "crux": "knowledge", "knowledge": 2, "note": "ssh-ed25519 line is a public key", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:secret_leak_v2:3", "crux": "composition", "knowledge": 1, "note": "password value masked out, never present", "tags": ["negation", "implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:secret_leak_v2:4", "crux": "composition", "knowledge": 1, "note": "secret name and storage, no value leaked", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:secret_leak_v2:5", "crux": "composition", "knowledge": 0, "note": "password deducible from the dog's name", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:secret_leak_v2:6", "crux": "knowledge", "knowledge": 2, "note": "basic-auth credentials inside the curl command", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:secret_leak_v2:7", "crux": "direct", "knowledge": 0, "note": "policy statement with nothing secret", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:secret_leak_v2:8", "crux": "composition", "knowledge": 1, "note": "key-shaped placeholder explicitly ruled not real", "tags": ["negation", "distractor"], "twist": 3, "unreachable": false}
+{"case_id": "v2:secret_leak_v2:9", "crux": "direct", "knowledge": 0, "note": "private-key block stated in its own header", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:secret_leak_v2:10", "crux": "composition", "knowledge": 1, "note": "key rotation task names no key material", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:secret_leak_v2:11", "crux": "composition", "knowledge": 1, "note": "leak described in a screenshot, secret absent here", "tags": ["conflict", "coref"], "twist": 3, "unreachable": false}
+{"case_id": "v2:secret_leak_v2:12", "crux": "knowledge", "knowledge": 2, "note": "cloudinary URL embeds key and secret", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:secret_leak_v2:13", "crux": "knowledge", "knowledge": 2, "note": "ARN is a public identifier, stated world-readable", "tags": ["negation", "distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:secret_leak_v2:14", "crux": "composition", "knowledge": 1, "note": "explicit placeholder instruction, no real value", "tags": ["negation", "distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:secret_leak_v2:15", "crux": "knowledge", "knowledge": 2, "note": "key file path, not key material", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:0", "crux": "direct", "knowledge": 0, "note": "Neutral how-to question, calm.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:1", "crux": "direct", "knowledge": 0, "note": "Factual failure report with logs, calm.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:2", "crux": "decision", "knowledge": 0, "note": "Blame-free troubleshooting question, calm.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:3", "crux": "decision", "knowledge": 0, "note": "Polite wording over a repeat grievance, civil.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:4", "crux": "decision", "knowledge": 0, "note": "Gentle follow-up nudge, civil.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:5", "crux": "decision", "knowledge": 0, "note": "Disappointment over broken fix, still civil.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:6", "crux": "decision", "knowledge": 0, "note": "Formal complaint phrasing remains civil.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:7", "crux": "composition", "knowledge": 1, "note": "Sarcastic praise conflicts with frustrated intent.", "tags": ["conflict"], "twist": 3, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:8", "crux": "decision", "knowledge": 0, "note": "Caps and exasperation cross into strong language.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:9", "crux": "decision", "knowledge": 0, "note": "Peremptory caps commands count as very angry.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:10", "crux": "direct", "knowledge": 0, "note": "'Pathetic' is strong language.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:11", "crux": "direct", "knowledge": 0, "note": "'garbage' and caps show strong anger.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:12", "crux": "direct", "knowledge": 0, "note": "Helpful tone, calm.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:13", "crux": "decision", "knowledge": 0, "note": "Staccato outburst without profanity still very angry.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:14", "crux": "direct", "knowledge": 0, "note": "Neutral confirmation question, calm.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:15", "crux": "decision", "knowledge": 0, "note": "Blunt and curt but no abuse, civil.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:16", "crux": "decision", "knowledge": 0, "note": "Resignation implies frustration, never stated.", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:frustration_level_v2:17", "crux": "decision", "knowledge": 0, "note": "Contempt and rhetorical jab count as very angry.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:incident_severity_v2:0", "crux": "decision", "knowledge": 0, "note": "one report on iPad Mini only keeps cosmetic level", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:incident_severity_v2:1", "crux": "direct", "knowledge": 0, "note": "typo is plainly cosmetic", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:incident_severity_v2:2", "crux": "direct", "knowledge": 0, "note": "web app upload is the stated workaround", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:incident_severity_v2:3", "crux": "direct", "knowledge": 0, "note": "two-batch export is the stated workaround", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:incident_severity_v2:4", "crux": "decision", "knowledge": 0, "note": "eventually succeeds softens but login stays degraded", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:incident_severity_v2:5", "crux": "decision", "knowledge": 1, "note": "region-wide failure of the stated primary workflow", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:incident_severity_v2:6", "crux": "decision", "knowledge": 1, "note": "all card payments rejected; cert fix is repair not workaround", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:incident_severity_v2:7", "crux": "knowledge", "knowledge": 2, "note": "dropped table plus stale backup implies data loss", "tags": ["implicit", "boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:incident_severity_v2:8", "crux": "direct", "knowledge": 1, "note": "all APIs and web app down in every region", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:incident_severity_v2:9", "crux": "decision", "knowledge": 0, "note": "mode-toggle fix stated; cosmetic versus functional is the call", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:incident_severity_v2:10", "crux": "composition", "knowledge": 1, "note": "docs portal still working rules out whole-service outage", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:incident_severity_v2:11", "crux": "decision", "knowledge": 1, "note": "sometimes-spam with whitelisting fix fits low-impact workaround level", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:incident_severity_v2:12", "crux": "direct", "knowledge": 1, "note": "wrong only given the current year", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:incident_severity_v2:13", "crux": "decision", "knowledge": 0, "note": "manual date selection is the stated workaround", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:0", "crux": "composition", "knowledge": 1, "note": "Sarcastic praise signals extreme negative.", "tags": ["conflict"], "twist": 3, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:1", "crux": "decision", "knowledge": 0, "note": "'Zero stars' idiom maps to the bottom level.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:2", "crux": "composition", "knowledge": 1, "note": "'Paperweight' metaphor implies uselessness.", "tags": ["paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:3", "crux": "composition", "knowledge": 0, "note": "Design praise outweighed by three failed replacements.", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:4", "crux": "composition", "knowledge": 1, "note": "Idioms convey quiet disappointment, negative.", "tags": ["paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:5", "crux": "composition", "knowledge": 0, "note": "Build praise against crashes nets mixed.", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:6", "crux": "composition", "knowledge": 0, "note": "Service praise conflicts with average product verdict.", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:7", "crux": "composition", "knowledge": 0, "note": "Explicitly mixed positives and negatives.", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:8", "crux": "composition", "knowledge": 0, "note": "Minor strap gripes don't dent positive verdict.", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:9", "crux": "composition", "knowledge": 0, "note": "Soft app caveat keeps it at four stars.", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:10", "crux": "decision", "knowledge": 0, "note": "Repeat purchase as gift shows top marks.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:11", "crux": "decision", "knowledge": 0, "note": "Durability praise over two years, top marks.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:12", "crux": "decision", "knowledge": 1, "note": "Wry barb and defects land two stars.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:13", "crux": "composition", "knowledge": 0, "note": "Camera praise flattened by tepid everything else.", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:14", "crux": "decision", "knowledge": 0, "note": "Child's delight shown by constant use.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:15", "crux": "direct", "knowledge": 0, "note": "Explicit warning and stacked defects, extreme negative.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:16", "crux": "composition", "knowledge": 0, "note": "Audience caveat qualifies otherwise positive verdict.", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:review_sentiment_v2:17", "crux": "decision", "knowledge": 1, "note": "Repurchase and 'take my money' show top marks.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:expense_category:0", "crux": "direct", "knowledge": 0, "note": "taxi is listed transportation", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:expense_category:1", "crux": "composition", "knowledge": 1, "note": "dinner decoys meals; the Acme team are clients", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:expense_category:2", "crux": "knowledge", "knowledge": 1, "note": "Adobe Creative Cloud is a software subscription", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:expense_category:3", "crux": "direct", "knowledge": 0, "note": "home-office equipment matches the definition verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:expense_category:4", "crux": "knowledge", "knowledge": 1, "note": "Airbnb is lodging, named under travel", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:expense_category:5", "crux": "direct", "knowledge": 0, "note": "flights and train are listed transportation", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:expense_category:6", "crux": "knowledge", "knowledge": 2, "note": "Notion workspace is SaaS \u2014 tech product knowledge", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:expense_category:7", "crux": "composition", "knowledge": 0, "note": "food decoys meals; candidate is named in entertainment criteria", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:expense_category:8", "crux": "composition", "knowledge": 0, "note": "team lunch is own-team food, not client entertainment", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:expense_category:9", "crux": "direct", "knowledge": 0, "note": "laptop is physical equipment for work", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:expense_category:10", "crux": "composition", "knowledge": 0, "note": "implicit own lunch while traveling counts as meals", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:expense_category:11", "crux": "knowledge", "knowledge": 2, "note": "LinkedIn Learning is a digital license \u2014 product knowledge", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:expense_category:12", "crux": "composition", "knowledge": 1, "note": "tolls and parking are related travel fees", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:expense_category:13", "crux": "composition", "knowledge": 1, "note": "flowers to a client are a gift", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:expense_category:14", "crux": "knowledge", "knowledge": 1, "note": "Zoom plan is a software subscription", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:expense_category:15", "crux": "composition", "knowledge": 0, "note": "business-trip decoy; the expense is replacement equipment", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:expense_category:16", "crux": "composition", "knowledge": 1, "note": "lounge access is a related travel fee", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:expense_category:17", "crux": "direct", "knowledge": 0, "note": "paper and toner are office supplies verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:oncall_route:0", "crux": "knowledge", "knowledge": 2, "note": "Stripe is a payment gateway; timeouts decoy infra", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:oncall_route:1", "crux": "composition", "knowledge": 2, "note": "Healthy API response rules out backend; rendering is client", "tags": ["negation"], "twist": 2, "unreachable": false}
+{"case_id": "v2:oncall_route:2", "crux": "direct", "knowledge": 1, "note": "Frozen deploy rollout is a deployment issue", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:oncall_route:3", "crux": "direct", "knowledge": 1, "note": "ETL lag matches data freshness wording", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:oncall_route:4", "crux": "knowledge", "knowledge": 2, "note": "CPU saturation and autoscaling are compute", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:oncall_route:5", "crux": "composition", "knowledge": 1, "note": "Blocked orders decoy payments; retrain degraded the model", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:oncall_route:6", "crux": "composition", "knowledge": 2, "note": "Empty dashboard decoys web; import job failure is data", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:oncall_route:7", "crux": "knowledge", "knowledge": 2, "note": "Site down decoys web; S3 and CDN are providers", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:oncall_route:8", "crux": "knowledge", "knowledge": 2, "note": "Proration and store credit math is billing logic", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:oncall_route:9", "crux": "knowledge", "knowledge": 2, "note": "Weights decoy model; console TypeError is client-side", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:oncall_route:10", "crux": "decision", "knowledge": 1, "note": "Invoice formatting sits between payments and web", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:oncall_route:11", "crux": "direct", "knowledge": 1, "note": "Banner blocking nav is a client-side UI bug", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:oncall_route:12", "crux": "composition", "knowledge": 1, "note": "Out of memory decoys infra; training job is model", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:oncall_route:13", "crux": "knowledge", "knowledge": 2, "note": "Blank dashboard decoys web; dbt run is data", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:oncall_route:14", "crux": "direct", "knowledge": 1, "note": "White screen at launch is rendering", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:oncall_route:15", "crux": "knowledge", "knowledge": 2, "note": "Usage metering is billing pipeline, not data", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:oncall_route:16", "crux": "knowledge", "knowledge": 2, "note": "Pod eviction and memory pressure are compute", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:churn_risk:0", "crux": "direct", "knowledge": 0, "note": "explicit upgrade and praise match Committed directly", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:churn_risk:1", "crux": "direct", "knowledge": 0, "note": "adding seats and usage growth is expanding usage", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:churn_risk:2", "crux": "decision", "knowledge": 0, "note": "wishlist items are the minor friction of Content", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:churn_risk:3", "crux": "composition", "knowledge": 0, "note": "rocky start resolved; recovery and optimism govern level", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:churn_risk:4", "crux": "direct", "knowledge": 0, "note": "third month in a row is a recurring unresolved problem", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:churn_risk:5", "crux": "decision", "knowledge": 1, "note": "declining usage and doubt imply dropping satisfaction", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:churn_risk:6", "crux": "composition", "knowledge": 1, "note": "notice-period terms mean exit; data export hints leaving", "tags": ["paraphrase", "implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:churn_risk:7", "crux": "composition", "knowledge": 0, "note": "unless-condition sets an explicit condition to stay", "tags": ["exception"], "twist": 2, "unreachable": false}
+{"case_id": "v2:churn_risk:8", "crux": "direct", "knowledge": 0, "note": "explicit cancellation request despite formal phrasing", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:churn_risk:9", "crux": "composition", "knowledge": 0, "note": "close our account is cancellation with migration reason", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:churn_risk:10", "crux": "composition", "knowledge": 1, "note": "giving 30-day notice means non-renewal notice", "tags": ["paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:churn_risk:11", "crux": "decision", "knowledge": 0, "note": "fine but disappointed; concession scope decides level", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:churn_risk:12", "crux": "composition", "knowledge": 1, "note": "benchmarking tooling implies comparing alternatives", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:churn_risk:13", "crux": "decision", "knowledge": 0, "note": "occasional hiccups with clear value sits at Content", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:churn_risk:14", "crux": "decision", "knowledge": 1, "note": "account manager silence implies neglect and dropping satisfaction", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:churn_risk:15", "crux": "direct", "knowledge": 0, "note": "renewal confirmed matches Committed literally", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:churn_risk:16", "crux": "composition", "knowledge": 0, "note": "adding teams is expansion despite tier question decoy", "tags": ["distractor"], "twist": 1, "unreachable": false}
+{"case_id": "v2:churn_risk:17", "crux": "composition", "knowledge": 0, "note": "stopping auto-renewal versus undecided continuation needs scope resolution", "tags": ["conflict"], "twist": 3, "unreachable": false}
+{"case_id": "v2:lead_qualification:0", "crux": "direct", "knowledge": 0, "note": "student thesis project is the named unqualified example", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:lead_qualification:1", "crux": "direct", "knowledge": 0, "note": "vendor pitch is the named unqualified example", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:lead_qualification:2", "crux": "composition", "knowledge": 1, "note": "D&D group sessions signal hobby use only", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:lead_qualification:3", "crux": "decision", "knowledge": 0, "note": "Pro plan question deflated by just checking and free tier", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:lead_qualification:4", "crux": "direct", "knowledge": 0, "note": "vague future integration is exploratory with unclear needs", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:lead_qualification:5", "crux": "decision", "knowledge": 1, "note": "pilot next month and budget outweigh forty-person scale", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:lead_qualification:6", "crux": "decision", "knowledge": 1, "note": "small-team flag versus real problem and next-month deadline", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:lead_qualification:7", "crux": "decision", "knowledge": 1, "note": "shortlist now but October purchase sits near quarter boundary", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:lead_qualification:8", "crux": "decision", "knowledge": 1, "note": "CTO mandate and approved budget imply authority", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:lead_qualification:9", "crux": "direct", "knowledge": 1, "note": "VP Ops with board-approved budget and five-week deadline", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:lead_qualification:10", "crux": "decision", "knowledge": 1, "note": "procurement deadline without explicit budget or authority", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:lead_qualification:11", "crux": "decision", "knowledge": 0, "note": "booth demo bookmark is exploratory with no timeline", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:lead_qualification:12", "crux": "composition", "knowledge": 0, "note": "competitor lock until 2028 outweighs fan enthusiasm", "tags": ["distractor", "boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:lead_qualification:13", "crux": "decision", "knowledge": 1, "note": "CFO budget and closing security review imply authority", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:lead_qualification:14", "crux": "knowledge", "knowledge": 2, "note": "RFP means active procurement; headcount shows enterprise scale", "tags": ["paraphrase"], "twist": 1, "unreachable": false}
+{"case_id": "v2:lead_qualification:15", "crux": "decision", "knowledge": 0, "note": "pricing curiosity for tiny shop is low not unqualified", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:app_review_intent:0", "crux": "direct", "knowledge": 0, "note": "Crash description matches broken-behavior criteria.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:app_review_intent:1", "crux": "composition", "knowledge": 0, "note": "Polite question is really a feature request.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:app_review_intent:2", "crux": "direct", "knowledge": 0, "note": "Overt praise of the app.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:app_review_intent:3", "crux": "direct", "knowledge": 0, "note": "Refund and plan question matches billing criteria.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:app_review_intent:4", "crux": "composition", "knowledge": 0, "note": "Stale widget data describes wrongly behaving feature.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:app_review_intent:5", "crux": "composition", "knowledge": 0, "note": "Explicit ask for new tablet functionality.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:app_review_intent:6", "crux": "composition", "knowledge": 1, "note": "Device-switch mention decoys bug; double charge is billing.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:app_review_intent:7", "crux": "composition", "knowledge": 0, "note": "Fulfilled past request; the review is praise now.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:app_review_intent:8", "crux": "composition", "knowledge": 1, "note": "Login loop on work profile is broken behavior.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:app_review_intent:9", "crux": "composition", "knowledge": 0, "note": "Streak reset in wrong timezone is a defect.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:app_review_intent:10", "crux": "composition", "knowledge": 0, "note": "Sync failure with error message is a bug.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:app_review_intent:11", "crux": "composition", "knowledge": 0, "note": "Wants a new sharing capability.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:app_review_intent:12", "crux": "composition", "knowledge": 1, "note": "Renewal charge after cancellation is a payment complaint.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:app_review_intent:13", "crux": "direct", "knowledge": 0, "note": "Straightforward praise.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:app_review_intent:14", "crux": "composition", "knowledge": 0, "note": "Complaint phrasing hides an unwritten dark-mode request.", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:app_review_intent:15", "crux": "direct", "knowledge": 0, "note": "Billing plan question matches directly.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:content_moderation:0", "crux": "direct", "knowledge": 0, "note": "Insults and exclusion are stated abuse.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:content_moderation:1", "crux": "direct", "knowledge": 1, "note": "Promotional pitch with a link is plainly spam.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:content_moderation:2", "crux": "composition", "knowledge": 1, "note": "Euphemistic if-I-was-gone implies self-harm desire.", "tags": ["implicit", "paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:content_moderation:3", "crux": "composition", "knowledge": 1, "note": "Flagging complaint decoys violation; shared content is benign.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:content_moderation:4", "crux": "direct", "knowledge": 0, "note": "Address posting plus menace is a doxxing threat.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:content_moderation:5", "crux": "composition", "knowledge": 1, "note": "Bottom-tier humans insults Mercy players as a group.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:content_moderation:6", "crux": "composition", "knowledge": 1, "note": "Congratulatory opener frames an unsolicited sales pitch.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:content_moderation:7", "crux": "composition", "knowledge": 1, "note": "Self-harm phrase appears in recovery context, not intent.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:content_moderation:8", "crux": "direct", "knowledge": 0, "note": "Benign ski chatter violates no rules.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:content_moderation:9", "crux": "direct", "knowledge": 1, "note": "Send-to-ten-friends is a chain message per criteria.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:content_moderation:10", "crux": "composition", "knowledge": 1, "note": "Mocks a player spending and parents; personal insult.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:content_moderation:11", "crux": "composition", "knowledge": 1, "note": "Walking-to-car phrasing veils a physical threat.", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:content_moderation:12", "crux": "direct", "knowledge": 1, "note": "Promotional pitch with a link is spam.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:content_moderation:13", "crux": "composition", "knowledge": 0, "note": "Mod reference decoys conflict; poster actually apologizes.", "tags": ["distractor"], "twist": 1, "unreachable": false}
+{"case_id": "v2:content_moderation:14", "crux": "composition", "knowledge": 1, "note": "Rough patch decoys distress; message is pure gratitude.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:content_moderation:15", "crux": "composition", "knowledge": 1, "note": "Neutral question framing conflicts with the closing insult.", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:content_moderation:16", "crux": "composition", "knowledge": 0, "note": "Angry patch complaint tips into insulting the devs.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:content_moderation:17", "crux": "composition", "knowledge": 1, "note": "Scam-shaped wallet post but text only claims found property.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:code_review_intent:0", "crux": "knowledge", "knowledge": 2, "note": "Missing key raises a crash; plainly a defect.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:code_review_intent:1", "crux": "knowledge", "knowledge": 2, "note": "Re-serializing config every iteration is wasted work.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:code_review_intent:2", "crux": "direct", "knowledge": 1, "note": "Injection point named outright in the comment.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:code_review_intent:3", "crux": "knowledge", "knowledge": 2, "note": "Idiom preference; needs Python truthiness knowledge to confirm.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:code_review_intent:4", "crux": "direct", "knowledge": 1, "note": "Stated typo matches the trivial-typo criterion.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:code_review_intent:5", "crux": "direct", "knowledge": 1, "note": "Please split it echoes the extracting criterion.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:code_review_intent:6", "crux": "composition", "knowledge": 1, "note": "Travel scenario implies wrong notification times later.", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:code_review_intent:7", "crux": "composition", "knowledge": 2, "note": "Endless retry loop decoys performance; real issue is defect.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:code_review_intent:8", "crux": "knowledge", "knowledge": 2, "note": "Two hundred queries per view is the N+1 pattern.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:code_review_intent:9", "crux": "knowledge", "knowledge": 2, "note": "Cross-user invoice access is missing authorization.", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:code_review_intent:10", "crux": "knowledge", "knowledge": 2, "note": "Convention preference; needs pathlib equivalence knowledge.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:code_review_intent:11", "crux": "direct", "knowledge": 0, "note": "Hedged naming preference is safe to ignore.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:code_review_intent:12", "crux": "knowledge", "knowledge": 2, "note": "Style consistency; both annotations denote the same type.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:code_review_intent:13", "crux": "knowledge", "knowledge": 2, "note": "Stack trace with DB host is sensitive-data exposure.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:code_review_intent:14", "crux": "decision", "knowledge": 2, "note": "Obsolete comment cleanup; nit versus refactor judgment call.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:code_review_intent:15", "crux": "knowledge", "knowledge": 2, "note": "Cache key leak exposes other tenants data.", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:code_review_intent:16", "crux": "decision", "knowledge": 1, "note": "Unused import: trivial nit versus style-category call.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:commit_intent:0", "crux": "direct", "knowledge": 1, "note": "Correct signals fixing broken rounding behavior.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:commit_intent:1", "crux": "direct", "knowledge": 1, "note": "Extract into its own module is restructuring.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:commit_intent:2", "crux": "composition", "knowledge": 1, "note": "Integration tests decoy test; deliverable is documentation.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:commit_intent:3", "crux": "knowledge", "knowledge": 2, "note": "Bump and lockfile mark dependency housekeeping.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:commit_intent:4", "crux": "direct", "knowledge": 1, "note": "Adding coverage to tests matches the test criterion.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:commit_intent:5", "crux": "composition", "knowledge": 1, "note": "Prevent phrasing implies currently-broken behavior underneath.", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:commit_intent:6", "crux": "direct", "knowledge": 0, "note": "Adding an endpoint is stated new functionality.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:commit_intent:7", "crux": "knowledge", "knowledge": 2, "note": "GitHub Action for linting is CI tooling housekeeping.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:commit_intent:8", "crux": "knowledge", "knowledge": 2, "note": "Removing dead code restructures without changing behavior.", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:commit_intent:9", "crux": "direct", "knowledge": 1, "note": "New layout behind a flag adds functionality.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:commit_intent:10", "crux": "composition", "knowledge": 2, "note": "Fix decoys fix; the repaired object is a test.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:commit_intent:11", "crux": "direct", "knowledge": 1, "note": "README update is documentation outright.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:commit_intent:12", "crux": "knowledge", "knowledge": 2, "note": "Build-config migration is tooling, not code restructuring.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:commit_intent:13", "crux": "knowledge", "knowledge": 2, "note": "CI matrix addition is housekeeping despite add phrasing.", "tags": ["distractor"], "twist": 1, "unreachable": false}
+{"case_id": "v2:commit_intent:14", "crux": "direct", "knowledge": 1, "note": "Supporting more delimiters is new functionality.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:0", "crux": "composition", "knowledge": 0, "note": "pasta and parmigiano match italian; b\u00e9chamel decoys french", "tags": ["distractor"], "twist": 1, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:1", "crux": "composition", "knowledge": 0, "note": "risotto matches italian; wine braise decoys french", "tags": ["distractor"], "twist": 1, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:2", "crux": "direct", "knowledge": 0, "note": "corn tortillas, cilantro, lime, salsa all listed mexican", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:3", "crux": "knowledge", "knowledge": 1, "note": "tacos and chipotle read mexican beyond the listed markers", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:4", "crux": "direct", "knowledge": 0, "note": "garam masala through basmati all listed indian", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:5", "crux": "knowledge", "knowledge": 2, "note": "unnamed dosa description; sambar marks South Indian", "tags": ["implicit", "paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:6", "crux": "direct", "knowledge": 0, "note": "Thai basil, fish sauce, makrut lime, jasmine rice listed", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:7", "crux": "direct", "knowledge": 0, "note": "lemongrass, chilies, fish sauce listed thai", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:8", "crux": "knowledge", "knowledge": 1, "note": "Burgundy wine and lardons read as french bistro", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:9", "crux": "direct", "knowledge": 0, "note": "herbes de Provence listed french verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:10", "crux": "direct", "knowledge": 0, "note": "shawarma and sumac listed verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:11", "crux": "direct", "knowledge": 0, "note": "za'atar, flatbread, tahini listed verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:12", "crux": "knowledge", "knowledge": 1, "note": "cr\u00eapes and Calvados are french by food culture", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:13", "crux": "knowledge", "knowledge": 2, "note": "unnamed dolma; stuffed grape leaves read Levantine", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:14", "crux": "knowledge", "knowledge": 1, "note": "unnamed cr\u00e8me br\u00fbl\u00e9e described by texture and crust", "tags": ["paraphrase", "implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:15", "crux": "composition", "knowledge": 0, "note": "naan flatbread decoy; ghee, turmeric, cumin listed indian", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:16", "crux": "direct", "knowledge": 0, "note": "al pastor tacos with corn tortillas, cilantro listed", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:recipe_cuisine:17", "crux": "knowledge", "knowledge": 1, "note": "falafel, hummus, tabbouleh read middle eastern", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:question_duplicate:0", "crux": "composition", "knowledge": 0, "note": "Reset-password rephrasings ask the same thing.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:question_duplicate:1", "crux": "composition", "knowledge": 0, "note": "Email-access qualifier makes the second question narrower.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:question_duplicate:2", "crux": "composition", "knowledge": 0, "note": "Battery-drain complaints paraphrase each other.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:question_duplicate:3", "crux": "direct", "knowledge": 0, "note": "Diagnosis versus battery replacement plainly differ.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:question_duplicate:4", "crux": "composition", "knowledge": 1, "note": "A downloaded game is a kind of digital purchase.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:question_duplicate:5", "crux": "composition", "knowledge": 0, "note": "Swapped laptop and college words invert the ask.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:question_duplicate:6", "crux": "composition", "knowledge": 0, "note": "Wi-Fi dropping rephrased; same fix question.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:question_duplicate:7", "crux": "direct", "knowledge": 0, "note": "Creatine shared; hair loss versus growth differ.", "tags": ["distractor"], "twist": 1, "unreachable": false}
+{"case_id": "v2:question_duplicate:8", "crux": "composition", "knowledge": 0, "note": "Shipping time rephrased as delivery times to Canada.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:question_duplicate:9", "crux": "composition", "knowledge": 0, "note": "Minimal pair; delivery time versus cost is everything.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:question_duplicate:10", "crux": "composition", "knowledge": 1, "note": "Recoverable and undo ask the same question.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:question_duplicate:11", "crux": "direct", "knowledge": 0, "note": "Caffeine content versus safe daily amount differ.", "tags": ["distractor"], "twist": 1, "unreachable": false}
+{"case_id": "v2:question_duplicate:12", "crux": "composition", "knowledge": 0, "note": "SSD slower-than-promised question rephrased nearly verbatim.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:question_duplicate:13", "crux": "direct", "knowledge": 0, "note": "Wi-Fi setup instructions versus capability question differ.", "tags": ["distractor"], "twist": 1, "unreachable": false}
+{"case_id": "v2:question_duplicate:14", "crux": "composition", "knowledge": 1, "note": "PO box shipping and delivery ask the same.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:question_duplicate:15", "crux": "composition", "knowledge": 1, "note": "Same product but different operating systems.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:sql_injection_risk:0", "crux": "knowledge", "knowledge": 2, "note": "string concatenation into query, textbook injection", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:sql_injection_risk:1", "crux": "knowledge", "knowledge": 2, "note": "second-argument parameterization, not percent formatting", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:sql_injection_risk:2", "crux": "knowledge", "knowledge": 2, "note": "f-string interpolates raw request input", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:sql_injection_risk:3", "crux": "knowledge", "knowledge": 2, "note": "concatenated but quote_literal escapes the value", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:sql_injection_risk:4", "crux": "knowledge", "knowledge": 2, "note": "request input interpolated into ORDER BY", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:sql_injection_risk:5", "crux": "knowledge", "knowledge": 2, "note": "fully static query text", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:sql_injection_risk:6", "crux": "knowledge", "knowledge": 2, "note": "percent-formatting interpolates unlike parameterized placeholders", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:sql_injection_risk:7", "crux": "knowledge", "knowledge": 2, "note": "bound named parameter, no raw value concatenation", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:sql_injection_risk:8", "crux": "knowledge", "knowledge": 2, "note": "user input concatenated into INSERT statement", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:sql_injection_risk:9", "crux": "knowledge", "knowledge": 2, "note": "digits-only validation neutralizes the interpolation", "tags": ["exception", "conflict"], "twist": 3, "unreachable": false}
+{"case_id": "v2:sql_injection_risk:10", "crux": "knowledge", "knowledge": 2, "note": "query parameter concatenated into LIMIT clause", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:sql_injection_risk:11", "crux": "knowledge", "knowledge": 2, "note": "allowlist maps input to safe column names", "tags": ["exception"], "twist": 2, "unreachable": false}
+{"case_id": "v2:sql_injection_risk:12", "crux": "knowledge", "knowledge": 2, "note": "ORM binds the value instead of building text", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:sql_injection_risk:13", "crux": "knowledge", "knowledge": 2, "note": "email attribute is user-controlled data in query", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:sql_injection_risk:14", "crux": "knowledge", "knowledge": 2, "note": "int cast plus parameter binding both safe", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:0", "crux": "composition", "knowledge": 0, "note": "per-night rate under the two-hundred cap", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:1", "crux": "composition", "knowledge": 0, "note": "over cap; cheapest-available excuse absent from policy", "tags": ["boundary", "distractor"], "twist": 3, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:2", "crux": "composition", "knowledge": 1, "note": "alcohol ban applies despite sub-threshold total", "tags": ["boundary", "distractor"], "twist": 3, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:3", "crux": "composition", "knowledge": 0, "note": "seven fifty-five is under the eight-hour line", "tags": ["boundary", "distractor"], "twist": 3, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:4", "crux": "composition", "knowledge": 0, "note": "economy cabin; the duration rule only binds business", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:5", "crux": "composition", "knowledge": 1, "note": "stated transit absence removes the rideshare violation", "tags": ["negation", "exception"], "twist": 2, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:6", "crux": "knowledge", "knowledge": 2, "note": "Uber Black is a premium tier; rain excuse ignored", "tags": ["distractor", "paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:7", "crux": "composition", "knowledge": 0, "note": "day meal total sums under sixty dollars", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:8", "crux": "composition", "knowledge": 1, "note": "daily driving to HQ is home-office commuting", "tags": ["paraphrase", "implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:9", "crux": "composition", "knowledge": 0, "note": "airfare; the two-hundred cap is per hotel night", "tags": ["distractor", "boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:10", "crux": "composition", "knowledge": 0, "note": "one-seventy-eight per night is under the cap", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:11", "crux": "composition", "knowledge": 0, "note": "exactly two hundred is not over the cap", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:12", "crux": "composition", "knowledge": 0, "note": "seventeen fifty-five exceeds the eight-hour allowance", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:13", "crux": "composition", "knowledge": 0, "note": "stated fifty-eight daily food total is under sixty", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:14", "crux": "composition", "knowledge": 1, "note": "train first class falls outside the flight-class rule", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:15", "crux": "composition", "knowledge": 1, "note": "beers are alcohol and the day total exceeds sixty", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:travel_policy_violation:16", "crux": "composition", "knowledge": 1, "note": "premium economy is not the banned business class", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contains_pii:0", "crux": "direct", "knowledge": 1, "note": "SSN given outright in standard format", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:contains_pii:1", "crux": "direct", "knowledge": 0, "note": "phone number stated in plain dialable form", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:contains_pii:2", "crux": "composition", "knowledge": 1, "note": "email obfuscated with DOT and AT spellings", "tags": ["paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contains_pii:3", "crux": "direct", "knowledge": 0, "note": "relative's account, no identifier of any kind", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:contains_pii:4", "crux": "composition", "knowledge": 1, "note": "street name and generic number reference, no identifiers", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contains_pii:5", "crux": "direct", "knowledge": 0, "note": "full street address given", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contains_pii:6", "crux": "direct", "knowledge": 1, "note": "routing and account numbers are bank identifiers", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:contains_pii:7", "crux": "composition", "knowledge": 1, "note": "invoice number and card mention, no account number", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contains_pii:8", "crux": "direct", "knowledge": 0, "note": "date of birth stated outright", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contains_pii:9", "crux": "composition", "knowledge": 0, "note": "phone number referenced but never actually shown", "tags": ["distractor", "implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contains_pii:10", "crux": "direct", "knowledge": 1, "note": "company name and office count, no personal data", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:contains_pii:11", "crux": "composition", "knowledge": 1, "note": "card double-charge complaint, no card number", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contains_pii:12", "crux": "direct", "knowledge": 0, "note": "phone number stated outright", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contains_pii:13", "crux": "composition", "knowledge": 1, "note": "person's name alone is not a listed identifier", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contains_pii:14", "crux": "direct", "knowledge": 0, "note": "passport number is a government ID", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contains_pii:15", "crux": "direct", "knowledge": 0, "note": "driver's license number is a government ID", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contains_pii:16", "crux": "knowledge", "knowledge": 2, "note": "business tax ID identifies the store, not a person", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contains_spoiler:0", "crux": "direct", "knowledge": 0, "note": "wife-as-killer reveal stated outright", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contains_spoiler:1", "crux": "composition", "knowledge": 0, "note": "spoiler-free states absence despite the word spoiler", "tags": ["negation"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contains_spoiler:2", "crux": "composition", "knowledge": 0, "note": "final-shot description reveals the ending's meaning", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:contains_spoiler:3", "crux": "composition", "knowledge": 0, "note": "explicit promise of zero spoilers", "tags": ["negation"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contains_spoiler:4", "crux": "composition", "knowledge": 0, "note": "negation scopes over anticipation, not the twist's existence", "tags": ["negation"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contains_spoiler:5", "crux": "direct", "knowledge": 0, "note": "pacing criticism only, no plot content", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contains_spoiler:6", "crux": "direct", "knowledge": 0, "note": "the dog's death at a named scene is a reveal", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contains_spoiler:7", "crux": "direct", "knowledge": 0, "note": "cast praise, no plot detail", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contains_spoiler:8", "crux": "composition", "knowledge": 0, "note": "ambiguous-ending clause yields to the wedding-dress resolution", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contains_spoiler:9", "crux": "direct", "knowledge": 0, "note": "subtitle question only", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contains_spoiler:10", "crux": "composition", "knowledge": 0, "note": "negation refuses skipping; the resurrection is then revealed", "tags": ["negation"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contains_spoiler:11", "crux": "direct", "knowledge": 0, "note": "mid-season praise, no reveal", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contains_spoiler:12", "crux": "composition", "knowledge": 0, "note": "last-frame reaction mentions the ending without its content", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contains_spoiler:13", "crux": "direct", "knowledge": 0, "note": "Sam's death stated flatly", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contains_spoiler:14", "crux": "composition", "knowledge": 0, "note": "tease withholds who appears; no reveal content given", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contains_spoiler:15", "crux": "direct", "knowledge": 0, "note": "main character's death stated outright", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:formality_level:0", "crux": "direct", "knowledge": 0, "note": "Ceremonial legal register, clear Formal.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:formality_level:1", "crux": "decision", "knowledge": 0, "note": "Formal register despite complaint content.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:formality_level:2", "crux": "decision", "knowledge": 0, "note": "Greeting and contractions fit Professional.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:formality_level:3", "crux": "direct", "knowledge": 0, "note": "Greetings and sign-off match Professional description.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:formality_level:4", "crux": "direct", "knowledge": 0, "note": "Emoticon and light slang match Casual.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:formality_level:5", "crux": "decision", "knowledge": 0, "note": "Colloquial phrasing lands Casual.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:formality_level:6", "crux": "decision", "knowledge": 0, "note": "Casual phrasing with 'ping you'.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:formality_level:7", "crux": "decision", "knowledge": 1, "note": "Internet slang 'lol' and 'fr' signal Intimate.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:formality_level:8", "crux": "decision", "knowledge": 1, "note": "Abbreviations and emoji mark Intimate.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:formality_level:9", "crux": "decision", "knowledge": 1, "note": "Text-speak abbreviations mark Intimate.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:formality_level:10", "crux": "direct", "knowledge": 0, "note": "Archaic ceremonial phrasing, Formal.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:formality_level:11", "crux": "decision", "knowledge": 1, "note": "Texted abbreviations and clipped phrasing, Intimate.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:formality_level:12", "crux": "direct", "knowledge": 0, "note": "'Hereby notifying all parties' is official register, Formal.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:formality_level:13", "crux": "decision", "knowledge": 1, "note": "Abbreviated slang '2mrw' marks Intimate.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:formality_level:14", "crux": "decision", "knowledge": 0, "note": "Business phrasing with contraction, Professional.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:formality_level:15", "crux": "decision", "knowledge": 1, "note": "Slang 'yo', 'lmk' mark Intimate.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:phishing_email:0", "crux": "composition", "knowledge": 1, "note": "brand impersonation, deadline, lookalike link", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:phishing_email:1", "crux": "composition", "knowledge": 2, "note": "claimed CEO requests gift cards from spoofed domain", "tags": ["attribution"], "twist": 2, "unreachable": false}
+{"case_id": "v2:phishing_email:2", "crux": "composition", "knowledge": 1, "note": "legitimate IT notice explicitly disclaiming email asks", "tags": ["negation"], "twist": 2, "unreachable": false}
+{"case_id": "v2:phishing_email:3", "crux": "direct", "knowledge": 1, "note": "classic courier redelivery fee lure", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:phishing_email:4", "crux": "direct", "knowledge": 1, "note": "ordinary recurring invoice, no pressure or ask", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:phishing_email:5", "crux": "composition", "knowledge": 2, "note": "homoglyph domain exposes the impersonation", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:phishing_email:6", "crux": "direct", "knowledge": 0, "note": "birthday greeting with no ask", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:phishing_email:7", "crux": "direct", "knowledge": 1, "note": "asks for card number and PIN under threat", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:phishing_email:8", "crux": "composition", "knowledge": 1, "note": "urgency decoy but no link or credential ask", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:phishing_email:9", "crux": "direct", "knowledge": 1, "note": "tax refund lure with deadline and link", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:phishing_email:10", "crux": "composition", "knowledge": 1, "note": "meeting reminder points to calendar, harvests nothing", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:phishing_email:11", "crux": "direct", "knowledge": 1, "note": "brand suspension lure with recovery link", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:phishing_email:12", "crux": "direct", "knowledge": 1, "note": "routine renewal notice with in-app management", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:phishing_email:13", "crux": "direct", "knowledge": 1, "note": "threat plus direct password request", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:phishing_email:14", "crux": "knowledge", "knowledge": 2, "note": "payment-redirect fraud posing as a bank-change notice", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:phishing_email:15", "crux": "composition", "knowledge": 2, "note": "security-notice shape but asks nothing and links nowhere", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:phishing_email:16", "crux": "composition", "knowledge": 1, "note": "internal training reminder, intranet only", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:meeting_conflict:0", "crux": "composition", "knowledge": 0, "note": "Proposed overlaps dentist block; standup clear.", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:meeting_conflict:1", "crux": "composition", "knowledge": 0, "note": "Fifteen-minute gap, no overlap.", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:meeting_conflict:2", "crux": "composition", "knowledge": 0, "note": "Fifteen-minute overlap at the tail.", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:meeting_conflict:3", "crux": "composition", "knowledge": 0, "note": "Starts exactly when the block ends, no overlap.", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:meeting_conflict:4", "crux": "composition", "knowledge": 0, "note": "Proposed sits wholly inside all-hands.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:meeting_conflict:5", "crux": "composition", "knowledge": 0, "note": "Fifteen-minute gap after interview; flight clear.", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:meeting_conflict:6", "crux": "composition", "knowledge": 0, "note": "Overlaps onboarding; board prep starts after proposed ends.", "tags": ["boundary", "distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:meeting_conflict:7", "crux": "composition", "knowledge": 0, "note": "Starts exactly when the one-on-one ends.", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:meeting_conflict:8", "crux": "composition", "knowledge": 0, "note": "Recurring Friday standup collides from ten.", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:meeting_conflict:9", "crux": "composition", "knowledge": 0, "note": "Blocked Friday, workshop is Thursday.", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:meeting_conflict:10", "crux": "composition", "knowledge": 0, "note": "Back-to-back at noon, no overlap.", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:meeting_conflict:11", "crux": "composition", "knowledge": 0, "note": "Overlaps the vendor call; dentist is clear.", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:meeting_conflict:12", "crux": "composition", "knowledge": 0, "note": "Five-minute overlap at the sync's tail.", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:meeting_conflict:13", "crux": "composition", "knowledge": 0, "note": "Breakfast starts exactly at eight, no overlap.", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:meeting_conflict:14", "crux": "composition", "knowledge": 0, "note": "All-day Friday block contains the workshop.", "tags": ["boundary", "implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:meeting_conflict:15", "crux": "composition", "knowledge": 0, "note": "Both blocks end long before coffee.", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:meeting_conflict:16", "crux": "composition", "knowledge": 0, "note": "Working session engulfs the design review.", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:hazmat_shipping:0", "crux": "composition", "knowledge": 1, "note": "power banks stated to contain lithium cells", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:hazmat_shipping:1", "crux": "direct", "knowledge": 0, "note": "book, socks, mug all inert", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:hazmat_shipping:2", "crux": "knowledge", "knowledge": 2, "note": "tablet built-in battery is lithium, unstated", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:hazmat_shipping:3", "crux": "composition", "knowledge": 1, "note": "alkaline cells are not lithium batteries", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:hazmat_shipping:4", "crux": "composition", "knowledge": 0, "note": "butane torch contains listed butane", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:hazmat_shipping:5", "crux": "direct", "knowledge": 0, "note": "clothing only", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:hazmat_shipping:6", "crux": "knowledge", "knowledge": 2, "note": "nail polish remover is a flammable solvent", "tags": ["paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:hazmat_shipping:7", "crux": "direct", "knowledge": 0, "note": "camping gear, nothing hazardous", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:hazmat_shipping:8", "crux": "composition", "knowledge": 1, "note": "aerosol cans match pressurized containers", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:hazmat_shipping:9", "crux": "composition", "knowledge": 1, "note": "oil and dish soap are not corrosives", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:hazmat_shipping:10", "crux": "composition", "knowledge": 1, "note": "integrated lithium pack is a lithium battery", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:hazmat_shipping:11", "crux": "direct", "knowledge": 0, "note": "cookware and apron only", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:hazmat_shipping:12", "crux": "knowledge", "knowledge": 2, "note": "acetone is a classic flammable solvent", "tags": ["paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:hazmat_shipping:13", "crux": "direct", "knowledge": 0, "note": "ceramic set only", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:hazmat_shipping:14", "crux": "direct", "knowledge": 0, "note": "perfume named verbatim in the criteria", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:hazmat_shipping:15", "crux": "knowledge", "knowledge": 2, "note": "muriatic acid is a corrosive chemical", "tags": ["paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:dietary_vegan:0", "crux": "knowledge", "knowledge": 1, "note": "vinaigrette assumed oil-and-vinegar dressing, plant-based", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:dietary_vegan:1", "crux": "knowledge", "knowledge": 1, "note": "mozzarella is dairy", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:dietary_vegan:2", "crux": "knowledge", "knowledge": 2, "note": "riblets meat decoy; seitan is wheat-based and vegan", "tags": ["distractor"], "twist": 1, "unreachable": false}
+{"case_id": "v2:dietary_vegan:3", "crux": "direct", "knowledge": 0, "note": "gelatin named in the exclusion list", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:dietary_vegan:4", "crux": "direct", "knowledge": 0, "note": "honey named in the exclusion list", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:dietary_vegan:5", "crux": "knowledge", "knowledge": 2, "note": "tahini is sesame paste, fully plant-based", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:dietary_vegan:6", "crux": "composition", "knowledge": 0, "note": "veggie burger decoy; egg-white binder is named", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:dietary_vegan:7", "crux": "composition", "knowledge": 1, "note": "coconut-milk wording decoys dairy; it is plant-based", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:dietary_vegan:8", "crux": "knowledge", "knowledge": 2, "note": "whey is a milk derivative \u2014 ingredient literacy", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:dietary_vegan:9", "crux": "direct", "knowledge": 0, "note": "mango, sugar, lime \u2014 plainly plant", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:dietary_vegan:10", "crux": "knowledge", "knowledge": 2, "note": "imitation crab suggests fake; surimi is fish", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:dietary_vegan:11", "crux": "composition", "knowledge": 1, "note": "oat milk decoys dairy; all ingredients plant-based", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:dietary_vegan:12", "crux": "direct", "knowledge": 0, "note": "fish sauce names fish, which is excluded", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:dietary_vegan:13", "crux": "composition", "knowledge": 1, "note": "almond milk decoys dairy; it is plant-based", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:dietary_vegan:14", "crux": "knowledge", "knowledge": 2, "note": "non-dairy label conflicts with sodium caseinate, milk protein", "tags": ["conflict", "distractor"], "twist": 3, "unreachable": false}
+{"case_id": "v2:dietary_vegan:15", "crux": "knowledge", "knowledge": 2, "note": "carmine E120 is insect-derived \u2014 additive literacy", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:dietary_vegan:16", "crux": "composition", "knowledge": 1, "note": "cocoa butter decoys dairy; it is cocoa fat", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:news_topic:0", "crux": "direct", "knowledge": 0, "note": "Committee bill vote is stated legislation.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:news_topic:1", "crux": "direct", "knowledge": 1, "note": "Earnings and guidance are company business news.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:news_topic:2", "crux": "direct", "knowledge": 1, "note": "Semifinal win and club final are sports.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:news_topic:3", "crux": "direct", "knowledge": 1, "note": "Film premiere and festival run are arts.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:news_topic:4", "crux": "knowledge", "knowledge": 2, "note": "Process-node jargon marks hardware tech over company news.", "tags": ["distractor"], "twist": 1, "unreachable": false}
+{"case_id": "v2:news_topic:5", "crux": "knowledge", "knowledge": 2, "note": "Brussels infringement proceedings are EU lawmaking; media decoys culture.", "tags": ["distractor", "paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:news_topic:6", "crux": "composition", "knowledge": 2, "note": "Apple name decoys tech; margins and shares are markets.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:news_topic:7", "crux": "composition", "knowledge": 2, "note": "Decrypted cache decoys tech; symphony discovery is arts.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:news_topic:8", "crux": "knowledge", "knowledge": 2, "note": "Transfer chatter and academy graduate are football idiom.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:news_topic:9", "crux": "knowledge", "knowledge": 3, "note": "Post-quantum scheme audit is specialist technical research.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:news_topic:10", "crux": "composition", "knowledge": 2, "note": "Policy angle conflicts with market reaction; economy is business.", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:news_topic:11", "crux": "direct", "knowledge": 1, "note": "Opera season announcement is performing arts.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:news_topic:12", "crux": "direct", "knowledge": 1, "note": "No-confidence vote is stated politics.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:news_topic:13", "crux": "knowledge", "knowledge": 2, "note": "Series B is funding news, not a tech product.", "tags": ["distractor"], "twist": 1, "unreachable": false}
+{"case_id": "v2:news_topic:14", "crux": "knowledge", "knowledge": 2, "note": "Encryption protocol release is software product news.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:news_topic:15", "crux": "composition", "knowledge": 2, "note": "Shirt sales decoy business; striker transfer is sports.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:news_topic:16", "crux": "composition", "knowledge": 2, "note": "Semiconductor decoys tech; export-control bill is legislation.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:document_type:0", "crux": "direct", "knowledge": 0, "note": "Self-labeled invoice with amount due.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:document_type:1", "crux": "composition", "knowledge": 1, "note": "Employment history and skills sections mark a resume.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:document_type:2", "crux": "direct", "knowledge": 0, "note": "Self-labeled receipt recording payment.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:document_type:3", "crux": "composition", "knowledge": 1, "note": "Numbered liability clause marks a contract.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:document_type:4", "crux": "composition", "knowledge": 1, "note": "PO order details; payment terms decoy invoice.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:document_type:5", "crux": "composition", "knowledge": 1, "note": "Amounts owed and remit instructions match invoice criteria.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:document_type:6", "crux": "composition", "knowledge": 1, "note": "Cash tendered and change prove payment happened.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:document_type:7", "crux": "composition", "knowledge": 1, "note": "Licensee clause and signature block mark contract.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:document_type:8", "crux": "composition", "knowledge": 1, "note": "Credential and language lists imply a resume section.", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:document_type:9", "crux": "composition", "knowledge": 1, "note": "Tender and change lines prove a checkout receipt.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:document_type:10", "crux": "composition", "knowledge": 1, "note": "Experience and degree sections match resume criteria.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:document_type:11", "crux": "composition", "knowledge": 1, "note": "Agreement, parties, and effective date match contract.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:document_type:12", "crux": "direct", "knowledge": 0, "note": "Self-labeled subscription invoice.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:document_type:13", "crux": "composition", "knowledge": 1, "note": "PO amendment with SKU quantities; terms wording decoys contract.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:document_type:14", "crux": "composition", "knowledge": 1, "note": "License terms are contractual though parties are unstated.", "tags": ["paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:reading_level:0", "crux": "direct", "knowledge": 0, "note": "Short childlike sentences, clear Simple.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:reading_level:1", "crux": "decision", "knowledge": 0, "note": "Plain service prose sits at General.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:reading_level:2", "crux": "decision", "knowledge": 1, "note": "Dense legal jargon marks Specialist.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:reading_level:3", "crux": "decision", "knowledge": 1, "note": "Statistical jargon marks Specialist.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:reading_level:4", "crux": "decision", "knowledge": 0, "note": "Tech topic but childlike analogy, Simple.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:reading_level:5", "crux": "decision", "knowledge": 0, "note": "Adult vocabulary without jargon, General.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:reading_level:6", "crux": "knowledge", "knowledge": 2, "note": "Fluent tech jargon needs programming literacy, Specialist.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:reading_level:7", "crux": "decision", "knowledge": 0, "note": "Plain customer-facing prose, General.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:reading_level:8", "crux": "decision", "knowledge": 0, "note": "Medical topic but childlike wording, Simple.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:reading_level:9", "crux": "direct", "knowledge": 0, "note": "Simple sentences and everyday words, Simple.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:reading_level:10", "crux": "decision", "knowledge": 1, "note": "Court jargon marks Specialist.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:reading_level:11", "crux": "decision", "knowledge": 0, "note": "Plain workplace prose, General.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:reading_level:12", "crux": "knowledge", "knowledge": 2, "note": "Clinical jargon marks Specialist.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:reading_level:13", "crux": "decision", "knowledge": 0, "note": "Foreclosure topic but childlike wording, Simple.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:reading_level:14", "crux": "decision", "knowledge": 0, "note": "Plain instructions with light tech terms, General.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:reading_level:15", "crux": "knowledge", "knowledge": 2, "note": "Football scheme jargon marks Specialist.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:insurance_claim_priority:0", "crux": "direct", "knowledge": 0, "note": "scratch with explicit no rush is routine", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:insurance_claim_priority:1", "crux": "decision", "knowledge": 1, "note": "spreading crack versus sightline and this-week scheduling", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:insurance_claim_priority:2", "crux": "composition", "knowledge": 0, "note": "shut-off pipe stops ongoing damage; collapse stays priority", "tags": ["negation"], "twist": 2, "unreachable": false}
+{"case_id": "v2:insurance_claim_priority:3", "crux": "direct", "knowledge": 1, "note": "pouring water and live electrics with family displaced", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:insurance_claim_priority:4", "crux": "direct", "knowledge": 0, "note": "informational question with explicit no claim yet", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:insurance_claim_priority:5", "crux": "decision", "knowledge": 0, "note": "drivable car and cosmetic scrape place standard repair", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:insurance_claim_priority:6", "crux": "decision", "knowledge": 1, "note": "closed shop and soaked stock but sprinkler damage stopped", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:insurance_claim_priority:7", "crux": "direct", "knowledge": 0, "note": "ongoing rain ingress and unsafe room state immediate", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:insurance_claim_priority:8", "crux": "decision", "knowledge": 1, "note": "cleaning estimate means repair reimbursement; routine versus standard", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:insurance_claim_priority:9", "crux": "decision", "knowledge": 1, "note": "bumper damage repair needed though minor", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:insurance_claim_priority:10", "crux": "composition", "knowledge": 1, "note": "habitual flooding framing masks tonight's ongoing seepage", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:insurance_claim_priority:11", "crux": "decision", "knowledge": 1, "note": "no rush stated but dents need body repair", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:insurance_claim_priority:12", "crux": "direct", "knowledge": 1, "note": "break-in displacement and emergency boarding are critical now", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:insurance_claim_priority:13", "crux": "direct", "knowledge": 0, "note": "small dent explicitly no rush on record", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:insurance_claim_priority:14", "crux": "composition", "knowledge": 0, "note": "planning ahead frames the lost ring as hypothetical", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:insurance_claim_priority:15", "crux": "composition", "knowledge": 0, "note": "leak stopped negates ongoing damage; warped floor is priority", "tags": ["negation"], "twist": 2, "unreachable": false}
+{"case_id": "v2:symptom_triage:0", "crux": "knowledge", "knowledge": 2, "note": "classic heart attack pattern needs clinical recognition", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:symptom_triage:1", "crux": "knowledge", "knowledge": 2, "note": "fever with unrousable child is a red-flag pattern", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:symptom_triage:2", "crux": "knowledge", "knowledge": 2, "note": "thunderclap worst-ever headache signals brain emergency", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:symptom_triage:3", "crux": "knowledge", "knowledge": 2, "note": "units unstated but 38 is crisis reading on either scale", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:symptom_triage:4", "crux": "knowledge", "knowledge": 2, "note": "button battery ingestion is emergency despite no symptoms", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:symptom_triage:5", "crux": "decision", "knowledge": 1, "note": "fifteen minutes of pressure failing places same-day care", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:symptom_triage:6", "crux": "knowledge", "knowledge": 2, "note": "facial swelling with toothache shows spreading infection", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:symptom_triage:7", "crux": "decision", "knowledge": 1, "note": "spreading rash failing antihistamines fits few-days appointment", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:symptom_triage:8", "crux": "composition", "knowledge": 1, "note": "failed fiber treatment negates the self-care level", "tags": ["negation"], "twist": 2, "unreachable": false}
+{"case_id": "v2:symptom_triage:9", "crux": "direct", "knowledge": 0, "note": "mild throat pain with no fever states self-care", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:symptom_triage:10", "crux": "knowledge", "knowledge": 2, "note": "stiff neck decoy defused by otherwise feel fine", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:symptom_triage:11", "crux": "decision", "knowledge": 1, "note": "usual-dose refill reads routine though drug unstated", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:symptom_triage:12", "crux": "direct", "knowledge": 0, "note": "mild sunburn without blisters is self-care", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:symptom_triage:13", "crux": "knowledge", "knowledge": 2, "note": "facial weakness and slurred speech is stroke pattern", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:symptom_triage:14", "crux": "knowledge", "knowledge": 2, "note": "blistered painful burn needs same-day assessment", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:symptom_triage:15", "crux": "knowledge", "knowledge": 2, "note": "yanked toddler arm refusing use is urgent pattern", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:symptom_triage:16", "crux": "knowledge", "knowledge": 2, "note": "lip swelling after sting is anaphylaxis warning", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:symptom_triage:17", "crux": "decision", "knowledge": 2, "note": "swollen knee unable to bear weight needs prompt care", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:symptom_triage:18", "crux": "decision", "knowledge": 1, "note": "usual migraine with usual aura is established pattern", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:delivery_exception:0", "crux": "direct", "knowledge": 0, "note": "Nobody home matches recipient unavailable", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:delivery_exception:1", "crux": "direct", "knowledge": 0, "note": "Invalid flat is a nonexistent address", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:delivery_exception:2", "crux": "direct", "knowledge": 0, "note": "Held at customs stated verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:delivery_exception:3", "crux": "direct", "knowledge": 0, "note": "Ice storm is a weather event", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:delivery_exception:4", "crux": "direct", "knowledge": 0, "note": "Crushed box matches damaged in transit", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:delivery_exception:5", "crux": "direct", "knowledge": 0, "note": "Missing house number is incomplete address", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:delivery_exception:6", "crux": "direct", "knowledge": 1, "note": "Unpaid duties blocking release matches criteria", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:delivery_exception:7", "crux": "direct", "knowledge": 0, "note": "Hurricane closure is weather-caused delay", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:delivery_exception:8", "crux": "direct", "knowledge": 0, "note": "Soaked crushed box is transit damage", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:delivery_exception:9", "crux": "direct", "knowledge": 0, "note": "Attempt failed wording nearly verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:delivery_exception:10", "crux": "composition", "knowledge": 1, "note": "Returned parcel; cause is missing customs paperwork", "tags": ["paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:delivery_exception:11", "crux": "direct", "knowledge": 0, "note": "Charred contents are damaged goods", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:delivery_exception:12", "crux": "composition", "knowledge": 0, "note": "On hold decoys customs; misspelled street is address", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:delivery_exception:13", "crux": "composition", "knowledge": 1, "note": "Volcanic ash fits only as other weather event", "tags": ["paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:delivery_exception:14", "crux": "direct", "knowledge": 0, "note": "Recipient not home on both attempts", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:delivery_exception:15", "crux": "direct", "knowledge": 0, "note": "Passport paperwork blocking release matches criteria", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:delivery_exception:16", "crux": "composition", "knowledge": 1, "note": "Spoiling implies temperature damage in transit", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:delivery_exception:17", "crux": "direct", "knowledge": 0, "note": "Wrong address after company move is explicit", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:delivery_exception:18", "crux": "composition", "knowledge": 1, "note": "Certificate requirement is unstated missing paperwork blocking release", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:city_service_request:0", "crux": "direct", "knowledge": 0, "note": "Pothole named verbatim under roads", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:city_service_request:1", "crux": "direct", "knowledge": 0, "note": "Recycling pickup matches sanitation wording", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:city_service_request:2", "crux": "direct", "knowledge": 0, "note": "Dog barking maps to animal noise directly", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:city_service_request:3", "crux": "direct", "knowledge": 0, "note": "Unpermitted construction names permits outright", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:city_service_request:4", "crux": "direct", "knowledge": 0, "note": "Water pressure stated verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:city_service_request:5", "crux": "direct", "knowledge": 0, "note": "Streetlights listed under roads verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:city_service_request:6", "crux": "direct", "knowledge": 0, "note": "Dumped furniture matches dumped waste", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:city_service_request:7", "crux": "knowledge", "knowledge": 1, "note": "Outside permitted hours must be inferred from time", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:city_service_request:8", "crux": "direct", "knowledge": 0, "note": "Gas smells listed verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:city_service_request:9", "crux": "composition", "knowledge": 1, "note": "Awning need unstated; permit question only implied", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:city_service_request:10", "crux": "composition", "knowledge": 0, "note": "Garbage truck decoys sanitation; blockage is traffic hazard", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:city_service_request:11", "crux": "direct", "knowledge": 0, "note": "Rats at dumpster match pest complaints", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:city_service_request:12", "crux": "direct", "knowledge": 0, "note": "Sidewalks listed verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:city_service_request:13", "crux": "direct", "knowledge": 0, "note": "Unlicensed matches business licensing", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:city_service_request:14", "crux": "direct", "knowledge": 0, "note": "Outdoor speakers blasting is loud music", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:city_service_request:15", "crux": "composition", "knowledge": 1, "note": "Flooding decoys roads; water main break is utility", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:city_service_request:16", "crux": "direct", "knowledge": 0, "note": "Permit and sign questions match permits", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:city_service_request:17", "crux": "knowledge", "knowledge": 1, "note": "Paint disposal is waste handling, never stated", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:city_service_request:18", "crux": "composition", "knowledge": 1, "note": "Bells fit only the category name, not examples", "tags": ["paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:ad_policy_violation:0", "crux": "composition", "knowledge": 1, "note": "performance claim with test support, not a health guarantee", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:ad_policy_violation:1", "crux": "direct", "knowledge": 0, "note": "unsupported cure claim with a results guarantee", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:ad_policy_violation:2", "crux": "direct", "knowledge": 0, "note": "plain shipping offer, nothing policy-touching", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:ad_policy_violation:3", "crux": "direct", "knowledge": 1, "note": "weight-loss guarantee is an unsupported health claim", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:ad_policy_violation:4", "crux": "direct", "knowledge": 0, "note": "product origin description only", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:ad_policy_violation:5", "crux": "knowledge", "knowledge": 2, "note": "vape kit is nicotine, tobacco-class promotion", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:ad_policy_violation:6", "crux": "direct", "knowledge": 0, "note": "rating social proof, not a guarantee or health claim", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:ad_policy_violation:7", "crux": "direct", "knowledge": 0, "note": "disease treatment claim plus stop-medication instruction", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:ad_policy_violation:8", "crux": "direct", "knowledge": 0, "note": "hardware specifications only", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:ad_policy_violation:9", "crux": "direct", "knowledge": 0, "note": "trial terms, no claims or restricted goods", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:ad_policy_violation:10", "crux": "composition", "knowledge": 1, "note": "implied anti-aging remedy claim with no support", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:ad_policy_violation:11", "crux": "direct", "knowledge": 0, "note": "firearms sale advertisement promotes weapons", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:ad_policy_violation:12", "crux": "composition", "knowledge": 1, "note": "no-prescription framing signals controlled-drug sale", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:ad_policy_violation:13", "crux": "direct", "knowledge": 0, "note": "fee transparency comparison, no policy breach", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:ad_policy_violation:14", "crux": "direct", "knowledge": 0, "note": "endorsement still asserts a back-pain cure claim", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:ad_policy_violation:15", "crux": "direct", "knowledge": 0, "note": "award puffery only", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:0", "crux": "direct", "knowledge": 0, "note": "amenity description, no preference language", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:1", "crux": "composition", "knowledge": 1, "note": "no-kids preference is a familial-status restriction", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:2", "crux": "knowledge", "knowledge": 2, "note": "religious character pitched as buyer preference signal", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:3", "crux": "knowledge", "knowledge": 2, "note": "family-friendly area description, not a buyer preference", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:4", "crux": "knowledge", "knowledge": 2, "note": "accessibility features described, no disability preference", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:5", "crux": "composition", "knowledge": 1, "note": "explicit national-origin exclusion", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:6", "crux": "direct", "knowledge": 0, "note": "explicit no-families restriction", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:7", "crux": "direct", "knowledge": 0, "note": "layout and commute description only", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:8", "crux": "direct", "knowledge": 0, "note": "features and pets policy, nothing class-based", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:9", "crux": "direct", "knowledge": 0, "note": "architecture description only", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:10", "crux": "direct", "knowledge": 0, "note": "explicit preference against foreign applicants", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:11", "crux": "composition", "knowledge": 1, "note": "religious targeting dressed as location praise", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:12", "crux": "direct", "knowledge": 0, "note": "property features only", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:13", "crux": "composition", "knowledge": 1, "note": "service-animal ban restricts based on disability", "tags": ["negation", "implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:14", "crux": "direct", "knowledge": 0, "note": "explicit descent-based preference", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:15", "crux": "direct", "knowledge": 0, "note": "workspace amenities, no preference", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:16", "crux": "knowledge", "knowledge": 2, "note": "agent steering quote implies race-based neighborhood steering", "tags": ["attribution", "implicit"], "twist": 3, "unreachable": false}
+{"case_id": "v2:fair_housing_violation:17", "crux": "knowledge", "knowledge": 2, "note": "age restriction; age is outside the listed classes", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contract_clause_type:0", "crux": "composition", "knowledge": 1, "note": "damages exclusion paraphrases the liability-cap definition", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:contract_clause_type:1", "crux": "direct", "knowledge": 0, "note": "Confidential Information and non-disclosure match directly", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contract_clause_type:2", "crux": "direct", "knowledge": 0, "note": "terminate on notice is the termination definition", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contract_clause_type:3", "crux": "direct", "knowledge": 1, "note": "indemnify matches the class name verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contract_clause_type:4", "crux": "composition", "knowledge": 1, "note": "liable wording decoys liability cap; delay excuse is force majeure", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contract_clause_type:5", "crux": "composition", "knowledge": 1, "note": "liability cap phrased as a fees ceiling", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:contract_clause_type:6", "crux": "direct", "knowledge": 0, "note": "remain confidential matches the definition", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contract_clause_type:7", "crux": "direct", "knowledge": 1, "note": "termination for cause named at the start", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contract_clause_type:8", "crux": "direct", "knowledge": 0, "note": "defend the other against claims mirrors the definition", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contract_clause_type:9", "crux": "composition", "knowledge": 0, "note": "suspended obligations during listed events paraphrases excused delays", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:contract_clause_type:10", "crux": "composition", "knowledge": 1, "note": "return-of-property framing; continuing confidentiality is the operative clause", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contract_clause_type:11", "crux": "knowledge", "knowledge": 2, "note": "hold-harmless jargon maps to defend or compensate", "tags": ["paraphrase"], "twist": 1, "unreachable": false}
+{"case_id": "v2:contract_clause_type:12", "crux": "direct", "knowledge": 0, "note": "keep terms confidential is verbatim confidentiality", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:contract_clause_type:13", "crux": "composition", "knowledge": 1, "note": "terminate and confidentiality compete; clause governs ending the agreement", "tags": ["conflict", "distractor"], "twist": 3, "unreachable": false}
+{"case_id": "v2:contract_clause_type:14", "crux": "composition", "knowledge": 1, "note": "excluded damage heads paraphrase a liability cap", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:contract_clause_type:15", "crux": "composition", "knowledge": 1, "note": "responsible-for-delays decoy; listed events excuse performance", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:contract_clause_type:16", "crux": "composition", "knowledge": 1, "note": "product-liability decoy; indemnifies names the class", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:0", "crux": "direct", "knowledge": 0, "note": "Lights-off command matches device control verbatim.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:1", "crux": "direct", "knowledge": 0, "note": "Weather question is an information request.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:2", "crux": "direct", "knowledge": 0, "note": "Remind me states a reminder outright.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:3", "crux": "direct", "knowledge": 0, "note": "Play jazz is plainly a music request.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:4", "crux": "direct", "knowledge": 0, "note": "Joke request matches the small-talk criterion.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:5", "crux": "direct", "knowledge": 0, "note": "Thermostat setting is device control verbatim.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:6", "crux": "direct", "knowledge": 0, "note": "Timer request is named in the reminder criterion.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:7", "crux": "direct", "knowledge": 0, "note": "Game-result question is an information request.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:8", "crux": "direct", "knowledge": 0, "note": "Podcasts are named in the music criterion.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:9", "crux": "direct", "knowledge": 0, "note": "Question to the assistant is small talk.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:10", "crux": "direct", "knowledge": 0, "note": "Locking the door matches device control verbatim.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:11", "crux": "direct", "knowledge": 0, "note": "Fact question is an information request.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:12", "crux": "direct", "knowledge": 0, "note": "Unit-conversion question is an information request.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:13", "crux": "composition", "knowledge": 1, "note": "Volume adjustment is device control, not playback.", "tags": ["distractor"], "twist": 1, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:14", "crux": "direct", "knowledge": 0, "note": "Calendar event named in the reminder criterion.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:15", "crux": "direct", "knowledge": 0, "note": "Play that song is plainly music.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:16", "crux": "direct", "knowledge": 0, "note": "Question about the assistant itself matches directly.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:17", "crux": "composition", "knowledge": 0, "note": "Umbrella need implies asking about the weather.", "tags": ["implicit", "paraphrase"], "twist": 1, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:18", "crux": "direct", "knowledge": 0, "note": "Remind me states a reminder outright.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:voice_assistant_intent:19", "crux": "direct", "knowledge": 0, "note": "Farewell counts as greeting chit-chat.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:grammar_issue:0", "crux": "direct", "knowledge": 1, "note": "She don't is a visible agreement mismatch.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:grammar_issue:1", "crux": "decision", "knowledge": 2, "note": "Correctly spelled wrong word; word-choice versus spelling call.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:grammar_issue:2", "crux": "direct", "knowledge": 1, "note": "Misspelled word stated plainly.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:grammar_issue:3", "crux": "direct", "knowledge": 1, "note": "Verb form mismatch with singular subject.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:grammar_issue:4", "crux": "decision", "knowledge": 2, "note": "Missing apostrophe; criteria file apostrophes as punctuation.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:grammar_issue:5", "crux": "knowledge", "knowledge": 2, "note": "Linking verb needs adjective; adverb is wrong form.", "tags": [], "twist": 2, "unreachable": false}
+{"case_id": "v2:grammar_issue:6", "crux": "direct", "knowledge": 1, "note": "Standard sentence, grammatically fine.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:grammar_issue:7", "crux": "direct", "knowledge": 0, "note": "Plainly correct sentence.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:grammar_issue:8", "crux": "direct", "knowledge": 1, "note": "Stray comma after verb is misplaced.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:grammar_issue:9", "crux": "direct", "knowledge": 1, "note": "Two plain misspellings.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:grammar_issue:10", "crux": "direct", "knowledge": 0, "note": "Correct sentence with no issue.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:grammar_issue:11", "crux": "knowledge", "knowledge": 2, "note": "Each is singular; have does not agree.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:grammar_issue:12", "crux": "decision", "knowledge": 2, "note": "Real word misused; word-choice versus spelling call.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:grammar_issue:13", "crux": "decision", "knowledge": 2, "note": "Its is correctly spelled; apostrophe absence makes punctuation.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:grammar_issue:14", "crux": "direct", "knowledge": 1, "note": "Missing commas between listed items.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:grammar_issue:15", "crux": "direct", "knowledge": 1, "note": "Plain misspelling of definitely.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:grammar_issue:16", "crux": "decision", "knowledge": 2, "note": "Effect/affect homophone; word-choice versus spelling call.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:grammar_issue:17", "crux": "knowledge", "knowledge": 2, "note": "Neither-nor agreement rule confirms the sentence is fine.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:grammar_issue:18", "crux": "direct", "knowledge": 1, "note": "Plain misspelling of restaurant.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:grammar_issue:19", "crux": "knowledge", "knowledge": 2, "note": "Comma splice between two clauses is punctuation.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:grammar_issue:20", "crux": "direct", "knowledge": 0, "note": "Correct sentence with no issue.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:action_item_assignment:0", "crux": "direct", "knowledge": 0, "note": "Owner, task, and deadline all stated plainly.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:action_item_assignment:1", "crux": "composition", "knowledge": 0, "note": "Hedged suggestion with no owner and no deadline.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:action_item_assignment:2", "crux": "composition", "knowledge": 0, "note": "Telegraphic minutes shorthand still assigns Priya the task.", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:action_item_assignment:3", "crux": "direct", "knowledge": 0, "note": "Pure status remark, nothing assigned.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:action_item_assignment:4", "crux": "composition", "knowledge": 0, "note": "Deadline word appears but it only reschedules, no task.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:action_item_assignment:5", "crux": "direct", "knowledge": 0, "note": "Explicit owner and deadline.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:action_item_assignment:6", "crux": "composition", "knowledge": 0, "note": "Wish phrasing; no assignment, owner, or deadline.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:action_item_assignment:7", "crux": "direct", "knowledge": 0, "note": "Explicit action line with owner and due date.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:action_item_assignment:8", "crux": "composition", "knowledge": 0, "note": "Meeting time decoys like a deadline, no task.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:action_item_assignment:9", "crux": "composition", "knowledge": 0, "note": "Implied task, but nobody owns or dates it.", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:action_item_assignment:10", "crux": "composition", "knowledge": 0, "note": "First-person commitment with two stated deadlines.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:action_item_assignment:11", "crux": "direct", "knowledge": 0, "note": "Morale remark, nothing assigned.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:action_item_assignment:12", "crux": "composition", "knowledge": 0, "note": "Vague suggestion; 'next time' is no real deadline.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:action_item_assignment:13", "crux": "direct", "knowledge": 0, "note": "Owner and deadline explicit.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:action_item_assignment:14", "crux": "composition", "knowledge": 0, "note": "Conditional suggestion with unowned subject and soft timing.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:action_item_assignment:15", "crux": "composition", "knowledge": 0, "note": "Passive construction still names owner and deadline.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:action_item_assignment:16", "crux": "composition", "knowledge": 0, "note": "Hedged 'someone should' is not an assignment.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:action_item_assignment:17", "crux": "composition", "knowledge": 0, "note": "Ownership statement implies the assigned responsibility.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:action_item_assignment:18", "crux": "composition", "knowledge": 0, "note": "Report of someone's finding, not an assignment.", "tags": ["attribution"], "twist": 2, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:0", "crux": "composition", "knowledge": 1, "note": "impossible travel, round amount, odd hour", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:1", "crux": "direct", "knowledge": 0, "note": "usual grocery purchase in pattern", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:2", "crux": "direct", "knowledge": 1, "note": "velocity, round sums, unfamiliar country all stated", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:3", "crux": "direct", "knowledge": 0, "note": "same landlord for two years", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:4", "crux": "composition", "knowledge": 1, "note": "declines then success from new device and country", "tags": ["boundary", "implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:5", "crux": "direct", "knowledge": 0, "note": "small coffee near the office", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:6", "crux": "direct", "knowledge": 0, "note": "regular monthly payroll deposit", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:7", "crux": "composition", "knowledge": 2, "note": "structuring amount right after password reset", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:8", "crux": "direct", "knowledge": 0, "note": "long-standing streaming renewal", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:9", "crux": "composition", "knowledge": 1, "note": "two countries minutes apart is impossible travel", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:10", "crux": "composition", "knowledge": 1, "note": "micro-charge burst at one terminal is facially anomalous", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:11", "crux": "direct", "knowledge": 0, "note": "annual premium on usual renewal date", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:12", "crux": "composition", "knowledge": 1, "note": "first wire drains balance to brand-new payee", "tags": ["implicit", "boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:13", "crux": "knowledge", "knowledge": 2, "note": "gift-card velocity matches cash-out fraud pattern", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:14", "crux": "direct", "knowledge": 0, "note": "routine annual property-tax payment", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:15", "crux": "direct", "knowledge": 0, "note": "unchanged mortgage payment for three years", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:suspicious_transaction:16", "crux": "composition", "knowledge": 1, "note": "first cash advance maxing limit at 3am", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:return_reason:0", "crux": "direct", "knowledge": 0, "note": "Shattered mug is shipping damage", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:return_reason:1", "crux": "direct", "knowledge": 0, "note": "Wrong color is wrong item", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:return_reason:2", "crux": "decision", "knowledge": 1, "note": "Size complaint sits on wrong-item versus fit boundary", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:return_reason:3", "crux": "direct", "knowledge": 0, "note": "Cheaper elsewhere; no problem with item", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:return_reason:4", "crux": "direct", "knowledge": 0, "note": "Too late for birthday is late delivery", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:return_reason:5", "crux": "direct", "knowledge": 0, "note": "Item fine and duplicate order are changed mind", "tags": ["negation"], "twist": 1, "unreachable": false}
+{"case_id": "v2:return_reason:6", "crux": "composition", "knowledge": 1, "note": "Cracked screen implies transit damage", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:return_reason:7", "crux": "direct", "knowledge": 0, "note": "Month late and event over is explicit", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:return_reason:8", "crux": "decision", "knowledge": 0, "note": "Tag mismatch is wrong size shipped per criteria", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:return_reason:9", "crux": "direct", "knowledge": 0, "note": "Buyer measurement error is fit", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:return_reason:10", "crux": "composition", "knowledge": 0, "note": "Color dislike decoys wrong item; nothing wrong stated", "tags": ["distractor", "negation"], "twist": 2, "unreachable": false}
+{"case_id": "v2:return_reason:11", "crux": "composition", "knowledge": 1, "note": "Intact box but snapped lamp implies transit damage", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:return_reason:12", "crux": "direct", "knowledge": 0, "note": "Ordered oak, got walnut is different item", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:return_reason:13", "crux": "decision", "knowledge": 1, "note": "Wrong size wording decoys wrong item; buyer erred", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:return_reason:14", "crux": "knowledge", "knowledge": 1, "note": "After Halloween implies too late to be useful", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:return_reason:15", "crux": "direct", "knowledge": 0, "note": "Gift duplicate; no problem with item", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:return_reason:16", "crux": "decision", "knowledge": 1, "note": "Right machine negation fights plug variant mismatch", "tags": ["negation"], "twist": 2, "unreachable": false}
+{"case_id": "v2:return_reason:17", "crux": "knowledge", "knowledge": 1, "note": "January arrival implies useless Christmas gift", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:allergen_present:0", "crux": "direct", "knowledge": 0, "note": "peanuts named verbatim in the allergen list", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:allergen_present:1", "crux": "direct", "knowledge": 0, "note": "no listed allergen in any named ingredient", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:allergen_present:2", "crux": "knowledge", "knowledge": 1, "note": "mozzarella is dairy \u2014 everyday ingredient fact", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:allergen_present:3", "crux": "knowledge", "knowledge": 1, "note": "almond to tree nuts is a hypernym bridge", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:allergen_present:4", "crux": "knowledge", "knowledge": 2, "note": "tahini is sesame paste \u2014 ingredient literacy", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:allergen_present:5", "crux": "direct", "knowledge": 0, "note": "fish named verbatim in the list", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:allergen_present:6", "crux": "knowledge", "knowledge": 2, "note": "chimichurri composition needed to rule every allergen out", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:allergen_present:7", "crux": "direct", "knowledge": 0, "note": "plain vegetables and oil, nothing listed", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:allergen_present:8", "crux": "direct", "knowledge": 0, "note": "fruit and herbs only", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:allergen_present:9", "crux": "knowledge", "knowledge": 1, "note": "parmesan dairy and croutons wheat, both everyday", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:allergen_present:10", "crux": "composition", "knowledge": 1, "note": "corn tortillas block the wheat near-miss on tortillas", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:allergen_present:11", "crux": "knowledge", "knowledge": 1, "note": "shrimp to shellfish hypernym, everyday", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:allergen_present:12", "crux": "knowledge", "knowledge": 2, "note": "edamame is soybeans \u2014 ingredient literacy", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:allergen_present:13", "crux": "knowledge", "knowledge": 1, "note": "cr\u00e8me is cream, bringing dairy and egg", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:allergen_present:14", "crux": "composition", "knowledge": 1, "note": "veggie-patty binder decoy; listed ingredients are clean", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:allergen_present:15", "crux": "knowledge", "knowledge": 1, "note": "tiramisu carries dairy, egg, wheat by recipe", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:allergen_present:16", "crux": "knowledge", "knowledge": 2, "note": "buckwheat name decoys on wheat; pure buckwheat is gluten-free", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:allergen_present:17", "crux": "composition", "knowledge": 1, "note": "rice-pudding dairy decoy beaten by explicit rice-milk", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:allergen_present:18", "crux": "knowledge", "knowledge": 1, "note": "frittata is egg-based and goat cheese is dairy", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:allergen_present:19", "crux": "knowledge", "knowledge": 1, "note": "pita bread supplies wheat/gluten", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:allergen_present:20", "crux": "direct", "knowledge": 0, "note": "lamb, mint jelly, root vegetables \u2014 clean", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:allergen_present:21", "crux": "knowledge", "knowledge": 1, "note": "sorbet is fruit-based, no dairy or egg", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:home_service_routing:0", "crux": "direct", "knowledge": 0, "note": "Dripping faucet and slow drain are plumbing", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:home_service_routing:1", "crux": "direct", "knowledge": 0, "note": "Outlets and breaker match electrical verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:home_service_routing:2", "crux": "direct", "knowledge": 0, "note": "AC and thermostat both listed under hvac", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:home_service_routing:3", "crux": "direct", "knowledge": 0, "note": "Assembly and mounting match handyman verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:home_service_routing:4", "crux": "direct", "knowledge": 0, "note": "Dryers listed under appliance repair", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:home_service_routing:5", "crux": "direct", "knowledge": 0, "note": "Water heaters listed under plumbing", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:home_service_routing:6", "crux": "composition", "knowledge": 1, "note": "Sparking dimmer switch is an electrical fault", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:home_service_routing:7", "crux": "composition", "knowledge": 1, "note": "Standing water decoys plumbing; dishwasher is appliance", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:home_service_routing:8", "crux": "direct", "knowledge": 0, "note": "Door and deadbolt alignment is door work", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:home_service_routing:9", "crux": "direct", "knowledge": 0, "note": "Furnace that will not heat is heating", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:home_service_routing:10", "crux": "direct", "knowledge": 0, "note": "Toilets listed verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:home_service_routing:11", "crux": "direct", "knowledge": 0, "note": "Bathroom drain smell matches drains", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:home_service_routing:12", "crux": "direct", "knowledge": 0, "note": "Flickering light fixture matches lighting fixtures", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:home_service_routing:13", "crux": "direct", "knowledge": 0, "note": "Drywall patch and paint are general fixes", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:home_service_routing:14", "crux": "direct", "knowledge": 0, "note": "Fridge and freezer problems are appliance repair", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:home_service_routing:15", "crux": "composition", "knowledge": 1, "note": "Heat pump is heating equipment", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:home_service_routing:16", "crux": "composition", "knowledge": 1, "note": "Bathtub decoys plumbing; caulk and drywall are fixes", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:home_service_routing:17", "crux": "direct", "knowledge": 0, "note": "Oven listed under appliance repair", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:home_service_routing:18", "crux": "composition", "knowledge": 1, "note": "Kitchen sink decoys plumbing; GFCI outlet is electrical", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:home_service_routing:19", "crux": "composition", "knowledge": 1, "note": "Neighbor contrast rules out utility outage", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:home_service_routing:20", "crux": "knowledge", "knowledge": 1, "note": "Ceiling stain implies hidden bathroom leak", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:home_service_routing:21", "crux": "composition", "knowledge": 1, "note": "Cold rooms despite thermostat indicate heating problem", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:home_service_routing:22", "crux": "direct", "knowledge": 0, "note": "Hanging shelves is mounting work", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:gaming_report_type:0", "crux": "knowledge", "knowledge": 2, "note": "Shooting through walls is the wallhack pattern.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:gaming_report_type:1", "crux": "direct", "knowledge": 0, "note": "Telling someone to kill themselves is abuse.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:gaming_report_type:2", "crux": "knowledge", "knowledge": 2, "note": "Selling boosts for cash is paid rank-boosting.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:gaming_report_type:3", "crux": "composition", "knowledge": 2, "note": "Low-level account dominating implies smurf; hours figure is noise.", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:gaming_report_type:4", "crux": "knowledge", "knowledge": 2, "note": "AFK refusal is griefing that fits none above.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:gaming_report_type:5", "crux": "direct", "knowledge": 1, "note": "Aimbot names aim assistance almost verbatim.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:gaming_report_type:6", "crux": "direct", "knowledge": 0, "note": "Slurs about the family are stated abuse.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:gaming_report_type:7", "crux": "direct", "knowledge": 1, "note": "Shared account matches the account-sharing criterion literally.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:gaming_report_type:8", "crux": "knowledge", "knowledge": 2, "note": "Skill far above Bronze rank states a smurf.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:gaming_report_type:9", "crux": "knowledge", "knowledge": 2, "note": "Team-killing is griefing, not abusive chat harassment.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:gaming_report_type:10", "crux": "knowledge", "knowledge": 2, "note": "Admitted bought-and-boosted account is arranged rank-boosting.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:gaming_report_type:11", "crux": "knowledge", "knowledge": 2, "note": "Kills through smoke every time implies vision assistance.", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:gaming_report_type:12", "crux": "knowledge", "knowledge": 2, "note": "All-chat ez taunting is abusive chat.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:gaming_report_type:13", "crux": "knowledge", "knowledge": 2, "note": "Repeated disconnect pattern is disruptive dodging behavior.", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:gaming_report_type:14", "crux": "knowledge", "knowledge": 2, "note": "Top-500 player on an alt in silver lobby.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:gaming_report_type:15", "crux": "knowledge", "knowledge": 2, "note": "Sabotaging own team builds is griefing.", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:gaming_report_type:16", "crux": "knowledge", "knowledge": 2, "note": "Macro script firing perfect combos is software assistance.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:gaming_report_type:17", "crux": "composition", "knowledge": 2, "note": "Doxxing bridges to the targeted-abuse criterion.", "tags": ["paraphrase"], "twist": 2, "unreachable": false}
+{"case_id": "v2:gaming_report_type:18", "crux": "knowledge", "knowledge": 3, "note": "Collusive surrender scheme is arranged rank-boosting.", "tags": ["implicit"], "twist": 3, "unreachable": false}
+{"case_id": "v2:gaming_report_type:19", "crux": "knowledge", "knowledge": 2, "note": "Destroying friendly builds is griefing sabotage.", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:0", "crux": "knowledge", "knowledge": 1, "note": "spontaneous normal-use failure implies covered defect", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:1", "crux": "direct", "knowledge": 0, "note": "dropped tablet is accidental damage, excluded", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:2", "crux": "knowledge", "knowledge": 1, "note": "shiny worn keycaps count as normal wear", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:3", "crux": "knowledge", "knowledge": 1, "note": "spontaneous month-eight power failure implies defect", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:4", "crux": "knowledge", "knowledge": 1, "note": "bearing failure at fourteen months implies workmanship defect", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:5", "crux": "knowledge", "knowledge": 1, "note": "running dry is misuse of the machine, excluded", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:6", "crux": "direct", "knowledge": 0, "note": "spilled coffee is liquid damage, excluded", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:7", "crux": "knowledge", "knowledge": 1, "note": "no physical damage stated; spontaneous driver death is defect", "tags": ["negation"], "twist": 2, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:8", "crux": "knowledge", "knowledge": 1, "note": "intermittent flicker on a new TV implies defect", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:9", "crux": "direct", "knowledge": 0, "note": "dog-chewed cable is accidental damage, excluded", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:10", "crux": "knowledge", "knowledge": 1, "note": "normal-wear phrasing decoys; no impact stated; crown fell off", "tags": ["negation", "distractor"], "twist": 3, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:11", "crux": "knowledge", "knowledge": 1, "note": "no drops stated; ghost touches are a screen defect", "tags": ["negation"], "twist": 2, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:12", "crux": "knowledge", "knowledge": 1, "note": "weld crack under normal commuting is workmanship defect", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:13", "crux": "knowledge", "knowledge": 1, "note": "key scratch is wear or accidental, not defect", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:14", "crux": "knowledge", "knowledge": 2, "note": "daily-wear decoy; sole separation at three months is defect", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:15", "crux": "knowledge", "knowledge": 1, "note": "non-certified cable use is misuse, excluded", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:16", "crux": "knowledge", "knowledge": 1, "note": "dead on arrival is a defect outright", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:17", "crux": "knowledge", "knowledge": 1, "note": "swollen battery at month ten is a defect", "tags": ["implicit"], "twist": 1, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:18", "crux": "direct", "knowledge": 0, "note": "flew off the car roof is accidental damage", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:warranty_claim_eligible:19", "crux": "knowledge", "knowledge": 1, "note": "rain ingress counts as liquid damage, excluded", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:0", "crux": "decision", "knowledge": 1, "note": "light under-5mm rain is clearly not hazardous", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:1", "crux": "direct", "knowledge": 0, "note": "clear skies plainly informational", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:2", "crux": "direct", "knowledge": 0, "note": "patchy drizzle is plainly non-hazardous", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:3", "crux": "decision", "knowledge": 1, "note": "quarter-mile visibility fog is hazardous but not imminent", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:4", "crux": "direct", "knowledge": 0, "note": "alert names the advisory tier explicitly", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:5", "crux": "direct", "knowledge": 0, "note": "alert names the advisory tier explicitly", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:6", "crux": "direct", "knowledge": 0, "note": "alert names the advisory tier explicitly", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:7", "crux": "direct", "knowledge": 0, "note": "watch wording matches the watch definition verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:8", "crux": "direct", "knowledge": 0, "note": "watch wording matches the watch definition verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:9", "crux": "direct", "knowledge": 0, "note": "tornado warning names the warning tier", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:10", "crux": "direct", "knowledge": 0, "note": "warning wording with rain already fallen", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:11", "crux": "direct", "knowledge": 1, "note": "hurricane warning names the warning tier", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:12", "crux": "direct", "knowledge": 0, "note": "alert names the advisory tier explicitly", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:13", "crux": "direct", "knowledge": 0, "note": "flood watch wording matches watch definition", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:14", "crux": "direct", "knowledge": 0, "note": "warning wording with take-action travel advice", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:15", "crux": "composition", "knowledge": 0, "note": "distant smoke defused by currently good air quality", "tags": ["negation", "distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:16", "crux": "direct", "knowledge": 0, "note": "high surf warning names the warning tier", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:17", "crux": "direct", "knowledge": 0, "note": "watch wording matches the watch definition", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:18", "crux": "decision", "knowledge": 1, "note": "record framing aside 31C is warm but not hazardous", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:19", "crux": "decision", "knowledge": 1, "note": "sensitive-groups scope keeps it advisory level", "tags": ["boundary"], "twist": 2, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:20", "crux": "direct", "knowledge": 0, "note": "watch wording matches the watch definition verbatim", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:weather_alert_severity:21", "crux": "direct", "knowledge": 0, "note": "warning wording with storm overhead now", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:content_type:0", "crux": "direct", "knowledge": 0, "note": "Straight factual reporting of a recent vote.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:content_type:1", "crux": "direct", "knowledge": 0, "note": "Moral-failure claim in personal voice is opinion.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:content_type:2", "crux": "composition", "knowledge": 1, "note": "Third-person lede decoys news; marketing boilerplate self-announces.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:content_type:3", "crux": "direct", "knowledge": 0, "note": "Why-it-matters headline matches explaining what events mean.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:content_type:4", "crux": "composition", "knowledge": 1, "note": "Inside-the-night-shift signals human-interest color storytelling.", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:content_type:5", "crux": "direct", "knowledge": 0, "note": "In my view states an argued position.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:content_type:6", "crux": "direct", "knowledge": 0, "note": "Explained what-the-deal-means echoes the criterion.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:content_type:7", "crux": "direct", "knowledge": 1, "note": "Pleased-to-announce is self-announcement register.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:content_type:8", "crux": "direct", "knowledge": 0, "note": "Bare facts of a recent event.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:content_type:9", "crux": "composition", "knowledge": 1, "note": "Profile framing about a person is human interest.", "tags": ["implicit"], "twist": 2, "unreachable": false}
+{"case_id": "v2:content_type:10", "crux": "composition", "knowledge": 1, "note": "We-believe voice outweighs the data framing.", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:content_type:11", "crux": "direct", "knowledge": 0, "note": "What-it-means-for-prices is explainer analysis framing.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:content_type:12", "crux": "composition", "knowledge": 1, "note": "We resolves to the company announcing itself.", "tags": ["coref"], "twist": 1, "unreachable": false}
+{"case_id": "v2:content_type:13", "crux": "direct", "knowledge": 0, "note": "Plain arrest facts with no advocacy.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:content_type:14", "crux": "composition", "knowledge": 1, "note": "Stall-relocation news decoy; flower-seller framing is feature.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:content_type:15", "crux": "direct", "knowledge": 0, "note": "Election result stated as plain fact.", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:content_type:16", "crux": "direct", "knowledge": 1, "note": "To-the-editor stance piece is a personal argument.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:content_type:17", "crux": "composition", "knowledge": 1, "note": "Sawmill closure decoys news; town elegy is feature.", "tags": ["distractor"], "twist": 2, "unreachable": false}
+{"case_id": "v2:content_type:18", "crux": "composition", "knowledge": 1, "note": "We is the company announcing its own change.", "tags": ["coref"], "twist": 1, "unreachable": false}
+{"case_id": "v2:content_type:19", "crux": "composition", "knowledge": 1, "note": "Authority claim attributed to reporter; not self-announcement.", "tags": ["attribution"], "twist": 2, "unreachable": false}
+{"case_id": "v2:content_type:20", "crux": "direct", "knowledge": 1, "note": "Guest column argues a position on the bill.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:content_type:21", "crux": "direct", "knowledge": 0, "note": "What-it-would-mean is explainer analysis framing.", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:veterinary_triage:0", "crux": "knowledge", "knowledge": 2, "note": "whole dark chocolate bar is canine toxicity emergency", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:veterinary_triage:1", "crux": "knowledge", "knowledge": 2, "note": "straining with no output is urinary obstruction emergency", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:veterinary_triage:2", "crux": "direct", "knowledge": 1, "note": "unresponsive puppy after repeated vomiting reads emergency", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:veterinary_triage:3", "crux": "composition", "knowledge": 1, "note": "standing but wobbly does not offset recent car trauma", "tags": ["conflict"], "twist": 2, "unreachable": false}
+{"case_id": "v2:veterinary_triage:4", "crux": "knowledge", "knowledge": 2, "note": "hunched anorexic rabbit signals urgent gut stasis", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:veterinary_triage:5", "crux": "knowledge", "knowledge": 2, "note": "swollen shut eye needs same-day attention", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:veterinary_triage:6", "crux": "knowledge", "knowledge": 2, "note": "minor continued bleeding through bandage keeps same-day", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:veterinary_triage:7", "crux": "decision", "knowledge": 1, "note": "week-long named ear infection fits few-days visit", "tags": [], "twist": 2, "unreachable": false}
+{"case_id": "v2:veterinary_triage:8", "crux": "direct", "knowledge": 0, "note": "annual healthy checkup is routine stated directly", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:veterinary_triage:9", "crux": "direct", "knowledge": 0, "note": "food-switch question with no symptoms is routine", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:veterinary_triage:10", "crux": "direct", "knowledge": 0, "note": "routine nail trim is stated routine", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:veterinary_triage:11", "crux": "knowledge", "knowledge": 2, "note": "red oozing incision shows infection needing same-day", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:veterinary_triage:12", "crux": "decision", "knowledge": 1, "note": "two-week limp with normal eating fits few days", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:veterinary_triage:13", "crux": "direct", "knowledge": 0, "note": "product question with no symptoms is routine", "tags": [], "twist": 0, "unreachable": false}
+{"case_id": "v2:veterinary_triage:14", "crux": "knowledge", "knowledge": 2, "note": "grapes are canine toxin requiring emergency now", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:veterinary_triage:15", "crux": "knowledge", "knowledge": 2, "note": "increased drinking implies metabolic disease needing prompt workup", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:veterinary_triage:16", "crux": "knowledge", "knowledge": 2, "note": "green discharge suggests respiratory infection needing prompt care", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:veterinary_triage:17", "crux": "knowledge", "knowledge": 2, "note": "swollen belly with unproductive retching is bloat emergency", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:veterinary_triage:18", "crux": "knowledge", "knowledge": 2, "note": "puncture wound needs same-day wound care", "tags": [], "twist": 1, "unreachable": false}
+{"case_id": "v2:veterinary_triage:19", "crux": "direct", "knowledge": 0, "note": "preventative refill question is routine", "tags": [], "twist": 0, "unreachable": false}

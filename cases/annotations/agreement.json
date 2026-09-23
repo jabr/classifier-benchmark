@@ -1,0 +1,1585 @@
+{
+ "cases": [
+  {
+   "case_id": "v1:incident_severity:5",
+   "votes": {
+    "A1": {
+     "case_id": "v1:incident_severity:5",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "Slow dashboard placement; core-ness unstated"
+    },
+    "A2": {
+     "case_id": "v1:incident_severity:5",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "no workaround stated; dashboard core-ness judgment call"
+    },
+    "A3": {
+     "case_id": "v1:incident_severity:5",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "Slow pages degrade a feature; workaround absence implied."
+    },
+    "A4": {
+     "case_id": "v1:incident_severity:5",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "slow-but-working dashboard maps to degraded; placement is the call"
+    },
+    "A5": {
+     "case_id": "v1:incident_severity:5",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "decision",
+     "unreachable": true,
+     "note": "workaround absence and core-feature status unstated; gold needs both"
+    },
+    "A6": {
+     "case_id": "v1:incident_severity:5",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "Slow admin dashboard: degraded-feature level judgment."
+    }
+   }
+  },
+  {
+   "case_id": "v1:refund_eligible:1",
+   "votes": {
+    "A1": {
+     "case_id": "v1:refund_eligible:1",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Yesterday's charge and never-used account imply eligibility"
+    },
+    "A2": {
+     "case_id": "v1:refund_eligible:1",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "boundary",
+      "implicit"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "charged yesterday and never used account means refundable"
+    },
+    "A3": {
+     "case_id": "v1:refund_eligible:1",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Charge yesterday within window; never-used account counts as unused."
+    },
+    "A4": {
+     "case_id": "v1:refund_eligible:1",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "charge from yesterday is in-window; no account means unused"
+    },
+    "A5": {
+     "case_id": "v1:refund_eligible:1",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "yesterday's charge implies purchase; no account implies unused"
+    },
+    "A6": {
+     "case_id": "v1:refund_eligible:1",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "negation",
+      "implicit"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Charged yesterday and account never created; clearly unused."
+    }
+   }
+  },
+  {
+   "case_id": "v2:commit_intent:2",
+   "votes": {
+    "A1": {
+     "case_id": "v2:commit_intent:2",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Tests decoy test; noting in CONTRIBUTING is docs"
+    },
+    "A2": {
+     "case_id": "v2:commit_intent:2",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "CONTRIBUTING note is docs despite test env var decoys"
+    },
+    "A3": {
+     "case_id": "v2:commit_intent:2",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Note in CONTRIBUTING is documentation despite test wording."
+    },
+    "A4": {
+     "case_id": "v2:commit_intent:2",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "test wording throughout, but change is a CONTRIBUTING note"
+    },
+    "A5": {
+     "case_id": "v2:commit_intent:2",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "test-word decoy; a CONTRIBUTING note is documentation"
+    },
+    "A6": {
+     "case_id": "v2:commit_intent:2",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Integration tests decoy test; deliverable is documentation."
+    }
+   }
+  },
+  {
+   "case_id": "v2:contains_pii:15",
+   "votes": {
+    "A1": {
+     "case_id": "v2:contains_pii:15",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Driver's license number is a government ID"
+    },
+    "A2": {
+     "case_id": "v2:contains_pii:15",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "driver's license number is the listed government ID"
+    },
+    "A3": {
+     "case_id": "v2:contains_pii:15",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Driver's license number is a government ID."
+    },
+    "A4": {
+     "case_id": "v2:contains_pii:15",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "driver's license number is a government ID"
+    },
+    "A5": {
+     "case_id": "v2:contains_pii:15",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "driver's license is a government ID, listed"
+    },
+    "A6": {
+     "case_id": "v2:contains_pii:15",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Driver license number is a government ID."
+    }
+   }
+  },
+  {
+   "case_id": "v2:contains_spoiler:11",
+   "votes": {
+    "A1": {
+     "case_id": "v2:contains_spoiler:11",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Praise with no plot detail"
+    },
+    "A2": {
+     "case_id": "v2:contains_spoiler:11",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "praise and episode count reveal no plot details"
+    },
+    "A3": {
+     "case_id": "v2:contains_spoiler:11",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Episode impressions reveal no plot details."
+    },
+    "A4": {
+     "case_id": "v2:contains_spoiler:11",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "praise with no plot detail revealed"
+    },
+    "A5": {
+     "case_id": "v2:contains_spoiler:11",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "mid-season praise, no reveal"
+    },
+    "A6": {
+     "case_id": "v2:contains_spoiler:11",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Praise with no plot detail; nothing spoiled."
+    }
+   }
+  },
+  {
+   "case_id": "v2:contract_clause_type:10",
+   "votes": {
+    "A1": {
+     "case_id": "v2:contract_clause_type:10",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Separation decoys termination; secrecy is confidentiality"
+    },
+    "A2": {
+     "case_id": "v2:contract_clause_type:10",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "separation wording decoys termination but duties are confidentiality"
+    },
+    "A3": {
+     "case_id": "v2:contract_clause_type:10",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Proprietary-documents return is confidentiality; separation is not termination."
+    },
+    "A4": {
+     "case_id": "v2:contract_clause_type:10",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor",
+      "paraphrase"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "separation wording, but duty is confidentiality"
+    },
+    "A5": {
+     "case_id": "v2:contract_clause_type:10",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "return-of-property framing; continuing confidentiality is the operative clause"
+    },
+    "A6": {
+     "case_id": "v2:contract_clause_type:10",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Separation wording decoys termination; secrecy duty is confidentiality."
+    }
+   }
+  },
+  {
+   "case_id": "v2:contract_clause_type:13",
+   "votes": {
+    "A1": {
+     "case_id": "v2:contract_clause_type:13",
+     "twist": 3,
+     "knowledge": 2,
+     "tags": [
+      "conflict"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Confidentiality words are condition; clause operates termination"
+    },
+    "A2": {
+     "case_id": "v2:contract_clause_type:13",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "confidentiality appears only as trigger; clause grants termination"
+    },
+    "A3": {
+     "case_id": "v2:contract_clause_type:13",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Clause governs ending the agreement; confidentiality only referenced."
+    },
+    "A4": {
+     "case_id": "v2:contract_clause_type:13",
+     "twist": 3,
+     "knowledge": 2,
+     "tags": [
+      "conflict",
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "confidentiality named, but clause sets a termination trigger"
+    },
+    "A5": {
+     "case_id": "v2:contract_clause_type:13",
+     "twist": 3,
+     "knowledge": 1,
+     "tags": [
+      "conflict",
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "terminate and confidentiality compete; clause governs ending the agreement"
+    },
+    "A6": {
+     "case_id": "v2:contract_clause_type:13",
+     "twist": 3,
+     "knowledge": 2,
+     "tags": [
+      "conflict",
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Confidentiality wording is the trigger; the clause governs termination."
+    }
+   }
+  },
+  {
+   "case_id": "v2:dietary_vegan:0",
+   "votes": {
+    "A1": {
+     "case_id": "v2:dietary_vegan:0",
+     "twist": 1,
+     "knowledge": 2,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "Vinaigrette and seeds need ingredient literacy"
+    },
+    "A2": {
+     "case_id": "v2:dietary_vegan:0",
+     "twist": 1,
+     "knowledge": 2,
+     "tags": [],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "vegan verdict needs ingredient literacy on vinaigrette"
+    },
+    "A3": {
+     "case_id": "v2:dietary_vegan:0",
+     "twist": 1,
+     "knowledge": 2,
+     "tags": [],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "All listed ingredients are plant-derived."
+    },
+    "A4": {
+     "case_id": "v2:dietary_vegan:0",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "vinaigrette and seeds contain no animal products"
+    },
+    "A5": {
+     "case_id": "v2:dietary_vegan:0",
+     "twist": 0,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "vinaigrette assumed oil-and-vinegar dressing, plant-based"
+    },
+    "A6": {
+     "case_id": "v2:dietary_vegan:0",
+     "twist": 1,
+     "knowledge": 2,
+     "tags": [],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "Vinaigrette and seeds need ingredient literacy; all plant-based."
+    }
+   }
+  },
+  {
+   "case_id": "v2:dietary_vegan:16",
+   "votes": {
+    "A1": {
+     "case_id": "v2:dietary_vegan:16",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "Cocoa butter is plant-derived despite name"
+    },
+    "A2": {
+     "case_id": "v2:dietary_vegan:16",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "cocoa butter is plant fat despite butter wording"
+    },
+    "A3": {
+     "case_id": "v2:dietary_vegan:16",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Cocoa butter is plant fat despite dairy-sounding name."
+    },
+    "A4": {
+     "case_id": "v2:dietary_vegan:16",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "cocoa butter is plant fat despite the name"
+    },
+    "A5": {
+     "case_id": "v2:dietary_vegan:16",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "cocoa butter decoys dairy; it is cocoa fat"
+    },
+    "A6": {
+     "case_id": "v2:dietary_vegan:16",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "Cocoa butter sounds dairy but is a plant fat."
+    }
+   }
+  },
+  {
+   "case_id": "v2:expense_category:5",
+   "votes": {
+    "A1": {
+     "case_id": "v2:expense_category:5",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Trade show decoys entertainment; own transport is travel"
+    },
+    "A2": {
+     "case_id": "v2:expense_category:5",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "flights and train are plainly listed travel transport"
+    },
+    "A3": {
+     "case_id": "v2:expense_category:5",
+     "twist": 2,
+     "knowledge": 0,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Trade-show purpose decoys; charges are employee transport."
+    },
+    "A4": {
+     "case_id": "v2:expense_category:5",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "flights and train are plainly travel expenses"
+    },
+    "A5": {
+     "case_id": "v2:expense_category:5",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "flights and train are listed transportation"
+    },
+    "A6": {
+     "case_id": "v2:expense_category:5",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Flights and train match the travel criterion verbatim."
+    }
+   }
+  },
+  {
+   "case_id": "v2:formality_level:12",
+   "votes": {
+    "A1": {
+     "case_id": "v2:formality_level:12",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Hereby wording is legal register"
+    },
+    "A2": {
+     "case_id": "v2:formality_level:12",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "hereby notifying phrasing is the formal legal register"
+    },
+    "A3": {
+     "case_id": "v2:formality_level:12",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "'Hereby notifying all parties' is official register, Formal."
+    },
+    "A4": {
+     "case_id": "v2:formality_level:12",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "hereby-style legal register maps straight to formal"
+    },
+    "A5": {
+     "case_id": "v2:formality_level:12",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "hereby legal register lands on the top formality level"
+    },
+    "A6": {
+     "case_id": "v2:formality_level:12",
+     "twist": 0,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Hereby-notifying phrasing is legal ceremonial register."
+    }
+   }
+  },
+  {
+   "case_id": "v2:incident_severity_v2:11",
+   "votes": {
+    "A1": {
+     "case_id": "v2:incident_severity_v2:11",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "Named workaround pins low-impact level"
+    },
+    "A2": {
+     "case_id": "v2:incident_severity_v2:11",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "sometimes-spam with whitelisting fix fits low-impact workaround level"
+    },
+    "A3": {
+     "case_id": "v2:incident_severity_v2:11",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "Stated workaround caps severity at low impact."
+    },
+    "A4": {
+     "case_id": "v2:incident_severity_v2:11",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "paraphrase"
+     ],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "whitelisting workaround pins the low-impact level"
+    },
+    "A5": {
+     "case_id": "v2:incident_severity_v2:11",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "whitelisting workaround stated; low-impact placement is clear"
+    },
+    "A6": {
+     "case_id": "v2:incident_severity_v2:11",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "Whitelisting workaround explicitly exists; low-impact level call."
+    }
+   }
+  },
+  {
+   "case_id": "v2:oncall_route:7",
+   "votes": {
+    "A1": {
+     "case_id": "v2:oncall_route:7",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "Site down decoys web; S3 and CDN are providers"
+    },
+    "A2": {
+     "case_id": "v2:oncall_route:7",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "root-cause S3 outage beats site-won't-load web symptoms"
+    },
+    "A3": {
+     "case_id": "v2:oncall_route:7",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "S3 and CDN outages are infra, not web."
+    },
+    "A4": {
+     "case_id": "v2:oncall_route:7",
+     "twist": 3,
+     "knowledge": 2,
+     "tags": [
+      "conflict",
+      "attribution",
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "site symptoms but root cause is provider outage"
+    },
+    "A5": {
+     "case_id": "v2:oncall_route:7",
+     "twist": 3,
+     "knowledge": 2,
+     "tags": [
+      "conflict"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "site-down symptom conflicts with S3 outage cause; cause routes infra"
+    },
+    "A6": {
+     "case_id": "v2:oncall_route:7",
+     "twist": 3,
+     "knowledge": 2,
+     "tags": [
+      "conflict"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Symptom says web, root cause S3 outage says infra."
+    }
+   }
+  },
+  {
+   "case_id": "v2:reading_level:8",
+   "votes": {
+    "A1": {
+     "case_id": "v2:reading_level:8",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "Dosage prose sits on simple-general line"
+    },
+    "A2": {
+     "case_id": "v2:reading_level:8",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "plain label instructions read simple despite medication context"
+    },
+    "A3": {
+     "case_id": "v2:reading_level:8",
+     "twist": 2,
+     "knowledge": 0,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "Medical topic but childlike wording, Simple."
+    },
+    "A4": {
+     "case_id": "v2:reading_level:8",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "medical topic but child-simple wording"
+    },
+    "A5": {
+     "case_id": "v2:reading_level:8",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "medical domain decoy; wording is short and everyday"
+    },
+    "A6": {
+     "case_id": "v2:reading_level:8",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "Plain medication wording despite the medical topic."
+    }
+   }
+  },
+  {
+   "case_id": "v2:recipe_cuisine:4",
+   "votes": {
+    "A1": {
+     "case_id": "v2:recipe_cuisine:4",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Spice list matches Indian criteria near verbatim"
+    },
+    "A2": {
+     "case_id": "v2:recipe_cuisine:4",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "garam masala and basmati match the Indian criteria"
+    },
+    "A3": {
+     "case_id": "v2:recipe_cuisine:4",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Spice list matches Indian criteria nearly verbatim."
+    },
+    "A4": {
+     "case_id": "v2:recipe_cuisine:4",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "spice set mirrors the Indian criteria almost verbatim"
+    },
+    "A5": {
+     "case_id": "v2:recipe_cuisine:4",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "garam masala through basmati all listed indian"
+    },
+    "A6": {
+     "case_id": "v2:recipe_cuisine:4",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Garam masala and basmati match the Indian criterion verbatim."
+    }
+   }
+  },
+  {
+   "case_id": "v2:return_reason:3",
+   "votes": {
+    "A1": {
+     "case_id": "v2:return_reason:3",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Cheaper elsewhere; no problem with item"
+    },
+    "A2": {
+     "case_id": "v2:return_reason:3",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "cheaper elsewhere means no defect; buyer no longer wants"
+    },
+    "A3": {
+     "case_id": "v2:return_reason:3",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Cheaper elsewhere implies no item defect: changed mind."
+    },
+    "A4": {
+     "case_id": "v2:return_reason:3",
+     "twist": 2,
+     "knowledge": 0,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "price regret with no fault in the item"
+    },
+    "A5": {
+     "case_id": "v2:return_reason:3",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "cheaper-elsewhere motive is off-taxonomy; no-longer-need maps changed_mind"
+    },
+    "A6": {
+     "case_id": "v2:return_reason:3",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Found cheaper elsewhere with no item problem."
+    }
+   }
+  },
+  {
+   "case_id": "v2:review_sentiment_v2:15",
+   "votes": {
+    "A1": {
+     "case_id": "v2:review_sentiment_v2:15",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "Compounded faults place lowest level"
+    },
+    "A2": {
+     "case_id": "v2:review_sentiment_v2:15",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "save your money plus three faults is one star"
+    },
+    "A3": {
+     "case_id": "v2:review_sentiment_v2:15",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Explicit warning and stacked defects, extreme negative."
+    },
+    "A4": {
+     "case_id": "v2:review_sentiment_v2:15",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "warning opener plus three separate product failures"
+    },
+    "A5": {
+     "case_id": "v2:review_sentiment_v2:15",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "warning opener plus three faults land at one star"
+    },
+    "A6": {
+     "case_id": "v2:review_sentiment_v2:15",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "decision",
+     "unreachable": false,
+     "note": "Multiple faults plus save-your-money level judgment call."
+    }
+   }
+  },
+  {
+   "case_id": "v2:secret_leak_v2:8",
+   "votes": {
+    "A1": {
+     "case_id": "v2:secret_leak_v2:8",
+     "twist": 2,
+     "knowledge": 0,
+     "tags": [
+      "distractor",
+      "negation"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Key-shaped placeholder explicitly never real"
+    },
+    "A2": {
+     "case_id": "v2:secret_leak_v2:8",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor",
+      "negation"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "key-shaped placeholder explicitly framed never a real key"
+    },
+    "A3": {
+     "case_id": "v2:secret_leak_v2:8",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "negation",
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Placeholder key explicitly negated as real."
+    },
+    "A4": {
+     "case_id": "v2:secret_leak_v2:8",
+     "twist": 3,
+     "knowledge": 1,
+     "tags": [
+      "negation",
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "key-shaped placeholder explicitly ruled not real"
+    },
+    "A5": {
+     "case_id": "v2:secret_leak_v2:8",
+     "twist": 3,
+     "knowledge": 1,
+     "tags": [
+      "negation",
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "key-shaped placeholder decoy killed by never-a-real-key"
+    },
+    "A6": {
+     "case_id": "v2:secret_leak_v2:8",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "negation",
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Placeholder key with explicit never-a-real-key instruction."
+    }
+   }
+  },
+  {
+   "case_id": "v2:suspicious_transaction:12",
+   "votes": {
+    "A1": {
+     "case_id": "v2:suspicious_transaction:12",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "First wire, new payee, near-drain signals takeover"
+    },
+    "A2": {
+     "case_id": "v2:suspicious_transaction:12",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "first wire to new payee draining balance fits takeover"
+    },
+    "A3": {
+     "case_id": "v2:suspicious_transaction:12",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "Drain to new payee matches takeover despite non-round amount."
+    },
+    "A4": {
+     "case_id": "v2:suspicious_transaction:12",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "implicit",
+      "boundary"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "first wire drains balance to brand-new payee"
+    },
+    "A5": {
+     "case_id": "v2:suspicious_transaction:12",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "first wire, new payee, near-full drain reads as takeover"
+    },
+    "A6": {
+     "case_id": "v2:suspicious_transaction:12",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "First wire, new payee, near-full balance is takeover pattern."
+    }
+   }
+  },
+  {
+   "case_id": "v2:symptom_triage:10",
+   "votes": {
+    "A1": {
+     "case_id": "v2:symptom_triage:10",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "negation"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "Stiff neck with no red flags is routine"
+    },
+    "A2": {
+     "case_id": "v2:symptom_triage:10",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "stiff neck decoy defused by otherwise feel fine"
+    },
+    "A3": {
+     "case_id": "v2:symptom_triage:10",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "negation"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "Isolated stiff neck without other symptoms is self-care."
+    },
+    "A4": {
+     "case_id": "v2:symptom_triage:10",
+     "twist": 3,
+     "knowledge": 2,
+     "tags": [
+      "conflict",
+      "negation"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "stiff neck with everything else fine reads benign"
+    },
+    "A5": {
+     "case_id": "v2:symptom_triage:10",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "negation"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "otherwise-fine rules out red flags; stiff neck alone is routine"
+    },
+    "A6": {
+     "case_id": "v2:symptom_triage:10",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "distractor",
+      "negation"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "Stiff neck alone with stated absence of red flags."
+    }
+   }
+  },
+  {
+   "case_id": "v2:symptom_triage:2",
+   "votes": {
+    "A1": {
+     "case_id": "v2:symptom_triage:2",
+     "twist": 1,
+     "knowledge": 2,
+     "tags": [],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "Thunderclap headache is a recognized emergency"
+    },
+    "A2": {
+     "case_id": "v2:symptom_triage:2",
+     "twist": 1,
+     "knowledge": 2,
+     "tags": [],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "thunderclap worst-ever headache signals brain emergency"
+    },
+    "A3": {
+     "case_id": "v2:symptom_triage:2",
+     "twist": 1,
+     "knowledge": 2,
+     "tags": [],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "Thunderclap worst-ever headache is a hemorrhage red flag."
+    },
+    "A4": {
+     "case_id": "v2:symptom_triage:2",
+     "twist": 2,
+     "knowledge": 2,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "thunderclap worst-ever headache is emergency red flag"
+    },
+    "A5": {
+     "case_id": "v2:symptom_triage:2",
+     "twist": 1,
+     "knowledge": 2,
+     "tags": [],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "thunderclap worst-headache pattern is an emergency signal"
+    },
+    "A6": {
+     "case_id": "v2:symptom_triage:2",
+     "twist": 1,
+     "knowledge": 2,
+     "tags": [],
+     "crux": "knowledge",
+     "unreachable": false,
+     "note": "Thunderclap worst-headache pattern is a true emergency."
+    }
+   }
+  },
+  {
+   "case_id": "v2:urgency_v2:1",
+   "votes": {
+    "A1": {
+     "case_id": "v2:urgency_v2:1",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Same-day deadline states time-sensitivity"
+    },
+    "A2": {
+     "case_id": "v2:urgency_v2:1",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "explicit cutoff deadline today with stated loss"
+    },
+    "A3": {
+     "case_id": "v2:urgency_v2:1",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Hard cutoff with stated loss consequence signals urgency."
+    },
+    "A4": {
+     "case_id": "v2:urgency_v2:1",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "implicit"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "hard wire cutoff with concrete loss consequence"
+    },
+    "A5": {
+     "case_id": "v2:urgency_v2:1",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "boundary"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "today's wire cutoff makes the conditional time-critical"
+    },
+    "A6": {
+     "case_id": "v2:urgency_v2:1",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "Hard cutoff today with stated loss consequence."
+    }
+   }
+  },
+  {
+   "case_id": "v2:voice_assistant_intent:8",
+   "votes": {
+    "A1": {
+     "case_id": "v2:voice_assistant_intent:8",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Podcast playback matches music verbatim"
+    },
+    "A2": {
+     "case_id": "v2:voice_assistant_intent:8",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "podcasts are explicitly inside the music criterion"
+    },
+    "A3": {
+     "case_id": "v2:voice_assistant_intent:8",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Podcasts are defined under the music criteria."
+    },
+    "A4": {
+     "case_id": "v2:voice_assistant_intent:8",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "podcast playback listed under the music bucket"
+    },
+    "A5": {
+     "case_id": "v2:voice_assistant_intent:8",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "podcast playback matches the music criteria verbatim"
+    },
+    "A6": {
+     "case_id": "v2:voice_assistant_intent:8",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Podcasts are named in the music criterion."
+    }
+   }
+  },
+  {
+   "case_id": "v2:weather_alert_severity:9",
+   "votes": {
+    "A1": {
+     "case_id": "v2:weather_alert_severity:9",
+     "twist": 1,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Tornado warning names the top level"
+    },
+    "A2": {
+     "case_id": "v2:weather_alert_severity:9",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "tornado warning names the warning tier"
+    },
+    "A3": {
+     "case_id": "v2:weather_alert_severity:9",
+     "twist": 0,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "'Tornado warning' names the top warning level."
+    },
+    "A4": {
+     "case_id": "v2:weather_alert_severity:9",
+     "twist": 1,
+     "knowledge": 0,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "tornado warning names the top severity tier"
+    },
+    "A5": {
+     "case_id": "v2:weather_alert_severity:9",
+     "twist": 2,
+     "knowledge": 1,
+     "tags": [
+      "distractor"
+     ],
+     "crux": "composition",
+     "unreachable": false,
+     "note": "circulation wording tempts watch; stated warning is the action tier"
+    },
+    "A6": {
+     "case_id": "v2:weather_alert_severity:9",
+     "twist": 0,
+     "knowledge": 1,
+     "tags": [],
+     "crux": "direct",
+     "unreachable": false,
+     "note": "Tornado warning names the top severity tier."
+    }
+   }
+  }
+ ]
+}
