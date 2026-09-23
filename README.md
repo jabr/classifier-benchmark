@@ -6,12 +6,12 @@ Head-to-head benchmark for "System One"-style classification models — lightwei
 - **noul** — binary yes/no with a probability ("does this text contain a secret?")
 - **score** — ordered multi-level rating ("how frustrated is this customer, 0–2?")
 
-Every model answers the same question JSON for the same tasks. The current headline suite is **v1** — 8 tasks / 78 cases, defined with gold labels in [`cases/v1.toml`](cases/v1.toml). A larger **v2** extension suite is also present in [`cases/v2.toml`](cases/v2.toml) and currently under review; details and progressing results: [`results/v1v2-summary.md`](results/v1v2-summary.md).
+Every model answers the same question JSON for the same tasks. Two hash-locked suites: **v1** — 8 tasks / 78 cases ([`cases/v1.toml`](cases/v1.toml)), and **v2** — 49 tasks / 866 cases ([`cases/v2.toml`](cases/v2.toml)), extensions of every v1 question plus new adjacent- and distant-domain tasks. Full results and analysis: [`results/benchmark.md`](results/benchmark.md).
 
 Suites are plain TOML data files (schema in [`bench/cases.py`](bench/cases.py)), so harnesses
-in languages other than Python can read the test cases directly. Reviewed suites are locked —
+in languages other than Python can read the test cases directly. Both suites are locked —
 `just validate` verifies their content hash against [`cases/hashes.json`](cases/hashes.json);
-suites in development stay unlocked until finalized with `just lock <suite>`.
+new suites start unlocked and are finalized once with `just lock <suite>`.
 
 All test cases are synthetic: they were generated and cross-checked by a committee of LLMs (GLM 5.3 Flash, GLM 5.3, Kimi K3, Qwen3.8 2.4T, Qwen3.8 Flash, DeepSeek V4.1 Flash, and MiMo V2.5 Pro), each contributing to task/case definition, expansion, and/or review. Debatable or ambiguous cases were removed before freezing.
 
@@ -21,21 +21,32 @@ Note: these benchmarks are public, and models are free to incorporate the test c
 
 | Model | Access |
 |---|---|
-| [Von](https://huggingface.co/wfzyx/von-1.0) | local ModernBERT via [`von-sdk`](https://github.com/wfzyx/von) |
+| [Von](https://huggingface.co/wfzyx/von) | local Von 1.1 (Option-Marker on ModernBERT) via [`von-sdk`](https://github.com/wfzyx/von) |
 | [GLiNER2](https://huggingface.co/fastino/gliner2-large-v1) | local, adapted to a classification schema |
 | [Laya](https://huggingface.co/convaiinnovations/laya) | local, native System One schema via the `laya` package |
 | Jev (typesafe/jev-1.13) | hosted, via OpenRouter `/api/alpha/decisions` |
 
-## Headline results (v1: 8 tasks, 78 cases, Apple MPS)
+## Headline results (Apple MPS)
+
+**v1** — 8 tasks / 78 cases:
 
 | Model | micro acc | macro acc | mean latency | cost |
 |---|---|---|---|---|
 | Jev | **0.974** | **0.972** | ~302 ms | ~$0.000014/call |
-| Von 1.0.1 | 0.923 | 0.930 | ~54 ms | free (local) |
+| Von 1.1 | 0.936 | 0.927 | **~48 ms** | free (local) |
 | GLiNER2 | 0.795 | 0.785 | ~93 ms | free (local) |
 | Laya | 0.615 | 0.619 | **~48 ms** | free (local) |
 
-Full per-task scoreboard, failure examples, and version history: [`results/benchmark-summary.md`](results/benchmark-summary.md). Raw per-case records: `results/*.json`.
+**v2** — 49 tasks / 866 cases:
+
+| Model | micro acc | macro acc | mean latency | cost |
+|---|---|---|---|---|
+| Jev | **0.964** | **0.966** | ~330 ms | ~$0.000014/call |
+| Von 1.1 | 0.724 | 0.720 | ~53 ms | free (local) |
+| GLiNER2 | 0.688 | 0.684 | ~73 ms | free (local) |
+| Laya | 0.585 | 0.583 | **~46 ms** | free (local) |
+
+Per-task scoreboards, failure analysis, and version history: [`results/benchmark.md`](results/benchmark.md). Raw per-case records: `results/*.json`.
 
 ## Usage
 
@@ -43,7 +54,7 @@ Full per-task scoreboard, failure examples, and version history: [`results/bench
 uv sync
 
 # fetch model weights into models/<org>/<name>
-just download wfzyx/von-1.0
+just download wfzyx/von
 just download fastino/gliner2-large-v1
 just download convaiinnovations/laya
 
@@ -56,10 +67,9 @@ Useful flags: `--suite` (`v1`/`v2`/comma-separated/`all`, default `all`; core su
 
 ## Layout
 
-- `cases/v1.toml` — the v1 test cases: 8 tasks with gold labels across the three primitives
-- `cases/v2.toml` — the v2 suite: extensions of the v1 tasks plus adjacent- and distant-domain tasks (no case overlap with v1)
-- `results/benchmark-summary.md` — detailed v1 analysis (all four models) and per-task failure examples
-- `results/v1v2-summary.md` — v2 suite composition (in progress) and full-suite results
+- `cases/v1.toml` — the v1 suite (locked): 8 tasks with gold labels across the three primitives
+- `cases/v2.toml` — the v2 suite (locked): 49 tasks / 866 cases — extensions of the v1 tasks plus adjacent- and distant-domain tasks (no case overlap with v1)
+- `results/benchmark.md` — full analysis (all four models, v1 + v2): scoreboards, failure examples, version history (`results/benchmark-summary.md` and `results/v1v2-summary.md` are symlinks to it)
 - `results/*.json` — raw benchmark records (JSON includes `suite_summaries` per suite and the combined `summary`)
 - `bench/*` — the Python harness: schema + suite loader and validation, the CLI runner, and model adapter backends
 - [`sources/*`](sources/README.md) — external datasets (one real-world, two synthetic from other generators), sampled into bench-format suites with `just gen <source>`; also usable for training-data extraction

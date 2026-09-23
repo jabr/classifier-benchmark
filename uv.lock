@@ -273,7 +273,7 @@ requires-dist = [
     { name = "pyarrow", specifier = ">=21.0.0" },
     { name = "torch", specifier = ">=2.14.0" },
     { name = "transformers", specifier = ">=5.17.0" },
-    { name = "von-sdk", git = "https://github.com/wfzyx/von" },
+    { name = "von-sdk", specifier = ">=1.1.1" },
 ]
 
 [[package]]
@@ -1509,8 +1509,8 @@ wheels = [
 
 [[package]]
 name = "von-sdk"
-version = "1.0.1"
-source = { git = "https://github.com/wfzyx/von#b9e42b26adf05fa0689ef586bf3a0427c7b4cc85" }
+version = "1.1.1"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "accelerate" },
     { name = "click" },
@@ -1520,6 +1520,10 @@ dependencies = [
     { name = "torch" },
     { name = "transformers" },
     { name = "uvicorn" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ee/a3/443dbb5224f108b26d3dc9cbd36baf39da483e88155479330141c5348173/von_sdk-1.1.1.tar.gz", hash = "sha256:4a5628291646792e9386d0cec034f4c24c5299789e412c52b461026750b11660", size = 497049, upload-time = "2026-09-22T16:08:33.493Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d4/89/28a77b8b1cca155752d82ae63f0a8e3c269c01c8e302a8ddd6c0e3cc9342/von_sdk-1.1.1-py3-none-any.whl", hash = "sha256:a31749019c035ed6edb618e246a5979fa45d75ad6351d57394ef4c6ebf10c0f0", size = 30289, upload-time = "2026-09-22T16:08:32.611Z" },
 ]
 
 [[package]]

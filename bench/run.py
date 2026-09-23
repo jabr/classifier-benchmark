@@ -234,7 +234,7 @@ def main() -> None:
   parser.add_argument("--device", default=None, help="Device for local backends (e.g. mps, cuda, cpu)")
   parser.add_argument("--model", default=None, help="Model id (jev: OpenRouter model id)")
   parser.add_argument("--gliner2-path", default=None, help="Path to gliner2 weights")
-  parser.add_argument("--von-path", default=None, help="Path to von weights (or registry alias)")
+  parser.add_argument("--von-path", default=None, help="Path to a local von checkpoint dir (Option-Marker weights)")
   parser.add_argument("--laya-path", default=None, help="Path to laya weights (or HF repo id)")
   parser.add_argument("--out", default=None, help="Write JSON results to this path")
   args = parser.parse_args()

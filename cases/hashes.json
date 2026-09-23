@@ -3,5 +3,10 @@
     "cases": 78,
     "sha256": "22342af4e2c68f02964a684a7d5876211e6ac5c073931468e8e7a174c8cf072c",
     "tasks": 8
+  },
+  "v2": {
+    "cases": 866,
+    "sha256": "f9d74c2885657a21690f10e5ca76e4a273b82e851fb61e9f6c00f9dc00d02ceb",
+    "tasks": 49
   }
 }

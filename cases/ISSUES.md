@@ -1,6 +1,6 @@
 # Known issues and screening decisions
 
-Cases flagged under the screening criteria in [README.md](README.md), with the disposition of each. All discovery came from a full audit of both suites against the criteria; the two buckets differ only in what we could do about it — v1 is locked, v2 was still unlocked.
+Cases flagged under the screening criteria in [README.md](README.md), with the disposition of each. All discovery came from a full audit of both suites against the criteria; the two buckets differ only in what we could do about it — v1 is locked, and v2 was still unlocked at audit time (it has since been locked, after the removals below).
 
 ## v1 — preserved (locked)
 
@@ -18,8 +18,9 @@ Recorded v1 scores include these cases. They are kept and documented here as kno
 
 ## v2 — removed from `v2.toml`
 
-Removed during pre-lock review. The recorded v2 runs (`results/v1v2-*.json` and
-`results/v1v2-summary.md`) predate these removals and still include all three cases.
+Removed during pre-lock review. The pre-lock v2 runs (`results/v1v2-*.json` — the GLiNER2, Laya,
+Jev, and Von 1.0.x rows) predate these removals and still include all three cases;
+`results/benchmark.md` marks the affected task rows with †.
 
 ### `grammar_issue` — "I could care less about the results." (was `word_choice`)
 

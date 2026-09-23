@@ -1,5 +1,5 @@
 # System One benchmark test cases — suite v2.
-# Unlocked (under review): may change freely. Lock once review concludes: `just lock v2`.
+# Locked: this file is final; `just validate` verifies its content hash. Do not edit.
 # Schema: bench/cases.py. Hashes: cases/hashes.json.
 
 [[task]]

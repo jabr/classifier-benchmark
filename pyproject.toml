@@ -11,8 +11,5 @@ dependencies = [
     "pyarrow>=21.0.0",
     "torch>=2.14.0",
     "transformers>=5.17.0",
-    "von-sdk",
+    "von-sdk>=1.1.1",
 ]
-
-[tool.uv.sources]
-von-sdk = { git = "https://github.com/wfzyx/von" }

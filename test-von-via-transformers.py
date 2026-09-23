@@ -1,7 +1,7 @@
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-model_id = "./models/wfzyx/von-1.0"
+model_id = "./models/wfzyx/von"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 model = AutoModelForSequenceClassification.from_pretrained(model_id).to("mps")
 

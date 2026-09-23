@@ -11,19 +11,20 @@ answer structured questions (instructions + criteria) over a state using three p
 - **noul** — binary yes/no with a probability ("does this text contain a secret?")
 - **score** — ordered multi-level rating (2–10 levels)
 
-Models under test (one adapter each in `bench/backends/`): Von (local ModernBERT via von-sdk),
+Models under test (one adapter each in `bench/backends/`): Von 1.1 (local Option-Marker via von-sdk),
 GLiNER2 and Laya (local), Jev (hosted via OpenRouter's decisions API).
 
 Cases and tasks live in versioned **suites** that are reported separately and combined:
-`v1` (8 tasks / 78 cases, original) and `v2` (49 tasks / 869 cases — extensions of every v1
-task plus new adjacent- and distant-domain tasks). No overlap between suites.
+`v1` (8 tasks / 78 cases, original) and `v2` (49 tasks / 866 cases — extensions of every v1
+task plus new adjacent- and distant-domain tasks). No overlap between suites; both suites are
+hash-locked (`cases/hashes.json`).
 
 ## Layout
 
 | Path | Contents |
 |---|---|
 | `cases/v1.toml` | **v1 suite data — frozen, do not modify** (recorded scores depend on it); hash-locked in `cases/hashes.json` |
-| `cases/v2.toml` | v2 suite data (49 tasks / 869 cases, currently under review); extension tasks duplicate their v1 question with `_v2` ids |
+| `cases/v2.toml` | v2 suite data — locked (49 tasks / 866 cases); extension tasks duplicate their v1 question with `_v2` ids |
 | `cases/hashes.json` | content hash per locked suite |
 | `bench/cases.py` | bench-owned schema: `Task`/`Case` dataclasses, question types (`Choice`/`Noul`/`Score` in the System One wire shape), TOML loader/validation |
 | `bench/suites.py` | suite registry, id resolution, plan building; enforces unique ids and v1↔v2 question equality; auto-discovers `sources/samples/*.toml` as suites (excluded from `all`) |
@@ -31,7 +32,7 @@ task plus new adjacent- and distant-domain tasks). No overlap between suites.
 | `bench/run.py` | harness/CLI; per-suite and combined metrics (acc, AUC, MAE, latency) |
 | `bench/backends/` | model adapters behind `create_backend(name, **kwargs)` |
 | `sources/` | external datasets (one real-world, two synthetic from other generators) → generated sample suites (`sources/generate.py`, `just gen <source>`); samples in `sources/samples/` (scratch, git-ignored) with provenance headers; see `sources/README.md` (also usable for training-data extraction) |
-| `results/` | raw run records + `benchmark-summary.md` (analysis) — only add/extend when asked |
+| `results/` | raw run records + `benchmark.md` (analysis; `benchmark-summary.md` and `v1v2-summary.md` are symlinks to it) — only add/extend when asked |
 | `models/<org>/<name>` | local weights, fetched via `just download <org>/<name>` |
 
 The question schema is bench-owned (`bench/cases.py`), defined as the System One wire shape
@@ -71,12 +72,13 @@ uv run python -m bench.run --backend jev --out results/jev.json   # needs OPENRO
 
 - Read `cases/README.md` first — it carries the case-authoring rules and the screening
   checklist (gold-label defensibility, the difficulty-from-reasoning rule, realism, balance).
-- All case edits go in `cases/v2.toml`. Tasks declaring `extends = "<task-id>"` must keep
+- New case work goes into a new suite (`cases/<name>.toml`); `cases/v1.toml` and `cases/v2.toml`
+  are locked and must never be edited. Tasks declaring `extends = "<task-id>"` must keep
   their question deep-equal to that task (checked in `bench/suites.py`) — the `<id>_v2`
   suffix is naming convention, the `extends` property is the contract.
 - Task ids must be unique across both suites (checked at import in `bench/suites.py`).
-- Suites are locked or unlocked: locked suites (v1) are final — never edit them, `just
-  validate` enforces the digest in `cases/hashes.json`. Unlocked suites (v2, under review)
+- Suites are locked or unlocked: locked suites (v1, v2) are final — never edit them, `just
+  validate` enforces the digest in `cases/hashes.json`. Unlocked suites (new, in review)
   change freely and carry no hash. Locking is a one-time transition at the end of review
   (`just lock <suite>`); see `cases/AGENTS.md`.
 - Gold labels must be defensible — a careful majority of annotators should agree — and classes

@@ -1,7 +1,7 @@
 import von
 
-# Set backend to Von-1.0
-von.set_backend("modernbert")
+# Von ships one model; select Von 1.1 (Option-Marker) by its version alias
+von.set_backend("von-1.1")
 
 # 1. Multi-Class Choice Routing
 result = von.decide(

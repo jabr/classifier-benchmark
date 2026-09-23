@@ -3,7 +3,7 @@
 | File | Status | Contents |
 |---|---|---|
 | `v1.toml` | **Frozen** (hash-locked in `hashes.json`) | 8 tasks / 78 cases — the original suite: support triage, email intent, refund policy, urgency, secret detection, frustration, incident severity, review sentiment |
-| `v2.toml` | **Under review** (unlocked) | 49 tasks / 869 cases — extensions of every v1 task (same question, all-new cases, ids suffixed `_v2`) plus new adjacent-domain tasks (expense, on-call, churn, leads, app reviews) and distant-domain tasks (moderation, code review, commits, cuisine, diet/allergens, dedup, SQLi, phishing, fraud, ads, fair housing, travel policy, PII, hazmat, spoilers, register, news, calendars, documents, reading level, claims, triage, deliveries, 311, trades, contracts, voice, grammar, action items, gaming, warranties, weather, content types, returns) |
+| `v2.toml` | **Locked** (hash-locked in `hashes.json`) | 49 tasks / 866 cases — extensions of every v1 task (same question, all-new cases, ids suffixed `_v2`) plus new adjacent-domain tasks (expense, on-call, churn, leads, app reviews) and distant-domain tasks (moderation, code review, commits, cuisine, diet/allergens, dedup, SQLi, phishing, fraud, ads, fair housing, travel policy, PII, hazmat, spoilers, register, news, calendars, documents, reading level, claims, triage, deliveries, 311, trades, contracts, voice, grammar, action items, gaming, warranties, weather, content types, returns) |
 
 ## v1/v2 Provenance
 
@@ -27,8 +27,8 @@ Every accepted case must satisfy:
 
 Every suite is in exactly one of two states:
 
-- **Locked** — final. Recorded scores depend on the content, so the file is not edited; its digest lives in `cases/hashes.json` and `just validate` fails if anything drifts. `v1.toml` is locked.
-- **Unlocked** — new or in development, like `v2.toml` while under review. Edit freely; no hash entry should exist, and none is created until review concludes.
+- **Locked** — final. Recorded scores depend on the content, so the file is not edited; its digest lives in `cases/hashes.json` and `just validate` fails if anything drifts. `v1.toml` and `v2.toml` are locked.
+- **Unlocked** — new or in development. Edit freely; no hash entry should exist, and none is created until review concludes.
 
 The transition unlocked → locked is one-way and happens once per suite, when its review is finished: `just lock <suite>`, then commit the updated `hashes.json`. These docs deliberately describe no routine way to change a locked suite; if that ever becomes necessary, it is an exceptional maintainer decision, not a workflow.
 
