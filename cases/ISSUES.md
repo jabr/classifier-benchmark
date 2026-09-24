@@ -18,8 +18,9 @@ Recorded v1 scores include these cases. They are kept and documented here as kno
 
 ## v2 — removed from `v2.toml`
 
-Removed during pre-lock review. The pre-lock v2 runs (`results/v1v2-*.json` — the GLiNER2, Laya,
-Jev, and Von 1.0.x rows) predate these removals and still include all three cases;
+Removed during pre-lock review. The pre-lock v2 runs (`results/v1v2-*.json` and
+`results/historical/` — the GLiNER2, Laya, Jev, and Von 1.0.x rows) predate these removals and still
+include all three cases;
 `results/benchmark.md` marks the affected task rows with †.
 
 ### `grammar_issue` — "I could care less about the results." (was `word_choice`)

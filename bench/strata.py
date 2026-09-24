@@ -24,7 +24,7 @@ PRELOCK_DROP = {"grammar_issue": 5, "commit_intent": 15, "fair_housing_violation
 RUNS = [
   ("Von 1.2", "von-1.2-mps.json", False),
   ("Von 1.1", "von-1.1-mps.json", False),
-  ("Von 1.0.1", "v1v2-von.json", True),
+  ("Von 1.0.1", "historical/v1v2-von.json", True),
   ("Laya-typed", "laya-typed-decisions-mps.json", False),
   ("Laya 0.3.17", "laya-0.3.17-mps.json", False),
   ("GLiNER2", "v1v2-gliner2.json", True),

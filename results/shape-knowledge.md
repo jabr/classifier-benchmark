@@ -174,6 +174,7 @@ labels are generation-assigned and noisy.
 
 Recorded subjects: `results/von-1.2-mps.json`, `results/von-1.1-mps.json`,
 `results/laya-0.3.17-mps.json`, `results/laya-typed-decisions-mps.json` (decision encoders; the
-pre-lock `results/v1v2-laya.json` is answer-identical to `laya-0.3.17-mps.json` on all 944 cases),
+pre-lock `results/historical/v1v2-laya.json` is answer-identical to `laya-0.3.17-mps.json` on all
+944 cases),
 `results/v1v2-gliner2.json` (matcher), `results/v1v2-jev.json` (baseline);
 `results/sample-04d2-run2.json` and `results/*-0492.json` (fresh-material cross-check).

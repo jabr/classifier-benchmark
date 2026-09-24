@@ -60,7 +60,7 @@ just download convaiinnovations/laya
 
 # run the v1 suite (backends: von, gliner2, laya, jev — comma-separated)
 uv run python -m bench.run --backend von,gliner2,laya --suite v1 --device mps --out results/run.json
-uv run python -m bench.run --backend jev --suite v1 --out results/jev.json
+uv run python -m bench.run --backend jev --suite v1 --out results/jev-run.json
 ```
 
 Useful flags: `--suite` (`v1`/`v2`/comma-separated/`all`, default `all`; core suites only), `--sample` (generated samples from `sources/samples/`: name, comma-separated, or `all`), `--tasks` (run a subset within the selected suites), `--limit`, `--device` (`mps`/`cpu`/`cuda`), `--von-path` / `--gliner2-path` / `--laya-path` (custom weight locations), `--model` (Jev model id). Jev needs `OPENROUTER_API_KEY` (or `SANDBOX_OPENROUTER_API_KEY`) in the environment.
@@ -70,7 +70,7 @@ Useful flags: `--suite` (`v1`/`v2`/comma-separated/`all`, default `all`; core su
 - `cases/v1.toml` — the v1 suite (locked): 8 tasks with gold labels across the three primitives
 - `cases/v2.toml` — the v2 suite (locked): 49 tasks / 866 cases — extensions of the v1 tasks plus adjacent- and distant-domain tasks (no case overlap with v1)
 - `results/benchmark.md` — full analysis (all four models, v1 + v2): scoreboards, failure examples, version history (`results/benchmark-summary.md` and `results/v1v2-summary.md` are symlinks to it)
-- `results/*.json` — raw benchmark records (JSON includes `suite_summaries` per suite and the combined `summary`)
+- `results/*.json` — raw benchmark records (JSON includes `suite_summaries` per suite and the combined `summary`); superseded generations live in `results/historical/`
 - `bench/*` — the Python harness: schema + suite loader and validation, the CLI runner, and model adapter backends
 - [`sources/*`](sources/README.md) — external datasets (one real-world, two synthetic from other generators), sampled into bench-format suites with `just gen <source>`; also usable for training-data extraction
 

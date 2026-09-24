@@ -21,14 +21,17 @@ Participants and records:
 - **Von 1.1** (`wfzyx/von`) — Option-Marker joint-attention head on ModernBERT-large via von-sdk 1.1.1,
   fp16, input-conditioned calibration map. Record: `results/von-1.1-mps.json` (runs the locked
   866-case v2). Earlier Von rows are von-sdk 1.0.1 / the Berta NLI engine on `wfzyx/von-1.0`
-  (scalar calibration T=1.1692): `results/v1v2-von.json`, `results/von-1.0.1-mps.json`,
-  `results/von-1.0.1-cpu.json`; legacy 1.0.0: `results/von-mps.json`, `results/von.json`.
-- **Jev** (`typesafe/jev-1.13`) — `results/v1v2-jev.json`, `results/jev.json`
+  (scalar calibration T=1.1692): `results/historical/v1v2-von.json`,
+  `results/historical/von-1.0.1-mps.json`, `results/historical/von-1.0.1-cpu.json`; legacy 1.0.0:
+  `results/historical/von-mps.json`, `results/historical/von.json` (all indexed in
+  [`historical/`](historical/README.md)).
+- **Jev** (`typesafe/jev-1.13`) — `results/v1v2-jev.json`, `results/historical/jev.json`
 - **GLiNER2** (`fastino/gliner2-large-v1`) — questions with parentheses are paraphrased for its schema
-  compiler (adapter-level). Records: `results/v1v2-gliner2.json`, `results/gliner2-mps.json`
-- **Laya** (`convaiinnovations/laya`) — native System One schema. Records: `results/v1v2-laya.json`,
-  `results/laya-mps.json`, `results/laya-cpu.json`; Sep-2026 re-run: `results/laya-0.3.17-mps.json`
-  (root English checkpoint, answers identical to `v1v2-laya.json`) and
+  compiler (adapter-level). Records: `results/v1v2-gliner2.json`, `results/historical/gliner2-mps.json`
+- **Laya** (`convaiinnovations/laya`) — native System One schema. Records:
+  `results/historical/v1v2-laya.json`, `results/historical/laya-mps.json`,
+  `results/historical/laya-cpu.json`; Sep-2026 re-run: `results/laya-0.3.17-mps.json`
+  (root English checkpoint, answers identical to `historical/v1v2-laya.json`) and
   `results/laya-typed-decisions-mps.json` (typed-decisions checkpoint).
 
 † **Case-count caveat.** GLiNER2, Jev and the Von 1.0.x rows were recorded on the pre-lock v2
@@ -68,7 +71,7 @@ three decimals at every level despite 223 changed predictions: exactly 100 fixed
 
 ‡ Laya's wall includes a one-time ~34 s model load; per-case inference is post-warmup. Jev latency is
 network-inclusive with occasional slow samples (p95 up to ~940 ms). Von 1.1 per-suite means: 48 ms
-(v1), 53 ms (v2), worst-task p95 111 ms — accuracy is identical on CPU (`results/von-1.0.1-cpu.json`
+(v1), 53 ms (v2), worst-task p95 111 ms — accuracy is identical on CPU (`results/historical/von-1.0.1-cpu.json`
 pattern), only latency differs.
 
 Robustness to the v2 shift (micro, v1 → v2): Jev −1.0 pt (0.974 → 0.964), Laya −3.1 (0.615 → 0.585),
@@ -294,7 +297,7 @@ the boundary.
 
 ## Version history (Von)
 
-- **1.0.0** (`results/von-mps.json`, `results/von.json`) — micro 0.654 / macro 0.625 on v1; flat ~0.5
+- **1.0.0** (`results/historical/von-mps.json`, `results/historical/von.json`) — micro 0.654 / macro 0.625 on v1; flat ~0.5
   noul probabilities and a hard calm-bias on scores.
 - **1.0.1** (`wfzyx/von-1.0`, Berta NLI engine, scalar calibration T=1.1692) — added noul yes/no
   hypothesis synthesis and a "How <adj>" lexical-bias fix in `rate`; v1 micro 0.923 / macro 0.930,
@@ -311,8 +314,8 @@ the boundary.
 
 ## Version history (Laya)
 
-- **0.3.x root** (`results/v1v2-laya.json`, `results/laya-mps.json`, `results/laya-cpu.json`) — root
-  English checkpoint, the original rows above.
+- **0.3.x root** (`results/historical/v1v2-laya.json`, `results/historical/laya-mps.json`,
+  `results/historical/laya-cpu.json`) — root English checkpoint, the original rows above.
 - **0.3.17 root** (`results/laya-0.3.17-mps.json`) — decision-identical to the 0.3.x record (0/944
   predictions changed); adds `multilingual/` and `typed-decisions/` checkpoints and temperature
   validation (clamping an out-of-range `choice:11+` entry).
@@ -339,7 +342,7 @@ uv run python -m bench.run --backend von --device mps --suite all --out results/
 uv run python -m bench.run --backend von --device mps --suite all --out results/von-1.2-mps.json
 uv run python -m bench.run --backend jev --suite all --out results/v1v2-jev.json
 uv run python -m bench.run --backend gliner2 --device mps --suite all --out results/v1v2-gliner2.json
-uv run python -m bench.run --backend laya --device mps --suite all --out results/v1v2-laya.json
+uv run python -m bench.run --backend laya --device mps --suite all --out results/historical/v1v2-laya.json
 uv run python -m bench.run --backend laya --device mps --suite all --out results/laya-0.3.17-mps.json
 uv run python -m bench.run --backend laya --device mps --suite all --laya-path models/convaiinnovations/laya/typed-decisions --out results/laya-typed-decisions-mps.json
 ```
