@@ -1,4 +1,4 @@
-"""Von 1.1 backend via the native von-sdk package (Option-Marker joint attention)."""
+"""Von 1.2 backend via the native von-sdk package (Option-Marker joint attention)."""
 
 from pathlib import Path
 from typing import Optional
@@ -19,7 +19,7 @@ class VonBackend(Backend):
     self.device = device
     self.checkpoint_dir = model_path or (str(DEFAULT_MODEL_DIR) if DEFAULT_MODEL_DIR.exists() else None)
     self.description = (
-      "von-1.1, local" if self.checkpoint_dir else "von-1.1 (HF registry: wfzyx/von)"
+      "von-1.2, local" if self.checkpoint_dir else "von-1.2 (HF registry: wfzyx/von)"
     )
 
   def warmup(self) -> float:
@@ -32,7 +32,7 @@ class VonBackend(Backend):
     # VonEngine wires only its own default checkpoint locations, so replace the
     # backend with a path-pinned OptionMarkerBackend and install the engine as
     # the singleton the module-level von API resolves.
-    engine = VonEngine(backend_name="von-1.1", device=self.device)
+    engine = VonEngine(backend_name="von-1.2", device=self.device)
     if self.checkpoint_dir:
       engine.backend = OptionMarkerBackend(checkpoint_dir=self.checkpoint_dir, device=self.device)
     VonEngine._instance = engine

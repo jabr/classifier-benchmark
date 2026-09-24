@@ -23,8 +23,13 @@ class LayaBackend(Backend):
     else:
       self.model = "convaiinnovations/laya"
     model_dir = Path(self.model)
+    # The checkpoint carries no version marker of its own; the laya package version
+    # is the only durable provenance stamp for which generation was run.
+    from importlib.metadata import version
+
+    variant = model_dir.name if model_dir.name == "laya" else f"laya-{model_dir.name}"
     self.description = (
-      f"{model_dir.name}, local" if model_dir.exists() else f"{self.model} (HF registry)"
+      f"{variant} {version('laya')}, local" if model_dir.exists() else f"{self.model} (HF registry)"
     )
 
   def warmup(self) -> float:

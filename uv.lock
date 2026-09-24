@@ -268,12 +268,12 @@ requires-dist = [
     { name = "aiohttp", specifier = ">=3.14.3" },
     { name = "gliner2", specifier = ">=2.0.0" },
     { name = "huggingface-hub", specifier = ">=1.32.0" },
-    { name = "laya", specifier = ">=0.3.3" },
+    { name = "laya", specifier = ">=0.3.17" },
     { name = "peft", specifier = ">=0.21.0" },
     { name = "pyarrow", specifier = ">=21.0.0" },
     { name = "torch", specifier = ">=2.14.0" },
     { name = "transformers", specifier = ">=5.17.0" },
-    { name = "von-sdk", specifier = ">=1.1.1" },
+    { name = "von-sdk", specifier = ">=1.2.2" },
 ]
 
 [[package]]
@@ -559,7 +559,7 @@ wheels = [
 
 [[package]]
 name = "laya"
-version = "0.3.3"
+version = "0.3.17"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "huggingface-hub" },
@@ -568,9 +568,9 @@ dependencies = [
     { name = "torch" },
     { name = "transformers" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/14/6e/3d421fdf08b4cd00659a2e5e565f32653755c578afa174655eaeac82cc99/laya-0.3.3.tar.gz", hash = "sha256:ac21e43204042768d1c449872099dc407a1bb4c8e9fd19cbc77c1f751ba25a93", size = 47888, upload-time = "2026-09-19T09:29:07.991Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/b7/d3/8467fa5595e53a4caa46a118f8ff290085eb1d98a4c9ad4b14ce79621b83/laya-0.3.17.tar.gz", hash = "sha256:ce312c828597dbd1565a2f80892420c4c8c8d52eec90e200c96a8e1868382b36", size = 273640, upload-time = "2026-09-24T04:25:59.417Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d4/56/677fbefdbe5a9f4fbed51feb8bb598c99003a0e6e0dcd59f54596d680676/laya-0.3.3-py3-none-any.whl", hash = "sha256:0f0fed09d04e0b9e05a54643e77c6bebb9e881bf3c8e0a5c536b58c71d6659fb", size = 33303, upload-time = "2026-09-19T09:29:06.707Z" },
+    { url = "https://files.pythonhosted.org/packages/63/12/d911bfbeab1691104d028cba42ddc5909de9571bd1dade6facc01aae5518/laya-0.3.17-py3-none-any.whl", hash = "sha256:fbd1895c0dc586724db6e0b38b002d1a1475d3a96f73d4731bd73eda9bdf5cbb", size = 118051, upload-time = "2026-09-24T04:25:58.058Z" },
 ]
 
 [[package]]
@@ -1509,7 +1509,7 @@ wheels = [
 
 [[package]]
 name = "von-sdk"
-version = "1.1.1"
+version = "1.2.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "accelerate" },
@@ -1521,9 +1521,9 @@ dependencies = [
     { name = "transformers" },
     { name = "uvicorn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ee/a3/443dbb5224f108b26d3dc9cbd36baf39da483e88155479330141c5348173/von_sdk-1.1.1.tar.gz", hash = "sha256:4a5628291646792e9386d0cec034f4c24c5299789e412c52b461026750b11660", size = 497049, upload-time = "2026-09-22T16:08:33.493Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/6b/28/d15ebe9e4cefce35e382cd34155591f0d1720e4feae7480a0f5d0ec7c243/von_sdk-1.2.2.tar.gz", hash = "sha256:d862da89a29550f6c6c5d05cb7094bc765fb835b08a7dc64a248160ead8de3b1", size = 7340913, upload-time = "2026-09-24T01:53:56.663Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d4/89/28a77b8b1cca155752d82ae63f0a8e3c269c01c8e302a8ddd6c0e3cc9342/von_sdk-1.1.1-py3-none-any.whl", hash = "sha256:a31749019c035ed6edb618e246a5979fa45d75ad6351d57394ef4c6ebf10c0f0", size = 30289, upload-time = "2026-09-22T16:08:32.611Z" },
+    { url = "https://files.pythonhosted.org/packages/fd/e2/0907360e9ec0babe62317192943d27ed4bb1d241b203913ebf7fd7424ce2/von_sdk-1.2.2-py3-none-any.whl", hash = "sha256:4ffa3967f5040c3fa42ba4e0ab73bd28935b6a71a6103f6fb3ae90856fbaa866", size = 33591, upload-time = "2026-09-24T01:53:55.334Z" },
 ]
 
 [[package]]

@@ -6,10 +6,10 @@ dependencies = [
     "aiohttp>=3.14.3",
     "gliner2>=2.0.0",
     "huggingface-hub>=1.32.0",
-    "laya>=0.3.3",
+    "laya>=0.3.17",
     "peft>=0.21.0",
     "pyarrow>=21.0.0",
     "torch>=2.14.0",
     "transformers>=5.17.0",
-    "von-sdk>=1.1.1",
+    "von-sdk>=1.2.2",
 ]

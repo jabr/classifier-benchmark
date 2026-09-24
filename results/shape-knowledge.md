@@ -9,7 +9,9 @@ demands, and how much of it a ~400M-parameter BERT-base-class encoder can master
 Three approaches are in evidence over 944 annotated benchmark cases and the recorded runs on them:
 
 - **Decision encoders** — BERT-base-class encoders (~400–420M) with semantic-logic (NLI-style)
-  fine-tuning and a learned decision head over the wire schema. Two class members studied.
+  fine-tuning and a learned decision head over the wire schema. Four class records studied: two
+  generations of one family, two checkpoints of another (the newest pair re-run after the analysis
+  below was first written — it holds).
 - **Matchers** — GLiNER-style span/label grounding: score state spans against criteria labels and
   read the scores as decisions.
 - **Generative baseline** — a hosted frontier model (Jev), answering the same wire schema. Treated
@@ -18,7 +20,7 @@ Three approaches are in evidence over 944 annotated benchmark cases and the reco
 Evidence base: case annotations (twist/knowledge demand, deciding component, load-bearing operators
 — rubric in [`cases/annotations/`](../cases/annotations/README.md)), the recorded runs re-cut along
 them (`bench/strata.py`), and externally sourced sample suites as fresh-material cross-check
-([`sample-suites-trial.md`](sample-suites-trial.md)). One decision-encoder subject had trained on
+([`sample-suites-trial.md`](sample-suites-trial.md)). One decision-encoder family is trained on
 this repo's cases; knowledge-axis claims below rest on clean members only (method note).
 
 ## What zero-shot decisions demand
@@ -44,22 +46,27 @@ Accuracy falls monotonically with twist for every approach — this is the axis 
 |---|---|---|---|---|
 | 0 | 246 | 0.76 | 0.72 – 0.83 | **1.00** |
 | 1 | 370 | 0.74 | 0.56 – 0.77 | **0.97** |
-| 2 | 308 | 0.63 | 0.53 – 0.67 | **0.94** |
-| 3 | 20 | 0.30 | 0.30 – 0.40 | **0.90** |
+| 2 | 308 | 0.63 | 0.53 – 0.70 | **0.94** |
+| 3 | 20 | 0.30 | 0.30 – 0.45 | **0.90** |
 
 Composition skill is **trainable and it transfers**. Within the encoder class, the member with the
 stronger semantic-logic fine-tuning gains +0.17…+0.22 over the weaker one precisely on the
 NLI-shaped operators — paraphrase, implied facts, negation scope, conflicting evidence — the
-competences NLI-style training is about. A ~400M encoder can learn to unwind semantic twists; that
-is the core feasibility result for this class.
+competences NLI-style training is about. The re-run generation of that family provides a
+longitudinal check: at literally identical aggregate accuracy (223 predictions changed — 100 fixed,
+100 broke), the churn concentrated on twist-heavy cases (T≥2 +3 pts, the twist-light/twist-heavy
+quadrant +3.1) and erased its negation gap entirely. A ~400M encoder can learn to unwind semantic
+twists, and the gains land where the training aims; that is the core feasibility result for this
+class.
 
 Two hard limits:
 
-- **Boundary arithmetic is outside the class today.** On cases where dates, counts, or ≥/>-thresholds
-  decide the answer, every member of both small classes collapses to chance (0.46–0.50) against its
-  own 0.59–0.76 baseline — and within the encoder class the fine-tuning edge *vanishes* there
-  (−0.04). The baseline is unbothered (0.96). Whatever the class's recipes install, date/count
-  reasoning is not in it. This is the single sharpest class ceiling visible in the data.
+- **Boundary arithmetic is the class's sharpest ceiling — and it is cracking.** On cases where dates,
+  counts, or ≥/>-thresholds decide the answer, most class records sit at chance (0.46–0.50 against
+  their 0.59–0.76 baselines) and the cross-member fine-tuning edge vanishes there (−0.04) — yet the
+  newest generation reaches 0.60 (drop −0.14), the one partial escape in the data. The baseline is
+  unbothered (0.96). Date/count reasoning is trainable-but-unsolved, and belongs first in any
+  composition corpus.
 - **Composition is also the baseline's residual.** The frontier model's rare misses are 68%
   twist-concentrated (≈2× their exposure) — interacting operators and conflicting evidence are the
   universal residual difficulty. Composition data is the one training data that raises every boat.
@@ -72,14 +79,14 @@ accuracy. On binary tasks, every small-class model **orders cases better than it
 | approach | noul AUC | acc @ 0.5 | best per-task cut (in-sample) | recoverable |
 |---|---|---|---|---|
 | matcher | 0.690 | 0.602 | 0.694 | +9 pts |
-| decision encoders | 0.708 – 0.753 | 0.579 – 0.659 | 0.769 – 0.816 | **+10 – 20 pts** |
+| decision encoders | 0.708 – 0.753 | 0.567 – 0.674 | 0.769 – 0.828 | **+10 – 22 pts** |
 | baseline | 0.994 | 0.970 | 1.000 | ~0 |
 
-In-sample per-task threshold fits — no training, no weights — recover up to ~20 points of binary
+In-sample per-task threshold fits — no training, no weights — recover up to ~22 points of binary
 accuracy in the encoder class. The same signature shows on the other primitives: on
 comprehension-easy but rule-hard cases (`crux: decision`) the *within-class spread is the largest of
-any stratum* (0.42 – 0.66), and score placement errors run at MAE 0.42 vs 0.77 between class
-members while barely reacting to twist. How the head maps evidence to a cut or an ordinal bin is a
+any stratum* (0.42 – 0.68), and score placement errors run at MAE 0.36 – 0.77 across class records
+while barely reacting to twist. How the head maps evidence to a cut or an ordinal bin is a
 first-order design choice — worth more than a large amount of training data.
 
 Implication for the class: treat calibration as a component. Per-task threshold fitting is the
@@ -89,7 +96,7 @@ rubric-anchored bins teach level placement.
 
 ## Knowledge: the axis the class cannot fake
 
-For the clean class members, knowledge demand costs about as much as semantic twist does — 10–26
+For the clean class members, knowledge demand costs about as much as semantic twist does — 11–26
 points off their knowledge-light/twist-light base, with the matcher class most fragile (−26). The
 baseline is nearly flat on both axes and leads 3 of 4 fresh external samples. No architecture trick
 in either small class substitutes for facts: this is where "pour domain knowledge in" is the only
@@ -99,9 +106,13 @@ material** (shape-trained vessel + N domain rows vs. domain-only), not by zero-s
 
 One caution the data makes vivid: knowledge exposure in training is invisible to evaluation on the
 same distribution. A subject that has absorbed the benchmark's specific world knowledge appears
-immunity-fluent on knowledge-heavy cases it has seen, with no corresponding general capability.
-Knowledge claims for this class must be measured on material that postdates training — fresh-seeded
-samples from external datasets are the design this repo already ships for exactly that.
+immunity-fluent on knowledge-heavy cases it has seen, with no corresponding general capability. The
+contaminated family's re-run shows the signature in cross-section: its edge over the clean member
+shrank on knowledge-heavy clean-semantics cells (0.765 → 0.728) exactly while its twist-heavy cells
+gained — consistent with, not proof of, retraining trading absorbed benchmark knowledge for
+composition. Knowledge claims for this class must be measured on material that postdates training —
+fresh-seeded samples from external datasets are the design this repo already ships for exactly
+that.
 
 ## The matcher approach: the wrong inductive bias for decisions
 
@@ -125,10 +136,13 @@ for decisions.
 2. **Composition corpora are the highest-leverage training data** (they move the class's trainable
    axis and are the baseline's residual too). Generator design: enumerate logical spines — labeled
    logical forms whose gold is known by construction — and realize semantic diversity around them.
-   Operator priorities from the damage evidence: **boundary first** (the class ceiling; nothing in
-   current recipes covers it), then conflicting evidence, implied facts, negation scope; fill the
-   **coverage gaps** the benchmark barely tests (attribution, exceptions, coreference); distractors
-   secondary (the technique already handles them).
+   Operator priorities from the damage evidence: **boundary arithmetic and conflicting evidence
+   first** (boundary is the class ceiling that one recipe has begun to crack — 0.60 vs the 0.46–0.50
+   chance cluster; conflict is the clearest remaining shared gap, −0.16…−0.24 on every class
+   record), then implied facts and negation scope — negation is demonstrably trainable, one
+   generation erased its gap entirely. Fill the **coverage gaps** the benchmark barely tests
+   (attribution, exceptions, coreference); distractors secondary (the technique already handles
+   them).
 3. **Design the decision layer, don't hope for it.** Per-task thresholds now; evidence-strength soft
    labels and rubric-anchored ordinal targets in training. The largest within-class quality spread
    of any stratum sits here.
@@ -145,9 +159,9 @@ on a shared 24-case set — exact 0.58/0.70 on the two ordinal scales, **within-
 Re-cut tool: `uv run python -m bench.strata` (per-subject tables), `PRELOCK_DROP` there folds
 pre-lock index drift back onto locked order.
 
-Control logic: one decision-encoder subject trained on these cases, so its knowledge numbers cannot
-distinguish absorbed benchmark facts from general competence, and its other numbers are upper
-bounds. Class conclusions therefore (a) rest knowledge claims on the clean members, (b) treat
+Control logic: one decision-encoder family is trained on these cases (both generations), so its
+knowledge numbers cannot distinguish absorbed benchmark facts from general competence, and its other
+numbers are upper bounds. Class conclusions therefore (a) rest knowledge claims on the clean members, (b) treat
 within-class fine-tuning contrasts as provisional in magnitude but sound in operator *pattern*
 (corroborated by the clean member's damage profile), and (c) cross-check on external sample suites,
 where the class edge over the clean member is heterogeneous (−0.12 to +0.23; +0.14 micro) and the
@@ -158,6 +172,8 @@ Other caveats: per-task threshold figures are in-sample upper bounds; operator d
 associations over overlapping tags (cells of 23–159 cases), not controlled effects; sample-suite
 labels are generation-assigned and noisy.
 
-Recorded subjects: `results/von-1.1-mps.json`, `results/v1v2-laya.json` (decision encoders),
+Recorded subjects: `results/von-1.2-mps.json`, `results/von-1.1-mps.json`,
+`results/laya-0.3.17-mps.json`, `results/laya-typed-decisions-mps.json` (decision encoders; the
+pre-lock `results/v1v2-laya.json` is answer-identical to `laya-0.3.17-mps.json` on all 944 cases),
 `results/v1v2-gliner2.json` (matcher), `results/v1v2-jev.json` (baseline);
 `results/sample-04d2-run2.json` and `results/*-0492.json` (fresh-material cross-check).

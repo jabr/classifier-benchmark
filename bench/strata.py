@@ -9,6 +9,7 @@ and no suite is touched — this is pure analysis over recorded numbers.
 """
 
 import json
+import sys
 from pathlib import Path
 
 from bench.cases import TASKS_V1, TASKS_V2
@@ -21,11 +22,13 @@ ANNOTATIONS = REPO_ROOT / "cases" / "annotations" / "shape-knowledge.jsonl"
 PRELOCK_DROP = {"grammar_issue": 5, "commit_intent": 15, "fair_housing_violation": 15}
 
 RUNS = [
+  ("Von 1.2", "von-1.2-mps.json", False),
   ("Von 1.1", "von-1.1-mps.json", False),
-  ("Jev", "v1v2-jev.json", True),
-  ("GLiNER2", "v1v2-gliner2.json", True),
-  ("Laya", "v1v2-laya.json", True),
   ("Von 1.0.1", "v1v2-von.json", True),
+  ("Laya-typed", "laya-typed-decisions-mps.json", False),
+  ("Laya 0.3.17", "laya-0.3.17-mps.json", False),
+  ("GLiNER2", "v1v2-gliner2.json", True),
+  ("Jev", "v1v2-jev.json", True),
 ]
 
 TASK_SUITE = {t.id: "v1" for t in TASKS_V1} | {t.id: "v2" for t in TASKS_V2}
@@ -97,9 +100,11 @@ def table(rows: list[dict], models: list[str], group, levels: list, title: str) 
 
 def main() -> None:
   anns = load_annotations()
+  # Optional substring filters keep wide tables readable: bench.strata von jev
+  selected = [r for r in RUNS if not sys.argv[1:] or any(s.lower() in r[0].lower() for s in sys.argv[1:])]
   models = []
   runs = {}
-  for name, fname, prelock in RUNS:
+  for name, fname, prelock in selected:
     models.append(name)
     runs[name] = load_run(REPO_ROOT / "results" / fname, prelock)
 
