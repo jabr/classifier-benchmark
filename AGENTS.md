@@ -33,6 +33,7 @@ hash-locked (`cases/hashes.json`).
 | `bench/backends/` | model adapters behind `create_backend(name, **kwargs)` |
 | `sources/` | external datasets (one real-world, two synthetic from other generators) → generated sample suites (`sources/generate.py`, `just gen <source>`); samples in `sources/samples/` (scratch, git-ignored) with provenance headers; see `sources/README.md` (also usable for training-data extraction) |
 | `results/` | raw run records + `benchmark.md` (analysis; `benchmark-summary.md` and `v1v2-summary.md` are symlinks to it) — only add/extend when asked; `historical/` holds superseded generations |
+| `training/` | training-data generation for von/laya-style decision encoders (`spines/`: semantic-variations-on-a-spine spec + generator skeleton) |
 | `models/<org>/<name>` | local weights, fetched via `just download <org>/<name>` |
 
 The question schema is bench-owned (`bench/cases.py`), defined as the System One wire shape
