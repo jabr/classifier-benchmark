@@ -1,189 +1,163 @@
-# Shape vs. knowledge: what actually decides these cases
+# Zero-shot decision models: the small-encoder approach vs. a generative baseline
 
-Sidecar study answering one question: when the local models miss, is it **problem shape** (semantic
-twists and decision rules — trainable with targeted data) or **world knowledge** (facts not carried
-in the state — trainable with domain data)? Every locked case (944) was annotated blind along two
-independent axes, and the recorded runs in `results/*.json` were re-cut along them.
+A zero-shot decision classifier receives its question at inference time — instructions plus criteria
+in the System One wire shape, over three primitives: **choice** (multi-class routing), **noul**
+(binary yes/no probability), **score** (ordered multi-level rating) — and must answer against
+arbitrary states. Nothing about the task is fixed at training time. The question here is what that
+demands, and how much of it a ~400M-parameter BERT-base-class encoder can master.
 
-- Annotations + rubric: [`cases/annotations/`](../cases/annotations/README.md) (`shape-knowledge.jsonl`,
-  shared-set votes in `agreement.json`)
-- Re-cut tool: `bench/strata.py` (`uv run python -m bench.strata`) — pure analysis over recorded
-  numbers; no model is run and no suite is touched
-- Annotators: six LLM annotators (MiMo V2.6 Pro sub-agents), each covering a disjoint set of tasks
-  plus the same shared 24-case reliability set, **blind to `results/`** — annotation cannot be
-  biased toward known model errors
+Three approaches are in evidence over 944 annotated benchmark cases and the recorded runs on them:
 
-Axes: **twist** (0–3: semantic work between state and gold — direct → bridge → one operator
-(negation, exception, boundary arithmetic, distractor, attribution) → interacting operators or
-conflicting evidence) and **knowledge** (0–3: background facts beyond state + criteria — none →
-everyday → professional literacy → specialist). Plus `crux` (which component decides the label:
-direct / composition / decision / knowledge), `tags` (which twist operators are load-bearing), and
-`unreachable` (gold not derivable — the `cases/README.md` bright line).
+- **Decision encoders** — BERT-base-class encoders (~400–420M) with semantic-logic (NLI-style)
+  fine-tuning and a learned decision head over the wire schema. Two class members studied.
+- **Matchers** — GLiNER-style span/label grounding: score state spans against criteria labels and
+  read the scores as decisions.
+- **Generative baseline** — a hosted frontier model (Jev), answering the same wire schema. Treated
+  as the reference for what unrestricted reasoning buys, not as a contender.
 
-## Reliability
+Evidence base: case annotations (twist/knowledge demand, deciding component, load-bearing operators
+— rubric in [`cases/annotations/`](../cases/annotations/README.md)), the recorded runs re-cut along
+them (`bench/strata.py`), and externally sourced sample suites as fresh-material cross-check
+([`sample-suites-trial.md`](sample-suites-trial.md)). One decision-encoder subject had trained on
+this repo's cases; knowledge-axis claims below rest on clean members only (method note).
 
-Six-way agreement on the shared 24 cases (360 annotator pairs): twist exact 0.58, knowledge exact
-0.70, `crux` exact 0.77 — but **within-1 agreement 0.99** on both ordinal scales (mean |diff| 0.43
-/ 0.31). All disagreement is ±1 boundary fuzz, which is why every analysis below bins to low (0–1)
-vs high (2–3). Validity checks: one annotator flagged `v1:incident_severity:4` ("stale search
-results until manually refreshed" — gold requires "no easy workaround", the state names one) as
-`unreachable` **from the rubric alone**, independently matching its `cases/ISSUES.md` disposition;
-the shared-set sibling `v1:incident_severity:5` drew 1/6 `unreachable` votes, itself evidence that
-the bright line is genuinely fuzzy there. Exactly one `unreachable` in the merged file.
+## What zero-shot decisions demand
 
-## What the suites contain
+| demand | measure | n |
+|---|---|---|
+| **Composition** — semantic work between state and gold: paraphrase gaps, negation, exceptions, boundary arithmetic, distractors, implied facts, conflicting evidence | twist ≥ 2 | 328 (35%) |
+| **Decision form** — applying the aggregation rule: thresholding a probability, placing an ordinal level, breaking near-ties | `crux: decision` | 98 (10%) |
+| **Knowledge** — background facts neither state nor criteria carry | knowledge ≥ 2 | 150 (16%) |
 
-| twist | n | | knowledge | n | | crux | n |
-|---|---|---|---|---|---|---|---|
-| 0 | 246 | | 0 | 474 | | direct | 372 |
-| 1 | 370 | | 1 | 320 | | composition | 308 |
-| 2 | 308 | | 2 | 148 | | decision | 98 |
-| 3 | 20 | | 3 | 2 | | knowledge | 166 |
+Most of the hard cases are knowledge-*light*: 259 of the 328 twist-heavy cases sit at knowledge ≤1,
+and the suites lean toward carrying their facts in the state (84% knowledge ≤1). Knowledge findings
+are therefore floors for real deployments, not ceilings. Load-bearing operators, by frequency:
+distractor 159, implicit 102, boundary 48, conflict 36, negation 28, paraphrase 23 — and
+**attribution 4, exception 4, coref 3**: question-only zero-shot benchmarks barely exercise
+attributed mentions ("the reporter claims…"), exception clauses, and long-range coreference at all.
 
-Tags: distractor 159, implicit 102, boundary 48, conflict 36, negation 28, paraphrase 23,
-**attribution 4, exception 4, coref 3**. The suites are twist-rich but operator-narrow: attribution,
-exception and coreference are barely exercised — a coverage gap for any future suite or corpus.
+## Semantic composition: learnable in the class, and the frontier's residual
 
-## Finding 1 — twist predicts everyone's errors; knowledge mostly predicts GLiNER2's
+Accuracy falls monotonically with twist for every approach — this is the axis that separates them:
 
-Accuracy by twist (monotone for all four):
-
-| twist | n | Von 1.1 | Jev | GLiNER2 | Laya |
-|---|---|---|---|---|---|
-| 0 | 246 | 0.825 | **1.000** | 0.760 | 0.724 |
-| 1 | 370 | 0.765 | **0.973** | 0.738 | 0.559 |
-| 2 | 308 | 0.669 | **0.938** | 0.627 | 0.532 |
-| 3 | 20 | 0.400 | **0.900** | 0.300 | 0.300 |
-
-Quadrants (low = 0–1, high = 2–3):
-
-| stratum | n | Von 1.1 | Jev | GLiNER2 | Laya |
-|---|---|---|---|---|---|
-| K low × T low | 535 | 0.793 | **0.989** | 0.781 | 0.639 |
-| K low × T high | 259 | 0.676 | **0.942** | 0.622 | 0.533 |
-| K high × T low | 81 | 0.765 | **0.951** | 0.519 | 0.531 |
-| K high × T high | 69 | 0.565 | **0.913** | 0.551 | 0.464 |
-
-Holding knowledge low, raising twist costs Von 11.7 pts (0.793 → 0.676); holding twist low, raising
-knowledge costs it **2.8 pts** (0.793 → 0.765). GLiNER2 is the mirror image: knowledge costs it 26.2
-pts where twist costs 15.9. Von 1.0.1 was knowledge-sensitive (0.761 → 0.494); the 1.1 marker head
-largely removed that. Reading: Von 1.1 already *tolerates* knowledge load when the semantics are
-clean — its gap is shape. That is the vessel thesis, supported with one inversion: the part of
-"shape" that hurts most is not only semantic composition (Finding 3).
-
-## Finding 2 — where each model's errors live
-
-| model | errors | in T≥2 | in K≥2 | in K low × T high |
+| twist | n | matcher | decision encoders | baseline |
 |---|---|---|---|---|
-| Von 1.1 | 244 | 0.47 | 0.20 | 0.34 |
-| Jev | 31 | 0.68 | 0.32 | 0.48 |
-| GLiNER2 | 285 | 0.45 | 0.25 | 0.34 |
-| Laya | 389 | 0.41 | 0.19 | 0.31 |
+| 0 | 246 | 0.76 | 0.72 – 0.83 | **1.00** |
+| 1 | 370 | 0.74 | 0.56 – 0.77 | **0.97** |
+| 2 | 308 | 0.63 | 0.53 – 0.67 | **0.94** |
+| 3 | 20 | 0.30 | 0.30 – 0.40 | **0.90** |
 
-Exposure baselines: T≥2 is 35% of cases, K≥2 23%, K low × T high 27%. So Von's errors
-**over-index** on twist (1.35×) and **under-index** on knowledge (0.87×) — the same for the other
-locals. Even Jev's 31 residuals are twist-concentrated (68% in T≥2, 1.38× its exposure): semantic
-twists are the universal residual difficulty, which makes twist data the highest-leverage corpus
-for every model but Jev.
+Composition skill is **trainable and it transfers**. Within the encoder class, the member with the
+stronger semantic-logic fine-tuning gains +0.17…+0.22 over the weaker one precisely on the
+NLI-shaped operators — paraphrase, implied facts, negation scope, conflicting evidence — the
+competences NLI-style training is about. A ~400M encoder can learn to unwind semantic twists; that
+is the core feasibility result for this class.
 
-## Finding 3 — three error buckets, three different remedies
+Two hard limits:
 
-By `crux` (the component that decides the label):
+- **Boundary arithmetic is outside the class today.** On cases where dates, counts, or ≥/>-thresholds
+  decide the answer, every member of both small classes collapses to chance (0.46–0.50) against its
+  own 0.59–0.76 baseline — and within the encoder class the fine-tuning edge *vanishes* there
+  (−0.04). The baseline is unbothered (0.96). Whatever the class's recipes install, date/count
+  reasoning is not in it. This is the single sharpest class ceiling visible in the data.
+- **Composition is also the baseline's residual.** The frontier model's rare misses are 68%
+  twist-concentrated (≈2× their exposure) — interacting operators and conflicting evidence are the
+  universal residual difficulty. Composition data is the one training data that raises every boat.
 
-| crux | n | Von 1.1 | Jev | GLiNER2 | Laya |
-|---|---|---|---|---|---|
-| direct | 372 | 0.83 | **1.00** | 0.79 | 0.72 |
-| composition | 308 | 0.71 | **0.96** | 0.69 | 0.54 |
-| decision | 98 | 0.66 | **0.89** | 0.56 | 0.42 |
-| knowledge | 166 | 0.64 | **0.95** | 0.58 | 0.48 |
+## Decision form: a design problem, not a data problem
 
-Von's 244 errors split by quadrant into three buckets with different fixes:
+The decision layer — not comprehension — is where the small classes lose the most recoverable
+accuracy. On binary tasks, every small-class model **orders cases better than it thresholds them**:
 
-1. **Decision form — 111 errors (45%)**, the largest bucket, mostly in the *easy* quadrant (T0×K0
-   alone: Von 0.82 vs Jev 1.00 on 202 trivial cases; `crux: decision` cells: Von 0.66, Laya 0.42).
-   Comprehension is fine; the aggregation rule is wrong — 0.5 cuts on softened probabilities,
-   level placement on ordinal scales, prior attractors. Much of this needs no new training data at
-   all (Finding 5).
-2. **Semantic composition — 84 errors (34%)** in K low × T high. This is the spine-corpus target.
-3. **Knowledge — 49 errors (20%)** in K≥2 cells. Smallest bucket *by suite design* — the suites lean
-   toward carrying facts in the state (84% of cases are K≤1), so this bucket is under-exposed here
-   and will dominate in knowledge-heavy deployments. Fine-tuning on domain data is the tool.
+| approach | noul AUC | acc @ 0.5 | best per-task cut (in-sample) | recoverable |
+|---|---|---|---|---|
+| matcher | 0.690 | 0.602 | 0.694 | +9 pts |
+| decision encoders | 0.708 – 0.753 | 0.579 – 0.659 | 0.769 – 0.816 | **+10 – 20 pts** |
+| baseline | 0.994 | 0.970 | 1.000 | ~0 |
 
-Operator-level (accuracy with tag vs without — tags overlap, effects are marginal, not controlled):
+In-sample per-task threshold fits — no training, no weights — recover up to ~20 points of binary
+accuracy in the encoder class. The same signature shows on the other primitives: on
+comprehension-easy but rule-hard cases (`crux: decision`) the *within-class spread is the largest of
+any stratum* (0.42 – 0.66), and score placement errors run at MAE 0.42 vs 0.77 between class
+members while barely reacting to twist. How the head maps evidence to a cut or an ordinal bin is a
+first-order design choice — worth more than a large amount of training data.
 
-| tag | n | Von 1.1 Δ | Jev Δ | GLiNER2 Δ | Laya Δ |
-|---|---|---|---|---|---|
-| boundary | 48 | **−0.30** | −0.01 | −0.23 | −0.09 |
-| conflict | 36 | **−0.22** | −0.08 | −0.09 | −0.24 |
-| implicit | 102 | **−0.16** | −0.01 | −0.05 | −0.23 |
-| negation | 28 | −0.10 | −0.01 | +0.09 | −0.13 |
-| paraphrase | 23 | −0.09 | +0.03 | −0.09 | −0.16 |
-| distractor | 159 | −0.01 | −0.06 | **−0.17** | +0.02 |
+Implication for the class: treat calibration as a component. Per-task threshold fitting is the
+zero-training stopgap; training-side, soft targets derived from evidence strength (explicit mention
+> paraphrase > implied > attributed) teach the probability axis instead of patching it, and
+rubric-anchored bins teach level placement.
 
-The counter-intuitive result: **distractors do not hurt Von 1.1 at all** (0.75 tagged vs 0.74
-untagged) — the marker head matches criteria, not keywords. What hurts Von is **boundary
-arithmetic, conflicting evidence, and implied-but-unstated facts**; implied and conflicting evidence
-hurt all three locals. GLiNER2 alone is distractor-clobbered (its keyword signature), and Jev's
-largest tag drop is distractors too (−0.06) — its only visible weakness.
+## Knowledge: the axis the class cannot fake
 
-## Finding 4 — score placement is not where the twist damage lands
+For the clean class members, knowledge demand costs about as much as semantic twist does — 10–26
+points off their knowledge-light/twist-light base, with the matcher class most fragile (−26). The
+baseline is nearly flat on both axes and leads 3 of 4 fresh external samples. No architecture trick
+in either small class substitutes for facts: this is where "pour domain knowledge in" is the only
+remedy, and where the *vessel* framing is the right positioning for the class — train for shape,
+fine-tune per domain, and judge the result by the **sample-efficiency curve on post-training
+material** (shape-trained vessel + N domain rows vs. domain-only), not by zero-shot general scores.
 
-MAE on score tasks by twist: Von 1.1 0.40 (T 0–1) → 0.49 (T 2–3); Jev 0.05 → 0.14; GLiNER2 0.47 →
-0.42; Laya 0.77 → 0.77. Von's level placement degrades little with twist — the twist slope lives in
-choice (0.930 → 0.724) and noul (0.750 → 0.638). Laya's flat 0.77 is its cool-grading attractor:
-absolute placement error, indifferent to the case.
+One caution the data makes vivid: knowledge exposure in training is invisible to evaluation on the
+same distribution. A subject that has absorbed the benchmark's specific world knowledge appears
+immunity-fluent on knowledge-heavy cases it has seen, with no corresponding general capability.
+Knowledge claims for this class must be measured on material that postdates training — fresh-seeded
+samples from external datasets are the design this repo already ships for exactly that.
 
-## Finding 5 — a large part of the decision bucket is free
+## The matcher approach: the wrong inductive bias for decisions
 
-Noul ordering vs threshold (all 337 noul cases):
+Matchers degrade earlier and differently. Their failure is not missing subtlety but **mention ≠
+satisfaction**: lexical triggers flood the confidence scale, so near-saturated confidence sits on
+wrong answers (binary ordering sometimes perfect while the probability scale is unusable — e.g.
+0.500 accuracy at AUC 1.0), and distractor cases are the one operator family that specifically
+clobbers them (−0.17) — precisely the failure the encoder-class matching head design eliminates for
+free. They are knowledge-sensitive (−26) and decision-layer-fragile (threshold recovery only +9).
+On clean, trigger-friendly material they are competitive (fresh routing sample: 0.86), which is the
+trap — their inductive bias matches lexical overlap, and zero-shot decision questions are written to
+be answered by criterion satisfaction. Keep the class for extraction and candidate generation, not
+for decisions.
 
-| model | AUC | acc @0.5 | best global cut | acc @best | best per-task cut (in-sample) |
-|---|---|---|---|---|---|
-| Von 1.1 | 0.753 | 0.659 | 0.24 | 0.688 | **0.816** |
-| Jev | 0.994 | 0.970 | 0.52 | 0.976 | 1.000 |
-| GLiNER2 | 0.690 | 0.602 | 0.99 | 0.632 | 0.694 |
-| Laya | 0.708 | 0.579 | 0.17 | 0.677 | **0.769** |
-| Von 1.0.1 | 0.705 | 0.632 | 0.08 | 0.682 | 0.712 |
+## What follows for the small-model program
 
-The `urgency` pathology generalizes: ordering beats the 0.5 cut on every local model. Per-task
-threshold fitting (in-sample upper bound) recovers **+15.7 pts** of noul accuracy for Von 1.1 and
-+19.0 for Laya without touching a weight. GLiNER2 recovers least (+9.2) — its saturation is an
-ordering problem, not a cut problem. Von 1.0.1's saturated probabilities were less recoverable
-(+8.0): 1.1's softer probabilities are more *usable*, even where they cost raw accuracy.
+1. **Positioning: vessels, not generalists.** The realistic product is a shape-specialized encoder
+   — strong composition, calibrated decision head — with domain knowledge fine-tuned in per
+   deployment. The zero-shot-*general* gap to the baseline is structural (boundary arithmetic,
+   facts), not a matter of more of the same training.
+2. **Composition corpora are the highest-leverage training data** (they move the class's trainable
+   axis and are the baseline's residual too). Generator design: enumerate logical spines — labeled
+   logical forms whose gold is known by construction — and realize semantic diversity around them.
+   Operator priorities from the damage evidence: **boundary first** (the class ceiling; nothing in
+   current recipes covers it), then conflicting evidence, implied facts, negation scope; fill the
+   **coverage gaps** the benchmark barely tests (attribution, exceptions, coreference); distractors
+   secondary (the technique already handles them).
+3. **Design the decision layer, don't hope for it.** Per-task thresholds now; evidence-strength soft
+   labels and rubric-anchored ordinal targets in training. The largest within-class quality spread
+   of any stratum sits here.
+4. **Evaluation hygiene is part of the method.** Two-axis case annotation (composition vs knowledge)
+   is cheap and separates trainable-shape errors from missing-facts errors; fresh post-training
+   material is mandatory for knowledge claims; and gold labels must survive the screening line —
+   a model matching an indefensible gold is evidence of exposure, not of reasoning.
 
-## Implications for a training corpus
+## Method note
 
-The original plan — enumerate logical spines over twist operators, then realize semantic diversity
-around them — is the right shape of solution, with the priorities revised by these numbers:
+Annotations: 944 locked cases, six blind annotators (no access to model outputs), pairwise agreement
+on a shared 24-case set — exact 0.58/0.70 on the two ordinal scales, **within-1 0.99** (all noise is
+±1 boundary fuzz, hence low/high binning); raw votes in `cases/annotations/agreement.json`.
+Re-cut tool: `uv run python -m bench.strata` (per-subject tables), `PRELOCK_DROP` there folds
+pre-lock index drift back onto locked order.
 
-- **Prioritize the operators that actually bite**: boundary arithmetic (dates, counts, ≥/>, windows),
-  conflicting evidence (two spans pushing different answers, resolved by scope/strength), implied
-  facts (qualifying fact never stated), negation scope. Distractors are already well covered by the
-  suites and Von is immune; include them for coverage (they punish keyword matchers) but don't make
-  them the bulk.
-- **Fill the coverage gaps**: attribution ("claims it is X"), exceptions ("unless/except"), and
-  long-range coreference appear in 4/4/3 suite cases respectively — a spine generator can enumerate
-  exactly these.
-- **Don't expect the corpus to fix bucket 1.** Decision form wants calibration-aware training
-  targets (soft labels derived from evidence strength — parameterizable in a spine), rubric-anchored
-  level training for score, and per-task threshold fitting as the zero-training stopgap. A corpus
-  alone will leave ~45% of Von's current errors untouched.
-- **The knowledge bucket stays for domain fine-tuning** — and the clean test of "vessel quality"
-  remains the sample-efficiency curve: shape-pretrained vessel + N domain rows vs. domain-only.
+Control logic: one decision-encoder subject trained on these cases, so its knowledge numbers cannot
+distinguish absorbed benchmark facts from general competence, and its other numbers are upper
+bounds. Class conclusions therefore (a) rest knowledge claims on the clean members, (b) treat
+within-class fine-tuning contrasts as provisional in magnitude but sound in operator *pattern*
+(corroborated by the clean member's damage profile), and (c) cross-check on external sample suites,
+where the class edge over the clean member is heterogeneous (−0.12 to +0.23; +0.14 micro) and the
+knowledge-heavy cells remain untested — the decisive missing measurement is knowledge-heavy fresh
+material (e.g. `just gen cfpb`, post-training seeds).
 
-## Caveats
+Other caveats: per-task threshold figures are in-sample upper bounds; operator deltas are marginal
+associations over overlapping tags (cells of 23–159 cases), not controlled effects; sample-suite
+labels are generation-assigned and noisy.
 
-- Tag and knowledge cells are small (boundary 48, conflict 36, negation 28, paraphrase 23) and tags
-  overlap; tag deltas are marginal associations, not controlled effects.
-- Annotations are same-model (MiMo sub-agents): they measure context noise (±1 fuzz, hence the
-  binning), not model-family bias in what counts as "specialist knowledge". One annotator consulted
-  `cases/ISSUES.md` for the `unreachable` reference type (possible leakage on the two documented v1
-  cases); the `v1:incident_severity:4` flag was independently produced by an annotator that read
-  nothing but the rubric.
-- Per-task threshold numbers are in-sample upper bounds; held-out fits would land lower.
-- The knowledge bucket is under-exposed by suite construction (facts lean into the state), so the
-  20% share is a floor for real deployments, not a ceiling.
-
-Reproduce: `uv run python -m bench.strata` (tables above), `cases/annotations/agreement.json`
-(shared-set votes). Model records: `results/von-1.1-mps.json`, `results/v1v2-{jev,gliner2,laya,von}.json`
-(pre-lock † index drift folded back via `bench/strata.py`'s `PRELOCK_DROP`).
+Recorded subjects: `results/von-1.1-mps.json`, `results/v1v2-laya.json` (decision encoders),
+`results/v1v2-gliner2.json` (matcher), `results/v1v2-jev.json` (baseline);
+`results/sample-04d2-run2.json` and `results/*-0492.json` (fresh-material cross-check).
