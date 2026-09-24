@@ -89,10 +89,7 @@ any stratum* (0.42 – 0.68), and score placement errors run at MAE 0.36 – 0.7
 while barely reacting to twist. How the head maps evidence to a cut or an ordinal bin is a
 first-order design choice — worth more than a large amount of training data.
 
-Implication for the class: treat calibration as a component. Per-task threshold fitting is the
-zero-training stopgap; training-side, soft targets derived from evidence strength (explicit mention
-> paraphrase > implied > attributed) teach the probability axis instead of patching it, and
-rubric-anchored bins teach level placement.
+Implication for the class: treat calibration as a component. Per-task threshold fitting is the zero-training stopgap; training-side, soft targets derived from evidence strength (explicit mention > paraphrase > implied > attributed) teach the probability axis instead of patching it, and rubric-anchored bins teach level placement.
 
 ## Knowledge: the axis the class cannot fake
 
