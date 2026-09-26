@@ -10,6 +10,17 @@ dependencies = [
     "peft>=0.21.0",
     "pyarrow>=21.0.0",
     "torch>=2.14.0",
-    "transformers>=5.17.0",
+    "transformers>=5.16,<6",
     "von-sdk>=1.2.2",
+]
+
+[project.optional-dependencies]
+# jeff backend (bench/backends/jeff.py). Its pins live here so the base env
+# stays lean: gliformer 0.1.x needs gliner 0.2.29 (0.2.19-0.2.24 lack symbols
+# it imports), and gliner 0.2.29 caps transformers<5.17 — the base floor is
+# held at 5.16 so one lock satisfies both (gliner2 verified on 5.16.1).
+jeff = [
+    "gliformer>=0.1.1",
+    "gliner==0.2.29",
+    "transformers>=5.16,<5.17",
 ]

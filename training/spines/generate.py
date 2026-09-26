@@ -10,8 +10,14 @@ Gold-defensibility is enforced mechanically: a rendering's reader-side imprecisi
 (RENDERINGS[..] fudge, plus display rounding error) must fit strictly inside the
 item's margin to the threshold, or the item is never emitted.
 
+Each spine is realized on two surfaces from the same draws: prose (`state`) and
+semi-structured (`state_kv` — topic-slot keys, verbatim cue values) for the
+kv-vs-prose format ablation. Keys name topics only, never epistemic roles: the
+claim/refutation register stays in the values, where the model must read it.
+
 Usage:
   uv run python -m training.spines.generate --n 4 --seed 1234 --out spines.jsonl
+  uv run python -m training.spines.generate --format kv --out spines-kv.jsonl
   uv run python -m training.spines.generate --self-test
 """
 
@@ -35,7 +41,7 @@ from training.spines.spine import (
 )
 
 GENERATOR = "training.spines.generate"
-VERSION = 1
+VERSION = 2  # v2: dual-surface records (state + state_kv)
 MONTHS = ["January", "February", "March", "April", "May", "June",
           "July", "August", "September", "October", "November", "December"]
 NUMBER_WORDS = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six",
@@ -137,19 +143,24 @@ def month_part(d: date, with_year: bool = False) -> str:
   return f"{part} {MONTHS[d.month - 1]}{year}"
 
 
-def age_line(rng: random.Random, dom: Domain, rendering: str, age: int,
-             today: date, coref: bool) -> str:
+def age_render(rng: random.Random, dom: Domain, rendering: str, age: int,
+               today: date, coref: bool) -> tuple[str, str]:
+  """(prose sentence, kv cue phrase) from one draw, so both surfaces carry
+  exactly the same cues — only the frame differs."""
   src = today - timedelta(days=age)
   # A dropped year would make the age uncomputable: dates carry the year whenever
   # the span crosses one (the warranty domain's always does).
   crossed = src.year != today.year
   if rendering == "number":
-    forms = (f"It has been {age} days since the {dom.event}.",
-             f"This request comes {age} days after the {dom.event}.")
+    forms = ((f"It has been {age} days since the {dom.event}.",
+              f"{age} days after the {dom.event}"),
+             (f"This request comes {age} days after the {dom.event}.",
+              f"{age} days after the {dom.event}"))
     return rng.choice(forms)
   if rendering == "dates":
+    cue = f"{fmt_day(src, crossed)}; today is {fmt_day(today, crossed)}"
     return (f"The {dom.event} was on {fmt_day(src, crossed)} and today is "
-            f"{fmt_day(today, crossed)}.")
+            f"{fmt_day(today, crossed)}.", cue)
   if rendering == "relative":
     if age <= 120:
       amount, unit = round(age / 7), "week"
@@ -157,12 +168,15 @@ def age_line(rng: random.Random, dom: Domain, rendering: str, age: int,
       amount, unit = round(age / 30), "month"
     word = NUMBER_WORDS.get(amount, str(amount))
     plural = unit if amount == 1 else unit + "s"
-    return f"The {dom.thing} was {dom.event_verb} about {word} {plural} ago."
+    return (f"The {dom.thing} was {dom.event_verb} about {word} {plural} ago.",
+            f"about {word} {plural} ago")
+  cue = f"{month_part(src, crossed)}; today is {fmt_day(today, crossed)}"
   if coref:
     return (f"It came through in {month_part(src, crossed)}. "
-            f"{dom.pronoun.capitalize()} is only raising it now, on {fmt_day(today, crossed)}.")
+            f"{dom.pronoun.capitalize()} is only raising it now, on {fmt_day(today, crossed)}.",
+            cue)
   return (f"The {dom.event} was in {month_part(src, crossed)}, and today is "
-          f"{fmt_day(today, crossed)}.")
+          f"{fmt_day(today, crossed)}.", cue)
 
 
 def prop_lines(rng: random.Random, dom: Domain, variant: Variant, prop: str) -> list[str]:
@@ -261,11 +275,22 @@ def build_item(rng: random.Random, dom: Domain, variant: Variant, seq: int,
     return None, "wrong-label"  # quota sampling: only take labels we still need
 
   coref = "coref" in variant.ops
-  parts = [age_line(rng, dom, variant.rendering, age, today, coref)]
-  parts += prop_lines(rng, dom, variant, prop)
-  if "distractor" in variant.ops:
-    parts.append(rng.choice(dom.decoy_lines))
+  age_sentence, age_cue = age_render(rng, dom, variant.rendering, age, today, coref)
+  props = prop_lines(rng, dom, variant, prop)   # verbatim phrases double as kv cues
+  decoy = rng.choice(dom.decoy_lines) if "distractor" in variant.ops else None
+  parts = [age_sentence] + props
+  if decoy:
+    parts.append(decoy)
   state = " ".join(parts)
+  # The kv surface: topic-slot keys, verbatim cue values. Keys stay
+  # epistemics-free — "She says ..." is what marks a claim, and that lives in
+  # the value (the epi-leak guard).
+  slots = {"when": age_cue}
+  for i, phrase in enumerate(props):
+    slots["condition" if i == 0 else "condition_2"] = phrase
+  if decoy:
+    slots["note"] = decoy
+  state_kv = json.dumps(slots, ensure_ascii=False)
   instructions = rng.choice(dom.question_forms)
   annotations = annotate(set(variant.ops), variant.rendering, j.margin, j.near)
   item = {
@@ -277,6 +302,7 @@ def build_item(rng: random.Random, dom: Domain, variant: Variant, seq: int,
     "question": {"type": "noul", "instructions": instructions,
                  "criteria": {"a": dom.yes_desc, "b": dom.no_desc}},
     "state": state,
+    "state_kv": state_kv,
     "expected": j.gold,
     "target": round(j.p_yes, 4),
     "answer_map": {"a": True, "b": False},
@@ -298,8 +324,11 @@ def build_item(rng: random.Random, dom: Domain, variant: Variant, seq: int,
   return item, ""
 
 
-def generate(seed: int, n: int, domains: list[Domain], variants: list[Variant]):
-  """n items per (domain x variant x label) cell, balanced by construction."""
+def generate(seed: int, n: int, domains: list[Domain], variants: list[Variant],
+             fmt: str = "both"):
+  """n items per (domain x variant x label) cell, balanced by construction.
+  fmt selects the training surface: 'prose' (state only), 'kv' (state = the kv
+  string), or 'both' (paired arm: state + state_kv, shared gold and target)."""
   rng = random.Random(seed)
   items, rejects = [], {"unpinned": 0, "wrong-label": 0}
   for dom in domains:
@@ -316,6 +345,11 @@ def generate(seed: int, n: int, domains: list[Domain], variants: list[Variant]):
           rejects[reason] += 1
           continue
         item["provenance"]["seed"] = seed
+        item["provenance"]["format"] = fmt
+        if fmt == "prose":
+          del item["state_kv"]
+        elif fmt == "kv":
+          item["state"] = item.pop("state_kv")
         quotas[want] -= 1
         items.append(item)
         seq += 1
@@ -358,13 +392,13 @@ def question_probe(items: list[dict]) -> float:
   return hits / max(1, len(test))
 
 
-def keyword_probe(items: list[dict]) -> tuple[float, float]:
+def keyword_probe(items: list[dict], field: str = "state") -> tuple[float, float, float]:
   """Keyword heuristic (predict yes iff a defect cue appears). Gate: it must fail
   on the operator items — difficulty has to be earned by reasoning
   (cases/README.md), so lexical cues cannot decide those. Returns (overall, on
-  operator-tagged items, on distractor-tagged items)."""
+  operator-tagged items, on distractor-tagged items) for the given surface."""
   def predict(it):
-    return bool(KEYWORDS_YES & set(_tokens(it["state"])))
+    return bool(KEYWORDS_YES & set(_tokens(it[field])))
 
   def acc(sub):
     return sum(predict(it) == it["expected"] for it in sub) / max(1, len(sub))
@@ -390,12 +424,14 @@ def report(items: list[dict], rejects: dict[str, int]) -> bool:
   if qp > 0.60:
     print("gate FAIL: question text leaks the label", file=sys.stderr)
     ok = False
-  kw, kw_ops, kw_decoy = keyword_probe(items)
-  print(f"keyword probe: overall {kw:.3f}, operator items {kw_ops:.3f}, "
-        f"decoys {kw_decoy:.3f}  (gate: operator items <= 0.60)", file=sys.stderr)
-  if kw_ops > 0.60:
-    print("gate FAIL: lexical cues decide the operator items", file=sys.stderr)
-    ok = False
+  surfaces = ["state"] + (["state_kv"] if "state_kv" in items[0] else [])
+  for field in surfaces:
+    kw, kw_ops, kw_decoy = keyword_probe(items, field)
+    print(f"keyword probe [{field}]: overall {kw:.3f}, operator items {kw_ops:.3f}, "
+          f"decoys {kw_decoy:.3f}  (gate: operator items <= 0.60)", file=sys.stderr)
+    if kw_ops > 0.60:
+      print(f"gate FAIL: lexical cues decide the operator items ({field})", file=sys.stderr)
+      ok = False
   print("round-trip re-answering: skipped (requires an external re-answerer)", file=sys.stderr)
   return ok
 
@@ -405,12 +441,14 @@ def main() -> None:
   ap.add_argument("--n", type=int, default=3, help="items per (domain x variant x label) quota")
   ap.add_argument("--seed", type=int, default=1234)
   ap.add_argument("--out", default="-", help="JSONL output path, or - for stdout")
+  ap.add_argument("--format", choices=("prose", "kv", "both"), default="both",
+                  help="training surface: prose state, kv state, or both (paired arm)")
   ap.add_argument("--self-test", action="store_true", help="check the rubric mapping expectations")
   args = ap.parse_args()
   if args.self_test:
     self_test()
     return
-  items, rejects = generate(args.seed, args.n, DOMAINS, VARIANTS)
+  items, rejects = generate(args.seed, args.n, DOMAINS, VARIANTS, args.format)
   out = sys.stdout if args.out == "-" else open(args.out, "w")
   for it in items:
     out.write(json.dumps(it) + "\n")

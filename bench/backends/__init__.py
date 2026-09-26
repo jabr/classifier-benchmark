@@ -12,15 +12,25 @@ def create_backend(name: str, **kwargs) -> Backend:
     from .jev import JevBackend
 
     return JevBackend(**kwargs)
+  if name == "jeff":
+    from .jeff import JeffBackend
+
+    return JeffBackend(**kwargs)
   if name == "gliner2":
     from .gliner2 import Gliner2Backend
 
     return Gliner2Backend(**kwargs)
+  if name == "gliner25-decide":
+    from .gliner25_decide import Gliner25DecideBackend
+
+    return Gliner25DecideBackend(**kwargs)
   if name == "laya":
     from .laya import LayaBackend
 
     return LayaBackend(**kwargs)
-  raise ValueError(f"Unknown backend '{name}'. Available: von, jev, gliner2, laya")
+  raise ValueError(
+    f"Unknown backend '{name}'. Available: von, jev, jeff, gliner2, gliner25-decide, laya"
+  )
 
 
 BACKEND_FACTORIES: dict[str, Callable[[], Backend]] = {

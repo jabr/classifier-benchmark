@@ -23,8 +23,10 @@ Note: these benchmarks are public, and models are free to incorporate the test c
 |---|---|
 | [Von](https://huggingface.co/wfzyx/von) | local Von 1.1 (Option-Marker on ModernBERT) via [`von-sdk`](https://github.com/wfzyx/von) |
 | [GLiNER2](https://huggingface.co/fastino/gliner2-large-v1) | local, adapted to a classification schema |
+| [GLiNER2.5-Decide](https://huggingface.co/fastino/GLiNER2.5-Decide) | local decision-tuned GLiNER2.5 fine-tune, same classification interface as GLiNER2 |
 | [Laya](https://huggingface.co/convaiinnovations/laya) | local, native System One schema via the `laya` package |
 | Jev (typesafe/jev-1.13) | hosted, via OpenRouter `/api/alpha/decisions` |
+| [jeff](https://github.com/logan-markewich/jeff) (GLiFormer large 576M) | local, in-process via the optional `jeff` extra (`uv sync --extra jeff`; prompt/decode core vendored from jeff, server defaults) |
 
 ## Headline results (Apple MPS)
 
@@ -51,19 +53,22 @@ Per-task scoreboards, failure analysis, and version history: [`results/benchmark
 ## Usage
 
 ```bash
-uv sync
+uv sync            # core backends (von, jev, gliner2, gliner25-decide, laya)
+uv sync --extra jeff   # + jeff backend deps (gliformer; base env stays lean)
 
 # fetch model weights into models/<org>/<name>
 just download wfzyx/von
 just download fastino/gliner2-large-v1
+just download fastino/GLiNER2.5-Decide
 just download convaiinnovations/laya
+just download knowledgator/gliformer-large-v1
 
-# run the v1 suite (backends: von, gliner2, laya, jev — comma-separated)
-uv run python -m bench.run --backend von,gliner2,laya --suite v1 --device mps --out results/run.json
+# run the v1 suite (backends: von, jev, jeff, gliner2, gliner25-decide, laya — comma-separated)
+uv run python -m bench.run --backend von,gliner2,gliner25-decide,laya --suite v1 --device mps --out results/run.json
 uv run python -m bench.run --backend jev --suite v1 --out results/jev-run.json
 ```
 
-Useful flags: `--suite` (`v1`/`v2`/comma-separated/`all`, default `all`; core suites only), `--sample` (generated samples from `sources/samples/`: name, comma-separated, or `all`), `--tasks` (run a subset within the selected suites), `--limit`, `--device` (`mps`/`cpu`/`cuda`), `--von-path` / `--gliner2-path` / `--laya-path` (custom weight locations), `--model` (Jev model id). Jev needs `OPENROUTER_API_KEY` (or `SANDBOX_OPENROUTER_API_KEY`) in the environment.
+Useful flags: `--suite` (`v1`/`v2`/comma-separated/`all`, default `all`; core suites only), `--sample` (generated samples from `sources/samples/`: name, comma-separated, or `all`), `--tasks` (run a subset within the selected suites), `--limit`, `--device` (`mps`/`cpu`/`cuda`), `--von-path` / `--jeff-path` / `--gliner2-path` / `--gliner25-decide-path` / `--laya-path` (custom weight locations), `--model` (Jev model id). Jev needs `OPENROUTER_API_KEY` (or `SANDBOX_OPENROUTER_API_KEY`) in the environment.
 
 ## Layout
 

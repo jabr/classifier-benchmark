@@ -226,7 +226,7 @@ def evaluate_backend(
 
 def main() -> None:
   parser = argparse.ArgumentParser(description="Run classification benchmarks.")
-  parser.add_argument("--backend", default="von", help="Comma-separated: von, jev, gliner2, laya")
+  parser.add_argument("--backend", default="von", help="Comma-separated: von, jev, jeff, gliner2, gliner25-decide, laya")
   parser.add_argument("--suite", default=None, help="Core suite(s) to run: v1, v2, comma-separated, or 'all' (default when --sample is not given)")
   parser.add_argument("--sample", default=None, help="Generated sample suite(s) to run: name (e.g. cfpb-bbee), comma-separated, or 'all' (every discovered sample)")
   parser.add_argument("--tasks", default="", help="Comma-separated task ids within the selected suites (default: all)")
@@ -234,6 +234,8 @@ def main() -> None:
   parser.add_argument("--device", default=None, help="Device for local backends (e.g. mps, cuda, cpu)")
   parser.add_argument("--model", default=None, help="Model id (jev: OpenRouter model id)")
   parser.add_argument("--gliner2-path", default=None, help="Path to gliner2 weights")
+  parser.add_argument("--gliner25-decide-path", default=None, help="Path to GLiNER2.5-Decide weights")
+  parser.add_argument("--jeff-path", default=None, help="Path to a local GLiFormer checkpoint dir (jeff weights)")
   parser.add_argument("--von-path", default=None, help="Path to a local von checkpoint dir (Option-Marker weights)")
   parser.add_argument("--laya-path", default=None, help="Path to laya weights (or HF repo id)")
   parser.add_argument("--out", default=None, help="Write JSON results to this path")
@@ -255,12 +257,16 @@ def main() -> None:
   all_results = {}
   for backend_name in [b.strip() for b in args.backend.split(",") if b.strip()]:
     kwargs = {}
-    if args.device and backend_name in ("von", "gliner2", "laya"):
+    if args.device and backend_name in ("von", "jeff", "gliner2", "gliner25-decide", "laya"):
       kwargs["device"] = args.device
     if args.model and backend_name == "jev":
       kwargs["model"] = args.model
+    if args.jeff_path and backend_name == "jeff":
+      kwargs["model_path"] = args.jeff_path
     if args.gliner2_path and backend_name == "gliner2":
       kwargs["model_path"] = args.gliner2_path
+    if args.gliner25_decide_path and backend_name == "gliner25-decide":
+      kwargs["model_path"] = args.gliner25_decide_path
     if args.von_path and backend_name == "von":
       kwargs["model_path"] = args.von_path
     if args.laya_path and backend_name == "laya":

@@ -33,6 +33,7 @@ Why this shape of data (evidence in [`results/shape-knowledge.md`](../../results
 ```bash
 uv run python -m training.spines.generate --self-test        # rubric-mapping expectations
 uv run python -m training.spines.generate --n 3 --seed 1234 --out spines.jsonl
+uv run python -m training.spines.generate --format kv --out spines-kv.jsonl
 ```
 
 `--n` is per (domain x variant x **label**) cell: the default grid (2 domains x 8 variants) yields
@@ -143,12 +144,27 @@ locked benchmark suites: the spine inventory is authored from the rule algebra o
 record logs its seed and full parameter provenance. That is what makes a result *not* Von —
 shape-fit without test exposure.
 
+## Two surfaces per spine (the format ablation)
+
+Every spine is realized twice from the same draws — prose (`state`) and semi-structured
+(`state_kv`, e.g. `{"when": "early June; today is September 3", "condition": "Inspection found
+no faults."}`). The kv surface keeps the semantic twists **in the values** (register inference,
+attribution markers, conflict, decoy tokens) and gives away only fact framing: segmentation and
+slot assignment. Keys are topic slots (`when`, `condition`, `condition_2`, `note`) and never
+epistemic roles — "She says ..." in the value is what marks a claim (the epi-leak guard).
+`--format prose|kv|both` selects the training surface (`both`, the default, keeps both fields
+with shared gold and target for the paired-consistency arm). The ablation is the vessel
+experiment's cheap axis: predicted kv ≈ prose on boundary/conflict/attribution tags, kv < prose
+on coref/distractor, paired ≥ both — and if kv ≈ prose everywhere, the realizer is optional for
+the hull and spine volume stops being gated by prose quality.
+
 ## Record schema (JSONL)
 
 `id`, `family`, `domain`, `variant`, `primitive`, `question` (wire shape; `noul` rendered with
 **neutral option keys** `a`/`b` and an `answer_map`, so fixed `false:`/`true:` label pairs cannot
-become the shortcut), `state`, `expected`, `target` (soft P(yes)), `annotations`, and
-`provenance` (generator version, seed, ops, rule string, params, full statement trace).
+become the shortcut), `state`, `state_kv` (unless `--format prose`), `expected`, `target` (soft
+P(yes)), `annotations`, and `provenance` (generator version, seed, format, ops, rule string,
+params, full statement trace).
 
 ## Roadmap
 

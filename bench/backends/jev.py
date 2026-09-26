@@ -21,6 +21,7 @@ DEFAULT_BASE_URL = "https://openrouter.ai/api/alpha/decisions"
 class JevBackend(Backend):
   name = "jev"
   description = f"typesafe Jev via OpenRouter ({DEFAULT_MODEL})"
+  service_label = "OpenRouter decisions"
 
   def __init__(
     self,
@@ -55,17 +56,14 @@ class JevBackend(Backend):
         "questions": self._questions(name, question),
       }
     ).encode()
-    request = urllib.request.Request(
-      self.base_url,
-      data=body,
-      headers={
-        "Authorization": f"Bearer {self.api_key}",
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://github.com/wfzyx/von",
-        "X-Title": "von-benchmark",
-      },
-      method="POST",
-    )
+    headers = {
+      "Content-Type": "application/json",
+      "HTTP-Referer": "https://github.com/wfzyx/von",
+      "X-Title": "von-benchmark",
+    }
+    if self.api_key:
+      headers["Authorization"] = f"Bearer {self.api_key}"
+    request = urllib.request.Request(self.base_url, data=body, headers=headers, method="POST")
     last_error: Optional[Exception] = None
     for attempt in range(self.max_attempts):
       try:
@@ -75,7 +73,7 @@ class JevBackend(Backend):
       except (urllib.error.URLError, KeyError, json.JSONDecodeError, TimeoutError) as exc:
         last_error = exc
     raise RuntimeError(
-      f"OpenRouter decisions request failed after {self.max_attempts} attempts: {last_error}"
+      f"{self.service_label} request failed after {self.max_attempts} attempts: {last_error}"
     )
 
   def predict_choice(self, state: str, question: Choice) -> Prediction:

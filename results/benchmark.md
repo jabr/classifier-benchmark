@@ -1,4 +1,4 @@
-# Head-to-head: Von 1.2/1.1 (wfzyx/von) vs GLiNER2 (fastino/gliner2-large-v1) vs Laya (convaiinnovations/laya) vs Jev (typesafe/jev-1.13)
+# Head-to-head: Von 1.2/1.1 (wfzyx/von) vs GLiNER2 / GLiNER2.5-Decide (fastino) vs Laya (convaiinnovations/laya) vs Jev (typesafe/jev-1.13) vs jeff (logan-markewich/jeff)
 
 Benchmark: two hash-locked suites across three System One primitives —
 **choice** (multi-class routing), **noul** (binary yes/no probability), **score** (ordered multi-level rating):
@@ -7,12 +7,12 @@ Benchmark: two hash-locked suites across three System One primitives —
 - **v2** — 49 tasks / 866 cases (`cases/v2.toml`), extensions of every v1 question (same schema, all-new
   cases, ids suffixed `_v2`) plus new adjacent- and distant-domain tasks; no case overlap with v1
 
-All four models answer the *same* question JSON (instructions + criteria) per case. Von, GLiNER2 and
-Laya run locally on Apple MPS; Jev is hosted via OpenRouter's `/api/alpha/decisions` endpoint (same
-System One schema, no prompt round-tripping, measured $0.00123 across the 87 v1 requests — about
-$0.000014 per call, ~$0.013 per full 947-case run). All cases are synthetic, generated and
-cross-checked by a committee of LLMs; debatable or ambiguous cases were removed before freezing
-(details in [`cases/README.md`](../cases/README.md)).
+All six models answer the *same* question JSON (instructions + criteria) per case. Von, GLiNER2,
+GLiNER2.5-Decide, Laya and jeff run locally on Apple MPS; Jev is hosted via OpenRouter's
+`/api/alpha/decisions` endpoint (same System One schema, no prompt round-tripping, measured $0.00123
+across the 87 v1 requests — about $0.000014 per call, ~$0.013 per full 947-case run). All cases are
+synthetic, generated and cross-checked by a committee of LLMs; debatable or ambiguous cases were
+removed before freezing (details in [`cases/README.md`](../cases/README.md)).
 
 Participants and records:
 
@@ -33,6 +33,14 @@ Participants and records:
   `results/historical/laya-cpu.json`; Sep-2026 re-run: `results/laya-0.3.17-mps.json`
   (root English checkpoint, answers identical to `historical/v1v2-laya.json`) and
   `results/laya-typed-decisions-mps.json` (typed-decisions checkpoint).
+- **GLiNER2.5-Decide** (`fastino/GLiNER2.5-Decide`, 340M) — decision-tuned fine-tune of
+  `gliner2-large-v1`; same GLiNER2 adapter path (schema compiler, parenthesis paraphrasing).
+  Record: `results/v1v2-gliner25-decide.json` (locked 944 cases, MPS).
+- **jeff** (`logan-markewich/jeff`, GLiFormer large 576M) — the stock zero-shot GLiFormer
+  checkpoint driven through jeff's prompt/decode layer (vendored from jeff's MIT-licensed core with
+  server defaults: folded option descriptions, isolated nouls, T=3.2 calibration), run in-process
+  via the `gliformer` package — no fine-tuning, no serving. Record: `results/v1v2-jeff.json`
+  (locked 944 cases, MPS).
 
 † **Case-count caveat.** GLiNER2, Jev and the Von 1.0.x rows were recorded on the pre-lock v2
 revision (869 cases). Three cases were removed before v2 was locked (dispositions in
@@ -52,8 +60,10 @@ probabilities where 1.0.x saturated near 0/1.
 | Von 1.1 | 0.936 (0.927) | 0.724 (0.720) | 0.742 (0.749) |
 | Jev | **0.974** (**0.972**) | **0.967** (**0.969**) | **0.967** (**0.969**) |
 | GLiNER2 | 0.795 (0.785) | 0.689 (0.684) | 0.698 (0.698) |
+| GLiNER2.5-Decide | 0.833 (0.827) | 0.739 (0.739) | 0.747 (0.743) |
 | Laya typed-decisions | 0.641 (0.642) | 0.624 (0.622) | 0.625 (0.624) |
 | Laya root | 0.615 (0.619) | 0.585 (0.584) | 0.588 (0.589) |
+| jeff | 0.641 (0.627) | 0.555 (0.557) | 0.563 (0.565) |
 
 micro (macro) accuracy, locked cases († runs re-derived — see caveat). Von 1.2 and Von 1.1 tie to
 three decimals at every level despite 223 changed predictions: exactly 100 fixed and 100 broke
@@ -67,6 +77,8 @@ three decimals at every level despite 223 changed predictions: exactly 100 fixed
 | Von 1.1 (MPS) | 53 ms | 55 s |
 | Von 1.2 (MPS) | 56 ms | 58 s |
 | GLiNER2 (MPS) | 73 ms | 80 s |
+| GLiNER2.5-Decide (MPS) | 76 ms | 84 s |
+| jeff (MPS) | 159 ms | 164 s |
 | Jev | ~330 ms | ~5.2 min |
 
 ‡ Laya's wall includes a one-time ~34 s model load; per-case inference is post-warmup. Jev latency is
@@ -75,26 +87,27 @@ network-inclusive with occasional slow samples (p95 up to ~940 ms). Von 1.1 per-
 pattern), only latency differs.
 
 Robustness to the v2 shift (micro, v1 → v2): Jev −1.0 pt (0.974 → 0.964), Laya −3.1 (0.615 → 0.585),
-GLiNER2 −10.7 (0.795 → 0.688), Von 1.1 −21.2 (0.936 → 0.724; Von 1.0.1 was −25.7). Jev remains the
-only model that essentially ignores the domain shift; Von 1.1's slope improves on 1.0.1 but is still
-the steepest of the four, and it now leads the locals on v2 outright instead of trading places with
-GLiNER2. Re-run slopes: Von 1.2 is identical to 1.1 (−21.2), while Laya typed-decisions is now the
-flattest of every record (−1.7, 0.641 → 0.624) and Laya root −3.0.
+GLiNER2 −10.7 (0.795 → 0.688), GLiNER2.5-Decide −9.4 (0.833 → 0.739), jeff −8.6 (0.641 → 0.555), Von
+1.1 −21.2 (0.936 → 0.724; Von 1.0.1 was −25.7). Jev remains the only model that essentially ignores
+the domain shift; Von 1.1's slope improves on 1.0.1 but is still the steepest of the six, and it now
+leads the locals on v2 outright instead of trading places with GLiNER2. Re-run slopes: Von 1.2 is
+identical to 1.1 (−21.2), while Laya typed-decisions is now the flattest of every record (−1.7,
+0.641 → 0.624) and Laya root −3.0.
 
 ## v1 scoreboard (8 tasks / 78 cases)
 
-| Task (type) | n | Von 1.2 | Von 1.1 | Jev | GLiNER2 | Laya-typed | Laya root |
-|---|---|---|---|---|---|---|---|
-| support_department (choice) | 15 | **1.000** | **1.000** | **1.000** | 0.933 | 0.667 | 0.533 |
-| email_intent (choice) | 10 | **1.000** | **1.000** | **1.000** | 0.900 | 0.900 | 0.900 |
-| refund_eligible (noul) | 10 | 0.900 | 0.900 | **1.000** | 0.500 | 0.400 | 0.700 |
-| urgency (noul) | 8 | 0.875 | 0.625 | **1.000** | **1.000** | **1.000** | 0.875 |
-| secret_leak (noul) | 8 | 0.750 | **1.000** | **1.000** | 0.500 | 0.500 | 0.500 |
-| frustration_level (score) | 9 | **1.000** | **1.000** | **1.000** | **1.000** | 0.556 | 0.667 |
-| incident_severity (score) | 9 | **1.000** | **1.000** | 0.778 | 0.556 | 0.667 | 0.444 |
-| review_sentiment (score) | 9 | 0.889 | 0.889 | **1.000** | 0.889 | 0.444 | 0.333 |
-| **micro accuracy** | 78 | 0.936 | 0.936 | **0.974** | 0.795 | 0.641 | 0.615 |
-| **macro accuracy** | | 0.927 | 0.927 | **0.972** | 0.785 | 0.642 | 0.619 |
+| Task (type) | n | Von 1.2 | Von 1.1 | Jev | GLiNER2 | Laya-typed | Laya root | GLiNER2.5-Decide | jeff |
+|---||---||---||---||---||---||---||---||---||---|
+| support_department (choice) | 15 | **1.000** | **1.000** | **1.000** | 0.933 | 0.667 | 0.533 | 0.933 | 0.733 |
+| email_intent (choice) | 10 | **1.000** | **1.000** | **1.000** | 0.900 | 0.900 | 0.900 | **1.000** | 0.800 |
+| refund_eligible (noul) | 10 | 0.900 | 0.900 | **1.000** | 0.500 | 0.400 | 0.700 | 0.500 | 0.300 |
+| urgency (noul) | 8 | 0.875 | 0.625 | **1.000** | **1.000** | **1.000** | 0.875 | 0.875 | 0.000 |
+| secret_leak (noul) | 8 | 0.750 | **1.000** | **1.000** | 0.500 | 0.500 | 0.500 | 0.750 | 0.625 |
+| frustration_level (score) | 9 | **1.000** | **1.000** | **1.000** | **1.000** | 0.556 | 0.667 | 0.889 | 0.778 |
+| incident_severity (score) | 9 | **1.000** | **1.000** | 0.778 | 0.556 | 0.667 | 0.444 | 0.778 | 0.778 |
+| review_sentiment (score) | 9 | 0.889 | 0.889 | **1.000** | 0.889 | 0.444 | 0.333 | 0.889 | **1.000** |
+| **micro accuracy** | 78 | 0.936 | 0.936 | **0.974** | 0.795 | 0.641 | 0.615 | 0.833 | 0.641 |
+| **macro accuracy** | | 0.927 | 0.927 | **0.972** | 0.785 | 0.642 | 0.619 | 0.827 | 0.627 |
 
 On v1 Von 1.1 trades its old perfection on `urgency`/`review_sentiment` for full marks on
 `support_department`, `secret_leak` and `refund_eligible` — a wash in aggregate (micro 0.923 → 0.936,
@@ -105,59 +118,59 @@ macro 0.930 → 0.927).
 Extensions of the eight v1 questions first, then the new tasks in authoring order. † = task carried
 a since-removed pre-lock case (see caveat); those runs are re-derived onto the locked cases here.
 
-| Task (type) | n | Von 1.2 | Von 1.1 | Jev | GLiNER2 | Laya-typed | Laya root |
-|---|---|---|---|---|---|---|---|
-| support_department_v2 (choice) | 17 | 0.824 | 0.882 | **1.000** | 0.882 | 0.765 | 0.588 |
-| email_intent_v2 (choice) | 15 | 0.733 | 0.867 | **1.000** | 0.800 | 0.800 | 0.733 |
-| refund_eligible_v2 (noul) | 17 | 0.824 | 0.882 | **1.000** | 0.529 | 0.294 | 0.412 |
-| urgency_v2 (noul) | 18 | 0.611 | 0.611 | **1.000** | **1.000** | 0.778 | 0.722 |
-| secret_leak_v2 (noul) | 16 | 0.688 | 0.500 | **0.875** | 0.438 | 0.500 | 0.562 |
-| frustration_level_v2 (score) | 18 | 0.889 | 0.833 | **0.944** | 0.667 | 0.722 | 0.500 |
-| incident_severity_v2 (score) | 14 | 0.714 | 0.643 | **1.000** | 0.357 | 0.286 | 0.214 |
-| review_sentiment_v2 (score) | 18 | 0.500 | 0.556 | **0.944** | 0.500 | 0.389 | 0.278 |
-| expense_category (choice) | 18 | 0.944 | 0.944 | **1.000** | 0.778 | 0.889 | 0.778 |
-| oncall_route (choice) | 17 | 0.824 | 0.824 | **1.000** | 0.882 | 0.765 | 0.824 |
-| churn_risk (score) | 18 | 0.833 | 0.778 | **1.000** | 0.833 | 0.667 | 0.389 |
-| lead_qualification (score) | 16 | 0.750 | 0.625 | **0.938** | 0.562 | 0.438 | 0.438 |
-| app_review_intent (choice) | 16 | 0.812 | **1.000** | **1.000** | 0.938 | 0.938 | 0.938 |
-| content_moderation (choice) | 18 | 0.667 | 0.556 | **1.000** | 0.611 | 0.778 | 0.722 |
-| code_review_intent (choice) | 17 | 0.647 | 0.765 | **0.941** | 0.412 | 0.353 | 0.412 |
-| commit_intent (choice) † | 15 | 0.733 | 0.667 | **1.000** | 0.533 | 0.867 | 0.800 |
-| recipe_cuisine (choice) | 18 | 0.722 | 0.722 | **1.000** | 0.889 | 0.611 | 0.556 |
-| question_duplicate (noul) | 16 | **1.000** | **1.000** | **1.000** | 0.500 | 0.625 | 0.688 |
-| sql_injection_risk (noul) | 15 | 0.667 | 0.533 | **1.000** | 0.467 | 0.533 | 0.333 |
-| travel_policy_violation (noul) | 17 | 0.647 | 0.588 | **1.000** | 0.647 | 0.647 | 0.588 |
-| contains_pii (noul) | 17 | 0.588 | 0.824 | **0.941** | 0.765 | 0.824 | 0.765 |
-| contains_spoiler (noul) | 16 | 0.562 | 0.625 | **0.938** | 0.562 | 0.500 | 0.500 |
-| formality_level (score) | 16 | 0.500 | 0.438 | **0.938** | 0.562 | 0.312 | 0.188 |
-| phishing_email (noul) | 17 | 0.471 | 0.529 | **1.000** | 0.882 | 0.706 | 0.647 |
-| meeting_conflict (noul) | 17 | 0.471 | 0.412 | **1.000** | 0.529 | 0.471 | 0.471 |
-| hazmat_shipping (noul) | 16 | 0.750 | 0.500 | **1.000** | 0.562 | 0.438 | 0.562 |
-| dietary_vegan (noul) | 17 | 0.588 | 0.706 | **1.000** | 0.529 | 0.529 | 0.588 |
-| news_topic (choice) | 17 | 0.882 | 0.882 | **1.000** | 0.941 | 0.706 | 0.765 |
-| document_type (choice) | 15 | 0.733 | 0.733 | **1.000** | 0.800 | 0.733 | 0.733 |
-| reading_level (score) | 16 | 0.500 | 0.562 | **1.000** | 0.500 | 0.500 | 0.375 |
-| insurance_claim_priority (score) | 16 | 0.500 | 0.375 | **0.875** | 0.812 | 0.562 | 0.375 |
-| symptom_triage (score) | 19 | **1.000** | **1.000** | 0.895 | 0.368 | 0.526 | 0.421 |
-| delivery_exception (choice) | 19 | 0.895 | **1.000** | **1.000** | 0.947 | **1.000** | **1.000** |
-| city_service_request (choice) | 19 | 0.947 | 0.947 | **1.000** | 0.895 | 0.842 | 0.737 |
-| ad_policy_violation (noul) | 16 | 0.688 | 0.500 | **1.000** | 0.625 | 0.625 | 0.750 |
-| fair_housing_violation (noul) † | 18 | 0.833 | 0.889 | **1.000** | 0.500 | 0.500 | 0.500 |
-| contract_clause_type (choice) | 17 | 0.882 | 0.941 | **1.000** | 0.941 | 0.882 | 0.882 |
-| voice_assistant_intent (choice) | 20 | 0.900 | 0.950 | **1.000** | 0.950 | 0.800 | 0.750 |
-| grammar_issue (choice) † | 21 | 0.810 | **0.905** | 0.857 | 0.238 | 0.190 | 0.238 |
-| action_item_assignment (noul) | 19 | 0.737 | 0.789 | **0.947** | 0.632 | 0.789 | 0.579 |
-| suspicious_transaction (noul) | 17 | 0.471 | 0.529 | **1.000** | 0.529 | 0.471 | 0.588 |
-| return_reason (choice) | 18 | 0.667 | 0.667 | **1.000** | 0.944 | 0.611 | 0.500 |
-| allergen_present (noul) | 22 | 0.818 | 0.591 | **0.909** | 0.545 | 0.455 | 0.500 |
-| home_service_routing (choice) | 23 | 0.957 | 0.913 | **1.000** | 0.957 | 0.870 | 0.826 |
-| gaming_report_type (choice) | 20 | 0.700 | 0.700 | **0.900** | 0.750 | 0.800 | 0.750 |
-| warranty_claim_eligible (noul) | 20 | 0.450 | 0.550 | **0.850** | 0.500 | 0.450 | 0.500 |
-| weather_alert_severity (score) | 22 | 0.727 | 0.455 | 0.864 | **0.909** | 0.682 | 0.545 |
-| content_type (choice) | 22 | 0.682 | 0.773 | **0.955** | 0.909 | 0.591 | 0.636 |
-| veterinary_triage (score) | 20 | 0.550 | 0.800 | **0.950** | 0.700 | 0.450 | 0.450 |
-| **micro accuracy** | 866 | 0.724 | 0.724 | **0.967** | 0.689 | 0.624 | 0.585 |
-| **macro accuracy** | | 0.720 | 0.720 | **0.969** | 0.684 | 0.622 | 0.584 |
+| Task (type) | n | Von 1.2 | Von 1.1 | Jev | GLiNER2 | Laya-typed | Laya root | GLiNER2.5-Decide | jeff |
+|---||---||---||---||---||---||---||---||---||---|
+| support_department_v2 (choice) | 17 | 0.824 | 0.882 | **1.000** | 0.882 | 0.765 | 0.588 | 0.882 | 0.647 |
+| email_intent_v2 (choice) | 15 | 0.733 | 0.867 | **1.000** | 0.800 | 0.800 | 0.733 | 0.867 | 0.733 |
+| refund_eligible_v2 (noul) | 17 | 0.824 | 0.882 | **1.000** | 0.529 | 0.294 | 0.412 | 0.471 | 0.294 |
+| urgency_v2 (noul) | 18 | 0.611 | 0.611 | **1.000** | **1.000** | 0.778 | 0.722 | 0.778 | 0.500 |
+| secret_leak_v2 (noul) | 16 | 0.688 | 0.500 | **0.875** | 0.438 | 0.500 | 0.562 | 0.438 | 0.375 |
+| frustration_level_v2 (score) | 18 | 0.889 | 0.833 | **0.944** | 0.667 | 0.722 | 0.500 | 0.778 | 0.667 |
+| incident_severity_v2 (score) | 14 | 0.714 | 0.643 | **1.000** | 0.357 | 0.286 | 0.214 | 0.714 | 0.571 |
+| review_sentiment_v2 (score) | 18 | 0.500 | 0.556 | **0.944** | 0.500 | 0.389 | 0.278 | 0.667 | 0.611 |
+| expense_category (choice) | 18 | 0.944 | 0.944 | **1.000** | 0.778 | 0.889 | 0.778 | 0.778 | 0.722 |
+| oncall_route (choice) | 17 | 0.824 | 0.824 | **1.000** | 0.882 | 0.765 | 0.824 | **1.000** | 0.412 |
+| churn_risk (score) | 18 | 0.833 | 0.778 | **1.000** | 0.833 | 0.667 | 0.389 | 0.889 | 0.556 |
+| lead_qualification (score) | 16 | 0.750 | 0.625 | **0.938** | 0.562 | 0.438 | 0.438 | 0.688 | 0.375 |
+| app_review_intent (choice) | 16 | 0.812 | **1.000** | **1.000** | 0.938 | 0.938 | 0.938 | 0.938 | 0.812 |
+| content_moderation (choice) | 18 | 0.667 | 0.556 | **1.000** | 0.611 | 0.778 | 0.722 | 0.778 | 0.667 |
+| code_review_intent (choice) | 17 | 0.647 | 0.765 | **0.941** | 0.412 | 0.353 | 0.412 | 0.706 | 0.353 |
+| commit_intent (choice) † | 15 | 0.733 | 0.667 | **1.000** | 0.533 | 0.867 | 0.800 | 0.867 | 0.400 |
+| recipe_cuisine (choice) | 18 | 0.722 | 0.722 | **1.000** | 0.889 | 0.611 | 0.556 | 0.889 | 0.667 |
+| question_duplicate (noul) | 16 | **1.000** | **1.000** | **1.000** | 0.500 | 0.625 | 0.688 | 0.500 | 0.562 |
+| sql_injection_risk (noul) | 15 | 0.667 | 0.533 | **1.000** | 0.467 | 0.533 | 0.333 | 0.467 | 0.600 |
+| travel_policy_violation (noul) | 17 | 0.647 | 0.588 | **1.000** | 0.647 | 0.647 | 0.588 | 0.647 | 0.529 |
+| contains_pii (noul) | 17 | 0.588 | 0.824 | **0.941** | 0.765 | 0.824 | 0.765 | 0.706 | 0.529 |
+| contains_spoiler (noul) | 16 | 0.562 | 0.625 | **0.938** | 0.562 | 0.500 | 0.500 | 0.875 | 0.438 |
+| formality_level (score) | 16 | 0.500 | 0.438 | **0.938** | 0.562 | 0.312 | 0.188 | 0.625 | 0.438 |
+| phishing_email (noul) | 17 | 0.471 | 0.529 | **1.000** | 0.882 | 0.706 | 0.647 | 0.765 | 0.471 |
+| meeting_conflict (noul) | 17 | 0.471 | 0.412 | **1.000** | 0.529 | 0.471 | 0.471 | 0.529 | 0.529 |
+| hazmat_shipping (noul) | 16 | 0.750 | 0.500 | **1.000** | 0.562 | 0.438 | 0.562 | 0.625 | 0.625 |
+| dietary_vegan (noul) | 17 | 0.588 | 0.706 | **1.000** | 0.529 | 0.529 | 0.588 | 0.529 | 0.412 |
+| news_topic (choice) | 17 | 0.882 | 0.882 | **1.000** | 0.941 | 0.706 | 0.765 | 0.882 | 0.941 |
+| document_type (choice) | 15 | 0.733 | 0.733 | **1.000** | 0.800 | 0.733 | 0.733 | **1.000** | 0.933 |
+| reading_level (score) | 16 | 0.500 | 0.562 | **1.000** | 0.500 | 0.500 | 0.375 | 0.750 | 0.500 |
+| insurance_claim_priority (score) | 16 | 0.500 | 0.375 | **0.875** | 0.812 | 0.562 | 0.375 | **0.875** | 0.500 |
+| symptom_triage (score) | 19 | **1.000** | **1.000** | 0.895 | 0.368 | 0.526 | 0.421 | 0.474 | 0.526 |
+| delivery_exception (choice) | 19 | 0.895 | **1.000** | **1.000** | 0.947 | **1.000** | **1.000** | 0.947 | 0.895 |
+| city_service_request (choice) | 19 | 0.947 | 0.947 | **1.000** | 0.895 | 0.842 | 0.737 | **1.000** | 0.789 |
+| ad_policy_violation (noul) | 16 | 0.688 | 0.500 | **1.000** | 0.625 | 0.625 | 0.750 | 0.750 | 0.375 |
+| fair_housing_violation (noul) † | 18 | 0.833 | 0.889 | **1.000** | 0.500 | 0.500 | 0.500 | 0.444 | 0.500 |
+| contract_clause_type (choice) | 17 | 0.882 | 0.941 | **1.000** | 0.941 | 0.882 | 0.882 | 0.941 | 0.765 |
+| voice_assistant_intent (choice) | 20 | 0.900 | 0.950 | **1.000** | 0.950 | 0.800 | 0.750 | 0.900 | 0.800 |
+| grammar_issue (choice) † | 21 | 0.810 | **0.905** | 0.857 | 0.238 | 0.190 | 0.238 | 0.286 | 0.286 |
+| action_item_assignment (noul) | 19 | 0.737 | 0.789 | **0.947** | 0.632 | 0.789 | 0.579 | 0.842 | 0.526 |
+| suspicious_transaction (noul) | 17 | 0.471 | 0.529 | **1.000** | 0.529 | 0.471 | 0.588 | 0.706 | 0.471 |
+| return_reason (choice) | 18 | 0.667 | 0.667 | **1.000** | 0.944 | 0.611 | 0.500 | 0.944 | 0.556 |
+| allergen_present (noul) | 22 | 0.818 | 0.591 | **0.909** | 0.545 | 0.455 | 0.500 | 0.636 | 0.455 |
+| home_service_routing (choice) | 23 | 0.957 | 0.913 | **1.000** | 0.957 | 0.870 | 0.826 | 0.870 | 0.261 |
+| gaming_report_type (choice) | 20 | 0.700 | 0.700 | **0.900** | 0.750 | 0.800 | 0.750 | 0.750 | 0.550 |
+| warranty_claim_eligible (noul) | 20 | 0.450 | 0.550 | **0.850** | 0.500 | 0.450 | 0.500 | 0.550 | 0.400 |
+| weather_alert_severity (score) | 22 | 0.727 | 0.455 | 0.864 | **0.909** | 0.682 | 0.545 | 0.864 | 0.591 |
+| content_type (choice) | 22 | 0.682 | 0.773 | **0.955** | 0.909 | 0.591 | 0.636 | 0.818 | 0.727 |
+| veterinary_triage (score) | 20 | 0.550 | 0.800 | **0.950** | 0.700 | 0.450 | 0.450 | 0.600 | 0.450 |
+| **micro accuracy** | 866 | 0.724 | 0.724 | **0.967** | 0.689 | 0.624 | 0.585 | 0.739 | 0.555 |
+| **macro accuracy** | | 0.720 | 0.720 | **0.969** | 0.684 | 0.622 | 0.584 | 0.739 | 0.557 |
 
 ## Analysis
 
@@ -295,6 +308,55 @@ the boundary.
   `hazmat_shipping` (AUC 0.92 vs GLiNER2 0.68 and Von 1.1 0.83, against 0.56 accuracy — ranking is
   real, the 0.5 threshold just doesn't know it).
 
+### GLiNER2.5-Decide — the decision fine-tune pays for itself
+
+Fastino's decision-tuned fine-tune of `gliner2-large-v1` is the new best local model (combined 0.747
+vs Von 1.2's 0.742), and the gap opens exactly where its training targeted. Against GLiNER2-large
+(v1+v2 by type): choice 85.3 vs 80.5, noul 63.2 vs 60.4, score 73.6 vs 65.0. On v2 it passes Von 1.2
+outright (0.739 vs 0.724) while keeping a GLiNER2-flat shift slope (−9.4).
+
+- **Routing and placement**: `oncall_route` 1.000 and `city_service_request` 1.000 (both tie Jev,
+  above both Vons), `document_type` 1.000, `insurance_claim_priority` 0.875 with the best score
+  placement of any record (MAE 0.125 — tighter than Jev's on the same task), `churn_risk` 0.889,
+  `weather_alert_severity` 0.864, `commit_intent` 0.867 (ties the typed-decisions Laya as best
+  local), `code_review_intent` 0.706 (second only to Jev).
+- **Where the tuning doesn't reach**: `grammar_issue` 0.286 stays at the GLiNER2-family floor
+  (0.238) — grammar marking isn't helped by decision-format training — and `fair_housing_violation`
+  0.444 is the worst of the six models on that task.
+- **Score placement scatter on medical scales**: `symptom_triage` 0.474 is the worst cell of the six
+  models (Jev 0.895, Von 1.000, Laya 0.526), and the errors are not off-by-one — MAE 0.95 with
+  ±3-level jumps. `veterinary_triage` 0.600 (MAE 0.50) is the same shape, milder.
+- **Noul ranking usually holds; the eligible/secret family inverts.** Mean AUC 0.712 across the 21
+  noul tasks, with perfect or near-perfect ordering on `urgency` both suites, `ad_policy_violation`
+  (1.000), `phishing_email` (0.958), `action_item_assignment` (0.943) — but the policy-eligibility
+  questions rank backwards: `travel_policy_violation` AUC 0.242, `refund_eligible_v2` 0.347,
+  `secret_leak_v2` 0.400, v1 `refund_eligible` 0.44. The inversion echoes GLiNER2's refund pathology
+  and survives the fine-tune; raw probabilities on nouls remain uncalibrated (mean |p − gold| ≈ 0.31
+  in the v1 smoke), so per-task threshold care applies exactly as for GLiNER2.
+
+### jeff (GLiFormer) — zero-shot prompting transfers least
+
+jeff serves the stock GLiFormer-large checkpoint through a carefully folded prompt with one fitted
+temperature — no decision fine-tuning, no weight changes — and it lands last (combined 0.563, below
+Laya root) with a failure signature that says exactly that: **mean noul AUC 0.505 is coin-flip
+ranking, seven noul tasks invert below 0.45**, including `urgency` at AUC 0.0 on v1 (0.000 accuracy,
+a complete inversion) and `refund_eligible_v2` at 0.15. Where GLiNER2's probabilities are overconfident
+and Von's are soft-but-ordered, jeff's yes/no mass frequently sits on the wrong side.
+
+- **The choice collapses are domain-format-specific, not general**: easy text categories stay strong
+  (`news_topic` 0.941, second only to Jev; `document_type` 0.933; `review_sentiment` v1 1.000 at MAE
+  0.0), but multi-option operational routing collapses — `home_service_routing` 0.261, `oncall_route`
+  0.412, `commit_intent` 0.400, `lead_qualification` 0.375. That profile matches GLiFormer's upstream
+  training mix (topic, sentiment, NER-type categories) and its lack of exposure to System One-style
+  option tables with folded descriptions.
+- **Scores hold up better than ranking**: all three v1 score tasks ≥ 0.778 with clean placement
+  (`review_sentiment` MAE 0.0), but v2's harder scales degrade (MAE 0.63–0.72 on `incident_severity_v2`,
+  `insurance_claim_priority`, `veterinary_triage`).
+- **Caveat on the noul wiring**: the run uses jeff's server defaults (two-label yes/no rendering,
+  T=3.2) to stay comparable with its JevBench row; jeff's own comments suggest `single`-mode nouls
+  for the base checkpoint. The `urgency`-style total inversions are the first thing to re-test if
+  jeff is re-run.
+
 ## Version history (Von)
 
 - **1.0.0** (`results/historical/von-mps.json`, `results/historical/von.json`) — micro 0.654 / macro 0.625 on v1; flat ~0.5
@@ -325,15 +387,21 @@ the boundary.
 ## Takeaway
 
 Jev is still decisively ahead (combined 0.967) and generalizes to suitably out-of-domain tasks
-essentially unchanged (−1.0 pt micro across 869 new cases), at ~6× the latency and a fraction of a
-cent per 1k calls. Von 1.2 remains the best local model (combined 0.742 vs GLiNER2's 0.698 and Laya
-typed-decisions' 0.625) and ties Von 1.1 in aggregate while handling semantic twists measurably
-better (see analysis and [`shape-knowledge.md`](shape-knowledge.md)); it still needs threshold care
-where its softened probabilities cross 0.5. Between Laya checkpoints, typed-decisions is the one to
-ship (+3.7 and the flattest shift slope). The local models fail in signatures that are easy to detect
-in production: Von with mid-scale probability mass on unfamiliar criteria and occasional inverted
-noul ranking (ordering mostly intact), GLiNER2 with saturated confidence on trigger words, Laya root
-with a compressed rating scale that reads cool on everything.
+essentially unchanged (−1.0 pt micro across 869 new cases), at ~2× the in-process latency and a
+fraction of a cent per 1k calls. **GLiNER2.5-Decide is now the best local model** (combined 0.747 vs
+Von 1.2's 0.742): it beats GLiNER2-large on every type, takes v2 from Von outright (0.739 vs 0.724),
+and adds the best score placement of the small models — while keeping GLiNER2's flat shift slope.
+Von 1.2 stays the pick for v1-style triage (0.936 on v1 is 10 pts above Decide's 0.833) and has more
+trustworthy noul *ordering* (only two mildly inverted tasks — `meeting_conflict` AUC 0.375,
+`travel_policy_violation` 0.455 — vs Decide's four, all in the policy-eligibility family); Decide
+still needs GLiNER2-style threshold care on refunds/secrets.
+Between Laya checkpoints, typed-decisions is the one to ship (+3.7 and the flattest shift slope).
+jeff shows what the decision fine-tunes are buying: the underlying GLiFormer-large classification
+encoder, driven zero-shot through achingly careful prompt folding and a fitted temperature, still
+lands last (0.563) with inverted noul ranking on a third of the binary tasks. The local failure
+signatures that matter for production monitoring: Von with mid-scale probability mass on unfamiliar
+(Von with inverted eligibility-family nouls), Laya root with a compressed rating scale that reads
+cool on everything, and jeff with coin-flip binary ordering.
 
 ## Reproduce
 
@@ -342,9 +410,12 @@ uv run python -m bench.run --backend von --device mps --suite all --out results/
 uv run python -m bench.run --backend von --device mps --suite all --out results/von-1.2-mps.json
 uv run python -m bench.run --backend jev --suite all --out results/v1v2-jev.json
 uv run python -m bench.run --backend gliner2 --device mps --suite all --out results/v1v2-gliner2.json
+uv run python -m bench.run --backend gliner25-decide --device mps --suite all --out results/v1v2-gliner25-decide.json
 uv run python -m bench.run --backend laya --device mps --suite all --out results/historical/v1v2-laya.json
 uv run python -m bench.run --backend laya --device mps --suite all --out results/laya-0.3.17-mps.json
 uv run python -m bench.run --backend laya --device mps --suite all --laya-path models/convaiinnovations/laya/typed-decisions --out results/laya-typed-decisions-mps.json
+uv sync --extra jeff
+uv run python -m bench.run --backend jeff --device mps --suite all --out results/v1v2-jeff.json
 ```
 
 Suite definitions with gold labels: `cases/v1.toml`, `cases/v2.toml` (both hash-locked; registry in
