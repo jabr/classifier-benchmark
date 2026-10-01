@@ -25,6 +25,7 @@ Note: these benchmarks are public, and models are free to incorporate the test c
 | [GLiNER2](https://huggingface.co/fastino/gliner2-large-v1) | local, adapted to a classification schema |
 | [GLiNER2.5-Decide](https://huggingface.co/fastino/GLiNER2.5-Decide) | local decision-tuned GLiNER2.5 fine-tune, same classification interface as GLiNER2 |
 | [Laya](https://huggingface.co/convaiinnovations/laya) | local, native System One schema via the `laya` package |
+| [Decima-small](https://huggingface.co/amyrmahdy/decima-small) | local, int8 ONNX on CPU via the `decima` package (`uv pip install "decima @ git+https://github.com/amyrmahdy/decima@v1.1.0"`) |
 | Jev (typesafe/jev-1.13) | hosted, via OpenRouter `/api/alpha/decisions` |
 | [jeff](https://github.com/logan-markewich/jeff) (GLiFormer large 576M) | local, in-process via the optional `jeff` extra (`uv sync --extra jeff`; prompt/decode core vendored from jeff, server defaults) |
 
@@ -63,12 +64,12 @@ just download fastino/GLiNER2.5-Decide
 just download convaiinnovations/laya
 just download knowledgator/gliformer-large-v1
 
-# run the v1 suite (backends: von, jev, jeff, gliner2, gliner25-decide, laya — comma-separated)
+# run the v1 suite (backends: von, jev, jeff, gliner2, gliner25-decide, laya, decima — comma-separated)
 uv run python -m bench.run --backend von,gliner2,gliner25-decide,laya --suite v1 --device mps --out results/run.json
 uv run python -m bench.run --backend jev --suite v1 --out results/jev-run.json
 ```
 
-Useful flags: `--suite` (`v1`/`v2`/comma-separated/`all`, default `all`; core suites only), `--sample` (generated samples from `sources/samples/`: name, comma-separated, or `all`), `--tasks` (run a subset within the selected suites), `--limit`, `--device` (`mps`/`cpu`/`cuda`), `--von-path` / `--jeff-path` / `--gliner2-path` / `--gliner25-decide-path` / `--laya-path` (custom weight locations), `--model` (Jev model id). Jev needs `OPENROUTER_API_KEY` (or `SANDBOX_OPENROUTER_API_KEY`) in the environment.
+Useful flags: `--suite` (`v1`/`v2`/comma-separated/`all`, default `all`; core suites only), `--sample` (generated samples from `sources/samples/`: name, comma-separated, or `all`), `--tasks` (run a subset within the selected suites), `--limit`, `--device` (`mps`/`cpu`/`cuda`), `--von-path` / `--jeff-path` / `--gliner2-path` / `--gliner25-decide-path` / `--laya-path` / `--decima-path` (custom weight locations), `--model` (Jev model id). Jev needs `OPENROUTER_API_KEY` (or `SANDBOX_OPENROUTER_API_KEY`) in the environment.
 
 ## Layout
 
