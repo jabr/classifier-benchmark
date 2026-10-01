@@ -24,12 +24,16 @@ def create_backend(name: str, **kwargs) -> Backend:
     from .gliner25_decide import Gliner25DecideBackend
 
     return Gliner25DecideBackend(**kwargs)
+  if name == "decima":
+    from .decima import DecimaBackend
+
+    return DecimaBackend(**kwargs)
   if name == "laya":
     from .laya import LayaBackend
 
     return LayaBackend(**kwargs)
   raise ValueError(
-    f"Unknown backend '{name}'. Available: von, jev, jeff, gliner2, gliner25-decide, laya"
+    f"Unknown backend '{name}'. Available: von, jev, jeff, gliner2, gliner25-decide, laya, decima"
   )
 
 
